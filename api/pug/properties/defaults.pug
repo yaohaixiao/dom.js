@@ -1,0 +1,37 @@
+section.section
+  header.section__header
+    h3.section__h3 Outline.DEFAULTS
+  div.section__content
+    h4.section__h4 Description
+    dl.section__dl
+      dt.section__dt Type：
+      dd.api-param-value Object
+    p 静态属性，存储的是 Outline 对象默认配置选项：
+    pre.section__pre
+      code.section__code.
+        Outline.DEFAULTS = {
+          articleElement: '#article',
+          selector: 'h2,h3,h4,h5,h6',
+          title: '目录',
+          scrollElement: 'html,body',
+          position: 'relative',
+          parentElement: '#aside',
+          placement: 'rtl',
+          showCode: true,
+          anchorURL: '',
+          stickyHeight: 0,
+          homepage: '',
+          git: '',
+          tags: '',
+          issues: '',
+          tools: [],
+          print: {
+            element: '',
+            title: ''
+          },
+          customClass: '',
+          afterSticky: null,
+          afterToggle: null,
+          afterScroll: null,
+          chapterTextFilter: null
+        }

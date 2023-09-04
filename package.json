@@ -1,0 +1,68 @@
+{
+  "name": "@yaohaixiao/dom.js",
+  "version": "0.1.0",
+  "description": "dom.js - 一个专门处理 DOM 相关操作的 JavaScript 工具方法库。",
+  "main": "dom.min.js",
+  "scripts": {
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "build:lib": "rollup -c build/rollup.config.lib.js --bundleConfigAsCjs",
+    "lint": "eslint",
+    "lint:fix": "npm run lint --cache --fix",
+    "prettier:check": "npx prettier --check \"**/*.(js|less)\"",
+    "prettier:write": "npx prettier --write \"**/*.(js|less)\"",
+    "test:unit": "jest --config jest.config.js",
+    "test": "npm run lint:fix && npm run prettier:write && npm run test:unit"
+  },
+  "keywords": [
+    "javascript",
+    "dom",
+    "utils"
+  ],
+  "author": "Robert Yao",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yaohaixiao/dom.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yaohaixiao/dom.js/issues"
+  },
+  "homepage": "https://github.com/yaohaixiao/dom.js#readme",
+  "devDependencies": {
+    "@babel/core": "^7.21.0",
+    "@babel/preset-env": "^7.14.8",
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@rollup/plugin-commonjs": "^25.0.2",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-terser": "^0.4.3",
+    "babel-jest": "^29.5.0",
+    "commitlint": "^17.4.4",
+    "conventional-changelog-cli": "^2.2.2",
+    "eslint": "^8.34.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-import-resolver-jest": "^3.0.2",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.6.1",
+    "jest-html-reporter": "^3.7.0",
+    "lint-staged": "^13.1.2",
+    "prettier": "^2.8.4",
+    "rollup": "^3.26.0"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "commitlint"
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "npm run lint:fix",
+      "npm run prettier:write"
+    ]
+  },
+  "dependencies": {
+    "@yaohaixiao/types.js": "^2.0.0"
+  }
+}
