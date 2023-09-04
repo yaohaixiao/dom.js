@@ -13,6 +13,9 @@ module.exports = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1'
   },
+  transformIgnorePatterns: [
+    'node_modules/@yaohaixiao/(?!types.js)'
+  ],
   collectCoverage: true,
   coverageDirectory: 'report/coverage',
   reporters: [
@@ -20,7 +23,7 @@ module.exports = {
     [
       './node_modules/jest-html-reporter',
       {
-        pageTitle: 'subscribers.js 单测报告',
+        pageTitle: 'dom.js 单测报告',
         outputPath: 'report/unit-test/index.html',
         includeFailureMsg: true
       }
