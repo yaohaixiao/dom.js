@@ -1,7 +1,7 @@
 {
   "name": "@yaohaixiao/dom.js",
   "version": "0.1.0",
-  "description": "dom.js - 一个专门处理 DOM 相关操作的 JavaScript 工具方法库。",
+  "description": "dom.js - 专门处理 DOM 相关操作的 JavaScript 工具方法库。",
   "main": "dom.min.js",
   "scripts": {
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
@@ -61,8 +61,5 @@
       "npm run lint:fix",
       "npm run prettier:write"
     ]
-  },
-  "dependencies": {
-    "@yaohaixiao/types.js": "^2.0.0"
   }
 }

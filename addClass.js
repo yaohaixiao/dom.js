@@ -1,3 +1,4 @@
+import isElement from './utils/isElement'
 import hasClass from './hasClass'
 
 /**
@@ -12,7 +13,7 @@ const addClass = (el, className) => {
   let classList
   let allClass
 
-  if (hasClass(el, className)) {
+  if (!isElement(el) || hasClass(el, className)) {
     return false
   }
 

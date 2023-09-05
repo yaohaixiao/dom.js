@@ -15,7 +15,7 @@ export default [
   {
     input: './dom.js',
     output: {
-      name: 'dom',
+      name: 'DOM',
       file: './dom.min.js',
       format: 'umd',
       sourcemap: true

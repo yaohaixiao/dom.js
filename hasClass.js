@@ -1,4 +1,4 @@
-import isElement from '@yaohaixiao/types.js/isElement'
+import isElement from './utils/isElement'
 
 /**
  * 检测 DOM 节点是否包含名为 className 的样式

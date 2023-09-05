@@ -1,4 +1,5 @@
 import trim from './utils/trim'
+import isElement from './utils/isElement'
 import hasClass from './hasClass'
 
 /**
@@ -10,8 +11,14 @@ import hasClass from './hasClass'
  * @returns {Boolean}
  */
 const removeClass = (el, className) => {
-  let allClass = el.className
+  let allClass
   let classList
+
+  if (!isElement(el)) {
+    return false
+  }
+
+  allClass = el.className
 
   if (!allClass || !hasClass(el, className)) {
     return false

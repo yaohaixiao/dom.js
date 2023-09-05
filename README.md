@@ -8,7 +8,7 @@
 [![MIT License](https://img.shields.io/github/license/yaohaixiao/dom.js.svg)](https://github.com/yaohaixiao/dom.js/blob/master/LICENSE)
 
 
-dom.js - 一个专门处理 DOM 相关操作的 JavaScript 工具方法库。
+dom.js - 专门处理 DOM 相关操作的 JavaScript 工具方法库。
 
 
 
