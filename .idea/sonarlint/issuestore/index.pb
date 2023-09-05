@@ -4,8 +4,6 @@
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 =
 jsconfig.json,5\6\56f2d335ffa27c20b4ea310cf0214fa96f325894
-6
-dom.js,1\a\1ab175781a97ab47ea6cd6ade54c7146ab425c59
 =
 utils/trim.js,7\b\7bc80639b893f55a471f4ea74a98e47628b9054c
 ;

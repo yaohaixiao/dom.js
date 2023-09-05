@@ -1,7 +1,7 @@
 import isElement from './utils/isElement'
 import getNextSibling from './getNextSibling'
 
-const insertAfter = function(el, reference) {
+const insertAfter = (el, reference) => {
   const $parent = reference.parentNode
   let $nextSibling
 
