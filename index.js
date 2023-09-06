@@ -3,7 +3,7 @@ import isString from './utils/isString'
 import isArray from './utils/isArray'
 import getSiblings from './getSiblings'
 
-const index = function(el, target) {
+const index = function (el, target) {
   const indexOf = (list, el) => {
     let index = -1
 

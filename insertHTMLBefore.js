@@ -23,7 +23,7 @@ const insertHTMLBefore = (el, html) => {
     return false
   }
 
-  $el.insertAdjacentHTML('beforebegin', html);
+  $el.insertAdjacentHTML('beforebegin', html)
 }
 
 export default insertHTMLBefore

@@ -1,4 +1,4 @@
-import isString from '@yaohaixiao/types.js/isString'
+import isString from './isString'
 
 /**
  * 清楚字符串起始位置所有的空格

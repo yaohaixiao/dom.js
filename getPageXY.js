@@ -4,7 +4,7 @@ import getPageY from './getPageY'
 
 const getPageXY = (el) => {
   if (!isElement(el)) {
-    return false
+    return null
   }
 
   return {

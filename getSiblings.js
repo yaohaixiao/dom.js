@@ -17,7 +17,7 @@ const getSiblings = (el, includeSelf = false) => {
   if (includeSelf) {
     list.push(el)
   }
-  
+
   next = getNextSiblings(el)
   list.push(...next)
 

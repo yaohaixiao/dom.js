@@ -7,10 +7,7 @@ const isInViewport = (el) => {
   const vw = getViewportWidth()
 
   return (
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <= vh &&
-    rect.right <= vw
+    rect.top >= 0 && rect.left >= 0 && rect.bottom <= vh && rect.right <= vw
   )
 }
 

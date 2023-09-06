@@ -4,13 +4,13 @@ import isHTML from './utils/isHTML'
 import insertHTMLBefore from './insertHTMLBefore'
 
 const before = (el, reference) => {
-  if(!isElement(el)){
+  if (!isElement(el)) {
     return false
   }
 
-  if(isElement(reference)) {
+  if (isElement(reference)) {
     insertBefore(el, reference)
-  } else if(isHTML(reference)) {
+  } else if (isHTML(reference)) {
     insertHTMLBefore(el, reference)
   }
 }

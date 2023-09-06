@@ -9,7 +9,7 @@ const getPageY = (el) => {
   let pageY
 
   if (!isElement(el)) {
-    return false
+    return 0
   }
 
   box = el.getBoundingClientRect()

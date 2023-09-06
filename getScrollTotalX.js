@@ -14,7 +14,7 @@ const getScrollTotalX = (() => {
   return (el) => {
     let $parent
 
-    if(!isElement(el)) {
+    if (!isElement(el)) {
       return scrollX
     }
 

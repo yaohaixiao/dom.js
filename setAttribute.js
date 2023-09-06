@@ -9,7 +9,7 @@ import isElement from './utils/isElement'
  * @param {String|Number|Boolean} value - 属性值
  */
 const setAttribute = (el, attr, value) => {
-  let tagName = el.tagName.toLowerCase()
+  let tagName
 
   if (!isElement(el)) {
     return false

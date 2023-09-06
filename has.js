@@ -1,6 +1,6 @@
-import isAncestor from './isAncestor'
 import isElement from './utils/isElement'
 import isString from './utils/isString'
+import isAncestor from './isAncestor'
 
 const has = (ancestor, descendent) => {
   if (!isElement(ancestor)) {

@@ -1,4 +1,4 @@
-import isObject from '@yaohaixiao/types.js/isObject'
+import isObject from './utils/isObject'
 import hasOwn from './utils/hasOwn'
 import setAttribute from './setAttribute'
 

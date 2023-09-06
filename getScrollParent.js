@@ -5,7 +5,7 @@ const getScrollParent = (el) => {
   const $root = window
   const $parent = el.parentNode
 
-  if(!isElement(el)) {
+  if (!isElement(el)) {
     return null
   }
 

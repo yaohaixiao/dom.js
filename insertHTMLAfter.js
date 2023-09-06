@@ -13,7 +13,7 @@ import isElement from './utils/isElement'
 const insertHTMLAfter = (el, html) => {
   let $el
 
-  if(!el || !html) {
+  if (!el || !html) {
     return false
   }
 
@@ -23,7 +23,7 @@ const insertHTMLAfter = (el, html) => {
     return false
   }
 
-  $el.insertAdjacentHTML('afterend', html);
+  $el.insertAdjacentHTML('afterend', html)
 }
 
 export default insertHTMLAfter
