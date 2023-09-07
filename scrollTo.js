@@ -1,6 +1,6 @@
-import easeInQuad from './utils/easeInQuad'
-import isFunction from './utils/isFunction'
-import isElement from './utils/isElement'
+import easeInQuad from './utils/lang/easeInQuad'
+import isFunction from './utils/types/isFunction'
+import isElement from './utils/types/isElement'
 
 /**
  * 指定 DOM 节点滚动到指定 top 位置

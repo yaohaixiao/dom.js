@@ -1,5 +1,4 @@
 import addClass from './addClass'
-import addStyles from './addStyles'
 import after from './after'
 import attr from './attr'
 import before from './before'
@@ -23,22 +22,23 @@ import getOffsetTop from './getOffsetTop'
 import getPageY from './getPageY'
 import getPageX from './getPageX'
 import getPageXY from './getPageXY'
-import getParentOrHost from './getParentOrHost'
+import getHostOrParent from './getHostOrParent'
 import getPreviousSibling from './getPreviousSibling'
 import getPreviousSiblingBy from './getPreviousSiblingBy'
 import getPreviousSiblings from './getPreviousSiblings'
 import getScrollParent from './getScrollParent'
-import getScrollTotalX from './getScrollTotalX'
-import getScrollTotalY from './getScrollTotalY'
-import getScrollTotalXY from './getScrollTotalXY'
-import getScrollX from './getScrollX'
-import getScrollY from './getScrollY'
-import getScrollXY from './getScrollXY'
+import getScrollTotalLeft from './getScrollTotalLeft'
+import getScrollTotalTop from './getScrollTotalTop'
+import getScrollTotalXY from './getScrollTotal'
+import getScrollLeft from './getScrollLeft'
+import getScrollTop from './getScrollTop'
+import getScroll from './getScroll'
 import getSiblings from './getSiblings'
 import getStyle from './getStyle'
+import getStyles from './getStyles'
 import getViewportHeight from './getViewportHeight'
 import getViewportWidth from './getViewportWidth'
-import has from './has'
+import has from './contains'
 import hasClass from './hasClass'
 import html from './html'
 import index from './index'
@@ -60,13 +60,14 @@ import setAttribute from './setAttribute'
 import setAttributes from './setAttributes'
 import setProperty from './setProperty'
 import setStyle from './setStyle'
+import setStyles from './setStyles'
 import siblings from './siblings'
 import toggle from './toggle'
 import toggleClass from './toggleClass'
 
 const DOM = {
   addClass,
-  addStyles,
+  addStyles: setStyles,
   after,
   attr,
   before,
@@ -90,17 +91,17 @@ const DOM = {
   getPageY,
   getPageX,
   getPageXY,
-  getParentOrHost,
+  getParentOrHost: getHostOrParent,
   getPreviousSibling,
   getPreviousSiblingBy,
   getPreviousSiblings,
   getScrollParent,
-  getScrollTotalX,
-  getScrollTotalY,
+  getScrollTotalX: getScrollTotalLeft,
+  getScrollTotalY: getScrollTotalTop,
   getScrollTotalXY,
-  getScrollX,
-  getScrollY,
-  getScrollXY,
+  getScrollX: getScrollLeft,
+  getScrollY: getScrollTop,
+  getScrollXY: getScroll,
   getSiblings,
   getStyle,
   getViewportHeight,

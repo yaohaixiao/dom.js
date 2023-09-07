@@ -1,4 +1,4 @@
-import isElement from './utils/isElement'
+import isElement from './utils/types/isElement'
 
 const getAttribute = (el, attr) => {
   let tagName
@@ -10,6 +10,10 @@ const getAttribute = (el, attr) => {
   tagName = el.tagName.toLowerCase()
 
   switch (attr) {
+    case 'className':
+      return el.getAttribute('class')
+    case 'htmlFor':
+      return el.getAttribute('for')
     case 'style':
       return el.style.cssText
     case 'value':
@@ -18,14 +22,6 @@ const getAttribute = (el, attr) => {
       } else {
         return el.setAttribute(attr)
       }
-    case 'className':
-      return el.getAttribute('class')
-    case 'htmlFor':
-      return el.getAttribute('for')
-    case 'innerHTML':
-      return el.innerHTML
-    case 'innerText':
-      return el.innerText
     default:
       return el.setAttribute(attr)
   }

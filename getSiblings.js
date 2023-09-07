@@ -1,6 +1,6 @@
 import getPreviousSiblings from './getPreviousSiblings'
 import getNextSiblings from './getNextSiblings'
-import isElement from './utils/isElement'
+import isElement from './utils/types/isElement'
 
 const getSiblings = (el, includeSelf = false) => {
   let list = []

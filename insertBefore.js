@@ -1,4 +1,4 @@
-import isElement from './utils/isElement'
+import isElement from './utils/types/isElement'
 
 const insertBefore = (el, reference) => {
   const $parent = reference.parentNode

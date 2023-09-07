@@ -1,4 +1,4 @@
-import isElement from './utils/isElement'
+import isElement from './utils/types/isElement'
 
 /**
  * 给 DOM 节点设置属性/值
@@ -18,8 +18,18 @@ const setAttribute = (el, attr, value) => {
   tagName = el.tagName.toLowerCase()
 
   switch (attr) {
+    case 'className':
+      el.className = value
+      break
+    case 'htmlFor':
+      el.setAttribute('for', value)
+      break
     case 'style':
-      el.style.cssText = value
+      if(el.style.cssText) {
+        el.style.cssText = value
+      } else {
+        el.setAttribute(attr, value)
+      }
       break
     case 'value':
       if (tagName === 'input' || tagName === 'textarea') {
@@ -27,15 +37,6 @@ const setAttribute = (el, attr, value) => {
       } else {
         el.setAttribute(attr, value)
       }
-      break
-    case 'className':
-      el.className = value
-      break
-    case 'innerHTML':
-      el.innerHTML = value
-      break
-    case 'innerText':
-      el.innerText = value
       break
     default:
       el.setAttribute(attr, value)

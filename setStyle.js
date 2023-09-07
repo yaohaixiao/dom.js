@@ -1,5 +1,5 @@
-import toCamel from './utils/toCamel'
-import isElement from './utils/isElement'
+import toCamel from './utils/string/toCamel'
+import isElement from './utils/types/isElement'
 
 const setStyle = (el, attr, val) => {
   let prop

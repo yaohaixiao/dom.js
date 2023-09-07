@@ -1,6 +1,6 @@
-import isElement from './utils/isElement'
+import isElement from './utils/types/isElement'
 import insertBefore from './insertBefore'
-import isHTML from './utils/isHTML'
+import isHTML from './utils/types/isHTML'
 import insertHTMLBefore from './insertHTMLBefore'
 
 const before = (el, reference) => {

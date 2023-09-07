@@ -1,6 +1,6 @@
-import isElement from './utils/isElement'
-import isFunction from './utils/isFunction'
-import isString from './utils/isString'
+import isElement from './utils/types/isElement'
+import isFunction from './utils/types/isFunction'
+import isString from './utils/types/isString'
 import matches from './matches'
 
 const isMatched = (el, match) => {

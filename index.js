@@ -1,6 +1,6 @@
-import isElement from './utils/isElement'
-import isString from './utils/isString'
-import isArray from './utils/isArray'
+import isElement from './utils/types/isElement'
+import isString from './utils/types/isString'
+import isArray from './utils/types/isArray'
 import getSiblings from './getSiblings'
 
 const index = function (el, target) {

@@ -1,5 +1,5 @@
-import isElement from './utils/isElement'
-import isArray from './utils/isArray'
+import isElement from './utils/types/isElement'
+import isArray from './utils/types/isArray'
 import getAttribute from './getAttribute'
 
 const getAttributes = (el, props = []) => {

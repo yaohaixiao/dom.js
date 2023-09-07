@@ -84,8 +84,8 @@ const $nextSibling = next($list)
 
 // 给 $nextSibling 设置属性
 DOM.setAttributes($nextSibling, {
-  id: 'list-next-sibling',
-  className: 'sibling',
+  id: 'list-next-siblings',
+  className: 'siblings',
   'data-index': index($nextSibling)
 })
 

@@ -1,9 +1,9 @@
-import isElement from './utils/isElement'
-import isString from './utils/isString'
+import isElement from './utils/types/isElement'
+import isString from './utils/types/isString'
 import setStyle from './setStyle'
 import getStyle from './getStyle'
-import isObject from './utils/isObject'
-import addStyles from './addStyles'
+import isObject from './utils/types/isObject'
+import setStyles from './setStyles'
 
 const css = (el, attr, value) => {
   if (!isElement(el)) {
@@ -17,7 +17,7 @@ const css = (el, attr, value) => {
       getStyle(el, attr)
     }
   } else if (isObject(attr)) {
-    addStyles(el, attr)
+    setStyles(el, attr)
   }
 }
 

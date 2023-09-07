@@ -1,5 +1,5 @@
-import isObject from './utils/isObject'
-import hasOwn from './utils/hasOwn'
+import isObject from './utils/types/isObject'
+import hasOwn from './utils/lang/hasOwn'
 import setAttribute from './setAttribute'
 
 const setAttributes = (el, attrs) => {

@@ -1,7 +1,7 @@
-import isObject from './utils/isObject'
-import isString from './utils/isString'
-import isArray from './utils/isArray'
-import isDOM from './utils/isDOM'
+import isObject from './utils/types/isObject'
+import isString from './utils/types/isString'
+import isArray from './utils/types/isArray'
+import isDOM from './utils/types/isDOM'
 import setAttributes from './setAttributes'
 
 /**

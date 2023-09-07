@@ -1,4 +1,4 @@
-import isElement from './utils/isElement'
+import isElement from './utils/types/isElement'
 import getStyle from './getStyle'
 
 const getScrollParent = (el) => {

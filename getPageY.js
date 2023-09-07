@@ -1,4 +1,4 @@
-import isElement from './utils/isElement'
+import isElement from './utils/types/isElement'
 import getDocumentScrollTop from './getDocumentScrollTop'
 
 const getPageY = (el) => {

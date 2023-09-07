@@ -1,5 +1,5 @@
-import trim from './utils/trim'
-import isElement from './utils/isElement'
+import trim from './utils/string/trim'
+import isElement from './utils/types/isElement'
 import hasClass from './hasClass'
 
 /**

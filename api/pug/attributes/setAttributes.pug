@@ -1,0 +1,16 @@
+section.section
+  header.section__header
+    h3.section__h3 setAttributes(el, attrs)
+  div.section__content
+
+    h4.section__h4 Usage
+    pre.section__pre
+      code.section__code.
+        const outline = new Outline(Outline.DEFAULTS)
+
+        outline.$on('beforeDestroy', function() {
+          // this 上下文就是 outline 实例
+          console.log('this', this)
+        })
+
+        outline.destroy()

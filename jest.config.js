@@ -13,7 +13,7 @@ module.exports = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1'
   },
-  transformIgnorePatterns: ['node_modules/@yaohaixiao/(?!types.js)'],
+  // transformIgnorePatterns: ['node_modules/@yaohaixiao/(?!types.js)'],
   collectCoverage: true,
   coverageDirectory: 'report/coverage',
   reporters: [

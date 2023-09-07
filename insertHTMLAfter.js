@@ -1,4 +1,4 @@
-import isElement from './utils/isElement'
+import isElement from './utils/types/isElement'
 
 /**
  * 在指定元素的末尾插入HTML字符串。

@@ -1,13 +1,13 @@
-import isHTML from './utils/isHTML'
-import isElement from './utils/isElement'
+import isHTML from './utils/types/isHTML'
+import isElement from './utils/types/isElement'
 import createElement from './createElement'
 
-const html = (el, str) => {
+const html = (el, strHTML) => {
   const $fragment = document.createDocumentFragment()
 
   if (isHTML(el)) {
     const children = createElement('div', {
-      innerHTML: str
+      innerHTML: strHTML
     }).childNodes
 
     children.forEach((child) => {
@@ -15,8 +15,8 @@ const html = (el, str) => {
     })
     return $fragment
   } else if (isElement(el)) {
-    if (str) {
-      el.innerHTML = str
+    if (strHTML) {
+      el.innerHTML = strHTML
     } else {
       return el.innerHTML
     }

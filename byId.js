@@ -1,4 +1,4 @@
-import isElement from './utils/isElement'
+import isElement from './utils/types/isElement'
 
 const byId = (id, el) => {
   const selector = id.replace(/^#/i, '')

@@ -1,5 +1,5 @@
-import isElement from './utils/isElement'
-import isHTML from './utils/isHTML'
+import isElement from './utils/types/isElement'
+import isHTML from './utils/types/isHTML'
 import insertAfter from './insertAfter'
 import insertHTMLAfter from './insertHTMLAfter'
 
