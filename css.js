@@ -4,6 +4,7 @@ import setStyle from './setStyle'
 import getStyle from './getStyle'
 import isObject from './utils/types/isObject'
 import setStyles from './setStyles'
+import isUndefined from './utils/types/isUndefined'
 
 const css = (el, attr, value) => {
   if (!isElement(el)) {
@@ -11,7 +12,7 @@ const css = (el, attr, value) => {
   }
 
   if (isString(attr)) {
-    if (typeof value !== 'undefined') {
+    if (!isUndefined(value)) {
       setStyle(el, attr, value)
     } else {
       getStyle(el, attr)

@@ -3,7 +3,7 @@ import isString from './utils/types/isString'
 import isArray from './utils/types/isArray'
 import getSiblings from './getSiblings'
 
-const index = function (el, target) {
+const index = function (ancestor, descendent) {
   const indexOf = (list, el) => {
     let index = -1
 
@@ -23,17 +23,17 @@ const index = function (el, target) {
   let i = -1
   let list
 
-  if (!target) {
+  if (!descendent) {
     if (isString(el)) {
-      list = [...document.querySelectorAll(el)]
-      i = indexOf(list, document.querySelector(el))
-    } else if (isElement(el)) {
-      list = getSiblings(el, true)
-      i = indexOf(list, el)
+      list = [...document.querySelectorAll(ancestor)]
+      i = indexOf(list, document.querySelector(ancestor))
+    } else if (isElement(ancestor)) {
+      list = getSiblings(ancestor, true)
+      i = indexOf(list, ancestor)
     }
   } else {
-    list = getSiblings(el, true)
-    i = indexOf(list, el)
+    list = getSiblings(ancestor, true)
+    i = indexOf(list, ancestor)
   }
 
   return i

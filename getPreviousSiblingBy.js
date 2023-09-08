@@ -2,13 +2,13 @@ import isElement from './utils/types/isElement'
 import isMatched from './isMatched'
 import getPreviousSibling from './getPreviousSibling'
 
-const getPreviousSiblingBy = (el, match) => {
+const getPreviousSiblingBy = (el, filter) => {
   let $el = isElement(el) ? el : null
 
   while ($el) {
     $el = getPreviousSibling($el)
 
-    if (isMatched($el, match)) {
+    if (isMatched($el, filter)) {
       return $el
     }
   }

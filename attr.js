@@ -6,6 +6,7 @@ import setAttribute from './setAttribute'
 import setAttributes from './setAttributes'
 import getAttribute from './getAttribute'
 import getAttributes from './getAttributes'
+import isUndefined from './utils/types/isUndefined'
 
 /**
  * 获取或者设置 DOM 节点的单个或者多个 DOM 属性
@@ -30,7 +31,7 @@ const attr = (el, attr, value) => {
   }
 
   if (isString(attr)) {
-    if (typeof value !== 'undefined') {
+    if (!isUndefined(value)) {
       setAttribute(el, attr, value)
     } else {
       return getAttribute(el, attr)

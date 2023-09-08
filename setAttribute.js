@@ -25,7 +25,7 @@ const setAttribute = (el, attr, value) => {
       el.setAttribute('for', value)
       break
     case 'style':
-      if(el.style.cssText) {
+      if (el.style.cssText) {
         el.style.cssText = value
       } else {
         el.setAttribute(attr, value)

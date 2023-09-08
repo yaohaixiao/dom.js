@@ -1,5 +1,6 @@
 import toCamel from './utils/string/toCamel'
 import isElement from './utils/types/isElement'
+import isUndefined from './utils/types/isUndefined'
 
 /**
  * 获取HTML元素的某个CSS样式值
@@ -22,7 +23,7 @@ const getStyles = (el, attrs) => {
     const prop = toCamel(attr)
     const value = props[prop]
 
-    if (typeof value !== 'undefined') {
+    if (!isUndefined(value)) {
       styles[prop] = value
     }
   })

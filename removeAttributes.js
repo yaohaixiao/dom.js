@@ -8,7 +8,7 @@ const removeAttributes = (el, attrs) => {
   }
 
   attrs.forEach((attr) => {
-    removeAttribute(el,attr)
+    removeAttribute(el, attr)
   })
 }
 

@@ -8,7 +8,7 @@
 [![MIT License](https://img.shields.io/github/license/yaohaixiao/dom.js.svg)](https://github.com/yaohaixiao/dom.js/blob/master/LICENSE)
 
 
-dom.js - 专门处理 DOM 相关操作的 JavaScript 工具方法库。
+dom.js - 专门处理 DOM 操作的 JavaScript 工具库。
 
 
 ## Browsers Support
@@ -84,7 +84,7 @@ const $nextSibling = next($list)
 
 // 给 $nextSibling 设置属性
 DOM.setAttributes($nextSibling, {
-  id: 'list-next-siblings',
+  id: 'list-next-sibling',
   className: 'siblings',
   'data-index': index($nextSibling)
 })

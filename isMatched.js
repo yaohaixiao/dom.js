@@ -3,15 +3,15 @@ import isFunction from './utils/types/isFunction'
 import isString from './utils/types/isString'
 import matches from './matches'
 
-const isMatched = (el, match) => {
+const isMatched = (el, filter) => {
   if (!isElement(el)) {
     return false
   }
 
-  if (isFunction(match)) {
-    return match(el)
-  } else if (isString(match)) {
-    return matches(el, match)
+  if (isFunction(filter)) {
+    return filter(el)
+  } else if (isString(filter)) {
+    return matches(el, filter)
   }
 }
 

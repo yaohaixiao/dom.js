@@ -1,3 +1,4 @@
+import isElement from './utils/types/isElement'
 import getOffsetLeft from './getOffsetLeft'
 import getOffsetTop from './getOffsetTop'
 
@@ -6,15 +7,28 @@ import getOffsetTop from './getOffsetTop'
  * ========================================================================
  * @method getOffset
  * @param {HTMLElement} el - DOM 节点
- * @returns {{left: Number, top: Number}}
+ * @returns {{top: Number, left: Number, width: (*|number|number), height: number}|null}
  */
 const getOffset = (el) => {
-  const x = getOffsetTop(el)
-  const y = getOffsetLeft(el)
+  let top
+  let left
+  let width
+  let height
+
+  if (!isElement(el)) {
+    return null
+  }
+
+  top = getOffsetTop(el)
+  left = getOffsetLeft(el)
+  width = el.offsetWidth
+  height = el.offsetHeight
 
   return {
-    x,
-    y
+    width,
+    height,
+    top,
+    left
   }
 }
 
