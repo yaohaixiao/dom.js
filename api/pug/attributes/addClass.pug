@@ -2,15 +2,40 @@ section.section
   header.section__header
     h3.section__h3 addClass(el, className)
   div.section__content
-
+    p addClass() 方法用来给 DOM 元素添加 class 样式；
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （必须）HTMLElement 参数指定需要添加 class 样式的 DOM 元素；
+    h5.section__h4 className
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （必须）className 参数指定要检测的 class 样式名称。
     h4.section__h4 Usage
     pre.section__pre
       code.section__code.
-        const outline = new Outline(Outline.DEFAULTS)
+        &lt;ul id="list" class="list"&gt;
+            &lt;li class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
 
-        outline.$on('beforeDestroy', function() {
-          // this 上下文就是 outline 实例
-          console.log('this', this)
-        })
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 addClass 单个方法
+        import hasClass from '@yaohaixiao/dom.js/addClass'
 
-        outline.destroy()
+        const $list = DOM.byId('#list')
+
+        // 添加 class 样式
+        DOM.addClass($list, 'nav')
+        DOM.addClass($list, 'primary')
+
+        // 判断是否存在 class 样式
+        DOM.hasClass($list, 'nav') => true
+        hasClass($list, 'primary') => true
+        hasClass($list, 'top-menu') => false

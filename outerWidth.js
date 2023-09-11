@@ -1,70 +1,76 @@
 import isElement from './utils/types/isElement'
 import isUndefined from './utils/types/isUndefined'
 import isFunction from './utils/types/isFunction'
-import getStyle from './getStyle'
+import pixel from './utils/pixel'
+import getElementSizes from './getElementSizes'
 import setStyle from './setStyle'
-import offset from './offset'
-import pixel from './pixel'
 
-const outerWidth = (el, val) => {
+/**
+ *
+ * @param el
+ * @param val
+ * @param includeMargin
+ * @return {*|number|boolean}
+ */
+const outerWidth = (el, val, includeMargin = false) => {
   let width
-  let offsetWidth
-  let borderLeftWidth
-  let borderRightWidth
-  let paddingLeftWidth
-  let paddingRightWidth
-  let extraWidth
-  let isBorderBox
 
   if (!isElement(el)) {
     return false
   }
 
-  isBorderBox = getStyle(el, 'box-sizing') === 'border-box'
-  borderLeftWidth = pixel(getStyle(el, 'border-left'))
-  borderRightWidth = pixel(getStyle(el, 'border-right'))
-  paddingLeftWidth = pixel(getStyle(el, 'padding-left'))
-  paddingRightWidth = pixel(getStyle(el, 'padding-right'))
-  extraWidth =
-    borderLeftWidth +
-    borderRightWidth +
-    paddingLeftWidth +
-    paddingRightWidth
-  width = pixel(getStyle(el, 'width'))
-  offsetWidth = offset(el).width
+  const {
+    marginLeftWidth,
+    marginRightWidth,
+    borderLeftWidth,
+    borderRightWidth,
+    paddingLeftWidth,
+    paddingRightWidth,
+    offsetWidth
+  } = getElementSizes(el)
 
   if (isFunction(val)) {
     return val(el, {
-      isBorderBox,
+      marginLeftWidth,
+      marginRightWidth,
       borderLeftWidth,
       borderRightWidth,
       paddingLeftWidth,
       paddingRightWidth,
-      width,
-      extraWidth
+      offsetWidth
     })
   }
 
-  if (isBorderBox) {
+  if (!isUndefined(val)) {
     width = offsetWidth
 
-    if (!isUndefined(val)) {
-      if (width !== val) {
-        setStyle(el, 'width', pixel(val) - extraWidth)
+    if (includeMargin) {
+      width += marginLeftWidth + marginRightWidth
+    }
+
+    if (width !== val) {
+      width =
+        val -
+        (borderLeftWidth +
+          borderRightWidth +
+          paddingLeftWidth +
+          paddingRightWidth)
+
+      if (includeMargin) {
+        width -= marginLeftWidth + marginRightWidth
       }
-    } else {
-      return width - extraWidth
+
+      setStyle(el, 'width', pixel(width))
     }
   } else {
-    if (!isUndefined(val)) {
-      if (width !== val) {
-        setStyle(el, 'width', pixel(val))
-      }
-    } else {
-      return width
+    width = offsetWidth
+
+    if (includeMargin) {
+      width -= marginLeftWidth + marginRightWidth
     }
+
+    return width
   }
 }
 
 export default outerWidth
-

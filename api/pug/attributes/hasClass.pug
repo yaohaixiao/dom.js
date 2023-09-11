@@ -1,27 +1,41 @@
 section.section
   header.section__header
-    h3.section__h3 created
+    h3.section__h3 hasClass(el, className)
   div.section__content
-    table.section__table
-      thead.section__thead
-        tr.section__tr
-          th.section__th 事件名称
-          th.section__th 说明
-          th.section__th 回调参数
-      tbody.section__tbody
-        tr.section__tr
-          td.section__td created
-          td.section__td Outline 实例配置信息初始化完成后触发，此时 DOM 元素还没有绘制。
-          td.section__td 返回实例最终的 attrs 配置属性的（对象）值。
+    p hasClass() 方法用来判断 DOM 元素是否包含指定 className 的样式；
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （必须）HTMLElement 参数指定需要检测 class 样式的 DOM 元素；
+    h5.section__h4 className
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （必须）className 要添加的 class 样式名称。
     h4.section__h4 Usage
     pre.section__pre
       code.section__code.
-        const outline = new Outline()
+        &lt;ul id="list" class="list"&gt;
+            &lt;li class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
 
-        outline.$on('created', function(attrs) {
-          // this 上下文就是 outline 实例
-          // attrs === outline.attr()
-        })
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 addClass 单个方法
+        import hasClass from '@yaohaixiao/dom.js/addClass'
 
-        // 当 outline 实例的配置信息初始化完毕，就会触发 created 事件
-        outline.initialize(Outline.DEFAULTS)
+        const $list = DOM.byId('#list')
+
+        // 添加 class 样式
+        DOM.addClass($list, 'nav')
+        DOM.addClass($list, 'primary')
+
+        // 判断是否存在 class 样式
+        DOM.hasClass($list, 'nav') => true
+        hasClass($list, 'primary') => true
+        hasClass($list, 'top-menu') => false

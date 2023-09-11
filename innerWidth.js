@@ -1,62 +1,53 @@
 import isElement from './utils/types/isElement'
 import isUndefined from './utils/types/isUndefined'
 import isFunction from './utils/types/isFunction'
-import getStyle from './getStyle'
+import pixel from './utils/pixel'
+import getElementSizes from './getElementSizes'
 import setStyle from './setStyle'
-import offset from './offset'
-import pixel from './pixel'
 
+/**
+ * 获取或设置 DOM 元素的 innerHeight 值；
+ * innerHeight = style.height + padding 高度（paddingTop + paddingBottom）
+ * ========================================================================
+ * @method innerHeight
+ * @param {HTMLElement} el
+ * @param {Number|Function} [val]
+ * @return {number|*|boolean}
+ */
 const innerWidth = (el, val) => {
   let width
-  let offsetWidth
-  let paddingLeftWidth
-  let paddingRightWidth
-  let extraWidth
-  let isBorderBox
 
   if (!isElement(el)) {
     return false
   }
 
-  isBorderBox = getStyle(el, 'box-sizing') === 'border-box'
-  paddingLeftWidth = pixel(getStyle(el, 'padding-left'))
-  paddingRightWidth = pixel(getStyle(el, 'padding-right'))
-  extraWidth =
-    paddingLeftWidth +
-    paddingRightWidth
-  width = pixel(getStyle(el, 'width'))
-  offsetWidth = offset(el).width
+  const {
+    borderLeftWidth,
+    borderRightWidth,
+    paddingLeftWidth,
+    paddingRightWidth,
+    offsetWidth
+  } = getElementSizes(el)
 
   if (isFunction(val)) {
     return val(el, {
-      isBorderBox,
+      borderLeftWidth,
+      borderRightWidth,
       paddingLeftWidth,
       paddingRightWidth,
-      width,
-      extraWidth
+      offsetWidth
     })
   }
 
-  if (isBorderBox) {
-    width = offsetWidth
+  if (!isUndefined(val)) {
+    width = offsetWidth - (borderLeftWidth + borderRightWidth)
 
-    if (!isUndefined(val)) {
-      if (width !== val) {
-        setStyle(el, 'width', pixel(val) - extraWidth)
-      }
-    } else {
-      return width - extraWidth
+    if (width !== val) {
+      setStyle(el, 'width', pixel(val - (paddingLeftWidth + paddingRightWidth)))
     }
   } else {
-    if (!isUndefined(val)) {
-      if (width !== val) {
-        setStyle(el, 'width', pixel(val))
-      }
-    } else {
-      return width
-    }
+    return offsetWidth - (borderLeftWidth + borderRightWidth)
   }
 }
 
 export default innerWidth
-

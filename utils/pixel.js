@@ -1,5 +1,5 @@
-import isString from './utils/types/isString'
-import isNumber from './utils/types/isNumber'
+import isString from './types/isString'
+import isNumber from './types/isNumber'
 
 const pixel = (val) => {
   if (isString(val)) {

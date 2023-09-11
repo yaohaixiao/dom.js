@@ -1,60 +1,56 @@
 import isElement from './utils/types/isElement'
 import isUndefined from './utils/types/isUndefined'
 import isFunction from './utils/types/isFunction'
-import getStyle from './getStyle'
+import pixel from './utils/pixel'
+import getElementSizes from './getElementSizes'
 import setStyle from './setStyle'
-import offset from './offset'
-import pixel from './pixel'
 
+/**
+ * 获取或设置 DOM 元素的 innerHeight 值；
+ * innerHeight = style.height + padding 高度（paddingTop + paddingBottom）
+ * ========================================================================
+ * @method innerHeight
+ * @param {HTMLElement} el
+ * @param {Number|Function} [val]
+ * @return {number|string|number|*|boolean}
+ */
 const innerHeight = (el, val) => {
   let height
-  let offsetHeight
-  let paddingTopHeight
-  let paddingBottomHeight
-  let extraHeight
-  let isBorderBox
 
   if (!isElement(el)) {
     return false
   }
 
-  isBorderBox = getStyle(el, 'box-sizing') === 'border-box'
-  paddingTopHeight = pixel(getStyle(el, 'padding-top'))
-  paddingBottomHeight = pixel(getStyle(el, 'padding-bottom'))
-  extraHeight =
-    paddingTopHeight +
-    paddingBottomHeight
-  height = pixel(getStyle(el, 'height'))
-  offsetHeight = offset(el).height
+  const {
+    borderTopHeight,
+    borderBottomHeight,
+    paddingTopHeight,
+    paddingBottomHeight,
+    offsetHeight
+  } = getElementSizes(el)
 
   if (isFunction(val)) {
     return val(el, {
-      isBorderBox,
+      borderTopHeight,
+      borderBottomHeight,
       paddingTopHeight,
       paddingBottomHeight,
-      height,
       offsetHeight
     })
   }
 
-  if (isBorderBox) {
-    height = offsetHeight - extraHeight
+  if (!isUndefined(val)) {
+    height = offsetHeight - (borderTopHeight + borderBottomHeight)
 
-    if (!isUndefined(val)) {
-      if (height !== val) {
-        setStyle(el, 'height', pixel(val) - extraHeight)
-      }
-    } else {
-      return height - extraHeight
+    if (height !== val) {
+      setStyle(
+        el,
+        'height',
+        pixel(val - (paddingTopHeight + paddingBottomHeight))
+      )
     }
   } else {
-    if (!isUndefined(val)) {
-      if (height !== val) {
-        setStyle(el, 'height', pixel(val))
-      }
-    } else {
-      return height
-    }
+    return offsetHeight - (borderTopHeight + borderBottomHeight)
   }
 }
 
