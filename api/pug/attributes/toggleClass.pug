@@ -17,20 +17,28 @@ section.section
     h4.section__h4 Usage
     pre.section__pre
       code.section__code.
-        const defaults = Outline.DEFAULTS
+        &lt;ul id="list" class="list"&gt;
+            &lt;li class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
 
-        // 需要配置 print 参数
-        defaults.print = {
-          element: '#article',
-          title: document.querySelector('.title')
-        }
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 addClass 单个方法
+        import hasClass from '@yaohaixiao/dom.js/addClass'
+        import toggleClass from '@yaohaixiao/dom.js/toggleClass'
 
-        const outline = new Outline(Outline.DEFAULTS)
+        const $active = document.querySelector('.active')
 
-        outline.$on('exitReading', function() {
-          // this 上下文就是 outline 实例
-          console.log('this', this)
-        })
+        // 添加 class 样式
+        hasClass($active, 'active') // -> true
 
-        // 手动触发 exitReading 事件
-        outline.$emit('exitReading')
+        // 判断是否存在 class 样式
+        DOM.toggleClass($active, 'active')
+        hasClass($active, 'active') // -> false
+
+        // 判断是否存在 class 样式
+        toggleClass($active, 'active')
+        hasClass($active, 'active') // -> true

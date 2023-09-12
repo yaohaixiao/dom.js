@@ -4,13 +4,13 @@ import getAttribute from './getAttribute'
 
 const getAttributes = (el, props = []) => {
   const attrs = {}
-  let keys = props
+  let keys = [...props]
 
   if (!isElement(el)) {
     return null
   }
 
-  if (!isArray(keys) || keys.length < 1) {
+  if(!isArray(keys) || keys.length < 1) {
     keys = el.getAttributeNames()
   }
 

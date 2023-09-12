@@ -20,10 +20,10 @@ const getAttribute = (el, attr) => {
       if (tagName === 'input' || tagName === 'textarea') {
         return el.value
       } else {
-        return el.setAttribute(attr)
+        return el.getAttribute(attr)
       }
     default:
-      return el.setAttribute(attr)
+      return el.getAttribute(attr)
   }
 }
 

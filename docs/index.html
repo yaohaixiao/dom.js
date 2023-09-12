@@ -86,51 +86,109 @@ removeClass($list, 'primary')
 
 hasClass($list, 'list') => true
 hasClass($list, 'nav') => false
-hasClass($list, 'primary') => false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">toggleClass(el, className)</h3></header><div class="section__content"><p>toggleClass() 方法用来切换（添加或删除） DOM 元素中的 className 的样式；</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）HTMLElement 参数指定需要切换 class 样式的 DOM 元素；</p><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）className 参数指定要切换的样式名称。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">const defaults = Outline.DEFAULTS
+hasClass($list, 'primary') => false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">toggleClass(el, className)</h3></header><div class="section__content"><p>toggleClass() 方法用来切换（添加或删除） DOM 元素中的 className 的样式；</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）HTMLElement 参数指定需要切换 class 样式的 DOM 元素；</p><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）className 参数指定要切换的样式名称。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
 
-// 需要配置 print 参数
-defaults.print = {
-  element: '#article',
-  title: document.querySelector('.title')
-}
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 addClass 单个方法
+import hasClass from '@yaohaixiao/dom.js/addClass'
+import toggleClass from '@yaohaixiao/dom.js/toggleClass'
 
-const outline = new Outline(Outline.DEFAULTS)
+const $active = document.querySelector('.active')
 
-outline.$on('exitReading', function() {
-  // this 上下文就是 outline 实例
-  console.log('this', this)
+// 添加 class 样式
+hasClass($active, 'active') // -> true
+
+// 判断是否存在 class 样式
+DOM.toggleClass($active, 'active')
+hasClass($active, 'active') // -> false
+
+// 判断是否存在 class 样式
+toggleClass($active, 'active')
+hasClass($active, 'active') // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getAttribute(el, attr)</h3></header><div class="section__content"><p>getAttribute() 方法用来获取 DOM 元素的 DOM 属性值；</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）HTMLElement 参数指定 DOM 元素；</p><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）attr 参数指定要获取的属性名称。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>返回指定的属性值。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getAttribute 单个方法
+import getAttribute from '@yaohaixiao/dom.js/getAttribute'
+
+const $list = byId('#list')
+
+getAttribute($list, 'id') // -> 'list'
+// 针对 className 属性获取样式属性
+DOM.getAttribute($list, 'className') // -> 'list'
+
+DOM.addClass($list, 'nav')
+// 也可以直接实用 class 属性，因为在获取属性时，class 不存在 JS 的保留关键字的限制
+DOM.getAttribute($list, 'class') // -> 'list nav'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getAttributes(el, props)</h3></header><div class="section__content"><p>getAttribute() 方法用来获取 DOM 元素的多个 DOM 属性值；</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）HTMLElement 参数指定 DOM 元素；</p><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Array</dd></dl><p>（可选）props 参数指定要获取的属性名称的数组，不指定则获取全部 DOM 属性。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>返回查询的多属性的键/值对象。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getAttributes 单个方法
+import getAttributes from '@yaohaixiao/dom.js/getAttributes'
+
+const $list = byId('#list')
+
+DOM.getAttributes($list, ['id', 'class']) // -> { id: 'list', class: 'list' }
+getAttributes($list) // -> { id: 'list', class: 'list' }
+getAttributes($list, ['className']) // -> { className: 'list' }</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">setAttribute(el, attr, value)</h3></header><div class="section__content"><p>getAttribute() 方法用来设置 DOM 元素的 DOM 属性值；</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）HTMLElement 参数指定 DOM 元素；</p><h5 class="section__h4">attr</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）attr 参数指定属性名称。</p><h5 class="section__h4">value</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）value 参数指定属性值。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 setAttribute 单个方法
+import setAttribute from '@yaohaixiao/dom.js/setAttribute'
+
+const $list = byId('#list')
+
+DOM.setAttribute($list, 'data-id', 'list')
+DOM.getAttribute($list, 'data-id') // -> 'list'
+
+// 可以一次性调整多个样式，性能更好
+setAttribute($list, 'style', 'width:200px;height:30px;')
+DOM.getAttribute($list, 'style') // -> 'width:200px;height:30px;'
+
+DOM.setAttribute($list, 'className', 'nav')
+DOM.getAttribute($list, 'className') // -> 'nav'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">setAttributes(el, attrs)</h3></header><div class="section__content"><p>getAttributes() 方法用来给 DOM 元素一次设置多个 DOM 属性/值；</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）HTMLElement 参数指定 DOM 元素；</p><h5 class="section__h4">attrs</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>（必须）attrs 参数指定要设置的属性键/值对象。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 setAttributes 单个方法
+import setAttributes from '@yaohaixiao/dom.js/setAttributes'
+
+const $list = byId('#list')
+
+setAttributes($list, {
+  'aria-hidden': true,
+  'data-id': 'list',
+  style: 'height:30px;width:100%;'
 })
 
-// 手动触发 exitReading 事件
-outline.$emit('exitReading')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getAttribute(el, attr)</h3></header><div class="section__content"><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">const outline = new Outline(Outline.DEFAULTS)
-
-outline.$on('beforeDestroy', function() {
-  // this 上下文就是 outline 实例
-  console.log('this', this)
-})
-
-outline.destroy()</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getAttributes(el, attrs)</h3></header><div class="section__content"><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">const outline = new Outline(Outline.DEFAULTS)
-
-outline.$on('beforeDestroy', function() {
-  // this 上下文就是 outline 实例
-  console.log('this', this)
-})
-
-outline.destroy()</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">setAttribute(el, attr, value)</h3></header><div class="section__content"><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">const outline = new Outline(Outline.DEFAULTS)
-
-outline.$on('beforeDestroy', function() {
-  // this 上下文就是 outline 实例
-  console.log('this', this)
-})
-
-outline.destroy()</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">setAttributes(el, attrs)</h3></header><div class="section__content"><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">const outline = new Outline(Outline.DEFAULTS)
-
-outline.$on('beforeDestroy', function() {
-  // this 上下文就是 outline 实例
-  console.log('this', this)
-})
-
-outline.destroy()</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">removeAttribute(el, attr)</h3></header><div class="section__content"><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">const outline = new Outline(Outline.DEFAULTS)
+DOM.getAttribute($list, 'data-id') // -> 'list'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">removeAttribute(el, attr)</h3></header><div class="section__content"><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">const outline = new Outline(Outline.DEFAULTS)
 
 outline.$on('beforeDestroy', function() {
   // this 上下文就是 outline 实例

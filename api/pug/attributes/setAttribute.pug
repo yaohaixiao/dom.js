@@ -2,15 +2,46 @@ section.section
   header.section__header
     h3.section__h3 setAttribute(el, attr, value)
   div.section__content
-
+    p getAttribute() 方法用来设置 DOM 元素的 DOM 属性值；
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （必须）HTMLElement 参数指定 DOM 元素；
+    h5.section__h4 attr
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （必须）attr 参数指定属性名称。
+    h5.section__h4 value
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Any
+    p （必须）value 参数指定属性值。
     h4.section__h4 Usage
     pre.section__pre
       code.section__code.
-        const outline = new Outline(Outline.DEFAULTS)
+        &lt;ul id="list" class="list"&gt;
+            &lt;li class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
 
-        outline.$on('beforeDestroy', function() {
-          // this 上下文就是 outline 实例
-          console.log('this', this)
-        })
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 setAttribute 单个方法
+        import setAttribute from '@yaohaixiao/dom.js/setAttribute'
 
-        outline.destroy()
+        const $list = byId('#list')
+
+        DOM.setAttribute($list, 'data-id', 'list')
+        DOM.getAttribute($list, 'data-id') // -> 'list'
+
+        // 可以一次性调整多个样式，性能更好
+        setAttribute($list, 'style', 'width:200px;height:30px;')
+        DOM.getAttribute($list, 'style') // -> 'width:200px;height:30px;'
+
+        DOM.setAttribute($list, 'className', 'nav')
+        DOM.getAttribute($list, 'className') // -> 'nav'

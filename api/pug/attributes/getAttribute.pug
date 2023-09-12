@@ -2,15 +2,44 @@ section.section
   header.section__header
     h3.section__h3 getAttribute(el, attr)
   div.section__content
-
+    p getAttribute() 方法用来获取 DOM 元素的 DOM 属性值；
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （必须）HTMLElement 参数指定 DOM 元素；
+    h5.section__h4 className
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （必须）attr 参数指定要获取的属性名称。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Any
+    p 返回指定的属性值。
     h4.section__h4 Usage
     pre.section__pre
       code.section__code.
-        const outline = new Outline(Outline.DEFAULTS)
+        &lt;ul id="list" class="list"&gt;
+            &lt;li class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
 
-        outline.$on('beforeDestroy', function() {
-          // this 上下文就是 outline 实例
-          console.log('this', this)
-        })
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 getAttribute 单个方法
+        import getAttribute from '@yaohaixiao/dom.js/getAttribute'
 
-        outline.destroy()
+        const $list = byId('#list')
+
+        getAttribute($list, 'id') // -> 'list'
+        // 针对 className 属性获取样式属性
+        DOM.getAttribute($list, 'className') // -> 'list'
+
+        DOM.addClass($list, 'nav')
+        // 也可以直接实用 class 属性，因为在获取属性时，class 不存在 JS 的保留关键字的限制
+        DOM.getAttribute($list, 'class') // -> 'list nav'
