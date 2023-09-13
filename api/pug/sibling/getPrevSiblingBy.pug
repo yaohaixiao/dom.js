@@ -35,14 +35,14 @@ section.section
           }
 
           setTitle() {
-            this.attr('title', title)
+            this.attrs('title', title)
             this.title = title
             this.$title.innerHTML = title
 
             return this
           }
 
-          attr(prop, value) {
+          attrs(prop, value) {
             // 省略其它逻辑...
             return this
           }
@@ -74,7 +74,7 @@ section.section
           }
 
           reload(options) {
-            this.destroy().initialize(this.attr(options))
+            this.destroy().initialize(this.attrs(options))
             return this
           }
         }

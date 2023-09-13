@@ -32,7 +32,7 @@ section.section
             return this.chapters.length
           }
 
-          attr(prop, value) {
+          attrs(prop, value) {
             const attrs = this.attrs
 
             if (isString(prop)) {
@@ -75,7 +75,7 @@ section.section
           }
 
           reload(options) {
-            this.destroy().initialize(this.attr(options))
+            this.destroy().initialize(this.attrs(options))
             return this
           }
         }

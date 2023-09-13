@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="keywords" content="dom.js,DOM,JavaScript,Toolkit"><meta name="description" content="dom.js - 专门处理 DOM 操作的 JavaScript 工具库。"><link rel="shortcut icon" href="./favicon.ico"><title>dom.js | 专门处理 DOM 操作的 JavaScript 工具库</title><link rel="preload" href="css/docs.min.css" as="style"><link rel="preload" href="js/docs.min.js" as="script"><link href="css/docs.min.css" rel="stylesheet" type="text/css"></head><body><div class="docs" id="docs"><aside class="aside" id="aside"><header class="aside__header"><h2 class="aside__h2">API Documentation</h2></header></aside><main class="main" id="main"><header class="main__header" id="header"><h1 class="main__h1"><strong class="main__name">dom.</strong>js</h1><p class="main__tagline">dom.js - 专门处理 DOM 操作的 JavaScript 工具库。</p></header><div class="main__cdn" id="cdn"><pre class="main__pre"><code>&lt;script src="https://cdn.jsdelivr.net/gh/yaohaixiao/dom.js/dom.min.js"&gt;&lt;/script&gt;</code></pre></div><div class="main__download" id="download"><a class="main__button" href="https://github.com/yaohaixiao/dom.js/archive/refs/heads/main.zip" target="_blank">Download Zip</a></div><article id="article"><section class="section"><header class="section__header"><h2 class="section__title">Attributes</h2></header><div class="section__content"><p>dom.js 提供以下方法来获取和设置元素的 DOM 属性。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">hasClass(el, className)</h3></header><div class="section__content"><p>hasClass() 方法用来判断 DOM 元素是否包含指定 className 的样式；</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）HTMLElement 参数指定需要检测 class 样式的 DOM 元素；</p><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）className 要添加的 class 样式名称。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="keywords" content="dom.js,DOM,JavaScript,Toolkit"><meta name="description" content="dom.js - 专门处理 DOM 操作的 JavaScript 工具库。"><link rel="shortcut icon" href="./favicon.ico"><title>dom.js | 专门处理 DOM 操作的 JavaScript 工具库</title><link rel="preload" href="css/docs.min.css" as="style"><link rel="preload" href="js/docs.min.js" as="script"><link href="css/docs.min.css" rel="stylesheet" type="text/css"></head><body><div class="docs" id="docs"><aside class="aside" id="aside"><header class="aside__header"><h2 class="aside__h2">API Documentation</h2></header></aside><main class="main" id="main"><header class="main__header" id="header"><h1 class="main__h1"><strong class="main__name">dom.</strong>js</h1><p class="main__tagline">dom.js - 专门处理 DOM 操作的 JavaScript 工具库。</p></header><div class="main__cdn" id="cdn"><pre class="main__pre"><code>&lt;script src="https://cdn.jsdelivr.net/gh/yaohaixiao/dom.js/dom.min.js"&gt;&lt;/script&gt;</code></pre></div><div class="main__download" id="download"><a class="main__button" href="https://github.com/yaohaixiao/dom.js/archive/refs/heads/main.zip" target="_blank">Download Zip</a></div><article id="article"><section class="section"><header class="section__header"><h2 class="section__title">Attributes</h2></header><div class="section__content"><p>dom.js 提供以下方法来获取和设置元素的 DOM 属性。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">hasClass(el, className)</h3></header><div class="section__content"><p>hasClass() 方法用来判断 DOM 元素是否包含指定 className 的样式；</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）HTMLElement 参数指定需要检测 class 样式的 DOM 元素。</p><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）className 要添加的 class 样式名称。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -19,7 +19,7 @@ DOM.addClass($list, 'primary')
 // 判断是否存在 class 样式
 DOM.hasClass($list, 'nav') => true
 hasClass($list, 'primary') => true
-hasClass($list, 'top-menu') => false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">addClass(el, className)</h3></header><div class="section__content"><p>addClass() 方法用来给 DOM 元素添加 class 样式；</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）HTMLElement 参数指定需要添加 class 样式的 DOM 元素；</p><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）className 参数指定要检测的 class 样式名称。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+hasClass($list, 'top-menu') => false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">addClass(el, className)</h3></header><div class="section__content"><p>addClass() 方法用来给 DOM 元素添加 class 样式。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）HTMLElement 参数指定需要添加 class 样式的 DOM 元素。</p><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）className 参数指定要检测的 class 样式名称。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>如果 el 元素包含 className 的 class 样式，则返回 true，否则返回 false。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -40,7 +40,7 @@ DOM.addClass($list, 'primary')
 // 判断是否存在 class 样式
 DOM.hasClass($list, 'nav') => true
 hasClass($list, 'primary') => true
-hasClass($list, 'top-menu') => false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">replaceClass(el, oldCls, newCls)</h3></header><div class="section__content"><p>replaceClass() 方法用来替换 DOM 元素中的 className 的样式；</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）HTMLElement 参数指定需要替换 class 样式的 DOM 元素；</p><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）oldCls 要替换的 class 样式名称。</p><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）newCls 用来替换的 class 样式名称。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+hasClass($list, 'top-menu') => false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">replaceClass(el, oldCls, newCls)</h3></header><div class="section__content"><p>replaceClass() 方法用来替换 DOM 元素中的 className 的样式。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）HTMLElement 参数指定需要替换 class 样式的 DOM 元素。</p><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）oldCls 要替换的 class 样式名称。</p><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）newCls 用来替换的 class 样式名称。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -62,7 +62,7 @@ DOM.replaceClass($list, 'nav', 'main')
 
 hasClass($list, 'list') => true
 hasClass($list, 'nav') => false
-hasClass($list, 'main') => true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">removeClass(el, className)</h3></header><div class="section__content"><p>removeClass() 方法用来移除 DOM 元素中的 className 的样式；</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）HTMLElement 参数指定需要移除 class 样式的 DOM 元素；</p><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）className 参数指定要移除的 class 样式名称。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+hasClass($list, 'main') => true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">removeClass(el, className)</h3></header><div class="section__content"><p>removeClass() 方法用来移除 DOM 元素中的 className 的样式。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）HTMLElement 参数指定需要移除 class 样式的 DOM 元素。</p><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）className 参数指定要移除的 class 样式名称。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -86,7 +86,7 @@ removeClass($list, 'primary')
 
 hasClass($list, 'list') => true
 hasClass($list, 'nav') => false
-hasClass($list, 'primary') => false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">toggleClass(el, className)</h3></header><div class="section__content"><p>toggleClass() 方法用来切换（添加或删除） DOM 元素中的 className 的样式；</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）HTMLElement 参数指定需要切换 class 样式的 DOM 元素；</p><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）className 参数指定要切换的样式名称。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+hasClass($list, 'primary') => false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">toggleClass(el, className)</h3></header><div class="section__content"><p>toggleClass() 方法用来切换（添加或删除） DOM 元素中的 className 的样式。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）HTMLElement 参数指定需要切换 class 样式的 DOM 元素。</p><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）className 参数指定要切换的样式名称。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -110,7 +110,7 @@ hasClass($active, 'active') // -> false
 
 // 判断是否存在 class 样式
 toggleClass($active, 'active')
-hasClass($active, 'active') // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getAttribute(el, attr)</h3></header><div class="section__content"><p>getAttribute() 方法用来获取 DOM 元素的 DOM 属性值；</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）HTMLElement 参数指定 DOM 元素；</p><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）attr 参数指定要获取的属性名称。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>返回指定的属性值。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+hasClass($active, 'active') // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getAttribute(el, attr)</h3></header><div class="section__content"><p>getAttribute() 方法用来获取 DOM 元素的 DOM 属性值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）HTMLElement 参数指定 DOM 元素。</p><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）attr 参数指定要获取的属性名称。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>返回指定的属性值。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -130,7 +130,7 @@ DOM.getAttribute($list, 'className') // -> 'list'
 
 DOM.addClass($list, 'nav')
 // 也可以直接实用 class 属性，因为在获取属性时，class 不存在 JS 的保留关键字的限制
-DOM.getAttribute($list, 'class') // -> 'list nav'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getAttributes(el, props)</h3></header><div class="section__content"><p>getAttribute() 方法用来获取 DOM 元素的多个 DOM 属性值；</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）HTMLElement 参数指定 DOM 元素；</p><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Array</dd></dl><p>（可选）props 参数指定要获取的属性名称的数组，不指定则获取全部 DOM 属性。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>返回查询的多属性的键/值对象。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+DOM.getAttribute($list, 'class') // -> 'list nav'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getAttributes(el, props)</h3></header><div class="section__content"><p>getAttribute() 方法用来获取 DOM 元素的多个 DOM 属性值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）HTMLElement 参数指定 DOM 元素。</p><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Array</dd></dl><p>（可选）props 参数指定要获取的属性名称的数组，不指定则获取全部 DOM 属性。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>返回查询的多属性的键/值对象。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -146,7 +146,7 @@ const $list = byId('#list')
 
 DOM.getAttributes($list, ['id', 'class']) // -> { id: 'list', class: 'list' }
 getAttributes($list) // -> { id: 'list', class: 'list' }
-getAttributes($list, ['className']) // -> { className: 'list' }</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">setAttribute(el, attr, value)</h3></header><div class="section__content"><p>getAttribute() 方法用来设置 DOM 元素的 DOM 属性值；</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）HTMLElement 参数指定 DOM 元素；</p><h5 class="section__h4">attr</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）attr 参数指定属性名称。</p><h5 class="section__h4">value</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）value 参数指定属性值。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+getAttributes($list, ['className']) // -> { className: 'list' }</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">setAttribute(el, attr, value)</h3></header><div class="section__content"><p>getAttribute() 方法用来设置 DOM 元素的 DOM 属性值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）HTMLElement 参数指定 DOM 元素。</p><h5 class="section__h4">attr</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）attr 参数指定属性名称。</p><h5 class="section__h4">value</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）value 参数指定属性值。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -168,7 +168,7 @@ setAttribute($list, 'style', 'width:200px;height:30px;')
 DOM.getAttribute($list, 'style') // -> 'width:200px;height:30px;'
 
 DOM.setAttribute($list, 'className', 'nav')
-DOM.getAttribute($list, 'className') // -> 'nav'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">setAttributes(el, attrs)</h3></header><div class="section__content"><p>getAttributes() 方法用来给 DOM 元素一次设置多个 DOM 属性/值；</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）HTMLElement 参数指定 DOM 元素；</p><h5 class="section__h4">attrs</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>（必须）attrs 参数指定要设置的属性键/值对象。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+DOM.getAttribute($list, 'className') // -> 'nav'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">setAttributes(el, attrs)</h3></header><div class="section__content"><p>getAttributes() 方法用来给 DOM 元素一次设置多个 DOM 属性/值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）HTMLElement 参数指定 DOM 元素。</p><h5 class="section__h4">attrs</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>（必须）attrs 参数指定要设置的属性键/值对象。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -188,42 +188,117 @@ setAttributes($list, {
   style: 'height:30px;width:100%;'
 })
 
-DOM.getAttribute($list, 'data-id') // -> 'list'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">removeAttribute(el, attr)</h3></header><div class="section__content"><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">const outline = new Outline(Outline.DEFAULTS)
+DOM.getAttribute($list, 'data-id') // -> 'list'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">removeAttribute(el, attr)</h3></header><div class="section__content"><p>removeAttribute() 方法用来移除 DOM 元素的 DOM 属性值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）HTMLElement 参数指定 DOM 元素。</p><h5 class="section__h4">attr</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）attr 参数指定属性名称。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
 
-outline.$on('beforeDestroy', function() {
-  // this 上下文就是 outline 实例
-  console.log('this', this)
-})
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 removeAttribute 单个方法
+import removeAttribute from '@yaohaixiao/dom.js/removeAttribute'
 
-outline.destroy()</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">removeAttributes(el, attrs)</h3></header><div class="section__content"><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">const outline = new Outline(Outline.DEFAULTS)
+const $list = byId('#list')
 
-outline.$on('beforeDestroy', function() {
-  // this 上下文就是 outline 实例
-  console.log('this', this)
-})
+DOM.removeAttribute($list, 'id')
+DOM.getAttribute($list, 'id') // -> null
 
-outline.destroy()</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">attrs(el[, attr, value])</h3></header><div class="section__content"><table class="section__table"><thead class="section__thead"><tr class="section__tr"><th class="section__th">事件名称</th><th class="section__th">说明</th><th class="section__th">回调参数</th></tr></thead><tbody class="section__tbody"><tr class="section__tr"><td class="section__td">mounted</td><td class="section__td">Outline 实例的所有 DOM 元素绘制完毕后触发。</td><td class="section__td">--</td></tr></tbody></table><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">const outline = new Outline()
+// 可以一次性调整多个样式，性能更好
+DOM.setAttribute($list, 'style', 'width:200px;height:30px;')
+DOM.getAttribute($list, 'style') // -> 'width:200px;height:30px;'
 
-outline.$on('mounted', function() {
-  // do something
-})
+removeAttribute($list, 'style')
+DOM.getAttribute($list, 'style') // -> null</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">removeAttributes(el, attrs)</h3></header><div class="section__content"><p>removeAttributes() 方法用来移除 DOM 元素（一个或）多个 DOM 属性。不设置 attrs，则移除 el 元素上的所有 DOM 属性。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）HTMLElement 参数指定 DOM 元素。</p><h5 class="section__h4">attrs</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>（可选）attrs 参数指定要移除的属性名称数组，不设置 attrs，则移除 el 元素上的所有 DOM 属性。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
 
-// 当 outline 实例的所有 DOM 绘制完毕，就会触发 mounted 事件
-outline.initialize(Outline.DEFAULTS)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">html(el[, strHTML])</h3></header><div class="section__content"><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">const outline = new Outline(Outline.DEFAULTS)
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 removeAttributes 单个方法
+import removeAttributes from '@yaohaixiao/dom.js/removeAttributes'
 
-outline.$on('beforeDestroy', function() {
-  // this 上下文就是 outline 实例
-  console.log('this', this)
-})
+const $list = byId('#list')
 
-outline.destroy()</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">text(el[, str])</h3></header><div class="section__content"><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">const outline = new Outline(Outline.DEFAULTS)
+// 效果相同 removeAttributes(el)
+DOM.removeAttributes($list, ['id', 'class'])
+DOM.getAttribute($list, 'id') // -> null
+DOM.getAttribute($list, 'class') // -> null</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">attrs(el[, attr, value])</h3></header><div class="section__content"><p>attrs() 方法用来设置或者获取 DOM 元素的（一个或多个） DOM 属性值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）HTMLElement 参数指定 DOM 元素。</p><h5 class="section__h4">attrs</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|Array|Object</dd></dl><p>（可选）attrs 参数指定属性名称。</p><h5 class="section__h4">value</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（可选）value 参数指定属性值。</p><p>attrs() 方法的参数配置有以下几种场景：</p><ol><li>仅传递 el 参数：用于获取 el 元素上的所有 DOM 属性；</li><li>传递了 attr 参数<ol><li>attr 参数为 String 类型<ol><li>传递了 value 参数：用于给 el 元素设置（单个） DOM 属性；</li><li>未传递 value 参数：用于获取 el 元素的（单个）DOM 属性值；</li></ol></li><li>未传递 value 参数<ol><li>attr 参数为 Array 类型：用于获取 el 元素的多个 DOM 属性/值；</li><li>attr 参数为 Object 类型：用于给 el 元素设置多个 DOM 属性/值；</li></ol></li></ol></li></ol><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>返回获取的单个或者多个 DOM 属性。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+   &lt;li class="item active"&gt;Home&lt;/li&gt;
+   &lt;li class="item"&gt;Blog&lt;/li&gt;
+   &lt;li class="item"&gt;Projects&lt;/li&gt;
+   &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
 
-outline.$on('beforeDestroy', function() {
-  // this 上下文就是 outline 实例
-  console.log('this', this)
-})
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 attrs 单个方法
+import attrs from '@yaohaixiao/dom.js/attrs'
 
-outline.destroy()</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Base</h2></header><div class="section__content"><p>dom.js 提供以下方法用以创建或查询 DOM 元素等基础 DOM 操作。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">createElement(tagName[, attrs, children])</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">null</dd></dl><p>可选，当点击导航菜单、文章中的 anchor 图标（#）或者上下滚动按钮会触发滚动，afterScroll() 回调函数会在滚动结束后触发执行。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">target</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>afterScroll() 回调函数有一个参数 target，返回的是当前点击的 DOM 元素的名称：</p><ul><li>'anchor'：表示点击的是 anchor 图标，即文章中标题前的 “#” 图标，此时的 this 上下文指向 outline.anchors；</li><li>'chapter'：表示点击的是导航菜单的链接，此时的 this 上下文指向 outline.chapters；</li><li>'up'：表示点击的是工具栏的向上按钮，此时的 this 上下文指向 outline.toolbar；</li><li>'down'：表示点击的是工具栏的向下按钮，此时的 this 上下文指向 outline.toolbar；</li></ul><p>注意：因为配置 afterScroll 回调函数会因为 4 个不同的 DOM 触发，所以需要根据 target 返回的值和此时的 this 指向判断处理。</p><pre class="section__pre"><code class="section__code">const defaults = Outline.DEFAULTS
+const $list = byId('#list')
+
+// 获取所有 DOM 属性
+DOM.attrs(el) // => {id:'list',class:'list'}
+// 获取单个属性
+attrs(el, 'id') // => 'list'
+// 获取多个属性
+attrs(el, ['id', 'class']) // => {id:'list',class:'list'}
+
+// 设置单个属性
+attrs(el, 'id', 'nav')
+// 设置多个属性
+attrs(el, {id:'list',class:'list'})</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">html(el[, strHTML])</h3></header><div class="section__content"><p>html() 方法用来获取或者设置 DOM 元素的 innerHTML 属性值，或者通过 HTML 字符串，创建 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）el 参数指定 DOM 元素或者用来创建 DOM 元素的 HTML 字符串；</p><h5 class="section__h4">strHTML</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（可选）strHTML 参数指定设置的 innerHTML 字符串，如果不指定则返回 el 元素的 innerHTML 属性（字符串）。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>返回创建的 DOM 元素或者 DOM 元素的 innerHTML 属性（字符串）。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+   &lt;li class="item active"&gt;Home&lt;/li&gt;
+   &lt;li class="item"&gt;Blog&lt;/li&gt;
+   &lt;li class="item"&gt;Projects&lt;/li&gt;
+   &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 html 单个方法
+import html from '@yaohaixiao/dom.js/html'
+
+const $list = byId('#list')
+
+// 获取 innerHTML 属性（字符串）
+DOM.html($list) // -> '&lt;li class="item active"&gt;Home&lt;/li&gt;&lt;li class="item"&gt;Blog&lt;/li&gt;&lt;li class="item"&gt;About&lt;/li&gt;'
+
+// 将 $list 元素的 innerHTML 设置为 '&lt;li class="item"&gt;Blog&lt;/li&gt;'
+html($list, '&lt;li class="item"&gt;Blog&lt;/li&gt;')
+
+// 创建一个 li 标签的 DOM 元素
+const $item = html('&lt;li class="item"&gt;About&lt;/li&gt;')
+// 将创建的 $item 元素添加到 $list 列表
+$list.appendChild($item)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">text(el[, str])</h3></header><div class="section__content"><p>text() 方法获取或者设置 DOM 元素的 innerText 属性值，或者通过字符串，创建 TextNode 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）el 参数指定 DOM 元素或者用来创建 TextNode 元素的字符串。</p><h5 class="section__h4">str</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（可选）str 参数指定设置的 innerText 字符串，如果不指定则返回 el 元素的 innerText 属性（字符串）。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>返回创建的 DOM 元素或者 TextNode 元素的 innerText 属性（字符串）。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+   &lt;li id="active" class="item active"&gt;Home&lt;/li&gt;
+   &lt;li class="item"&gt;Blog&lt;/li&gt;
+   &lt;li class="item"&gt;Projects&lt;/li&gt;
+   &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 text 单个方法
+import text from '@yaohaixiao/dom.js/text'
+
+const $active = byId('#active')
+
+// 获取 innerText 属性（字符串）
+DOM.text($active) // -> 'Home'
+
+// 将 $active 元素的 innerText 设置为 'Homepage'
+text($active, 'Homepage')
+
+// 创建一个文本为 URL 的 TextNode 元素
+const $text = test('URL')
+// 将创建的 $text 元素添加到 $active
+$active.appendChild($text)
+text($active) // -> 'HomepageURL'</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Base</h2></header><div class="section__content"><p>dom.js 提供以下方法用以创建或查询 DOM 元素等基础 DOM 操作。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">createElement(tagName[, attrs, children])</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">null</dd></dl><p>可选，当点击导航菜单、文章中的 anchor 图标（#）或者上下滚动按钮会触发滚动，afterScroll() 回调函数会在滚动结束后触发执行。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">target</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>afterScroll() 回调函数有一个参数 target，返回的是当前点击的 DOM 元素的名称：</p><ul><li>'anchor'：表示点击的是 anchor 图标，即文章中标题前的 “#” 图标，此时的 this 上下文指向 outline.anchors；</li><li>'chapter'：表示点击的是导航菜单的链接，此时的 this 上下文指向 outline.chapters；</li><li>'up'：表示点击的是工具栏的向上按钮，此时的 this 上下文指向 outline.toolbar；</li><li>'down'：表示点击的是工具栏的向下按钮，此时的 this 上下文指向 outline.toolbar；</li></ul><p>注意：因为配置 afterScroll 回调函数会因为 4 个不同的 DOM 触发，所以需要根据 target 返回的值和此时的 this 指向判断处理。</p><pre class="section__pre"><code class="section__code">const defaults = Outline.DEFAULTS
 let outline
 
 defaults.position = 'fixed'
@@ -358,7 +433,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -401,7 +476,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -444,7 +519,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -487,7 +562,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -530,7 +605,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -573,7 +648,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -887,7 +962,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -930,7 +1005,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -973,7 +1048,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -1016,7 +1091,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -1059,7 +1134,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -1102,7 +1177,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -1145,7 +1220,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -1188,7 +1263,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -1231,7 +1306,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -1274,7 +1349,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -1317,7 +1392,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -1360,7 +1435,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -1403,7 +1478,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -1446,7 +1521,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -1489,7 +1564,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -1532,7 +1607,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -1575,7 +1650,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -1618,7 +1693,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -1661,7 +1736,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -1704,7 +1779,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -1747,7 +1822,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -1790,7 +1865,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -1833,7 +1908,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -1876,7 +1951,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -1919,7 +1994,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -1962,7 +2037,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -2005,7 +2080,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -2048,7 +2123,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -2091,7 +2166,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -2134,7 +2209,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -2177,7 +2252,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -2220,7 +2295,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -2240,7 +2315,7 @@ Anchors.DEFAULTS = {
   afterDestroy: null
 }
 
-export default Anchors</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Selecting Siblings</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用于获取邻居 DOM 元素。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getNextSibling(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>存储的是 Outline 对象当前使用中的配置选项：</p><p>说明：建议使用 attr(prop) 方法来获取属性，避免直接调用属性。</p><pre class="section__pre"><code class="section__code">// 设置默认配置项
+export default Anchors</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Selecting Siblings</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用于获取邻居 DOM 元素。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getNextSibling(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>存储的是 Outline 对象当前使用中的配置选项：</p><p>说明：建议使用 attrs(prop) 方法来获取属性，避免直接调用属性。</p><pre class="section__pre"><code class="section__code">// 设置默认配置项
 const outline = new Outline(Outline.DEFAULTS)
 
 // 查看全部配置信息
@@ -2270,14 +2345,14 @@ class Drawer extends Base {
   }
 
   setTitle() {
-    this.attr('title', title)
+    this.attrs('title', title)
     this.title = title
     this.$title.innerHTML = title
 
     return this
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     // 省略其它逻辑...
     return this
   }
@@ -2309,7 +2384,7 @@ class Drawer extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -2364,12 +2439,12 @@ class Chapters extends Base {
   }
 
   isSticky() {
-    const position = this.attr('position')
+    const position = this.attrs('position')
     return position === 'sticky'
   }
 
   isFixed() {
-    const position = this.attr('position')
+    const position = this.attrs('position')
     return position === 'fixed'
   }
 
@@ -2381,7 +2456,7 @@ class Chapters extends Base {
     return !this.isInside()
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     // 省略其它逻辑...
     return this
   }
@@ -2428,7 +2503,7 @@ class Chapters extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -2451,7 +2526,7 @@ Chapters.DEFAULTS = {
   afterDestroy: null
 }
 
-export default Chapters</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getNextSiblingBy(el, filter)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>存储的是 Outline 对象当前使用中的配置选项：</p><p>说明：建议使用 attr(prop) 方法来获取属性，避免直接调用属性。</p><pre class="section__pre"><code class="section__code">// 设置默认配置项
+export default Chapters</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getNextSiblingBy(el, filter)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>存储的是 Outline 对象当前使用中的配置选项：</p><p>说明：建议使用 attrs(prop) 方法来获取属性，避免直接调用属性。</p><pre class="section__pre"><code class="section__code">// 设置默认配置项
 const outline = new Outline(Outline.DEFAULTS)
 
 // 查看全部配置信息
@@ -2481,14 +2556,14 @@ class Drawer extends Base {
   }
 
   setTitle() {
-    this.attr('title', title)
+    this.attrs('title', title)
     this.title = title
     this.$title.innerHTML = title
 
     return this
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     // 省略其它逻辑...
     return this
   }
@@ -2520,7 +2595,7 @@ class Drawer extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -2571,12 +2646,12 @@ class Chapters extends Base {
   }
 
   isSticky() {
-    const position = this.attr('position')
+    const position = this.attrs('position')
     return position === 'sticky'
   }
 
   isFixed() {
-    const position = this.attr('position')
+    const position = this.attrs('position')
     return position === 'fixed'
   }
 
@@ -2588,7 +2663,7 @@ class Chapters extends Base {
     return !this.isInside()
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     // 省略其它逻辑...
     return this
   }
@@ -2635,7 +2710,7 @@ class Chapters extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -2707,7 +2782,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -2750,7 +2825,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -2793,7 +2868,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -2836,7 +2911,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -2879,7 +2954,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -2922,7 +2997,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -2965,7 +3040,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -3008,7 +3083,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -3051,7 +3126,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -3094,7 +3169,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -3137,7 +3212,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -3180,7 +3255,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -3223,7 +3298,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -3266,7 +3341,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -3309,7 +3384,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -3352,7 +3427,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -3395,7 +3470,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -3438,7 +3513,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -3481,7 +3556,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -3524,7 +3599,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -3567,7 +3642,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -3610,7 +3685,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -3653,7 +3728,7 @@ class Anchors extends Base {
     return this.chapters.length
   }
 
-  attr(prop, value) {
+  attrs(prop, value) {
     const attrs = this.attrs
 
     if (isString(prop)) {
@@ -3696,7 +3771,7 @@ class Anchors extends Base {
   }
 
   reload(options) {
-    this.destroy().initialize(this.attr(options))
+    this.destroy().initialize(this.attrs(options))
     return this
   }
 }
@@ -3716,7 +3791,7 @@ Anchors.DEFAULTS = {
   afterDestroy: null
 }
 
-export default Anchors</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Style</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用以获取或者设置 DOM 元素的 css 样式属性：</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getStyle(el, attr)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><p>$off() 用来取消订阅主题。</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Core</dd></dl><h4 class="section__h4">Parameters</h4><h5 class="section__h4">topic</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）主题名称。</p><h5 class="section__h4">token</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function | String</dd></dl><p>（可选）订阅主题的处理器函数或者唯一 Id 值。</p><ul><li>为传递 token 参数：取消指定 topic 的订阅；</li><li>传递 token 参数：仅删除 topic 订阅信息中与 token 对应的事件处理器</li></ul><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Outline</dd></dl><p>Outline 对象，以便实现链式调用。</p><pre class="section__pre"><code class="section__code">const outline = new Outline(Outline.DEFAULTS)
+export default Anchors</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Style</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用以获取或者设置 DOM 元素的 css 样式属性：</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getStyle(el, attrs)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><p>$off() 用来取消订阅主题。</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Core</dd></dl><h4 class="section__h4">Parameters</h4><h5 class="section__h4">topic</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）主题名称。</p><h5 class="section__h4">token</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function | String</dd></dl><p>（可选）订阅主题的处理器函数或者唯一 Id 值。</p><ul><li>为传递 token 参数：取消指定 topic 的订阅；</li><li>传递 token 参数：仅删除 topic 订阅信息中与 token 对应的事件处理器</li></ul><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Outline</dd></dl><p>Outline 对象，以便实现链式调用。</p><pre class="section__pre"><code class="section__code">const outline = new Outline(Outline.DEFAULTS)
 
 const handler = (msg) => {
   console.log('handler:', msg)
@@ -3732,21 +3807,21 @@ outline.$emit('created')</code></pre></div></section><section class="section"><h
 
 const handler = function(attrs) {
   // this 上下文指向 outline 实例
-  this.attr()
+  this.attrs()
   console.log('attrs: ', attrs)
 }
 
 outline.$on('created', handler)
 
 // 手动触发 created 事件
-outline.$emit('created')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getStyles(el, attrs)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><p>attr() 方法用来设置或者获取初始化时配置的 attrs 信息的。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">prop</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|HTMLElement</dd></dl><p>（可选）options 中的属性名称或者要配置的 attrs 信息。</p><h5 class="section__h4">value</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（可选）要设置的 prop 属性的值</p><ul><li>不传递任何参数：返回完整的 attrs 配置信息；</li><li>仅传递 prop：</li><ul><li>String: 返回 attrs 配型信息中与 prop 对应的值；</li><li>Object: 用来设置 attrs 配置信息；</li></ul><li>同时传递 prop 和 value 参数：设置 attrs 配置信息中的某个属性值；</li></ul><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>配置信息 attrs 的属性值或者 Outline 对象。</p><pre class="section__pre"><code class="section__code">const outline = new Outline({
+outline.$emit('created')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getStyles(el, attrs)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><p>attrs() 方法用来设置或者获取初始化时配置的 attrs 信息的。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">prop</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|HTMLElement</dd></dl><p>（可选）options 中的属性名称或者要配置的 attrs 信息。</p><h5 class="section__h4">value</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（可选）要设置的 prop 属性的值</p><ul><li>不传递任何参数：返回完整的 attrs 配置信息；</li><li>仅传递 prop：</li><ul><li>String: 返回 attrs 配型信息中与 prop 对应的值；</li><li>Object: 用来设置 attrs 配置信息；</li></ul><li>同时传递 prop 和 value 参数：设置 attrs 配置信息中的某个属性值；</li></ul><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>配置信息 attrs 的属性值或者 Outline 对象。</p><pre class="section__pre"><code class="section__code">const outline = new Outline({
    article: '#article',
    title: 'Outline v2.0.0'
 })
 
-outline.attr('title') // -> 'Outline v2.0.0'
-outline.attr('title', '目录') // -> 设置 title 配置信息的值为 '目录'
-outline.attr() // -> 返回完整配置参数 attrs 信息</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">setStyles(el, styles)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><p>addButton() 方法添加自定义的工具栏按钮。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">button</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object|Array</dd></dl><p>（必须）单个按钮的配置信息或者多个按钮的配置信息。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Outline</dd></dl><p>Outline 对象，便于链式方法调用。</p><pre class="section__pre"><code class="section__code">const outline = new Outline(Outline.DEFAULTS)
+outline.attrs('title') // -> 'Outline v2.0.0'
+outline.attrs('title', '目录') // -> 设置 title 配置信息的值为 '目录'
+outline.attrs() // -> 返回完整配置参数 attrs 信息</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">setStyles(el, styles)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><p>addButton() 方法添加自定义的工具栏按钮。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">button</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object|Array</dd></dl><p>（必须）单个按钮的配置信息或者多个按钮的配置信息。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Outline</dd></dl><p>Outline 对象，便于链式方法调用。</p><pre class="section__pre"><code class="section__code">const outline = new Outline(Outline.DEFAULTS)
 // 如果需要其它图标，可以到 https://github.com/yaohaixiao/icons.toolkit.vue 项目中选择需要的图标资源
 const clean = '&lt;svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 1024 1024"&gt;' +
   '&lt;path d="M704 32V320h288a32 32 0 0 1 32 32v320a32 32 0 0 1-32 32H32a32 32 0 0 1-32-32v-320A32 32 0 0 1 32 320H320V32a32 32 0 0 1 32-32h320a32 32 0 0 1 32 32zM576 128H448v320H128v128h768V448H576V128z"&gt;&lt;/path&gt;' +
@@ -3795,7 +3870,7 @@ outline.$on('created')
 outline.$off('created')
 
 // 不会有任何反应，因为已经取消订阅了
-outline.$emit('created')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">css(el, attr[, value])</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><p>$emit()方法用来发布订阅主题信息。</p><p>outline.js 默认是采用异步方式发布的。以确保在消费者处理主题时，主题的发起者不会被阻止。 当然 $emit() 方法也支持同步主题发布。</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Core</dd></dl><h4 class="section__h4">Parameters</h4><h5 class="section__h4">topic</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）主题名称。</p><h5 class="section__h4">data</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>（可选）消息传递的数据对象。</p><h5 class="section__h4">async</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">true</dd></dl><p>(可选) 是否异步发布。默认值：true。</p><ul><li>当 async 设置为 true（默认） 时，异步发布；</li><li>当 async 设置为 false 时，同步发布；</li></ul><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Outline</dd></dl><p>Outline 对象，以便实现链式调用。</p><pre class="section__pre"><code class="section__code">const outline = new Outline(Outline.DEFAULTS)
+outline.$emit('created')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">css(el, attrs[, value])</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><p>$emit()方法用来发布订阅主题信息。</p><p>outline.js 默认是采用异步方式发布的。以确保在消费者处理主题时，主题的发起者不会被阻止。 当然 $emit() 方法也支持同步主题发布。</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Core</dd></dl><h4 class="section__h4">Parameters</h4><h5 class="section__h4">topic</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）主题名称。</p><h5 class="section__h4">data</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>（可选）消息传递的数据对象。</p><h5 class="section__h4">async</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">true</dd></dl><p>(可选) 是否异步发布。默认值：true。</p><ul><li>当 async 设置为 true（默认） 时，异步发布；</li><li>当 async 设置为 false 时，同步发布；</li></ul><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Outline</dd></dl><p>Outline 对象，以便实现链式调用。</p><pre class="section__pre"><code class="section__code">const outline = new Outline(Outline.DEFAULTS)
 
 const handler = (msg) => {
   console.log(msg)
@@ -3823,436 +3898,108 @@ outline.$emit('mounted') // -> 'ok'
 
 // 同步发布
 // 延迟10毫秒：应该看输出 ok 后输出
-outline.$emit('created')</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Types</h2></header><div class="section__content"><p>dom.js 提供以下方法用于判断 DOM 元素的类型。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">isCollection(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
-class Anchors extends Base {
-  constructor(options) {
-    super()
-
-    this.attrs = Anchors.DEFAULTS
-    this.$articleElement = null
-    this.$scrollElement = null
-    this.$headings = []
-    this.chapters = []
-
-    // 省略其它逻辑...
-  }
-
-  getChapters(isTreeStructured = false) {
-    const chapters = this.chapters
-    return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-  }
-
-  count() {
-    return this.chapters.length
-  }
-
-  attr(prop, value) {
-    const attrs = this.attrs
-
-    if (isString(prop)) {
-      // 只能扩展 attrs 中已有的属性
-      if (value && hasOwn(attrs, prop)) {
-        // 更新单个配置信息
-        attrs[prop] = value
-        return this
-      }
-
-      // 只传递 prop 参数，则返回对应的属性值
-      return attrs[prop]
-    } else if (isObject(prop)) {
-      // 批量更新配置信息
-      extend(attrs, prop)
-
-      return this
-    } else if (arguments.length === 0) {
-      // 不传递参数，直接返回整个
-      return attrs
-    }
-
-    return this
-  }
-
-  render() {
-    // 省略其它逻辑...
-    return this
-  }
-
-  scrollTo(top, after) {
-    // 省略其它逻辑...
-    return this
-  }
-
-  destroy() {
-    this.removeListeners()
-    // 省略其它逻辑...
-    return this
-  }
-
-  reload(options) {
-    this.destroy().initialize(this.attr(options))
-    return this
-  }
-}
-
-Anchors.DEFAULTS = {
-  scrollElement: 'html,body',
-  articleElement: '#article',
-  selector: 'h1,h2,h3,h4,h5,h6',
-  anchorURL: '',
-  hasAnchor: true,
-  isAtStart: true,
-  showCode: false,
-  created: null,
-  mounted: null,
-  afterScroll: null,
-  beforeDestroy: null,
-  afterDestroy: null
-}
-
-export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isDOM(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
-class Anchors extends Base {
-  constructor(options) {
-    super()
-
-    this.attrs = Anchors.DEFAULTS
-    this.$articleElement = null
-    this.$scrollElement = null
-    this.$headings = []
-    this.chapters = []
-
-    // 省略其它逻辑...
-  }
-
-  getChapters(isTreeStructured = false) {
-    const chapters = this.chapters
-    return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-  }
-
-  count() {
-    return this.chapters.length
-  }
-
-  attr(prop, value) {
-    const attrs = this.attrs
-
-    if (isString(prop)) {
-      // 只能扩展 attrs 中已有的属性
-      if (value && hasOwn(attrs, prop)) {
-        // 更新单个配置信息
-        attrs[prop] = value
-        return this
-      }
-
-      // 只传递 prop 参数，则返回对应的属性值
-      return attrs[prop]
-    } else if (isObject(prop)) {
-      // 批量更新配置信息
-      extend(attrs, prop)
-
-      return this
-    } else if (arguments.length === 0) {
-      // 不传递参数，直接返回整个
-      return attrs
-    }
-
-    return this
-  }
-
-  render() {
-    // 省略其它逻辑...
-    return this
-  }
-
-  scrollTo(top, after) {
-    // 省略其它逻辑...
-    return this
-  }
-
-  destroy() {
-    this.removeListeners()
-    // 省略其它逻辑...
-    return this
-  }
-
-  reload(options) {
-    this.destroy().initialize(this.attr(options))
-    return this
-  }
-}
-
-Anchors.DEFAULTS = {
-  scrollElement: 'html,body',
-  articleElement: '#article',
-  selector: 'h1,h2,h3,h4,h5,h6',
-  anchorURL: '',
-  hasAnchor: true,
-  isAtStart: true,
-  showCode: false,
-  created: null,
-  mounted: null,
-  afterScroll: null,
-  beforeDestroy: null,
-  afterDestroy: null
-}
-
-export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isElement(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
-class Anchors extends Base {
-  constructor(options) {
-    super()
-
-    this.attrs = Anchors.DEFAULTS
-    this.$articleElement = null
-    this.$scrollElement = null
-    this.$headings = []
-    this.chapters = []
-
-    // 省略其它逻辑...
-  }
-
-  getChapters(isTreeStructured = false) {
-    const chapters = this.chapters
-    return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-  }
-
-  count() {
-    return this.chapters.length
-  }
-
-  attr(prop, value) {
-    const attrs = this.attrs
-
-    if (isString(prop)) {
-      // 只能扩展 attrs 中已有的属性
-      if (value && hasOwn(attrs, prop)) {
-        // 更新单个配置信息
-        attrs[prop] = value
-        return this
-      }
-
-      // 只传递 prop 参数，则返回对应的属性值
-      return attrs[prop]
-    } else if (isObject(prop)) {
-      // 批量更新配置信息
-      extend(attrs, prop)
-
-      return this
-    } else if (arguments.length === 0) {
-      // 不传递参数，直接返回整个
-      return attrs
-    }
-
-    return this
-  }
-
-  render() {
-    // 省略其它逻辑...
-    return this
-  }
-
-  scrollTo(top, after) {
-    // 省略其它逻辑...
-    return this
-  }
-
-  destroy() {
-    this.removeListeners()
-    // 省略其它逻辑...
-    return this
-  }
-
-  reload(options) {
-    this.destroy().initialize(this.attr(options))
-    return this
-  }
-}
-
-Anchors.DEFAULTS = {
-  scrollElement: 'html,body',
-  articleElement: '#article',
-  selector: 'h1,h2,h3,h4,h5,h6',
-  anchorURL: '',
-  hasAnchor: true,
-  isAtStart: true,
-  showCode: false,
-  created: null,
-  mounted: null,
-  afterScroll: null,
-  beforeDestroy: null,
-  afterDestroy: null
-}
-
-export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isFragment(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
-class Anchors extends Base {
-  constructor(options) {
-    super()
-
-    this.attrs = Anchors.DEFAULTS
-    this.$articleElement = null
-    this.$scrollElement = null
-    this.$headings = []
-    this.chapters = []
-
-    // 省略其它逻辑...
-  }
-
-  getChapters(isTreeStructured = false) {
-    const chapters = this.chapters
-    return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-  }
-
-  count() {
-    return this.chapters.length
-  }
-
-  attr(prop, value) {
-    const attrs = this.attrs
-
-    if (isString(prop)) {
-      // 只能扩展 attrs 中已有的属性
-      if (value && hasOwn(attrs, prop)) {
-        // 更新单个配置信息
-        attrs[prop] = value
-        return this
-      }
-
-      // 只传递 prop 参数，则返回对应的属性值
-      return attrs[prop]
-    } else if (isObject(prop)) {
-      // 批量更新配置信息
-      extend(attrs, prop)
-
-      return this
-    } else if (arguments.length === 0) {
-      // 不传递参数，直接返回整个
-      return attrs
-    }
-
-    return this
-  }
-
-  render() {
-    // 省略其它逻辑...
-    return this
-  }
-
-  scrollTo(top, after) {
-    // 省略其它逻辑...
-    return this
-  }
-
-  destroy() {
-    this.removeListeners()
-    // 省略其它逻辑...
-    return this
-  }
-
-  reload(options) {
-    this.destroy().initialize(this.attr(options))
-    return this
-  }
-}
-
-Anchors.DEFAULTS = {
-  scrollElement: 'html,body',
-  articleElement: '#article',
-  selector: 'h1,h2,h3,h4,h5,h6',
-  anchorURL: '',
-  hasAnchor: true,
-  isAtStart: true,
-  showCode: false,
-  created: null,
-  mounted: null,
-  afterScroll: null,
-  beforeDestroy: null,
-  afterDestroy: null
-}
-
-export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isText(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
-class Anchors extends Base {
-  constructor(options) {
-    super()
-
-    this.attrs = Anchors.DEFAULTS
-    this.$articleElement = null
-    this.$scrollElement = null
-    this.$headings = []
-    this.chapters = []
-
-    // 省略其它逻辑...
-  }
-
-  getChapters(isTreeStructured = false) {
-    const chapters = this.chapters
-    return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-  }
-
-  count() {
-    return this.chapters.length
-  }
-
-  attr(prop, value) {
-    const attrs = this.attrs
-
-    if (isString(prop)) {
-      // 只能扩展 attrs 中已有的属性
-      if (value && hasOwn(attrs, prop)) {
-        // 更新单个配置信息
-        attrs[prop] = value
-        return this
-      }
-
-      // 只传递 prop 参数，则返回对应的属性值
-      return attrs[prop]
-    } else if (isObject(prop)) {
-      // 批量更新配置信息
-      extend(attrs, prop)
-
-      return this
-    } else if (arguments.length === 0) {
-      // 不传递参数，直接返回整个
-      return attrs
-    }
-
-    return this
-  }
-
-  render() {
-    // 省略其它逻辑...
-    return this
-  }
-
-  scrollTo(top, after) {
-    // 省略其它逻辑...
-    return this
-  }
-
-  destroy() {
-    this.removeListeners()
-    // 省略其它逻辑...
-    return this
-  }
-
-  reload(options) {
-    this.destroy().initialize(this.attr(options))
-    return this
-  }
-}
-
-Anchors.DEFAULTS = {
-  scrollElement: 'html,body',
-  articleElement: '#article',
-  selector: 'h1,h2,h3,h4,h5,h6',
-  anchorURL: '',
-  hasAnchor: true,
-  isAtStart: true,
-  showCode: false,
-  created: null,
-  mounted: null,
-  afterScroll: null,
-  beforeDestroy: null,
-  afterDestroy: null
-}
-
-export default Anchors</code></pre></div></section></section></article><footer class="main__footer" id="footer"><p>Copyright &copy; 2023 <a href="https://github.com/yaohaixiao">Robert Yao</a>, all right reserved.</p><p>Code licensed under&nbsp;<a href="http://opensource.org/licenses/mit-license.html">MIT License</a></p><p>Documentation licensed under&nbsp;
+outline.$emit('created')</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Node Types</h2></header><div class="section__content"><p>dom.js 提供以下方法用于判断 DOM 元素的类型。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">isCollection(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><p>isCollection(val) 方法用来检测测试数据是否为 HTMLNodeList (元素集合)类型。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">val</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）val 待检测的数据。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 HTMLNodeList (元素集合)类型，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom'
+// 或者单独引用 isCollection() 方法
+import isCollection from '@yaohaixiao/types.js/isCollection'
+
+const $list = document.getElementById('list')
+const $div = document.createElement('div')
+const $text = document.createTextNode('text')
+const $items = document.querySelectorAll('.item')
+const $fragment = document.createDocumentFragment()
+
+DOM.isElement($list) // -> true
+DOM.isCollection($list) // -> false
+
+DOM.isElement($div) // -> true
+DOM.isCollection($div) // -> false
+
+DOM.isElement($text) // -> false
+DOM.isCollection($text) // -> false
+
+DOM.isElement($items) // -> false
+isCollection($items) // -> true
+
+DOM.isElement($fragment) // -> false
+isCollection($fragment) // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isDOM(el)</h3></header><div class="section__content"><p>isDOM(val) 方法用来检测测试数据是否为 DOM 类型数据：DOM 节点，TextNode，NodeList 和 DocumentFragment）。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">val</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>（必须）val 待检测的数据。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 DOM 类型数据，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom'
+// 或者单独引用 isTextNode() 方法
+import isDOM from '@yaohaixiao/dom.js/isDOM'
+
+const $list = document.getElementById('list')
+const $fragment = document.createDocumentFragment()
+const $items = document.querySelectorAll('.item')
+const $text = document.createTextNode('text')
+
+DOM.isDOM($list) // -> true
+DOM.isDOM($fragment) // -> true
+DOM.isElement($items) // -> false
+isDOM($items) // -> true
+isText($text) // -> true
+isDOM($text) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isElement(el)</h3></header><div class="section__content"><p>isElement(val) 方法用来检测测试数据是否为 HTMLElement (元素节点)类型。</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Lang</dd></dl><h4 class="section__h4">Parameters</h4><h5 class="section__h4">val</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）val 待检测的数据。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 HTMLElement (元素节点)类型，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom'
+// 或者单独引用 isElement() 方法
+import isElement from '@yaohaixiao/dom.js/isElement'
+
+const $list = document.getElementById('list')
+const $div = document.createElement('div')
+const $text = document.createTextNode('text')
+const $items = document.querySelectorAll('.item')
+const $fragment = document.createDocumentFragment()
+
+DOM.isElement($list) // -> true
+DOM.isElement($div) // -> true
+DOM.isElement($text) // -> false
+isElement($items) // -> false
+isElement($fragment) // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isFragment(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><p>isFragment(val) 方法用来检测测试数据是否为 DocumentFragment 文档碎片。</p><dl class="section__dl"><dt class="section__dt">Since：</dt><dd class="section__dd">0.6.0</dd></dl><h4 class="section__h4">Parameters</h4><h5 class="section__h4">val</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）val 待检测的数据。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 DocumentFragment 文档碎片，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom'
+// 或者单独引用 isFragment() 方法
+import isFragment from '@yaohaixiao/dom.js/isFragment'
+
+const $list = document.getElementById('list')
+const $div = document.createElement('div')
+const $text = document.createTextNode('text')
+const $items = document.querySelectorAll('.item')
+const $fragment = document.createDocumentFragment()
+
+DOM.isElement($list) // -> true
+DOM.isFragment($list) // -> false
+
+DOM.isElement($div) // -> true
+DOM.isFragment($div) // -> false
+
+DOM.isElement($text) // -> false
+DOM.isFragment($text) // -> false
+
+DOM.isElement($items) // -> false
+isFragment($items) // -> false
+
+DOM.isElement($fragment) // -> false
+isFragment($fragment) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isText(el)</h3></header><div class="section__content"><p>isText(val) 方法用来检测测试数据是否为 HTMLTextNode (文本节点)类型。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">val</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）val 待检测的数据。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 HTMLTextNode (文本节点)类型，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom'
+// 或者单独引用 isText() 方法
+import isText from '@yaohaixiao/dom.js/isText'
+
+const $list = document.getElementById('list')
+const $div = document.createElement('div')
+const $fragment = document.createDocumentFragment()
+const $items = document.querySelectorAll('.item')
+const $text = document.createTextNode('text')
+
+DOM.isElement($list) // -> true
+DOM.isText($list) // -> false
+
+DOM.isElement($div) // -> true
+DOM.isText($div) // -> false
+
+DOM.isFragment($fragment) // -> true
+DOM.isText($fragment) // -> false
+
+DOM.isCollection($items) // -> true
+DOM($items) // -> false
+
+DOM.isElement($text) // -> false
+isText($text) // -> true</code></pre></div></section></section></article><footer class="main__footer" id="footer"><p>Copyright &copy; 2023 <a href="https://github.com/yaohaixiao">Robert Yao</a>, all right reserved.</p><p>Code licensed under&nbsp;<a href="http://opensource.org/licenses/mit-license.html">MIT License</a></p><p>Documentation licensed under&nbsp;
 <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a></p><p><a href="https://github.com/yaohaixiao/dom.js">View on GitHub</a> ·
 <a href="https://github.com/yaohaixiao/dom.js/issues">Issues</a></p></footer></main></div><script src="js/dom.min.js" type="text/javascript"></script><script src="js/docs.min.js" type="text/javascript"></script></body></html>

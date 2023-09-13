@@ -10,7 +10,7 @@ const getAttributes = (el, props = []) => {
     return null
   }
 
-  if(!isArray(keys) || keys.length < 1) {
+  if (!isArray(keys) || keys.length < 1) {
     keys = el.getAttributeNames()
   }
 
