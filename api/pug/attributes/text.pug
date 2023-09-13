@@ -2,15 +2,48 @@ section.section
   header.section__header
     h3.section__h3 text(el[, str])
   div.section__content
-
+    p text() 方法获取或者设置 DOM 元素的 innerText 属性值，或者通过字符串，创建 TextNode 元素。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement|String
+    p （必须）el 参数指定 DOM 元素或者用来创建 TextNode 元素的字符串。
+    h5.section__h4 str
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （可选）str 参数指定设置的 innerText 字符串，如果不指定则返回 el 元素的 innerText 属性（字符串）。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Any
+    p 返回创建的 DOM 元素或者 TextNode 元素的 innerText 属性（字符串）。
     h4.section__h4 Usage
     pre.section__pre
       code.section__code.
-        const outline = new Outline(Outline.DEFAULTS)
+         &lt;ul id="list" class="list"&gt;
+            &lt;li id="active" class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+         &lt;/ul&gt;
 
-        outline.$on('beforeDestroy', function() {
-          // this 上下文就是 outline 实例
-          console.log('this', this)
-        })
+         // 引入 DOM 模块（中的所有工具方法）
+         import DOM from '@yaohaixiao/dom.js/dom
+         // 引用 text 单个方法
+         import text from '@yaohaixiao/dom.js/text'
 
-        outline.destroy()
+         const $active = byId('#active')
+
+         // 获取 innerText 属性（字符串）
+         DOM.text($active) // -> 'Home'
+
+         // 将 $active 元素的 innerText 设置为 'Homepage'
+         text($active, 'Homepage')
+
+         // 创建一个文本为 URL 的 TextNode 元素
+         const $text = test('URL')
+         // 将创建的 $text 元素添加到 $active
+         $active.appendChild($text)
+         text($active) // -> 'HomepageURL'

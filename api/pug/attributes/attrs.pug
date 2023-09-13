@@ -1,0 +1,67 @@
+section.section
+  header.section__header
+    h3.section__h3 attrs(el[, attr, value])
+  div.section__content
+    p attrs() 方法用来设置或者获取 DOM 元素的（一个或多个） DOM 属性值。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （必须）HTMLElement 参数指定 DOM 元素。
+    h5.section__h4 attrs
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String|Array|Object
+    p （可选）attrs 参数指定属性名称。
+    h5.section__h4 value
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Any
+    p （可选）value 参数指定属性值。
+    p attrs() 方法的参数配置有以下几种场景：
+    ol
+      li 仅传递 el 参数：用于获取 el 元素上的所有 DOM 属性；
+      li 传递了 attr 参数
+        ol
+          li attr 参数为 String 类型
+            ol
+              li 传递了 value 参数：用于给 el 元素设置（单个） DOM 属性；
+              li 未传递 value 参数：用于获取 el 元素的（单个）DOM 属性值；
+          li 未传递 value 参数
+            ol
+              li attr 参数为 Array 类型：用于获取 el 元素的多个 DOM 属性/值；
+              li attr 参数为 Object 类型：用于给 el 元素设置多个 DOM 属性/值；
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Any
+    p 返回获取的单个或者多个 DOM 属性。
+    h4.section__h4 Usage
+    pre.section__pre
+      code.section__code.
+         &lt;ul id="list" class="list"&gt;
+            &lt;li class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+         &lt;/ul&gt;
+
+         // 引入 DOM 模块（中的所有工具方法）
+         import DOM from '@yaohaixiao/dom.js/dom
+         // 引用 attrs 单个方法
+         import attrs from '@yaohaixiao/dom.js/attrs'
+
+         const $list = byId('#list')
+
+         // 获取所有 DOM 属性
+         DOM.attrs(el) // => {id:'list',class:'list'}
+         // 获取单个属性
+         attrs(el, 'id') // => 'list'
+         // 获取多个属性
+         attrs(el, ['id', 'class']) // => {id:'list',class:'list'}
+
+         // 设置单个属性
+         attrs(el, 'id', 'nav')
+         // 设置多个属性
+         attrs(el, {id:'list',class:'list'})

@@ -38,12 +38,12 @@ section.section
           }
 
           isSticky() {
-            const position = this.attr('position')
+            const position = this.attrs('position')
             return position === 'sticky'
           }
 
           isFixed() {
-            const position = this.attr('position')
+            const position = this.attrs('position')
             return position === 'fixed'
           }
 
@@ -55,7 +55,7 @@ section.section
             return !this.isInside()
           }
 
-          attr(prop, value) {
+          attrs(prop, value) {
             // 省略其它逻辑...
             return this
           }
@@ -102,7 +102,7 @@ section.section
           }
 
           reload(options) {
-            this.destroy().initialize(this.attr(options))
+            this.destroy().initialize(this.attrs(options))
             return this
           }
         }

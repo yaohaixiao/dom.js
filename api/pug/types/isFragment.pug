@@ -3,97 +3,45 @@ section.section
     h3.section__h3 isFragment(el)
   div.section__content
     h4.section__h4 Description
+    p isFragment(val) 方法用来检测测试数据是否为 DocumentFragment 文档碎片。
+    dl.section__dl
+      dt.section__dt Since：
+      dd.section__dd 0.6.0
+    h4.section__h4 Parameters
+    h5.section__h4 val
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd Object
-    p Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。
+      dd.section__dd Any
+    p （必须）val 待检测的数据。
+    h4.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Boolean。
+    p true - 表示检测数据是 DocumentFragment 文档碎片，false 则表示不是。
     pre.section__pre
       code.section__code.
-        // 仅展示 API 中对外公开的方法和属性
-        class Anchors extends Base {
-          constructor(options) {
-            super()
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom'
+        // 或者单独引用 isFragment() 方法
+        import isFragment from '@yaohaixiao/dom.js/isFragment'
 
-            this.attrs = Anchors.DEFAULTS
-            this.$articleElement = null
-            this.$scrollElement = null
-            this.$headings = []
-            this.chapters = []
+        const $list = document.getElementById('list')
+        const $div = document.createElement('div')
+        const $text = document.createTextNode('text')
+        const $items = document.querySelectorAll('.item')
+        const $fragment = document.createDocumentFragment()
 
-            // 省略其它逻辑...
-          }
+        DOM.isElement($list) // -> true
+        DOM.isFragment($list) // -> false
 
-          getChapters(isTreeStructured = false) {
-            const chapters = this.chapters
-            return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-          }
+        DOM.isElement($div) // -> true
+        DOM.isFragment($div) // -> false
 
-          count() {
-            return this.chapters.length
-          }
+        DOM.isElement($text) // -> false
+        DOM.isFragment($text) // -> false
 
-          attr(prop, value) {
-            const attrs = this.attrs
+        DOM.isElement($items) // -> false
+        isFragment($items) // -> false
 
-            if (isString(prop)) {
-              // 只能扩展 attrs 中已有的属性
-              if (value && hasOwn(attrs, prop)) {
-                // 更新单个配置信息
-                attrs[prop] = value
-                return this
-              }
-
-              // 只传递 prop 参数，则返回对应的属性值
-              return attrs[prop]
-            } else if (isObject(prop)) {
-              // 批量更新配置信息
-              extend(attrs, prop)
-
-              return this
-            } else if (arguments.length === 0) {
-              // 不传递参数，直接返回整个
-              return attrs
-            }
-
-            return this
-          }
-
-          render() {
-            // 省略其它逻辑...
-            return this
-          }
-
-          scrollTo(top, after) {
-            // 省略其它逻辑...
-            return this
-          }
-
-          destroy() {
-            this.removeListeners()
-            // 省略其它逻辑...
-            return this
-          }
-
-          reload(options) {
-            this.destroy().initialize(this.attr(options))
-            return this
-          }
-        }
-
-        Anchors.DEFAULTS = {
-          scrollElement: 'html,body',
-          articleElement: '#article',
-          selector: 'h1,h2,h3,h4,h5,h6',
-          anchorURL: '',
-          hasAnchor: true,
-          isAtStart: true,
-          showCode: false,
-          created: null,
-          mounted: null,
-          afterScroll: null,
-          beforeDestroy: null,
-          afterDestroy: null
-        }
-
-        export default Anchors
-
+        DOM.isElement($fragment) // -> false
+        isFragment($fragment) // -> true

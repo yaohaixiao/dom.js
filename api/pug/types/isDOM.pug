@@ -2,98 +2,33 @@ section.section
   header.section__header
     h3.section__h3 isDOM(el)
   div.section__content
-    h4.section__h4 Description
+    p isDOM(val) 方法用来检测测试数据是否为 DOM 类型数据：DOM 节点，TextNode，NodeList 和 DocumentFragment）。
+    h4.section__h4 Parameters
+    h5.section__h4 val
     dl.section__dl
       dt.section__dt Type：
       dd.section__dd Object
-    p Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。
+    p （必须）val 待检测的数据。
+    h4.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Boolean。
+    p true - 表示检测数据是 DOM 类型数据，false 则表示不是。
     pre.section__pre
       code.section__code.
-        // 仅展示 API 中对外公开的方法和属性
-        class Anchors extends Base {
-          constructor(options) {
-            super()
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom'
+        // 或者单独引用 isTextNode() 方法
+        import isDOM from '@yaohaixiao/dom.js/isDOM'
 
-            this.attrs = Anchors.DEFAULTS
-            this.$articleElement = null
-            this.$scrollElement = null
-            this.$headings = []
-            this.chapters = []
+        const $list = document.getElementById('list')
+        const $fragment = document.createDocumentFragment()
+        const $items = document.querySelectorAll('.item')
+        const $text = document.createTextNode('text')
 
-            // 省略其它逻辑...
-          }
-
-          getChapters(isTreeStructured = false) {
-            const chapters = this.chapters
-            return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-          }
-
-          count() {
-            return this.chapters.length
-          }
-
-          attr(prop, value) {
-            const attrs = this.attrs
-
-            if (isString(prop)) {
-              // 只能扩展 attrs 中已有的属性
-              if (value && hasOwn(attrs, prop)) {
-                // 更新单个配置信息
-                attrs[prop] = value
-                return this
-              }
-
-              // 只传递 prop 参数，则返回对应的属性值
-              return attrs[prop]
-            } else if (isObject(prop)) {
-              // 批量更新配置信息
-              extend(attrs, prop)
-
-              return this
-            } else if (arguments.length === 0) {
-              // 不传递参数，直接返回整个
-              return attrs
-            }
-
-            return this
-          }
-
-          render() {
-            // 省略其它逻辑...
-            return this
-          }
-
-          scrollTo(top, after) {
-            // 省略其它逻辑...
-            return this
-          }
-
-          destroy() {
-            this.removeListeners()
-            // 省略其它逻辑...
-            return this
-          }
-
-          reload(options) {
-            this.destroy().initialize(this.attr(options))
-            return this
-          }
-        }
-
-        Anchors.DEFAULTS = {
-          scrollElement: 'html,body',
-          articleElement: '#article',
-          selector: 'h1,h2,h3,h4,h5,h6',
-          anchorURL: '',
-          hasAnchor: true,
-          isAtStart: true,
-          showCode: false,
-          created: null,
-          mounted: null,
-          afterScroll: null,
-          beforeDestroy: null,
-          afterDestroy: null
-        }
-
-        export default Anchors
-
+        DOM.isDOM($list) // -> true
+        DOM.isDOM($fragment) // -> true
+        DOM.isElement($items) // -> false
+        isDOM($items) // -> true
+        isText($text) // -> true
+        isDOM($text) // -> true

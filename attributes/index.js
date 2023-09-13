@@ -1,4 +1,4 @@
-import attr from '../attr'
+import attrs from '../attrs'
 import getAttribute from '../getAttribute'
 import setAttribute from '../setAttribute'
 import removeAttribute from '../removeAttribute'
@@ -25,7 +25,7 @@ const DOM = {
   replaceClass,
   removeClass,
   toggleClass,
-  attr,
+  attrs,
   html,
   text
 }

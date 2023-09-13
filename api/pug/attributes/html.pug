@@ -2,15 +2,47 @@ section.section
   header.section__header
     h3.section__h3 html(el[, strHTML])
   div.section__content
-
+    p html() 方法用来获取或者设置 DOM 元素的 innerHTML 属性值，或者通过 HTML 字符串，创建 DOM 元素。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement|String
+    p （必须）el 参数指定 DOM 元素或者用来创建 DOM 元素的 HTML 字符串；
+    h5.section__h4 strHTML
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （可选）strHTML 参数指定设置的 innerHTML 字符串，如果不指定则返回 el 元素的 innerHTML 属性（字符串）。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Any
+    p 返回创建的 DOM 元素或者 DOM 元素的 innerHTML 属性（字符串）。
     h4.section__h4 Usage
     pre.section__pre
       code.section__code.
-        const outline = new Outline(Outline.DEFAULTS)
+         &lt;ul id="list" class="list"&gt;
+            &lt;li class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+         &lt;/ul&gt;
 
-        outline.$on('beforeDestroy', function() {
-          // this 上下文就是 outline 实例
-          console.log('this', this)
-        })
+         // 引入 DOM 模块（中的所有工具方法）
+         import DOM from '@yaohaixiao/dom.js/dom
+         // 引用 html 单个方法
+         import html from '@yaohaixiao/dom.js/html'
 
-        outline.destroy()
+         const $list = byId('#list')
+
+         // 获取 innerHTML 属性（字符串）
+         DOM.html($list) // -> '&lt;li class="item active"&gt;Home&lt;/li&gt;&lt;li class="item"&gt;Blog&lt;/li&gt;&lt;li class="item"&gt;About&lt;/li&gt;'
+
+         // 将 $list 元素的 innerHTML 设置为 '&lt;li class="item"&gt;Blog&lt;/li&gt;'
+         html($list, '&lt;li class="item"&gt;Blog&lt;/li&gt;')
+
+         // 创建一个 li 标签的 DOM 元素
+         const $item = html('&lt;li class="item"&gt;About&lt;/li&gt;')
+         // 将创建的 $item 元素添加到 $list 列表
+         $list.appendChild($item)
