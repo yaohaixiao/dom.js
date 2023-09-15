@@ -410,6 +410,12 @@ new Outline(Outline.DEFAULTS)
 // 指定滚动区域是 #main 元素
 new Outline({
   scrollElement: '#main'
+})</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getEl(selector, el, multiple)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|HTMLElement</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">'html,body'</dd></dl><ul><li>String： 选择器字符串，默认值：html,body（即 window 窗口）;</li><li>HTMLElement： DOM 元素;</li></ul><p>可选，负责文章区域滚动的元素：</p><pre class="section__pre"><code class="section__">// 默认是当前窗口滚动
+new Outline(Outline.DEFAULTS)
+
+// 指定滚动区域是 #main 元素
+new Outline({
+  scrollElement: '#main'
 })</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getHostOrParent(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
 class Anchors extends Base {
   constructor(options) {
