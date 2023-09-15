@@ -36,11 +36,12 @@ const attrs = (el, attr, value) => {
       // 没有传递 value 值，用于获取 DOM 属性
       return getAttribute(el, attr)
     }
-  } else if (isUndefined(value)) { // 仅传递了 attr 属性
+  } else if (isUndefined(value)) {
+    // 仅传递了 attr 属性
     // attr 为数组是，用于获取 el 元素的多个 DOM 属性
     if (isArray(attr)) {
       return getAttributes(el, attr)
-    } else if (isObject(attr)){
+    } else if (isObject(attr)) {
       // attr 为对象，则用于给 el 元素设置多个 DOM 属性值
       setAttributes(el, attr)
     }

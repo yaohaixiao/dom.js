@@ -1,12 +1,11 @@
 /**
  * @jest-environment jsdom
  */
-import isText from '../isText'
-import isElement from '../isElement'
-import isFragment from '../isFragment'
-import isCollection from '../isCollection'
+import isCollection from '../../isCollection'
+import isElement from '../../isElement'
+import isFragment from '../../isFragment'
 
-describe('isText() 方法：', () => {
+describe('is() 方法：', () => {
   // Set up our document body
   document.body.innerHTML =
     '<ul id="list" class="list">\n' +
@@ -24,38 +23,39 @@ describe('isText() 方法：', () => {
     '  </li>\n' +
     '</ul>'
 
-  it(`isText(document.getElementById('list')), 返回：false`, () => {
+  it(`isCollection(document.getElementById('list')), 返回：false`, () => {
     const $list = document.getElementById('list')
 
     expect(isElement($list)).toBe(true)
-    expect(isText($list)).toBe(false)
+    expect(isCollection($list)).toBe(false)
   })
 
-  it(`isText(document.createElement('div')), 返回：false`, () => {
+  it(`isCollection(document.createElement('div')), 返回：false`, () => {
     const $div = document.createElement('div')
 
     expect(isElement($div)).toBe(true)
-    expect(isText($div)).toBe(false)
+    expect(isCollection($div)).toBe(false)
   })
 
-  it(`isText(document.createDocumentFragment()), 返回：false`, () => {
-    const $fragment = document.createDocumentFragment()
-
-    expect(isFragment($fragment)).toBe(true)
-    expect(isText($fragment)).toBe(false)
-  })
-
-  it(`isText(document.querySelectorAll('.item')), 返回：false`, () => {
-    const $items = document.querySelectorAll('.item')
-
-    expect(isCollection($items)).toBe(true)
-    expect(isText($items)).toBe(false)
-  })
-
-  it(`isText(document.createTextNode('text')), 返回：true`, () => {
+  it(`isCollection(document.createTextNode('text')), 返回：false`, () => {
     const $text = document.createTextNode('text')
 
     expect(isElement($text)).toBe(false)
-    expect(isText($text)).toBe(true)
+    expect(isCollection($text)).toBe(false)
+  })
+
+  it(`isCollection(document.createDocumentFragment()), 返回：false`, () => {
+    const $fragment = document.createDocumentFragment()
+
+    expect(isElement($fragment)).toBe(false)
+    expect(isFragment($fragment)).toBe(true)
+    expect(isCollection($fragment)).toBe(false)
+  })
+
+  it(`isCollection(document.querySelectorAll('.item')), 返回：true`, () => {
+    const $items = document.querySelectorAll('.item')
+
+    expect(isElement($items)).toBe(false)
+    expect(isCollection($items)).toBe(true)
   })
 })

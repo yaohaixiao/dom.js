@@ -1,6 +1,15 @@
 import toCamel from './utils/string/toCamel'
 import isElement from './utils/types/isElement'
 
+/**
+ * 给 DOM 元素添加 CSS 样式
+ * ========================================================================
+ * @method getStyle
+ * @param {HTMLElement} el
+ * @param {String} attr
+ * @param {String} val
+ * @return {boolean}
+ */
 const setStyle = (el, attr, val) => {
   let prop
 

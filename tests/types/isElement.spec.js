@@ -1,11 +1,9 @@
 /**
  * @jest-environment jsdom
  */
-import isCollection from '../isCollection'
-import isElement from '../isElement'
-import isFragment from '../isFragment'
+import isElement from '../../isElement'
 
-describe('is() 方法：', () => {
+describe('isElement() 方法：', () => {
   // Set up our document body
   document.body.innerHTML =
     '<ul id="list" class="list">\n' +
@@ -23,39 +21,33 @@ describe('is() 方法：', () => {
     '  </li>\n' +
     '</ul>'
 
-  it(`isCollection(document.getElementById('list')), 返回：false`, () => {
+  it(`isElement(document.getElementById('list')), 返回：true`, () => {
     const $list = document.getElementById('list')
 
     expect(isElement($list)).toBe(true)
-    expect(isCollection($list)).toBe(false)
   })
 
-  it(`isCollection(document.createElement('div')), 返回：false`, () => {
+  it(`isElement(document.createElement('div')), 返回：true`, () => {
     const $div = document.createElement('div')
 
     expect(isElement($div)).toBe(true)
-    expect(isCollection($div)).toBe(false)
   })
 
-  it(`isCollection(document.createTextNode('text')), 返回：false`, () => {
+  it(`isElement(document.createTextNode('text')), 返回：false`, () => {
     const $text = document.createTextNode('text')
 
     expect(isElement($text)).toBe(false)
-    expect(isCollection($text)).toBe(false)
   })
 
-  it(`isCollection(document.createDocumentFragment()), 返回：false`, () => {
+  it(`isElement(document.createDocumentFragment()), 返回：false`, () => {
     const $fragment = document.createDocumentFragment()
 
     expect(isElement($fragment)).toBe(false)
-    expect(isFragment($fragment)).toBe(true)
-    expect(isCollection($fragment)).toBe(false)
   })
 
-  it(`isCollection(document.querySelectorAll('.item')), 返回：true`, () => {
+  it(`isElement(document.querySelectorAll('.item')), 返回：false`, () => {
     const $items = document.querySelectorAll('.item')
 
     expect(isElement($items)).toBe(false)
-    expect(isCollection($items)).toBe(true)
   })
 })
