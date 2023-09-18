@@ -1,54 +1,67 @@
 section.section
   header.section__header
-    h3.section__h3 css(el, attrs[, value])
+    h3.section__h3 css(el, attr[, value])
   div.section__content
-    h4.section__h4 Description
-    p $emit()方法用来发布订阅主题信息。
-    p outline.js 默认是采用异步方式发布的。以确保在消费者处理主题时，主题的发起者不会被阻止。 当然 $emit() 方法也支持同步主题发布。
+    p css()方法用来设置或者查询 DOM 元素的 CSS 样式。
     dl.section__dl
       dt.section__dt Category：
-      dd.section__dd Core
+      dd.section__dd Style
     h4.section__h4 Parameters
-    h5.section__h4 topic
+    h5.section__h4 el
     dl.section__dl
       dt.section__dt Type：
       dd.section__dd String
-    p （必须）主题名称。
-    h5.section__h4 data
+    p （必须）el 参数指定 DOM 元素。
+    h5.section__h4 attr
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd Object
-    p （可选）消息传递的数据对象。
-    h5.section__h4 async
+      dd.section__dd String|Object|Array
+    p （必须）指定 CSS 属性名称。
+    h5.section__h4 value
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd Boolean
+      dd.section__dd String
     dl.section__dl
       dt.section__dt Default：
       dd.section__dd true
-    p (可选) 是否异步发布。默认值：true。
-    ul
-      li 当 async 设置为 true（默认） 时，异步发布；
-      li 当 async 设置为 false 时，同步发布；
+    p (可选) 要设置的 CSS 属性值。
     h4.section__h4 Returns
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd Outline
-    p Outline 对象，以便实现链式调用。
+      dd.section__dd Object|String
+    p 返回指定的单个或者 attr 的属性值。
     pre.section__pre
       code.section__code.
-        const outline = new Outline(Outline.DEFAULTS)
+        &lt;ul id="list" class="list"&gt;
+            &lt;li class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
 
-        const handler = (msg) => {
-          console.log(msg)
-        }
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 css 单个方法
+        import css from '@yaohaixiao/dom.js/css'
 
-        outline.$on('created', handler)
-        outline.$on('mounted', handler)
+        const $list = DOM.byId('#list')
 
-        // 异步发布
-        outline.$emit('mounted') // -> 'ok'
+        // 设置单个 CSS 属性值
+        DOM.css($list, 'display', 'none')
+        css($list, 'display', 'block')
 
-        // 同步发布
-        // 延迟10毫秒：应该看输出 ok 后输出
-        outline.$emit('created')
+        // 设置多个 CSS 属性值
+        setStyle($list, {
+          'background-color': '#f2f2f2',
+          'float': 'left'
+        })
+
+        // 获取单个 CSS 属性值
+        css($list, 'display') // -> 'block'
+
+        // 获取多个 CSS 属性值
+        css($list, ['background-color', 'float'])
+        // -> {
+        //      'background-color': '#f2f2f2',
+        //      'float': 'left'
+        //    }

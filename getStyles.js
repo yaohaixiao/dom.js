@@ -1,19 +1,20 @@
 import toCamel from './utils/string/toCamel'
 import isElement from './utils/types/isElement'
 import isUndefined from './utils/types/isUndefined'
+import isArray from './utils/types/isArray'
 
 /**
- * 获取HTML元素的某个CSS样式值
+ * 获取 DOM 元素的某个 CSS 样式值
  * ====================================================
- * @param el
- * @param attrs
+ * @param {HTMLElement} el
+ * @param {Array} [attrs]
  * @returns {*}
  */
-const getStyles = (el, attrs) => {
+const getStyles = (el, attrs = []) => {
   const styles = {}
   let props = null
 
-  if (!isElement(el)) {
+  if (!isElement(el) || !isArray(attrs) || attrs.length < 1) {
     return props
   }
 

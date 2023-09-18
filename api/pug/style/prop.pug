@@ -1,54 +1,40 @@
 section.section
   header.section__header
-    h3.section__h3 prop(prop, value)
+    h3.section__h3 prop(prop[, value])
   div.section__content
-    h4.section__h4 Description
-    p $emit()方法用来发布订阅主题信息。
-    p outline.js 默认是采用异步方式发布的。以确保在消费者处理主题时，主题的发起者不会被阻止。 当然 $emit() 方法也支持同步主题发布。
+    p $emit()方法用来获取 CSS 样式的属性或者为一个声明了 CSS 样式的对象设置一个新的值。
     dl.section__dl
       dt.section__dt Category：
-      dd.section__dd Core
+      dd.section__dd Style
     h4.section__h4 Parameters
-    h5.section__h4 topic
+    h5.section__h4 prop
     dl.section__dl
       dt.section__dt Type：
       dd.section__dd String
-    p （必须）主题名称。
-    h5.section__h4 data
+    p （必须）CSS 属性名称。
+    h5.section__h4 value
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd Object
-    p （可选）消息传递的数据对象。
-    h5.section__h4 async
-    dl.section__dl
-      dt.section__dt Type：
-      dd.section__dd Boolean
-    dl.section__dl
-      dt.section__dt Default：
-      dd.section__dd true
-    p (可选) 是否异步发布。默认值：true。
-    ul
-      li 当 async 设置为 true（默认） 时，异步发布；
-      li 当 async 设置为 false 时，同步发布；
-    h4.section__h4 Returns
-    dl.section__dl
-      dt.section__dt Type：
-      dd.section__dd Outline
-    p Outline 对象，以便实现链式调用。
+      dd.section__dd String
+    p （必须）CSS 属性值。
     pre.section__pre
       code.section__code.
-        const outline = new Outline(Outline.DEFAULTS)
+        &lt;style&gt;
+          :root {
+            --outline - zIndex: 2000;
+          }
+        &lt;/style&gt;
 
-        const handler = (msg) => {
-          console.log(msg)
-        }
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 prop 单个方法
+        import prop from '@yaohaixiao/dom.js/prop'
 
-        outline.$on('created', handler)
-        outline.$on('mounted', handler)
+        // 设置属性
+        DOM.prop('--outline-sticky-height', '100%')
+        prop('--outline-chapters-width', '100%')
 
-        // 异步发布
-        outline.$emit('mounted') // -> 'ok'
-
-        // 同步发布
-        // 延迟10毫秒：应该看输出 ok 后输出
-        outline.$emit('created')
+        // 获取属性值
+        prop('--outline-zIndex') // => '2000'
+        prop('--outline-sticky-height') // => '100%'
+        prop('--outline-chapters-width') // => '100%'

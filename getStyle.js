@@ -1,10 +1,12 @@
 import toCamel from './utils/string/toCamel'
 import isElement from './utils/types/isElement'
 /**
- * 获取HTML元素的某个CSS样式值
- * ====================================================
- * @param el
- * @param attr
+ * 获取 DOM 元素的某个 CSS 样式值
+ * ========================================================================
+ * @method getStyle
+ * @see https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle
+ * @param {HTMLElement} el
+ * @param {String} attr
  * @returns {*}
  */
 const getStyle = (el, attr) => {

@@ -3797,19 +3797,27 @@ Anchors.DEFAULTS = {
   afterDestroy: null
 }
 
-export default Anchors</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Style</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用以获取或者设置 DOM 元素的 css 样式属性：</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getStyle(el, attrs)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><p>$off() 用来取消订阅主题。</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Core</dd></dl><h4 class="section__h4">Parameters</h4><h5 class="section__h4">topic</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）主题名称。</p><h5 class="section__h4">token</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function | String</dd></dl><p>（可选）订阅主题的处理器函数或者唯一 Id 值。</p><ul><li>为传递 token 参数：取消指定 topic 的订阅；</li><li>传递 token 参数：仅删除 topic 订阅信息中与 token 对应的事件处理器</li></ul><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Outline</dd></dl><p>Outline 对象，以便实现链式调用。</p><pre class="section__pre"><code class="section__code">const outline = new Outline(Outline.DEFAULTS)
+export default Anchors</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Style</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用以获取或者设置 DOM 元素的 css 样式属性：</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getStyle(el, attr)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><p>getStyle() 用来获取 DOM 元素的某个 CSS 样式值。</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Style</dd></dl><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">token</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）指定 CSS 属性名称。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>返回指定的 attr 的属性值。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
 
-const handler = (msg) => {
-  console.log('handler:', msg)
-}
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 setStyle 单个方法
+import setStyle from '@yaohaixiao/dom.js/setStyle'
 
-outline.$on('created')
+const $list = DOM.byId('#list')
 
-// 取消订阅 author 主题
-outline.$off('created')
+DOM.setStyle($list, 'display', 'none')
+DOM.setStyle($list, 'display', 'block')
 
-// 不会有任何反应，因为已经取消订阅了
-outline.$emit('created')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">setStyle(el, attr, val)</h3></header><div class="section__content"><p>setStyle() 方法用来给 DOM 元素添加 CSS 样式。</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Style</dd></dl><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）主题名称。</p><h5 class="section__h4">attr</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）属性名称。</p><h5 class="section__h4">val<dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）属性值。</p></h5><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+setStyle($list, 'background-color', '#f2f2f2')
+
+DOM.getStyle($list, 'background-color') // -> '#f2f2f2'
+getStyle($list, 'display') // -> 'block'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">setStyle(el, attr, val)</h3></header><div class="section__content"><p>setStyle() 方法用来给 DOM 元素添加 CSS 样式。</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Style</dd></dl><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）主题名称。</p><h5 class="section__h4">attr</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）属性名称。</p><h5 class="section__h4">val<dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）属性值。</p></h5><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -3826,91 +3834,121 @@ const $list = DOM.byId('#list')
 DOM.setStyle($list, 'display', 'none')
 DOM.setStyle($list, 'display', 'block')
 
-setStyle($list, 'background-color', '#f2f2f2')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getStyles(el, attrs)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><p>attrs() 方法用来设置或者获取初始化时配置的 attrs 信息的。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">prop</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|HTMLElement</dd></dl><p>（可选）options 中的属性名称或者要配置的 attrs 信息。</p><h5 class="section__h4">value</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（可选）要设置的 prop 属性的值</p><ul><li>不传递任何参数：返回完整的 attrs 配置信息；</li><li>仅传递 prop：</li><ul><li>String: 返回 attrs 配型信息中与 prop 对应的值；</li><li>Object: 用来设置 attrs 配置信息；</li></ul><li>同时传递 prop 和 value 参数：设置 attrs 配置信息中的某个属性值；</li></ul><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>配置信息 attrs 的属性值或者 Outline 对象。</p><pre class="section__pre"><code class="section__code">const outline = new Outline({
+setStyle($list, 'background-color', '#f2f2f2')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getStyles(el, attrs)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><p>getStyles() 方法用来设置或者获取初始化时配置的 attrs 信息的。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">prop</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|HTMLElement</dd></dl><p>（可选）options 中的属性名称或者要配置的 attrs 信息。</p><h5 class="section__h4">value</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（可选）要设置的 prop 属性的值</p><ul><li>不传递任何参数：返回完整的 attrs 配置信息；</li><li>仅传递 prop：</li><ul><li>String: 返回 attrs 配型信息中与 prop 对应的值；</li><li>Object: 用来设置 attrs 配置信息；</li></ul><li>同时传递 prop 和 value 参数：设置 attrs 配置信息中的某个属性值；</li></ul><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>配置信息 attrs 的属性值或者 Outline 对象。</p><pre class="section__pre"><code class="section__code">const outline = new Outline({
    article: '#article',
    title: 'Outline v2.0.0'
 })
 
 outline.attrs('title') // -> 'Outline v2.0.0'
 outline.attrs('title', '目录') // -> 设置 title 配置信息的值为 '目录'
-outline.attrs() // -> 返回完整配置参数 attrs 信息</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">setStyles(el, styles)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><p>addButton() 方法添加自定义的工具栏按钮。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">button</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object|Array</dd></dl><p>（必须）单个按钮的配置信息或者多个按钮的配置信息。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Outline</dd></dl><p>Outline 对象，便于链式方法调用。</p><pre class="section__pre"><code class="section__code">const outline = new Outline(Outline.DEFAULTS)
-// 如果需要其它图标，可以到 https://github.com/yaohaixiao/icons.toolkit.vue 项目中选择需要的图标资源
-const clean = '&lt;svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 1024 1024"&gt;' +
-  '&lt;path d="M704 32V320h288a32 32 0 0 1 32 32v320a32 32 0 0 1-32 32H32a32 32 0 0 1-32-32v-320A32 32 0 0 1 32 320H320V32a32 32 0 0 1 32-32h320a32 32 0 0 1 32 32zM576 128H448v320H128v128h768V448H576V128z"&gt;&lt;/path&gt;' +
-  '&lt;path d="M896 576v416a32 32 0 0 1-32 32h-704a32 32 0 0 1-32-32V576h768z m-128 128H256v192h512v-192z"&gt;&lt;/path&gt;' +
-  '&lt;/svg&gt;'
+outline.attrs() // -> 返回完整配置参数 attrs 信息</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">setStyles(el, styles)</h3></header><div class="section__content"><p>setStyles() 方法用来给 DOM 元素批量添加 CSS 样式。</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Style</dd></dl><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）主题名称。</p><h5 class="section__h4">styles</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object|String</dd></dl><p>（必须）主题名称。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
 
-outline.addButton({
-  name: 'clean',
-  // 图标
-  icon: clean,
-  size: 20,
-  color: '#f00'
-  // link 指定按钮点击后页面的跳转地址
-  link: 'https://github.com/yaohaixiao',
-  // link 和 action 只能二选一
-  // action 指定按钮的处理方式
-  action: {
-    type: 'click',
-    // 指定回调函数的 this 上下文，不设置 this 指向 toolbar 组件
-    context: outline,
-    handler: function() {
-      // 回调函数的处理逻辑
-    }
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 setStyles 单个方法
+import setStyles from '@yaohaixiao/dom.js/setStyles'
+
+const $list = DOM.byId('#list')
+
+DOM.setStyle($list, {
+  display: 'none',
+  'background-color': '#f2f2f2'
+))
+setStyles($list, {
+  'float': 'left',
+  'overflow': 'hidden'
+})
+
+DOM.getStyle($list, 'background-color') // -> '#f2f2f2'
+getStyle($list, 'overflow') // -> 'hidden'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getProperty(prop)</h3></header><div class="section__content"><p>getProperty() 用来获取 CSS 变量（属性）值。</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Style</dd></dl><h4 class="section__h4">Parameters</h4><h5 class="section__h4">prop</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）CSS 属性名称。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>返回一个 DOMString ，其中包含请求的 CSS 属性的值。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
+  :root {
+    --outline-zIndex: 2000;
+    --outline-sticky-height: 100%;
+    --outline-chapters-width: 100%;
   }
-})</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getProperty(prop)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><p>$off() 用来取消订阅主题。</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Core</dd></dl><h4 class="section__h4">Parameters</h4><h5 class="section__h4">topic</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）主题名称。</p><h5 class="section__h4">token</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function | String</dd></dl><p>（可选）订阅主题的处理器函数或者唯一 Id 值。</p><ul><li>为传递 token 参数：取消指定 topic 的订阅；</li><li>传递 token 参数：仅删除 topic 订阅信息中与 token 对应的事件处理器</li></ul><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Outline</dd></dl><p>Outline 对象，以便实现链式调用。</p><pre class="section__pre"><code class="section__code">const outline = new Outline(Outline.DEFAULTS)
+&lt;/style&gt;
 
-const handler = (msg) => {
-  console.log('handler:', msg)
-}
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getProperty 单个方法
+import getProperty from '@yaohaixiao/dom.js/getProperty'
 
-outline.$on('created')
+DOM.getProperty('--outline-zIndex') // => '2000'
+getProperty('--outline-sticky-height') // => '100%'
+getProperty('--outline-chapters-width') // => '100%'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">setProperty(prop, value)</h3></header><div class="section__content"><p>setProperty() 用来为一个声明了 CSS 样式的对象设置一个新的值。</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Style</dd></dl><h4 class="section__h4">Parameters</h4><h5 class="section__h4">prop</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）CSS 属性名称。</p><h5 class="section__h4">value</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）CSS 属性值。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
+  :root {
+    --outline - zIndex: 2000;
+  }
+&lt;/style&gt;
 
-// 取消订阅 author 主题
-outline.$off('created')
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 setProperty 单个方法
+import setProperty from '@yaohaixiao/dom.js/setProperty'
 
-// 不会有任何反应，因为已经取消订阅了
-outline.$emit('created')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">setProperty(prop, value)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><p>$off() 用来取消订阅主题。</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Core</dd></dl><h4 class="section__h4">Parameters</h4><h5 class="section__h4">topic</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）主题名称。</p><h5 class="section__h4">token</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function | String</dd></dl><p>（可选）订阅主题的处理器函数或者唯一 Id 值。</p><ul><li>为传递 token 参数：取消指定 topic 的订阅；</li><li>传递 token 参数：仅删除 topic 订阅信息中与 token 对应的事件处理器</li></ul><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Outline</dd></dl><p>Outline 对象，以便实现链式调用。</p><pre class="section__pre"><code class="section__code">const outline = new Outline(Outline.DEFAULTS)
+// 设置属性
+DOM.setProperty('--outline-sticky-height', '100%')
+setProperty('--outline-chapters-width', '100%')
 
-const handler = (msg) => {
-  console.log('handler:', msg)
-}
+// 获取属性值
+DOM.getProperty('--outline-zIndex') // => '2000'
+DOM.getProperty('--outline-sticky-height') // => '100%'
+DOM.getProperty('--outline-chapters-width') // => '100%'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">css(el, attr[, value])</h3></header><div class="section__content"><p>css()方法用来设置或者查询 DOM 元素的 CSS 样式。</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Style</dd></dl><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">attr</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|Object|Array</dd></dl><p>（必须）指定 CSS 属性名称。</p><h5 class="section__h4">value</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">true</dd></dl><p>(可选) 要设置的 CSS 属性值。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object|String</dd></dl><p>返回指定的单个或者 attr 的属性值。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
 
-outline.$on('created')
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 css 单个方法
+import css from '@yaohaixiao/dom.js/css'
 
-// 取消订阅 author 主题
-outline.$off('created')
+const $list = DOM.byId('#list')
 
-// 不会有任何反应，因为已经取消订阅了
-outline.$emit('created')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">css(el, attrs[, value])</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><p>$emit()方法用来发布订阅主题信息。</p><p>outline.js 默认是采用异步方式发布的。以确保在消费者处理主题时，主题的发起者不会被阻止。 当然 $emit() 方法也支持同步主题发布。</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Core</dd></dl><h4 class="section__h4">Parameters</h4><h5 class="section__h4">topic</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）主题名称。</p><h5 class="section__h4">data</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>（可选）消息传递的数据对象。</p><h5 class="section__h4">async</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">true</dd></dl><p>(可选) 是否异步发布。默认值：true。</p><ul><li>当 async 设置为 true（默认） 时，异步发布；</li><li>当 async 设置为 false 时，同步发布；</li></ul><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Outline</dd></dl><p>Outline 对象，以便实现链式调用。</p><pre class="section__pre"><code class="section__code">const outline = new Outline(Outline.DEFAULTS)
+// 设置单个 CSS 属性值
+DOM.css($list, 'display', 'none')
+css($list, 'display', 'block')
 
-const handler = (msg) => {
-  console.log(msg)
-}
+// 设置多个 CSS 属性值
+setStyle($list, {
+  'background-color': '#f2f2f2',
+  'float': 'left'
+})
 
-outline.$on('created', handler)
-outline.$on('mounted', handler)
+// 获取单个 CSS 属性值
+css($list, 'display') // -> 'block'
 
-// 异步发布
-outline.$emit('mounted') // -> 'ok'
+// 获取多个 CSS 属性值
+css($list, ['background-color', 'float'])
+// -> {
+//      'background-color': '#f2f2f2',
+//      'float': 'left'
+//    }</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">prop(prop[, value])</h3></header><div class="section__content"><p>$emit()方法用来获取 CSS 样式的属性或者为一个声明了 CSS 样式的对象设置一个新的值。</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Style</dd></dl><h4 class="section__h4">Parameters</h4><h5 class="section__h4">prop</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）CSS 属性名称。</p><h5 class="section__h4">value</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）CSS 属性值。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
+  :root {
+    --outline - zIndex: 2000;
+  }
+&lt;/style&gt;
 
-// 同步发布
-// 延迟10毫秒：应该看输出 ok 后输出
-outline.$emit('created')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">prop(prop, value)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><p>$emit()方法用来发布订阅主题信息。</p><p>outline.js 默认是采用异步方式发布的。以确保在消费者处理主题时，主题的发起者不会被阻止。 当然 $emit() 方法也支持同步主题发布。</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Core</dd></dl><h4 class="section__h4">Parameters</h4><h5 class="section__h4">topic</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）主题名称。</p><h5 class="section__h4">data</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>（可选）消息传递的数据对象。</p><h5 class="section__h4">async</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">true</dd></dl><p>(可选) 是否异步发布。默认值：true。</p><ul><li>当 async 设置为 true（默认） 时，异步发布；</li><li>当 async 设置为 false 时，同步发布；</li></ul><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Outline</dd></dl><p>Outline 对象，以便实现链式调用。</p><pre class="section__pre"><code class="section__code">const outline = new Outline(Outline.DEFAULTS)
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 prop 单个方法
+import prop from '@yaohaixiao/dom.js/prop'
 
-const handler = (msg) => {
-  console.log(msg)
-}
+// 设置属性
+DOM.prop('--outline-sticky-height', '100%')
+prop('--outline-chapters-width', '100%')
 
-outline.$on('created', handler)
-outline.$on('mounted', handler)
-
-// 异步发布
-outline.$emit('mounted') // -> 'ok'
-
-// 同步发布
-// 延迟10毫秒：应该看输出 ok 后输出
-outline.$emit('created')</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Node Types</h2></header><div class="section__content"><p>dom.js 提供以下方法用于判断 DOM 元素的类型。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">isCollection(el)</h3></header><div class="section__content"><p>isCollection() 方法用来检测测试数据是否为 HTMLNodeList (元素集合)类型。</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Attributes</dd></dl><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）el 参数指定待检测的 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 HTMLNodeList (元素集合)类型，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+// 获取属性值
+prop('--outline-zIndex') // => '2000'
+prop('--outline-sticky-height') // => '100%'
+prop('--outline-chapters-width') // => '100%'</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Node Type Detection</h2></header><div class="section__content"><p>dom.js 提供以下方法用于判断 DOM 元素的类型。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">isCollection(el)</h3></header><div class="section__content"><p>isCollection() 方法用来检测测试数据是否为 HTMLNodeList (元素集合)类型。</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Attributes</dd></dl><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）el 参数指定待检测的 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 HTMLNodeList (元素集合)类型，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom'
 // 或者单独引用 isCollection() 方法
 import isCollection from '@yaohaixiao/types.js/isCollection'

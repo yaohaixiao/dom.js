@@ -14,11 +14,11 @@ const getEl = (selector, el, multiple = false) => {
   const $el = isElement(el) ? el : document
   let isMultiple = multiple
 
-  if(isBoolean(el)){
+  if (isBoolean(el)) {
     isMultiple = el
   }
 
-  if(isMultiple) {
+  if (isMultiple) {
     return $el.querySelectorAll(selector)
   }
 
