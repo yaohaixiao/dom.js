@@ -2,41 +2,41 @@ import isElement from './utils/types/isElement'
 import isString from './utils/types/isString'
 import isArray from './utils/types/isArray'
 import getSiblings from './getSiblings'
+import getEl from './getEl'
 
-const index = function (ancestor, descendent) {
-  const indexOf = (list, el) => {
+/**
+ * 获取 DOM 元素在其父节点中的索引值
+ * ========================================================================
+ * @method index
+ * @param {HTMLElement|String} el
+ * @param {HTMLElement} [ancestor]
+ * @return {number}
+ */
+const index = function (el, ancestor) {
+  const indexOf = (siblings, target) => {
     let index = -1
 
-    if (!isArray(list)) {
+    if (!isArray(siblings) || siblings.length < 1 || !isElement(target)) {
       return index
     }
 
-    list.forEach((item, i) => {
-      if (item === el) {
-        index = i
+    siblings.forEach((sibling, j) => {
+      if (sibling === target) {
+        index = j
       }
     })
 
     return index
   }
+  let $el
 
-  let i = -1
-  let list
-
-  if (!descendent) {
-    if (isString(el)) {
-      list = [...document.querySelectorAll(ancestor)]
-      i = indexOf(list, document.querySelector(ancestor))
-    } else if (isElement(ancestor)) {
-      list = getSiblings(ancestor, true)
-      i = indexOf(list, ancestor)
-    }
-  } else {
-    list = getSiblings(ancestor, true)
-    i = indexOf(list, ancestor)
+  if (isElement(el)) {
+    $el = el
+  } else if (isString(el)) {
+    $el = getEl(el, ancestor)
   }
 
-  return i
+  return indexOf(getSiblings($el, true), $el)
 }
 
 export default index

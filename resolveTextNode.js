@@ -8,7 +8,7 @@ import isTextNode from './utils/types/isTextNode'
  * @param {HTMLElement|Text} el - 要解析的节点
  * @return {*|HTMLElement} - 实际的目标 DOM 节点
  */
-const resolveTextNode = function (el) {
+const resolveTextNode = (el) => {
   if (isTextNode(el)) {
     return el.parentNode
   }

@@ -7,8 +7,8 @@ import getHostOrParent from './getHostOrParent'
  * @method closest
  * @param {HTMLElement} el - （必须）DOM 元素
  * @param {String} selector - （必须）DOM 元素的选择其
- * @param {HTMLElement} [ctx] - （必须）比对的 DOM 元素
- * @param {Boolean} [includeCTX] - （必须）是否包含 context DOM 元素
+ * @param {HTMLElement} [ctx] - （可选）比对的 DOM 元素
+ * @param {Boolean} [includeCTX] - （可选）是否包含 context DOM 元素
  * @returns {null|HTMLElement} - 返回最接近的 DOM 元素
  */
 const closest = (el, selector, ctx, includeCTX) => {

@@ -8,7 +8,7 @@ import getHostOrParent from '../getHostOrParent'
 import getOffsetParent from '../getOffsetParent'
 import getScrollParent from '../getScrollParent'
 import index from '../index'
-import isAncestor from '../isAncestor'
+import isInBounding from '../isInBounding'
 import isInViewport from '../isInViewport'
 import isMatched from '../isMatched'
 import matches from '../matches'
@@ -26,7 +26,7 @@ const DOM = {
   getOffsetParent,
   getScrollParent,
   index,
-  isAncestor,
+  isInBounding,
   isInViewport,
   isMatched,
   matches,

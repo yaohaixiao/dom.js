@@ -1,52 +1,44 @@
 section.section
   header.section__header
-    h3.section__h3 contains(ancestor, descendent)
+    h3.section__h3 contains(el, ancestor)
   div.section__content
-    h4.section__h4 Description
     dl.section__dl
-      dt.section__dt Type：
-      dd.section__dd Function
-    dl.section__dl
-      dt.section__dt Default：
-      dd.section__dd null
-    p 可选，当点击导航菜单、文章中的 anchor 图标（#）或者上下滚动按钮会触发滚动，afterScroll() 回调函数会在滚动结束后触发执行。
+      dt.section__dt Category：
+      dd.section__dd Base
+    p contains() 方法用来判断某个 DOM 元素中是否包含另一个 DOM 元素。
     h4.section__h4 Parameters
-    h5.section__h4 target
+    h5.section__h4 el
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd String
-    p afterScroll() 回调函数有一个参数 target，返回的是当前点击的 DOM 元素的名称：
-    ul
-      li 'anchor'：表示点击的是 anchor 图标，即文章中标题前的 “#” 图标，此时的 this 上下文指向 outline.anchors；
-      li 'chapter'：表示点击的是导航菜单的链接，此时的 this 上下文指向 outline.chapters；
-      li 'up'：表示点击的是工具栏的向上按钮，此时的 this 上下文指向 outline.toolbar；
-      li 'down'：表示点击的是工具栏的向下按钮，此时的 this 上下文指向 outline.toolbar；
-    p 注意：因为配置 afterScroll 回调函数会因为 4 个不同的 DOM 触发，所以需要根据 target 返回的值和此时的 this 指向判断处理。
+      dd.section__dd HTMLElement|String
+    p （必须）被包含的 DOM 元素或者 DOM 元素的选择器字符串：
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement|String
+    p （必须）ancestor 指定用来查询目标 DOM 元素的父元素：
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Boolean
+    p 包含查询元素返回 true，否则返回 false。
     pre.section__pre
       code.section__code.
-        const defaults = Outline.DEFAULTS
-        let outline
+        &lt;ul id="list" class="list"&gt;
+            &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
 
-        defaults.position = 'fixed'
-        defaults.parentElement = '#aside'
-        defaults.stickyHeight = 86
-        defaults.homepage = './index.html'
-        defaults.afterScroll = function(target) {
-          // 当然，如果你希望无论是点击什么都执行，就不需要判断了
-          // 直接些通用的滚动结束的逻辑即可
-          switch(target){
-            case 'anchor':
-              // 针对点击 # 的处理逻辑
-              break
-            case 'chapter':
-              // 针对点击导航菜单的处理逻辑
-              break
-            case 'up':
-              // 针对点击向上滚动按钮的处理逻辑
-              break
-            case 'down':
-              // 针对点击向下滚动按钮的处理逻辑
-              break
-          }
-        }
-        outline = new Outline(Outline.DEFAULTS)
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 contains 单个方法
+        import contains from '@yaohaixiao/dom.js/contains'
+
+        // 使用 class 选择器，或者使用 class 属性值都可以检索
+        const $list = DOM.byId('#list')
+        const $home = byClass('#home')
+
+        DOM.contains($home, $list) // -> true
+        contains('.blog', $list) // -> true

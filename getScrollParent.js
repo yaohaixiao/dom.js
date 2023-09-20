@@ -1,6 +1,14 @@
 import isElement from './utils/types/isElement'
 import getStyle from './getStyle'
 
+/**
+ * 返回最近的（指包含层级上的最近）包含该元素的滚动父元素
+ * （overflow/overflow-x/overflow-y: auto ）。
+ * ========================================================================
+ * @method getScrollParent
+ * @param {HTMLElement} el
+ * @return {HTMLElement|Document|null}
+ */
 const getScrollParent = (el) => {
   const $root = window
   const $parent = el.parentNode

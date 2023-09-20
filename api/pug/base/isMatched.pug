@@ -2,23 +2,46 @@ section.section
   header.section__header
     h3.section__h3 isMatched(el, filter)
   div.section__content
-    h4.section__h4 Description
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Base
+    p isMatched() 方法用来检测 DOM 节点是否为符合 filter 检测条件的节点。
+    h4.section__h4 Parameters
+    h5.section__h4 el
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd String|HTMLElement
+      dd.section__dd HTMLElement
+    p （必须）el 参数指定 DOM 元素。
+    h5.section__h4 filter
     dl.section__dl
-      dt.section__dt Default：
-      dd.section__dd 'html,body'
-    ul
-      li String： 选择器字符串，默认值：html,body（即 window 窗口）;
-      li HTMLElement： DOM 元素;
-    p 可选，负责文章区域滚动的元素：
+      dt.section__dt Type：
+      dd.section__dd Function|String
+    p （必须）filter 参数指定用于检测 DOM 节点的回调函数或者选择器字符串。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Boolean
+    p DOM 节点符合 filter 检测条件，返回 true，否则为 false。
     pre.section__pre
       code.section__.
-        // 默认是当前窗口滚动
-        new Outline(Outline.DEFAULTS)
+        &lt;ul id="list" class="list"&gt;
+            &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+            &lt;li class="item project"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
 
-        // 指定滚动区域是 #main 元素
-        new Outline({
-          scrollElement: '#main'
-        })
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 isMatched 单个方法
+        import isMatched from '@yaohaixiao/dom.js/isMatched'
+
+        const $list = DOM.byId('#list')
+        const $home = DOM.byId('#home')
+
+        DOM.isMatched($home, '.active') // -> true
+        isMatched($home, (el) => {
+          return DOM.contains(el, $list)
+        }) // -> true
+
+        isMatched($list, '.active') // -> false

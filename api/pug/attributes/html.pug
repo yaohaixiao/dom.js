@@ -40,7 +40,10 @@ section.section
          const $list = byId('#list')
 
          // 获取 innerHTML 属性（字符串）
-         DOM.html($list) // -> '&lt;li class="item active"&gt;Home&lt;/li&gt;&lt;li class="item"&gt;Blog&lt;/li&gt;&lt;li class="item"&gt;About&lt;/li&gt;'
+         DOM.html($list)
+         // -> '&lt;li class="item active"&gt;Home&lt;/li&gt;‘
+         // -> '&lt;li class="item"&gt;Blog&lt;/li&gt;'
+         // -> '&lt;li class="item"&gt;About&lt;/li&gt;'
 
          // 将 $list 元素的 innerHTML 设置为 '&lt;li class="item"&gt;Blog&lt;/li&gt;'
          html($list, '&lt;li class="item"&gt;Blog&lt;/li&gt;')

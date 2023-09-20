@@ -266,7 +266,10 @@ import html from '@yaohaixiao/dom.js/html'
 const $list = byId('#list')
 
 // 获取 innerHTML 属性（字符串）
-DOM.html($list) // -> '&lt;li class="item active"&gt;Home&lt;/li&gt;&lt;li class="item"&gt;Blog&lt;/li&gt;&lt;li class="item"&gt;About&lt;/li&gt;'
+DOM.html($list)
+// -> '&lt;li class="item active"&gt;Home&lt;/li&gt;‘
+// -> '&lt;li class="item"&gt;Blog&lt;/li&gt;'
+// -> '&lt;li class="item"&gt;About&lt;/li&gt;'
 
 // 将 $list 元素的 innerHTML 设置为 '&lt;li class="item"&gt;Blog&lt;/li&gt;'
 html($list, '&lt;li class="item"&gt;Blog&lt;/li&gt;')
@@ -298,501 +301,381 @@ text($active, 'Homepage')
 const $text = test('URL')
 // 将创建的 $text 元素添加到 $active
 $active.appendChild($text)
-text($active) // -> 'HomepageURL'</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Base</h2></header><div class="section__content"><p>dom.js 提供以下方法用以创建或查询 DOM 元素等基础 DOM 操作。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">createElement(tagName[, attrs, children])</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">null</dd></dl><p>可选，当点击导航菜单、文章中的 anchor 图标（#）或者上下滚动按钮会触发滚动，afterScroll() 回调函数会在滚动结束后触发执行。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">target</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>afterScroll() 回调函数有一个参数 target，返回的是当前点击的 DOM 元素的名称：</p><ul><li>'anchor'：表示点击的是 anchor 图标，即文章中标题前的 “#” 图标，此时的 this 上下文指向 outline.anchors；</li><li>'chapter'：表示点击的是导航菜单的链接，此时的 this 上下文指向 outline.chapters；</li><li>'up'：表示点击的是工具栏的向上按钮，此时的 this 上下文指向 outline.toolbar；</li><li>'down'：表示点击的是工具栏的向下按钮，此时的 this 上下文指向 outline.toolbar；</li></ul><p>注意：因为配置 afterScroll 回调函数会因为 4 个不同的 DOM 触发，所以需要根据 target 返回的值和此时的 this 指向判断处理。</p><pre class="section__pre"><code class="section__code">const defaults = Outline.DEFAULTS
-let outline
+text($active) // -> 'HomepageURL'</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Base</h2></header><div class="section__content"><p>dom.js 提供以下方法用以创建或查询 DOM 元素等基础 DOM 操作。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">createElement(tagName[, attrs, children])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>createElement() 方法用来创建 DOM 节点，并添加属性和子节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">tagName</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）标签名称。</p><h5 class="section__h4">attrs</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object|Array|HTMLElement|DocumentFragment|String</dd></dl><ul><li>Object：要添加的 HTML 属性/值对象；</li><li>Array：添加到创建的 DOM 元素中的多个子元素的数组；</li><li>HTMLElement：添加到创建的 DOM 元素中的（单个）子元素；</li><li>DocumentFragment：添加到创建的 DOM 元素中的文档碎片；</li><li>String：添加到创建的 DOM 元素中的文本（会作为文本节点）；</li></ul><p>（可选）给创建的 DOM 元素添加的 HTML 属性/值对象或者子元素。</p><h5 class="section__h4">children</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Array|HTMLElement|DocumentFragment|String</dd></dl><ul><li>Array：添加到创建的 DOM 元素中的多个子元素的数组；</li><li>HTMLElement：添加到创建的 DOM 元素中的（单个）子元素；</li><li>DocumentFragment：添加到创建的 DOM 元素中的文档碎片；</li><li>String：添加到创建的 DOM 元素中的文本（会作为文本节点）；</li></ul><p>（可选）给创建的 DOM 元素添加的子元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回创建的 DOM 元素。</p><pre class="section__pre"><code class="section__">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 createElement 单个方法
+import createElement from '@yaohaixiao/dom.js/createElement'
 
-defaults.position = 'fixed'
-defaults.parentElement = '#aside'
-defaults.stickyHeight = 86
-defaults.homepage = './index.html'
-defaults.afterScroll = function(target) {
-  // 当然，如果你希望无论是点击什么都执行，就不需要判断了
-  // 直接些通用的滚动结束的逻辑即可
-  switch(target){
-    case 'anchor':
-      // 针对点击 # 的处理逻辑
-      break
-    case 'chapter':
-      // 针对点击导航菜单的处理逻辑
-      break
-    case 'up':
-      // 针对点击向上滚动按钮的处理逻辑
-      break
-    case 'down':
-      // 针对点击向下滚动按钮的处理逻辑
-      break
-  }
+// 创建 LI 节点，并且添加一个 TextNode 类型的子元素
+const $home = DOM.createElement('li', {
+  id: 'home',
+  className: 'item active'
+}, DOM.text('Home'))
+
+// 创建 LI 节点，设置 class 属性并且添加 Blog 字符串（添加一个 TextNode 类型的子元素）
+const $blog = createElement('li', {
+  className: 'item'
+}, 'Blog')
+
+// 创建 LI 节点，并且添加 About 字符串（添加一个 TextNode 类型的子元素）
+const $about = createElement('li', 'About')
+
+addClass($about, 'item')
+
+// 创建 UL 节点，并且添加多个 LI 子节点
+const $list = createElement('ul', {
+  id: 'list',
+  className: 'list'
+), [
+  $home,
+  $blog,
+  $about
+])
+
+document.body.appendChild($list)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">clone(el[, deep])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>clone() 方法用来创建给定 DOM 元素的副本。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）要克隆的 DOM 元素。</p><h5 class="section__h4">deep</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">false</dd></dl><p>（可选）是否深度可浓。</p><ul><li>false：（默认值）仅克隆指定 DOM 元素，不会可能其包含的子元素；</li><li>true：克隆指定元素，并且也会克隆其子元素；</li></ul><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回克隆的 DOM 元素。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 clone 单个方法
+import clone from '@yaohaixiao/dom.js/clone'
+
+const $list = DOM.byId('#list')
+const $clone = DOM.clone($list)
+
+// 潜拷贝 $list，不会拷贝其子元素
+const $active = DOM.byClass('.active', $clone) // => null
+
+// 采用深拷贝 $list，则会拷贝其子元素，因此可以查询到其子元素
+const $current = clone($list, true).querySelector('.active')
+// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">closet(el, selector[, ctx, includeCTX])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>closet() 方法用来获取父元素最近的包含 selector 选择器的元素。通常用于使用事件代理时，获取点击的目标 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 指定父元素。</p><h5 class="section__h4">selector</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）selector 指定要查询元素的选择器。</p><h5 class="section__h4">ctx</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（可选）ctx 指定比对的 DOM 元素</p><h5 class="section__h4">ctx</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>（可选）includeCTX 指定是否包含 ctx 参数指定的 DOM 元素.</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回匹配的 DOM 元素。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 closet 单个方法
+import closet from '@yaohaixiao/dom.js/closet'
+
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
+
+closet($home, '.active', $list)
+// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">contains(el, ancestor)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>contains() 方法用来判断某个 DOM 元素中是否包含另一个 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）被包含的 DOM 元素或者 DOM 元素的选择器字符串：</p><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）ancestor 指定用来查询目标 DOM 元素的父元素：</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>包含查询元素返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 contains 单个方法
+import contains from '@yaohaixiao/dom.js/contains'
+
+// 使用 class 选择器，或者使用 class 属性值都可以检索
+const $list = DOM.byId('#list')
+const $home = byClass('#home')
+
+DOM.contains($home, $list) // -> true
+contains('.blog', $list) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">byClass(className, el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>byClass() 方法返回与指定的类选择器组匹配的文档中的元素列表 (使用深度优先的先序遍历文档的节点)。返回的对象是 NodeList 。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）className 类选择器字符串。</p><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（可选）el 参数指定要检索的 DOM 元素范围，不指定则默认为 document。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回检索匹配的 DOM 元素。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 byClass 单个方法
+import byClass from '@yaohaixiao/dom.js/byClass'
+
+// 使用 class 选择器，或者使用 class 属性值都可以检索
+const $items = DOM.byClass('.item')
+const $items = byClass('item')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">byId(id, el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>byId() 方法返回文档中与指定 id 选择器匹配 Element 对象。</p><h4 class="section__h4">Parameters<h5 class="section__h4">id</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）id 选择器字符串。</p><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（可选）el 参数指定要检索的 DOM 元素范围，不指定则默认为 document。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回检索匹配的 DOM 元素。</p></h4><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 byId 单个方法
+import byId from '@yaohaixiao/dom.js/byId'
+
+// 使用 ID 选择器，或者使用 ID 属性值都可以检索
+const $list = DOM.byId('#list')
+const $home = byId('home')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getEl(selector[, el, multiple])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>返回与指定的选择器组匹配的文档中的 DOM 元素或者 DOM 元素列表。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">selector</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）选择器字符串。</p><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|Boolean</dd></dl><p>（可选）el 参数指定要检索的 DOM 元素范围（不指定则默认为 document）或者是否返回 DOM 元素列表。</p><h5 class="section__h4">multiple</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>（可选）multiple 参数指定是否返回 DOM 元素列表，默认值：false。为 true 时，则返回 DOM 元素列表（获取所有于原则器匹配的 DOM 元素）。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|NodeList</dd></dl><p>返回检索匹配的 DOM 元素或者 DOM 元素列表。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getEl 单个方法
+import getEl from '@yaohaixiao/dom.js/getEl'
+
+const $list = DOM.getEl('#list')
+
+// 获取多个
+const $items = getEl('.item', true)
+const $items = getEl('.item', $list, true)
+
+// 仅匹配第一个
+const $items = getEl('.item', $list)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getHostOrParent(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getHostOrParent() 方法用来获取 DOM 元素的父节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>el 参数指定 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回查询到的 DOM 元素的父节点。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getHostOrParent 单个方法
+import getHostOrParent from '@yaohaixiao/dom.js/getHostOrParent'
+
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
+
+const $parent = DOM.getHostOrParent($home)
+console.log($parent === $list) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getOffsetParent(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getOffsetParent() 方法用来获取最近的（指包含层级上的最近）包含该元素的定位父元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>el 参数指定 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回查询到的 DOM 元素的父节点。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
+.list {
+  position:relative;
 }
-outline = new Outline(Outline.DEFAULTS)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">clone(el[, deep])</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">null</dd></dl><p>可选，当点击导航菜单、文章中的 anchor 图标（#）或者上下滚动按钮会触发滚动，afterScroll() 回调函数会在滚动结束后触发执行。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">target</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>afterScroll() 回调函数有一个参数 target，返回的是当前点击的 DOM 元素的名称：</p><ul><li>'anchor'：表示点击的是 anchor 图标，即文章中标题前的 “#” 图标，此时的 this 上下文指向 outline.anchors；</li><li>'chapter'：表示点击的是导航菜单的链接，此时的 this 上下文指向 outline.chapters；</li><li>'up'：表示点击的是工具栏的向上按钮，此时的 this 上下文指向 outline.toolbar；</li><li>'down'：表示点击的是工具栏的向下按钮，此时的 this 上下文指向 outline.toolbar；</li></ul><p>注意：因为配置 afterScroll 回调函数会因为 4 个不同的 DOM 触发，所以需要根据 target 返回的值和此时的 this 指向判断处理。</p><pre class="section__pre"><code class="section__code">const defaults = Outline.DEFAULTS
-let outline
+&lt;/style&gt;
 
-defaults.position = 'fixed'
-defaults.parentElement = '#aside'
-defaults.stickyHeight = 86
-defaults.homepage = './index.html'
-defaults.afterScroll = function(target) {
-  // 当然，如果你希望无论是点击什么都执行，就不需要判断了
-  // 直接些通用的滚动结束的逻辑即可
-  switch(target){
-    case 'anchor':
-      // 针对点击 # 的处理逻辑
-      break
-    case 'chapter':
-      // 针对点击导航菜单的处理逻辑
-      break
-    case 'up':
-      // 针对点击向上滚动按钮的处理逻辑
-      break
-    case 'down':
-      // 针对点击向下滚动按钮的处理逻辑
-      break
-  }
+&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getOffsetParent 单个方法
+import getOffsetParent from '@yaohaixiao/dom.js/getOffsetParent'
+
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
+
+const $parent = DOM.getOffsetParent($home)
+console.log($parent === $list) // -> true
+
+console.log(getOffsetParent($list)) // -> document.body</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getScrollParent(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getScrollParent() 方法用来获取最近的（指包含层级上的最近）包含该元素的滚动父元素（overflow/overflow-x/overflow-y: auto ）。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>el 参数指定 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回查询到的 DOM 元素的父节点。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
+.list {
+  position:relative;
+  overflow: auto;
 }
-outline = new Outline(Outline.DEFAULTS)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">closet(el, selector[, ctx, includeCTX])</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">null</dd></dl><p>可选，当点击导航菜单、文章中的 anchor 图标（#）或者上下滚动按钮会触发滚动，afterScroll() 回调函数会在滚动结束后触发执行。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">target</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>afterScroll() 回调函数有一个参数 target，返回的是当前点击的 DOM 元素的名称：</p><ul><li>'anchor'：表示点击的是 anchor 图标，即文章中标题前的 “#” 图标，此时的 this 上下文指向 outline.anchors；</li><li>'chapter'：表示点击的是导航菜单的链接，此时的 this 上下文指向 outline.chapters；</li><li>'up'：表示点击的是工具栏的向上按钮，此时的 this 上下文指向 outline.toolbar；</li><li>'down'：表示点击的是工具栏的向下按钮，此时的 this 上下文指向 outline.toolbar；</li></ul><p>注意：因为配置 afterScroll 回调函数会因为 4 个不同的 DOM 触发，所以需要根据 target 返回的值和此时的 this 指向判断处理。</p><pre class="section__pre"><code class="section__code">const defaults = Outline.DEFAULTS
-let outline
+&lt;/style&gt;
 
-defaults.position = 'fixed'
-defaults.parentElement = '#aside'
-defaults.stickyHeight = 86
-defaults.homepage = './index.html'
-defaults.afterScroll = function(target) {
-  // 当然，如果你希望无论是点击什么都执行，就不需要判断了
-  // 直接些通用的滚动结束的逻辑即可
-  switch(target){
-    case 'anchor':
-      // 针对点击 # 的处理逻辑
-      break
-    case 'chapter':
-      // 针对点击导航菜单的处理逻辑
-      break
-    case 'up':
-      // 针对点击向上滚动按钮的处理逻辑
-      break
-    case 'down':
-      // 针对点击向下滚动按钮的处理逻辑
-      break
-  }
+&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getScrollParent 单个方法
+import getScrollParent from '@yaohaixiao/dom.js/getScrollParent'
+
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
+
+const $parent = DOM.getScrollParent($home)
+console.log($parent === $list) // -> true
+
+console.log(getScrollParent($list)) // -> document.body</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">index(el[, ancestor])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>index() 方法用来查询 DOM 元素在其父节点中的索引位置。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）el 参数指定 DOM 元素或者 DOM 元素的选择器字符串。</p><h5 class="section__h4">ancestor</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（可选）ancestor 参数指定父节点。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回查询到的 DOM 元素在其父节点的 index 索引值。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 index 单个方法
+import index from '@yaohaixiao/dom.js/index'
+
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
+
+// el 参数是 DON 元素
+console.log(DOM.indexOf($home)) // -> 0
+
+// 指定父节点
+console.log(indexOf('.blog', $list)) // -> 1
+
+// el 为选择器，且为指定指定父节点
+console.log(indexOf('.project')) // -> 2</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isInBounding(child, parent)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>isInBounding() 方法用来检测某个 DOM 节点的位置是否在另个一个 DOM 节点范围内。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">child</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）child 参数指定其中较小的那个 DOM 元素。</p><h5 class="section__h4">parent</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）parent 参数指定其中较大的那个 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>child 在 parent 范围内，返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 isInBounding 单个方法
+import isInBounding from '@yaohaixiao/dom.js/isInBounding'
+
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
+
+DOM.isInBounding($home, $list) // -> true
+isInBounding($list, $home) // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isInViewport(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>isInViewport() 方法用来检测某个 DOM 节点的位置是否在当前视口（当前窗口可见区域）之内。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>el 在当前视口内，返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;style&gt;
+.blog{
+  position: fixed;
+  left: 99999;
 }
-outline = new Outline(Outline.DEFAULTS)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">contains(ancestor, descendent)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">null</dd></dl><p>可选，当点击导航菜单、文章中的 anchor 图标（#）或者上下滚动按钮会触发滚动，afterScroll() 回调函数会在滚动结束后触发执行。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">target</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>afterScroll() 回调函数有一个参数 target，返回的是当前点击的 DOM 元素的名称：</p><ul><li>'anchor'：表示点击的是 anchor 图标，即文章中标题前的 “#” 图标，此时的 this 上下文指向 outline.anchors；</li><li>'chapter'：表示点击的是导航菜单的链接，此时的 this 上下文指向 outline.chapters；</li><li>'up'：表示点击的是工具栏的向上按钮，此时的 this 上下文指向 outline.toolbar；</li><li>'down'：表示点击的是工具栏的向下按钮，此时的 this 上下文指向 outline.toolbar；</li></ul><p>注意：因为配置 afterScroll 回调函数会因为 4 个不同的 DOM 触发，所以需要根据 target 返回的值和此时的 this 指向判断处理。</p><pre class="section__pre"><code class="section__code">const defaults = Outline.DEFAULTS
-let outline
+&lt;/style&gt;
 
-defaults.position = 'fixed'
-defaults.parentElement = '#aside'
-defaults.stickyHeight = 86
-defaults.homepage = './index.html'
-defaults.afterScroll = function(target) {
-  // 当然，如果你希望无论是点击什么都执行，就不需要判断了
-  // 直接些通用的滚动结束的逻辑即可
-  switch(target){
-    case 'anchor':
-      // 针对点击 # 的处理逻辑
-      break
-    case 'chapter':
-      // 针对点击导航菜单的处理逻辑
-      break
-    case 'up':
-      // 针对点击向上滚动按钮的处理逻辑
-      break
-    case 'down':
-      // 针对点击向下滚动按钮的处理逻辑
-      break
-  }
-}
-outline = new Outline(Outline.DEFAULTS)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">byClass(className, el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|HTMLElement</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">'html,body'</dd></dl><ul><li>String： 选择器字符串，默认值：html,body（即 window 窗口）;</li><li>HTMLElement： DOM 元素;</li></ul><p>可选，负责文章区域滚动的元素：</p><pre class="section__pre"><code class="section__">// 默认是当前窗口滚动
-new Outline(Outline.DEFAULTS)
+&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
 
-// 指定滚动区域是 #main 元素
-new Outline({
-  scrollElement: '#main'
-})</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">byId(id, el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|HTMLElement</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">'html,body'</dd></dl><ul><li>String： 选择器字符串，默认值：html,body（即 window 窗口）;</li><li>HTMLElement： DOM 元素;</li></ul><p>可选，负责文章区域滚动的元素：</p><pre class="section__pre"><code class="section__">// 默认是当前窗口滚动
-new Outline(Outline.DEFAULTS)
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 isInViewport 单个方法
+import isInViewport from '@yaohaixiao/dom.js/isInViewport'
 
-// 指定滚动区域是 #main 元素
-new Outline({
-  scrollElement: '#main'
-})</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getEl(selector, el, multiple)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|HTMLElement</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">'html,body'</dd></dl><ul><li>String： 选择器字符串，默认值：html,body（即 window 窗口）;</li><li>HTMLElement： DOM 元素;</li></ul><p>可选，负责文章区域滚动的元素：</p><pre class="section__pre"><code class="section__">// 默认是当前窗口滚动
-new Outline(Outline.DEFAULTS)
+const $list = DOM.byId('#list')
+const $blog = DOM.getEl('.blog')
 
-// 指定滚动区域是 #main 元素
-new Outline({
-  scrollElement: '#main'
-})</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getHostOrParent(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
-class Anchors extends Base {
-  constructor(options) {
-    super()
+DOM.isInViewport($list) // -> true
+isInViewport($blog) // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isMatched(el, filter)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>isMatched() 方法用来检测 DOM 节点是否为符合 filter 检测条件的节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">filter</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function|String</dd></dl><p>（必须）filter 参数指定用于检测 DOM 节点的回调函数或者选择器字符串。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>DOM 节点符合 filter 检测条件，返回 true，否则为 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
 
-    this.attrs = Anchors.DEFAULTS
-    this.$articleElement = null
-    this.$scrollElement = null
-    this.$headings = []
-    this.chapters = []
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 isMatched 单个方法
+import isMatched from '@yaohaixiao/dom.js/isMatched'
 
-    // 省略其它逻辑...
-  }
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
 
-  getChapters(isTreeStructured = false) {
-    const chapters = this.chapters
-    return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-  }
+DOM.isMatched($home, '.active') // -> true
+isMatched($home, (el) => {
+  return DOM.contains(el, $list)
+}) // -> true
 
-  count() {
-    return this.chapters.length
-  }
+isMatched($list, '.active') // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">matches(el, selector)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>matches() 方法用来获取 el 节点下匹配 selector 选择器的 DOM 节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">selector</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）selector 指定匹配 DOM 元素的选择器。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>el 节点查询到匹配 selector 的 DOM 节点，返回 DOM 节点，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
 
-  attrs(prop, value) {
-    const attrs = this.attrs
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 matches 单个方法
+import matches from '@yaohaixiao/dom.js/matches'
 
-    if (isString(prop)) {
-      // 只能扩展 attrs 中已有的属性
-      if (value && hasOwn(attrs, prop)) {
-        // 更新单个配置信息
-        attrs[prop] = value
-        return this
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
+
+DOM.matches($list, '.active')
+// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+matches($home, '#home')
+// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+
+matches($home, '.blog') // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">parent(el[, type])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>matches() 方法用来获取给定 el 元素的父节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">type</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（可选）type 指定父节点的类型：</p><ul><li>offset：获取最近的（指包含层级上的最近）包含该元素的定位父元素;</li><li>scroll: 获取最近的（指包含层级上的最近）包含该元素的滚动父元素（overflow/overflow-x/overflow-y: auto ）；</li><li>其它：获取 el 的父节点；</li></ul><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 el 节点（指定类型）的父节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 parent 单个方法
+import parent from '@yaohaixiao/dom.js/parent'
+
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
+
+DOM.parent($home)
+// -> &lt;ul id="list" class="list"&gt;
+parent($home, 'scroll')
+// -> document.documentElement
+
+parent($list, 'offset')
+// -> document.body</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">children(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>children() 方法用来获取指定 DOM 元素下所有元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>el 参数指定 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Array</dd></dl><p>返回查询到的 DOM 元素的数组。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 children 单个方法
+import children from '@yaohaixiao/dom.js/children'
+
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
+
+DOM.children($list)
+// -> [
+//   &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;,
+//   &lt;li class="item"&gt;Blog&lt;/li&gt;
+//   &lt;li class="item"&gt;Projects&lt;/li&gt;
+//   &lt;li class="item"&gt;About&lt;/li&gt;
+// ]
+
+children($home) // -> []</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">resolveTextNode(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>resolveTextNode() 方法用来获取鼠标点击实际的目标节点。在某些情况下，某些浏览器（例如：Safari 浏览器）会返回实际的目标元素内部的文本节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定点击的目标节点。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回鼠标点击实际的目标节点。</p><pre class="section__pre"><code class="section__code">import resolveTextNode from './resolveTextNode'
+
+ /**
+  * 返回触发（鼠标）事件的 relatedTarget DOM 元素。
+  * ========================================================================
+  * MouseEvent.relatedTarget 只读属性是鼠标事件的次要目标（如果有）。相关的鼠标事件：
+  * mouseenter
+  * mouseleave
+  * mouseover
+  * mouseout
+  * dragenter
+  * dragleave
+  * ========================================================================
+  * @method getRelatedTarget
+  * @see https://developer.mozilla.org/en-US/docs/web/api/mouseevent/relatedtarget
+  * @param {Event} evt - Event 对象
+  * @return {HTMLElement} - Event 对象的 relatedTarget DOM 元素
+  */
+  const getRelatedTarget = function (evt) {
+    let target = evt.relatedTarget
+    const type = evt.type
+
+    if (!target) {
+      if (type === 'mouseout') {
+        target = evt.toElement
+      } else if (type === 'mouseover') {
+        target = evt.fromElement
       }
-
-      // 只传递 prop 参数，则返回对应的属性值
-      return attrs[prop]
-    } else if (isObject(prop)) {
-      // 批量更新配置信息
-      extend(attrs, prop)
-
-      return this
-    } else if (arguments.length === 0) {
-      // 不传递参数，直接返回整个
-      return attrs
     }
 
-    return this
+    return resolveTextNode(target)
   }
 
-  render() {
-    // 省略其它逻辑...
-    return this
-  }
-
-  scrollTo(top, after) {
-    // 省略其它逻辑...
-    return this
-  }
-
-  destroy() {
-    this.removeListeners()
-    // 省略其它逻辑...
-    return this
-  }
-
-  reload(options) {
-    this.destroy().initialize(this.attrs(options))
-    return this
-  }
-}
-
-Anchors.DEFAULTS = {
-  scrollElement: 'html,body',
-  articleElement: '#article',
-  selector: 'h1,h2,h3,h4,h5,h6',
-  anchorURL: '',
-  hasAnchor: true,
-  isAtStart: true,
-  showCode: false,
-  created: null,
-  mounted: null,
-  afterScroll: null,
-  beforeDestroy: null,
-  afterDestroy: null
-}
-
-export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getOffsetParent(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
-class Anchors extends Base {
-  constructor(options) {
-    super()
-
-    this.attrs = Anchors.DEFAULTS
-    this.$articleElement = null
-    this.$scrollElement = null
-    this.$headings = []
-    this.chapters = []
-
-    // 省略其它逻辑...
-  }
-
-  getChapters(isTreeStructured = false) {
-    const chapters = this.chapters
-    return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-  }
-
-  count() {
-    return this.chapters.length
-  }
-
-  attrs(prop, value) {
-    const attrs = this.attrs
-
-    if (isString(prop)) {
-      // 只能扩展 attrs 中已有的属性
-      if (value && hasOwn(attrs, prop)) {
-        // 更新单个配置信息
-        attrs[prop] = value
-        return this
-      }
-
-      // 只传递 prop 参数，则返回对应的属性值
-      return attrs[prop]
-    } else if (isObject(prop)) {
-      // 批量更新配置信息
-      extend(attrs, prop)
-
-      return this
-    } else if (arguments.length === 0) {
-      // 不传递参数，直接返回整个
-      return attrs
-    }
-
-    return this
-  }
-
-  render() {
-    // 省略其它逻辑...
-    return this
-  }
-
-  scrollTo(top, after) {
-    // 省略其它逻辑...
-    return this
-  }
-
-  destroy() {
-    this.removeListeners()
-    // 省略其它逻辑...
-    return this
-  }
-
-  reload(options) {
-    this.destroy().initialize(this.attrs(options))
-    return this
-  }
-}
-
-Anchors.DEFAULTS = {
-  scrollElement: 'html,body',
-  articleElement: '#article',
-  selector: 'h1,h2,h3,h4,h5,h6',
-  anchorURL: '',
-  hasAnchor: true,
-  isAtStart: true,
-  showCode: false,
-  created: null,
-  mounted: null,
-  afterScroll: null,
-  beforeDestroy: null,
-  afterDestroy: null
-}
-
-export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getScrollParent(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
-class Anchors extends Base {
-  constructor(options) {
-    super()
-
-    this.attrs = Anchors.DEFAULTS
-    this.$articleElement = null
-    this.$scrollElement = null
-    this.$headings = []
-    this.chapters = []
-
-    // 省略其它逻辑...
-  }
-
-  getChapters(isTreeStructured = false) {
-    const chapters = this.chapters
-    return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-  }
-
-  count() {
-    return this.chapters.length
-  }
-
-  attrs(prop, value) {
-    const attrs = this.attrs
-
-    if (isString(prop)) {
-      // 只能扩展 attrs 中已有的属性
-      if (value && hasOwn(attrs, prop)) {
-        // 更新单个配置信息
-        attrs[prop] = value
-        return this
-      }
-
-      // 只传递 prop 参数，则返回对应的属性值
-      return attrs[prop]
-    } else if (isObject(prop)) {
-      // 批量更新配置信息
-      extend(attrs, prop)
-
-      return this
-    } else if (arguments.length === 0) {
-      // 不传递参数，直接返回整个
-      return attrs
-    }
-
-    return this
-  }
-
-  render() {
-    // 省略其它逻辑...
-    return this
-  }
-
-  scrollTo(top, after) {
-    // 省略其它逻辑...
-    return this
-  }
-
-  destroy() {
-    this.removeListeners()
-    // 省略其它逻辑...
-    return this
-  }
-
-  reload(options) {
-    this.destroy().initialize(this.attrs(options))
-    return this
-  }
-}
-
-Anchors.DEFAULTS = {
-  scrollElement: 'html,body',
-  articleElement: '#article',
-  selector: 'h1,h2,h3,h4,h5,h6',
-  anchorURL: '',
-  hasAnchor: true,
-  isAtStart: true,
-  showCode: false,
-  created: null,
-  mounted: null,
-  afterScroll: null,
-  beforeDestroy: null,
-  afterDestroy: null
-}
-
-export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">index(ancestor[, descendent])</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|HTMLElement</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">'html,body'</dd></dl><ul><li>String： 选择器字符串，默认值：html,body（即 window 窗口）;</li><li>HTMLElement： DOM 元素;</li></ul><p>可选，负责文章区域滚动的元素：</p><pre class="section__pre"><code class="section__">// 默认是当前窗口滚动
-new Outline(Outline.DEFAULTS)
-
-// 指定滚动区域是 #main 元素
-new Outline({
-  scrollElement: '#main'
-})</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isAncestor(ancestor, descendent)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">null</dd></dl><p>可选，当点击导航菜单、文章中的 anchor 图标（#）或者上下滚动按钮会触发滚动，afterScroll() 回调函数会在滚动结束后触发执行。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">target</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>afterScroll() 回调函数有一个参数 target，返回的是当前点击的 DOM 元素的名称：</p><ul><li>'anchor'：表示点击的是 anchor 图标，即文章中标题前的 “#” 图标，此时的 this 上下文指向 outline.anchors；</li><li>'chapter'：表示点击的是导航菜单的链接，此时的 this 上下文指向 outline.chapters；</li><li>'up'：表示点击的是工具栏的向上按钮，此时的 this 上下文指向 outline.toolbar；</li><li>'down'：表示点击的是工具栏的向下按钮，此时的 this 上下文指向 outline.toolbar；</li></ul><p>注意：因为配置 afterScroll 回调函数会因为 4 个不同的 DOM 触发，所以需要根据 target 返回的值和此时的 this 指向判断处理。</p><pre class="section__pre"><code class="section__code">const defaults = Outline.DEFAULTS
-let outline
-
-defaults.position = 'fixed'
-defaults.parentElement = '#aside'
-defaults.stickyHeight = 86
-defaults.homepage = './index.html'
-defaults.afterScroll = function(target) {
-  // 当然，如果你希望无论是点击什么都执行，就不需要判断了
-  // 直接些通用的滚动结束的逻辑即可
-  switch(target){
-    case 'anchor':
-      // 针对点击 # 的处理逻辑
-      break
-    case 'chapter':
-      // 针对点击导航菜单的处理逻辑
-      break
-    case 'up':
-      // 针对点击向上滚动按钮的处理逻辑
-      break
-    case 'down':
-      // 针对点击向下滚动按钮的处理逻辑
-      break
-  }
-}
-outline = new Outline(Outline.DEFAULTS)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isInViewport(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|HTMLElement</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">'html,body'</dd></dl><ul><li>String： 选择器字符串，默认值：html,body（即 window 窗口）;</li><li>HTMLElement： DOM 元素;</li></ul><p>可选，负责文章区域滚动的元素：</p><pre class="section__pre"><code class="section__">// 默认是当前窗口滚动
-new Outline(Outline.DEFAULTS)
-
-// 指定滚动区域是 #main 元素
-new Outline({
-  scrollElement: '#main'
-})</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isMatched(el, filter)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|HTMLElement</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">'html,body'</dd></dl><ul><li>String： 选择器字符串，默认值：html,body（即 window 窗口）;</li><li>HTMLElement： DOM 元素;</li></ul><p>可选，负责文章区域滚动的元素：</p><pre class="section__pre"><code class="section__">// 默认是当前窗口滚动
-new Outline(Outline.DEFAULTS)
-
-// 指定滚动区域是 #main 元素
-new Outline({
-  scrollElement: '#main'
-})</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">matches(el, selector)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">null</dd></dl><p>可选，当点击导航菜单、文章中的 anchor 图标（#）或者上下滚动按钮会触发滚动，afterScroll() 回调函数会在滚动结束后触发执行。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">target</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>afterScroll() 回调函数有一个参数 target，返回的是当前点击的 DOM 元素的名称：</p><ul><li>'anchor'：表示点击的是 anchor 图标，即文章中标题前的 “#” 图标，此时的 this 上下文指向 outline.anchors；</li><li>'chapter'：表示点击的是导航菜单的链接，此时的 this 上下文指向 outline.chapters；</li><li>'up'：表示点击的是工具栏的向上按钮，此时的 this 上下文指向 outline.toolbar；</li><li>'down'：表示点击的是工具栏的向下按钮，此时的 this 上下文指向 outline.toolbar；</li></ul><p>注意：因为配置 afterScroll 回调函数会因为 4 个不同的 DOM 触发，所以需要根据 target 返回的值和此时的 this 指向判断处理。</p><pre class="section__pre"><code class="section__code">const defaults = Outline.DEFAULTS
-let outline
-
-defaults.position = 'fixed'
-defaults.parentElement = '#aside'
-defaults.stickyHeight = 86
-defaults.homepage = './index.html'
-defaults.afterScroll = function(target) {
-  // 当然，如果你希望无论是点击什么都执行，就不需要判断了
-  // 直接些通用的滚动结束的逻辑即可
-  switch(target){
-    case 'anchor':
-      // 针对点击 # 的处理逻辑
-      break
-    case 'chapter':
-      // 针对点击导航菜单的处理逻辑
-      break
-    case 'up':
-      // 针对点击向上滚动按钮的处理逻辑
-      break
-    case 'down':
-      // 针对点击向下滚动按钮的处理逻辑
-      break
-  }
-}
-outline = new Outline(Outline.DEFAULTS)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">parent(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">null</dd></dl><p>可选，当点击导航菜单、文章中的 anchor 图标（#）或者上下滚动按钮会触发滚动，afterScroll() 回调函数会在滚动结束后触发执行。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">target</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>afterScroll() 回调函数有一个参数 target，返回的是当前点击的 DOM 元素的名称：</p><ul><li>'anchor'：表示点击的是 anchor 图标，即文章中标题前的 “#” 图标，此时的 this 上下文指向 outline.anchors；</li><li>'chapter'：表示点击的是导航菜单的链接，此时的 this 上下文指向 outline.chapters；</li><li>'up'：表示点击的是工具栏的向上按钮，此时的 this 上下文指向 outline.toolbar；</li><li>'down'：表示点击的是工具栏的向下按钮，此时的 this 上下文指向 outline.toolbar；</li></ul><p>注意：因为配置 afterScroll 回调函数会因为 4 个不同的 DOM 触发，所以需要根据 target 返回的值和此时的 this 指向判断处理。</p><pre class="section__pre"><code class="section__code">const defaults = Outline.DEFAULTS
-let outline
-
-defaults.position = 'fixed'
-defaults.parentElement = '#aside'
-defaults.stickyHeight = 86
-defaults.homepage = './index.html'
-defaults.afterScroll = function(target) {
-  // 当然，如果你希望无论是点击什么都执行，就不需要判断了
-  // 直接些通用的滚动结束的逻辑即可
-  switch(target){
-    case 'anchor':
-      // 针对点击 # 的处理逻辑
-      break
-    case 'chapter':
-      // 针对点击导航菜单的处理逻辑
-      break
-    case 'up':
-      // 针对点击向上滚动按钮的处理逻辑
-      break
-    case 'down':
-      // 针对点击向下滚动按钮的处理逻辑
-      break
-  }
-}
-outline = new Outline(Outline.DEFAULTS)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">children(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">null</dd></dl><p>可选，当点击导航菜单、文章中的 anchor 图标（#）或者上下滚动按钮会触发滚动，afterScroll() 回调函数会在滚动结束后触发执行。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">target</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>afterScroll() 回调函数有一个参数 target，返回的是当前点击的 DOM 元素的名称：</p><ul><li>'anchor'：表示点击的是 anchor 图标，即文章中标题前的 “#” 图标，此时的 this 上下文指向 outline.anchors；</li><li>'chapter'：表示点击的是导航菜单的链接，此时的 this 上下文指向 outline.chapters；</li><li>'up'：表示点击的是工具栏的向上按钮，此时的 this 上下文指向 outline.toolbar；</li><li>'down'：表示点击的是工具栏的向下按钮，此时的 this 上下文指向 outline.toolbar；</li></ul><p>注意：因为配置 afterScroll 回调函数会因为 4 个不同的 DOM 触发，所以需要根据 target 返回的值和此时的 this 指向判断处理。</p><pre class="section__pre"><code class="section__code">const defaults = Outline.DEFAULTS
-let outline
-
-defaults.position = 'fixed'
-defaults.parentElement = '#aside'
-defaults.stickyHeight = 86
-defaults.homepage = './index.html'
-defaults.afterScroll = function(target) {
-  // 当然，如果你希望无论是点击什么都执行，就不需要判断了
-  // 直接些通用的滚动结束的逻辑即可
-  switch(target){
-    case 'anchor':
-      // 针对点击 # 的处理逻辑
-      break
-    case 'chapter':
-      // 针对点击导航菜单的处理逻辑
-      break
-    case 'up':
-      // 针对点击向上滚动按钮的处理逻辑
-      break
-    case 'down':
-      // 针对点击向下滚动按钮的处理逻辑
-      break
-  }
-}
-outline = new Outline(Outline.DEFAULTS)</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">DOM Insertion</h2></header><div class="section__content"><p>dom.js 提供以下方法用于处理插入新的 DOM 元素。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">insertAfter(el, reference)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|HTMLElement</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">'#article'</dd></dl><dl class="section__dl"><dt class="section__dt">String：</dt><dd class="section__dd">选择器字符串，默认值：html,body（即 window 窗口）;</dd></dl><dl class="section__dl"><dt class="section__dt">HTMLElement：</dt><dd class="section__dd">'DOM 元素;</dd></dl><p>可选，用来指定页面中显示文章正文的 DOM 节点或者选择器字符串。</p><pre class="section__pre"><code class="section__code">// Default Selector
+  export default getRelatedTarget</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">DOM Insertion</h2></header><div class="section__content"><p>dom.js 提供以下方法用于处理插入新的 DOM 元素。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">insertAfter(el, reference)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|HTMLElement</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">'#article'</dd></dl><dl class="section__dl"><dt class="section__dt">String：</dt><dd class="section__dd">选择器字符串，默认值：html,body（即 window 窗口）;</dd></dl><dl class="section__dl"><dt class="section__dt">HTMLElement：</dt><dd class="section__dd">'DOM 元素;</dd></dl><p>可选，用来指定页面中显示文章正文的 DOM 节点或者选择器字符串。</p><pre class="section__pre"><code class="section__code">// Default Selector
 const outline = new Outline(Outline.DEFAULTS)
 
 // Customize Selector

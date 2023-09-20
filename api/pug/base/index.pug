@@ -1,24 +1,49 @@
 section.section
   header.section__header
-    h3.section__h3 index(ancestor[, descendent])
+    h3.section__h3 index(el[, ancestor])
   div.section__content
-    h4.section__h4 Description
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Base
+    p index() 方法用来查询 DOM 元素在其父节点中的索引位置。
+    h4.section__h4 Parameters
+    h5.section__h4 el
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd String|HTMLElement
+      dd.section__dd HTMLElement|String
+    p （必须）el 参数指定 DOM 元素或者 DOM 元素的选择器字符串。
+    h5.section__h4 ancestor
     dl.section__dl
-      dt.section__dt Default：
-      dd.section__dd 'html,body'
-    ul
-      li String： 选择器字符串，默认值：html,body（即 window 窗口）;
-      li HTMLElement： DOM 元素;
-    p 可选，负责文章区域滚动的元素：
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （可选）ancestor 参数指定父节点。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Number
+    p 返回查询到的 DOM 元素在其父节点的 index 索引值。
     pre.section__pre
-      code.section__.
-        // 默认是当前窗口滚动
-        new Outline(Outline.DEFAULTS)
+      code.section__code.
+        &lt;ul id="list" class="list"&gt;
+            &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+            &lt;li class="item project"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
 
-        // 指定滚动区域是 #main 元素
-        new Outline({
-          scrollElement: '#main'
-        })
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 index 单个方法
+        import index from '@yaohaixiao/dom.js/index'
+
+        const $list = DOM.byId('#list')
+        const $home = DOM.byId('#home')
+
+        // el 参数是 DON 元素
+        console.log(DOM.indexOf($home)) // -> 0
+
+        // 指定父节点
+        console.log(indexOf('.blog', $list)) // -> 1
+
+        // el 为选择器，且为指定指定父节点
+        console.log(indexOf('.project')) // -> 2

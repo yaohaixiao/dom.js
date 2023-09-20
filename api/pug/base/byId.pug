@@ -2,23 +2,40 @@ section.section
   header.section__header
     h3.section__h3 byId(id, el)
   div.section__content
-    h4.section__h4 Description
     dl.section__dl
-      dt.section__dt Type：
-      dd.section__dd String|HTMLElement
-    dl.section__dl
-      dt.section__dt Default：
-      dd.section__dd 'html,body'
-    ul
-      li String： 选择器字符串，默认值：html,body（即 window 窗口）;
-      li HTMLElement： DOM 元素;
-    p 可选，负责文章区域滚动的元素：
+      dt.section__dt Category：
+      dd.section__dd Base
+    p byId() 方法返回文档中与指定 id 选择器匹配 Element 对象。
+    h4.section__h4 Parameters
+      h5.section__h4 id
+      dl.section__dl
+        dt.section__dt Type：
+        dd.section__dd String
+      p （必须）id 选择器字符串。
+      h5.section__h4 el
+      dl.section__dl
+        dt.section__dt Type：
+        dd.section__dd HTMLElement
+      p （可选）el 参数指定要检索的 DOM 元素范围，不指定则默认为 document。
+      h5.section__h4 Returns
+      dl.section__dl
+        dt.section__dt Type：
+        dd.section__dd HTMLElement
+      p 返回检索匹配的 DOM 元素。
     pre.section__pre
       code.section__.
-        // 默认是当前窗口滚动
-        new Outline(Outline.DEFAULTS)
+        &lt;ul id="list" class="list"&gt;
+            &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
 
-        // 指定滚动区域是 #main 元素
-        new Outline({
-          scrollElement: '#main'
-        })
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 byId 单个方法
+        import byId from '@yaohaixiao/dom.js/byId'
+
+        // 使用 ID 选择器，或者使用 ID 属性值都可以检索
+        const $list = DOM.byId('#list')
+        const $home = byId('home')

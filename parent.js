@@ -4,6 +4,14 @@ import getOffsetParent from './getOffsetParent'
 import getScrollParent from './getScrollParent'
 import getHostOrParent from './getHostOrParent'
 
+/**
+ * 获取给定 el 元素的父节点
+ * ========================================================================
+ * @method parent
+ * @param {HTMLElement|Text} el
+ * @param {String} [type]
+ * @return {*|null}
+ */
 const parent = (el, type) => {
   let $parent = null
 

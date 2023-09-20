@@ -2,23 +2,54 @@ section.section
   header.section__header
     h3.section__h3 resolveTextNode(el)
   div.section__content
-    h4.section__h4 Description
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Base
+    p resolveTextNode() 方法用来获取鼠标点击实际的目标节点。在某些情况下，某些浏览器（例如：Safari 浏览器）会返回实际的目标元素内部的文本节点。
+    h4.section__h4 Parameters
+    h5.section__h4 el
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd String|HTMLElement
+      dd.section__dd HTMLElement
+    p （必须）el 参数指定点击的目标节点。
+    h5.section__h4 Returns
     dl.section__dl
-      dt.section__dt Default：
-      dd.section__dd 'html,body'
-    ul
-      li String： 选择器字符串，默认值：html,body（即 window 窗口）;
-      li HTMLElement： DOM 元素;
-    p 可选，负责文章区域滚动的元素：
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p 返回鼠标点击实际的目标节点。
     pre.section__pre
-      code.section__.
-        // 默认是当前窗口滚动
-        new Outline(Outline.DEFAULTS)
+      code.section__code.
+        import resolveTextNode from './resolveTextNode'
 
-        // 指定滚动区域是 #main 元素
-        new Outline({
-          scrollElement: '#main'
-        })
+         /**
+          * 返回触发（鼠标）事件的 relatedTarget DOM 元素。
+          * ========================================================================
+          * MouseEvent.relatedTarget 只读属性是鼠标事件的次要目标（如果有）。相关的鼠标事件：
+          * mouseenter
+          * mouseleave
+          * mouseover
+          * mouseout
+          * dragenter
+          * dragleave
+          * ========================================================================
+          * @method getRelatedTarget
+          * @see https://developer.mozilla.org/en-US/docs/web/api/mouseevent/relatedtarget
+          * @param {Event} evt - Event 对象
+          * @return {HTMLElement} - Event 对象的 relatedTarget DOM 元素
+          */
+          const getRelatedTarget = function (evt) {
+            let target = evt.relatedTarget
+            const type = evt.type
+
+            if (!target) {
+              if (type === 'mouseout') {
+                target = evt.toElement
+              } else if (type === 'mouseover') {
+                target = evt.fromElement
+              }
+            }
+
+            return resolveTextNode(target)
+          }
+
+          export default getRelatedTarget
