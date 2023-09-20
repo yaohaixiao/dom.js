@@ -4,6 +4,7 @@ import closest from '../closest'
 import contains from '../contains'
 import byClass from '../byClass'
 import byId from '../byId'
+import getEl from '../getEl'
 import getHostOrParent from '../getHostOrParent'
 import getOffsetParent from '../getOffsetParent'
 import getScrollParent from '../getScrollParent'
@@ -22,6 +23,7 @@ const DOM = {
   contains,
   byClass,
   byId,
+  getEl,
   getHostOrParent,
   getOffsetParent,
   getScrollParent,

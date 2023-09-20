@@ -642,40 +642,7 @@ DOM.children($list)
 //   &lt;li class="item"&gt;About&lt;/li&gt;
 // ]
 
-children($home) // -> []</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">resolveTextNode(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>resolveTextNode() 方法用来获取鼠标点击实际的目标节点。在某些情况下，某些浏览器（例如：Safari 浏览器）会返回实际的目标元素内部的文本节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定点击的目标节点。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回鼠标点击实际的目标节点。</p><pre class="section__pre"><code class="section__code">import resolveTextNode from './resolveTextNode'
-
- /**
-  * 返回触发（鼠标）事件的 relatedTarget DOM 元素。
-  * ========================================================================
-  * MouseEvent.relatedTarget 只读属性是鼠标事件的次要目标（如果有）。相关的鼠标事件：
-  * mouseenter
-  * mouseleave
-  * mouseover
-  * mouseout
-  * dragenter
-  * dragleave
-  * ========================================================================
-  * @method getRelatedTarget
-  * @see https://developer.mozilla.org/en-US/docs/web/api/mouseevent/relatedtarget
-  * @param {Event} evt - Event 对象
-  * @return {HTMLElement} - Event 对象的 relatedTarget DOM 元素
-  */
-  const getRelatedTarget = function (evt) {
-    let target = evt.relatedTarget
-    const type = evt.type
-
-    if (!target) {
-      if (type === 'mouseout') {
-        target = evt.toElement
-      } else if (type === 'mouseover') {
-        target = evt.fromElement
-      }
-    }
-
-    return resolveTextNode(target)
-  }
-
-  export default getRelatedTarget</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">DOM Insertion</h2></header><div class="section__content"><p>dom.js 提供以下方法用于处理插入新的 DOM 元素。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">insertAfter(el, reference)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|HTMLElement</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">'#article'</dd></dl><dl class="section__dl"><dt class="section__dt">String：</dt><dd class="section__dd">选择器字符串，默认值：html,body（即 window 窗口）;</dd></dl><dl class="section__dl"><dt class="section__dt">HTMLElement：</dt><dd class="section__dd">'DOM 元素;</dd></dl><p>可选，用来指定页面中显示文章正文的 DOM 节点或者选择器字符串。</p><pre class="section__pre"><code class="section__code">// Default Selector
+children($home) // -> []</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">DOM Insertion</h2></header><div class="section__content"><p>dom.js 提供以下方法用于处理插入新的 DOM 元素。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">insertAfter(el, reference)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|HTMLElement</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">'#article'</dd></dl><dl class="section__dl"><dt class="section__dt">String：</dt><dd class="section__dd">选择器字符串，默认值：html,body（即 window 窗口）;</dd></dl><dl class="section__dl"><dt class="section__dt">HTMLElement：</dt><dd class="section__dd">'DOM 元素;</dd></dl><p>可选，用来指定页面中显示文章正文的 DOM 节点或者选择器字符串。</p><pre class="section__pre"><code class="section__code">// Default Selector
 const outline = new Outline(Outline.DEFAULTS)
 
 // Customize Selector
