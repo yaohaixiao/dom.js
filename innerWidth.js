@@ -2,7 +2,7 @@ import isElement from './utils/types/isElement'
 import isUndefined from './utils/types/isUndefined'
 import isFunction from './utils/types/isFunction'
 import pixel from './utils/pixel'
-import getElementSizes from './getElementSizes'
+import _getElementSizes from './_getElementSizes'
 import setStyle from './setStyle'
 
 /**
@@ -27,7 +27,7 @@ const innerWidth = (el, val) => {
     paddingLeftWidth,
     paddingRightWidth,
     offsetWidth
-  } = getElementSizes(el)
+  } = _getElementSizes(el)
 
   if (isFunction(val)) {
     return val(el, {

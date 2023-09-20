@@ -2,15 +2,17 @@ import isElement from './utils/types/isElement'
 import isUndefined from './utils/types/isUndefined'
 import isFunction from './utils/types/isFunction'
 import pixel from './utils/pixel'
-import getElementSizes from './getElementSizes'
+import _getElementSizes from './_getElementSizes'
 import setStyle from './setStyle'
 
 /**
- *
- * @param el
- * @param val
- * @param includeMargin
- * @return {*|number|boolean}
+ * 获取 DOM 元素的 outerWidth 值
+ * ========================================================================
+ * @method outerWidth
+ * @param {HTMLElement} el
+ * @param {Number|String|Function} [val]
+ * @param {Boolean} includeMargin
+ * @return {number|*|boolean}
  */
 const outerWidth = (el, val, includeMargin = false) => {
   let width
@@ -27,7 +29,7 @@ const outerWidth = (el, val, includeMargin = false) => {
     paddingLeftWidth,
     paddingRightWidth,
     offsetWidth
-  } = getElementSizes(el)
+  } = _getElementSizes(el)
 
   if (isFunction(val)) {
     return val(el, {

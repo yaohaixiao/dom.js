@@ -2,14 +2,16 @@ import isElement from './utils/types/isElement'
 import isUndefined from './utils/types/isUndefined'
 import isFunction from './utils/types/isFunction'
 import pixel from './utils/pixel'
-import getElementSizes from './getElementSizes'
+import _getElementSizes from './_getElementSizes'
 import setStyle from './setStyle'
 
 /**
- *
- * @param el
- * @param val
- * @param includeMargin
+ * 获取 DOM 元素的 outerHeight 值
+ * ========================================================================
+ * @method outerHeight
+ * @param {HTMLElement} el
+ * @param {Number|String|Function} [val]
+ * @param {Boolean} includeMargin
  * @return {number|*|boolean}
  */
 const outerHeight = (el, val, includeMargin = false) => {
@@ -27,7 +29,7 @@ const outerHeight = (el, val, includeMargin = false) => {
     paddingTopHeight,
     paddingBottomHeight,
     offsetHeight
-  } = getElementSizes(el)
+  } = _getElementSizes(el)
 
   if (isFunction(val)) {
     return val(el, {
