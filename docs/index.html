@@ -642,160 +642,175 @@ DOM.children($list)
 //   &lt;li class="item"&gt;About&lt;/li&gt;
 // ]
 
-children($home) // -> []</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">DOM Insertion</h2></header><div class="section__content"><p>dom.js 提供以下方法用于处理插入新的 DOM 元素。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">insertAfter(el, reference)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|HTMLElement</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">'#article'</dd></dl><dl class="section__dl"><dt class="section__dt">String：</dt><dd class="section__dd">选择器字符串，默认值：html,body（即 window 窗口）;</dd></dl><dl class="section__dl"><dt class="section__dt">HTMLElement：</dt><dd class="section__dd">'DOM 元素;</dd></dl><p>可选，用来指定页面中显示文章正文的 DOM 节点或者选择器字符串。</p><pre class="section__pre"><code class="section__code">// Default Selector
-const outline = new Outline(Outline.DEFAULTS)
+children($home) // -> []</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">DOM Insertion</h2></header><div class="section__content"><p>dom.js 提供以下方法用于处理插入新的 DOM 元素。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">insertAfter(el, reference)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><p>insertAfter() 方法用来在参考节点之后插入一个拥有指定父节点的子节点。如果给定的子节点是对文档中现有节点的引用，insertAfter() 会将其从当前位置移动到新位置（在将节点附加到其他节点之前，不需要从其父节点删除该节点）。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定要插入的 DOM 元素。</p><h5 class="section__h4">reference</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）reference 指定参考节点。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>函数返回被插入过的子节点；当 newNode 是 DocumentFragment 时，返回空 DocumentFragment。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item about"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
 
-// Customize Selector
-const outline = new Outline({
-  articleElement: $('#main')
-})</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">insertBefore(el, reference)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">''</dd></dl><p>可选，用来指定文章标题锚点链接图标的链接地址：</p><pre class="section__pre"><code class="section__code">// Default URL - 默认链接，点击图标，页面会滚动到当前标题位置
-new Outline()
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 insertAfter 单个方法
+import insertAfter from '@yaohaixiao/dom.js/insertAfter'
 
-// Customize URL - 直接打开链接了
-new Outline({
-  anchorURL: 'http://www.yaohaixiao.com/'
-})</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">insertHTMLAfter(el, html)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">''</dd></dl><p>可选，(DIYer福利)设置自定义样式的 class 名称：</p><ul><li>'' - 采用默认 outline.js 的 UI 界面（默认值）；</li><li>设置自定义样式 - 自己根据需求设置个性化的 UI 界面；</li></ul><pre class="section__pre"><code class="section__code">// Default UI
-new Outline(Outline.DEFAULTS)
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
+const $about = DOM.getEl('.about')
+const $blog = DOM.html('&lt;li class="item blog"&gt;Blog&lt;/li&gt;')
 
-// Customized
-new Outline({
-  // 设置深色配置界面
-  customClass: 'theme-dark'
-})</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">insertHTMLBefore(el, html)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">''</dd></dl><p>可选，针对 API 文档类的文章页面，指定项目 git 仓库地址：</p><pre class="section__pre"><code class="section__code">const outline = new Outline(Outline.DEFAULTS)
+// 插入创建的节点
+DOM.insertAfter($blog, $home)
+// -> &lt;li class="item blog"&gt;Blog&lt;/li&gt;
 
-// 侧边栏的 Toolbar 会多出一个 git 图标的按钮
-outline.reload({
-  git: 'https://github.com/yaohaixiao/outline.js'
-})</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">after(el, reference)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">null</dd></dl><p>可选，当导航菜单隐藏或者显示的时候，会触发执行 afterToggle 回调函数。</p><p>说明：afterSticky() 回调函数的 this 上下文执行 outline.chapters 对象。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">closed</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>closed 参数值为 true 表示菜单处于隐藏状态，否则表示菜单处于显示状态</p><h5 class="section__h4">isSticky</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>isSticky 参数值为 true 表示（position:fixed）菜单处于模拟 sticky 定位（position:fixed）状态，否则表示菜单处于普通状态。</p><pre class="section__pre"><code class="section__code">const $header = document.querySelector('#header')
-const HEADER_STICKY = 'header_sticky'
-const defaults = Outline.DEFAULTS
-let outline
+// 插入引用节点
+insertAfter($about, $home)
+// -> &lt;li class="item about"&gt;About&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">insertBefore(el, reference)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><p>insertBefore() 方法用来在参考节点之前插入一个拥有指定父节点的子节点。如果给定的子节点是对文档中现有节点的引用，insertBefore() 会将其从当前位置移动到新位置（在将节点附加到其他节点之前，不需要从其父节点删除该节点）。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定要插入的 DOM 元素。</p><h5 class="section__h4">reference</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）reference 指定参考节点。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>函数返回被插入过的子节点；当 newNode 是 DocumentFragment 时，返回空 DocumentFragment。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item about"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
 
-defaults.position = 'fixed'
-defaults.parentElement = '#aside'
-defaults.stickyHeight = 86
-defaults.homepage = './index.html'
-defaults.afterSticky = function(closed, isStickying) {
-  const $nav = this.$el
-  const BORDER_RIGHT = 'utils-border-right'
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 insertBefore 单个方法
+import insertBefore from '@yaohaixiao/dom.js/insertBefore'
 
-  if (closed) {
-    return false
-  }
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
+const $about = DOM.getEl('.about')
+const $blog = DOM.html('&lt;li class="item blog"&gt;Blog&lt;/li&gt;')
 
-  if (isStickying) {
-    $nav.classList.add(BORDER_RIGHT)
-    $header.classList.add(HEADER_STICKY)
-  } else {
-    $nav.classList.remove(BORDER_RIGHT)
-    $header.classList.remove(HEADER_STICKY)
-  }
-}
-defaults.afterToggle = function(closed, isStickying) {
-  if (!isStickying) {
-    return false
-  }
+// 插入创建的节点
+DOM.insertBefore($blog, $home)
+// -> &lt;li class="item blog"&gt;Blog&lt;/li&gt;
 
-  if (closed) {
-    $header.classList.remove(HEADER_STICKY)
-  } else {
-    $header.classList.add(HEADER_STICKY)
-  }
-}
-outline = new Outline(Outline.DEFAULTS)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">before(el, reference)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">null</dd></dl><p>可选，API 文档中，正文的方法会添加参数等信息，例如：getChapters(headings, showCode, chapterTextFilter)。而在 chapters 导航菜单，我希望显示为 getChapters()，这时我们就可以借助 chapterTextFilter 回调函数。对原始的文本进行过滤，返回我们期望的 getChapters() 文本。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">text</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>chapterTextFilter() 回调函数有一个参数 text，返回的是当前 hx 标题中的文本。</p><pre class="section__pre"><code class="section__code">const defaults = Outline.DEFAULTS
-let outline
+// 插入引用节点
+insertBefore($about, $home)
+// -> &lt;li class="item about"&gt;About&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">insertHTMLAfterBegin(el, html)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><p>insertHTMLAfterBegin() 方法用来将指定的文本解析为 Element 元素，并将结果节点插入 el 元素之前。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定要插入的 DOM 元素。</p><h5 class="section__h4">html</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）html 指定希望插入的 html 字符串。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item about"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
 
-defaults.selector = 'h2,h3'
-defaults.title = false
-defaults.showCode = false
-defaults.position = 'sticky'
-defaults.parentElement = '#aside'
-defaults.scrollElement = '#main'
-defaults.articleElement = '#article'
-defaults.homepage = './index.html'
-defaults.git = 'https://github.com/yaohaixiao/outline.js'
-defaults.tags = 'https://github.com/yaohaixiao/outline.js/tags'
-defaults.issues = 'https://github.com/yaohaixiao/outline.js/issues'
-defaults.print = {
-  element: '#article',
-  title: 'Outline.js'
-}
-defaults.chapterTextFilter = (text) => {
-  return text.replace(/\(.*?\)/, '()')
-}
-outline = new Outline(Outline.DEFAULTS)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">append(el, reference)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">null</dd></dl><p>可选，在设置 position: fixed 时，当导航菜单样式为 fixed 获取恢复为普通定位的时候，会触发执行 afterSticky 回调函数。</p><p>说明：afterSticky() 回调函数的 this 上下文执行 outline.chapters 对象。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">closed</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>closed 参数值为 true 表示菜单处于隐藏状态，否则表示菜单处于显示状态</p><h5 class="section__h4">isSticky</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>isSticky 参数值为 true 表示（position:fixed）菜单处于模拟 sticky 定位（position:fixed）状态，否则表示菜单处于普通状态。</p><pre class="section__pre"><code class="section__code">const $header = document.querySelector('#header')
-const HEADER_STICKY = 'header_sticky'
-const defaults = Outline.DEFAULTS
-let outline
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 insertHTMLAfterBegin 单个方法
+import insertHTMLAfterBegin from '@yaohaixiao/dom.js/insertHTMLAfterBegin'
 
-defaults.position = 'fixed'
-defaults.parentElement = '#aside'
-defaults.stickyHeight = 86
-defaults.homepage = './index.html'
-defaults.afterSticky = function(closed, isStickying) {
-  const $nav = this.$el
-  const BORDER_RIGHT = 'utils-border-right'
+const $list = DOM.byId('#list')
 
-  if (closed) {
-    return false
-  }
+// 将插入 html 插入到 $list 节点前面
+DOM.insertHTMLAfterBegin($list, '&lt;ul&gt;&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;&lt;/ul&gt;')
 
-  if (isStickying) {
-    $nav.classList.add(BORDER_RIGHT)
-    $header.classList.add(HEADER_STICKY)
-  } else {
-    $nav.classList.remove(BORDER_RIGHT)
-    $header.classList.remove(HEADER_STICKY)
-  }
-}
-defaults.afterToggle = function(closed, isStickying) {
-  if (!isStickying) {
-    return false
-  }
+// 将插入 html 插入到 $list 节点前面
+insertHTMLAfterBegin($list, '&lt;ul&gt;&lt;li class="item project"&gt;Projects&lt;/li&gt;&lt;/ul&gt;')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">insertHTMLAfterEnd(el, html)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><p>insertHTMLAfterEnd() 方法用来将指定的文本解析为 Element 元素，并将结果节点插入 el 元素自身内部最后面。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定要插入的 DOM 元素。</p><h5 class="section__h4">html</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）html 指定希望插入的 html 字符串。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item about"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
 
-  if (closed) {
-    $header.classList.remove(HEADER_STICKY)
-  } else {
-    $header.classList.add(HEADER_STICKY)
-  }
-}
-outline = new Outline(Outline.DEFAULTS)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">prepend(el, reference)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">null</dd></dl><p>可选，在设置 position: fixed 时，当导航菜单样式为 fixed 获取恢复为普通定位的时候，会触发执行 afterSticky 回调函数。</p><p>说明：afterSticky() 回调函数的 this 上下文执行 outline.chapters 对象。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">closed</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>closed 参数值为 true 表示菜单处于隐藏状态，否则表示菜单处于显示状态</p><h5 class="section__h4">isSticky</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>isSticky 参数值为 true 表示（position:fixed）菜单处于模拟 sticky 定位（position:fixed）状态，否则表示菜单处于普通状态。</p><pre class="section__pre"><code class="section__code">const $header = document.querySelector('#header')
-const HEADER_STICKY = 'header_sticky'
-const defaults = Outline.DEFAULTS
-let outline
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 insertHTMLAfterEnd 单个方法
+import insertHTMLAfterEnd from '@yaohaixiao/dom.js/insertHTMLAfterEnd'
 
-defaults.position = 'fixed'
-defaults.parentElement = '#aside'
-defaults.stickyHeight = 86
-defaults.homepage = './index.html'
-defaults.afterSticky = function(closed, isStickying) {
-  const $nav = this.$el
-  const BORDER_RIGHT = 'utils-border-right'
+const $list = DOM.byId('#list')
 
-  if (closed) {
-    return false
-  }
+// 将插入 html 插入到 $list 节点内部最后面
+DOM.insertHTMLAfterEnd($list, '&lt;ul&gt;&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;&lt;/ul&gt;')
 
-  if (isStickying) {
-    $nav.classList.add(BORDER_RIGHT)
-    $header.classList.add(HEADER_STICKY)
-  } else {
-    $nav.classList.remove(BORDER_RIGHT)
-    $header.classList.remove(HEADER_STICKY)
-  }
-}
-defaults.afterToggle = function(closed, isStickying) {
-  if (!isStickying) {
-    return false
-  }
+// 将插入 html 插入到 $list 节点内部最后面
+insertHTMLAfterEnd($list, '&lt;ul&gt;&lt;li class="item project"&gt;Projects&lt;/li&gt;&lt;/ul&gt;')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">insertHTMLBeforeBegin(el, html)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><p>insertHTMLBeforeBegin() 方法用来将指定的文本解析为 Element 元素，并将结果节点插入 el 元素自身内部最前面。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定要插入的 DOM 元素。</p><h5 class="section__h4">html</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）html 指定希望插入的 html 字符串。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item about"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
 
-  if (closed) {
-    $header.classList.remove(HEADER_STICKY)
-  } else {
-    $header.classList.add(HEADER_STICKY)
-  }
-}
-outline = new Outline(Outline.DEFAULTS)</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Position</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用于获 DOM 元素的位置（offsetTop、offsetLeft、scrollTop、scrollLeft、pageX 和 pageY 等）信息。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getOffset(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 insertHTMLBeforeBegin 单个方法
+import insertHTMLBeforeBegin from '@yaohaixiao/dom.js/insertHTMLBeforeBegin'
+
+const $list = DOM.byId('#list')
+
+// 将插入 html 插入到 $list 节点内部最前面
+DOM.insertHTMLBeforeBegin($list, '&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;')
+
+// 将插入 html 插入到 $list 节点内部最前面
+insertHTMLBeforeBegin($list, '&lt;li class="item project"&gt;Projects&lt;/li&gt;')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">insertHTMLBeforeEnd(el, html)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><p>insertHTMLBeforeEnd() 方法用来将指定的文本解析为 Element 元素，并将结果节点插入 el 元素之后。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定要插入的 DOM 元素。</p><h5 class="section__h4">html</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）html 指定希望插入的 html 字符串。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item about"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 insertHTMLBeforeEnd 单个方法
+import insertHTMLBeforeEnd from '@yaohaixiao/dom.js/insertHTMLBeforeEnd'
+
+const $list = DOM.byId('#list')
+
+// 将插入 html 插入到 $list 节点后面
+DOM.insertHTMLBeforeEnd($list, '&lt;ul&gt;&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;&lt;/ul&gt;')
+
+// 将插入 html 插入到 $list 节点后面
+insertHTMLBeforeEnd($list, '&lt;ul&gt;&lt;li class="item project"&gt;Projects&lt;/li&gt;&lt;/ul&gt;')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">after(el, reference)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><p>after() 方法用来将在指定 DOM 节点后添加子节点或者将 HTML 字符转化成节点添加到后面。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）el 参数指定要插入的 DOM 元素或者 HTML 字符。</p><h5 class="section__h4">reference</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）reference 指定 DOM 节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item about"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 after 单个方法
+import after from '@yaohaixiao/dom.js/after'
+
+const $list = DOM.byId('#list')
+const $menu = DOM.html('&lt;ul&gt;&lt;li class="item project"&gt;Projects&lt;/li&gt;&lt;/ul&gt;')
+
+// 将插入 html 插入到 $list 节点后面
+DOM.after('&lt;ul&gt;&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;&lt;/ul&gt;', $list)
+
+// 将创建的 $menu 节点插入到 $list 节点后面
+after($menu, $list)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">before(el, reference)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><p>before() 方法用来将在指定 DOM 节点后添加子节点或者将 HTML 字符转化成节点添加到前面。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）el 参数指定要插入的 DOM 元素或者 HTML 字符。</p><h5 class="section__h4">reference</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）reference 指定 DOM 节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item about"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 before 单个方法
+import before from '@yaohaixiao/dom.js/before'
+
+const $list = DOM.byId('#list')
+const $menu = DOM.html('&lt;ul&gt;&lt;li class="item project"&gt;Projects&lt;/li&gt;&lt;/ul&gt;')
+
+// 将插入 html 插入到 $list 节点前面
+DOM.before('&lt;ul&gt;&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;&lt;/ul&gt;', $list)
+
+// 将创建的 $menu 节点插入到 $list 节点前面
+before($menu, $list)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">append(el, reference)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><p>append() 方法用来将指定 DOM 节点或者 html 文本解析为 Element 元素，并将结果节点插入 el 元素自身内部的最后面。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）el 参数指定要插入的 DOM 元素或者 HTML 字符。</p><h5 class="section__h4">reference</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）reference 指定 DOM 节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item about"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 append 单个方法
+import append from '@yaohaixiao/dom.js/append'
+
+const $list = DOM.byId('#list')
+const $project = DOM.html('&lt;li class="item project"&gt;Projects&lt;/li&gt;')
+
+// 将插入 html 插入到 $list 节点内部的最后面
+DOM.append('&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;', $list)
+
+// 将插入 html 插入到 $list 节点内部的最后面
+append($project, $list)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">prepend(el, reference)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><p>prepend() 方法用来将指定 DOM 节点或者 html 文本解析为 Element 元素，并将结果节点插入 el 元素自身内部的最前面。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）el 参数指定要插入的 DOM 元素或者 HTML 字符。</p><h5 class="section__h4">reference</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）reference 指定 DOM 节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item about"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 prepend 单个方法
+import prepend from '@yaohaixiao/dom.js/prepend'
+
+const $list = DOM.byId('#list')
+const $project = DOM.html('&lt;li class="item project"&gt;Projects&lt;/li&gt;')
+
+// 将插入 html 插入到 $list 节点内部的最前面
+DOM.prepend('&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;', $list)
+
+// 将插入 html 插入到 $list 节点内部的最前面
+prepend($project, $list)</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Position</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用于获 DOM 元素的位置（offsetTop、offsetLeft、scrollTop、scrollLeft、pageX 和 pageY 等）信息。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getOffset(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
 class Anchors extends Base {
   constructor(options) {
     super()

@@ -4,14 +4,18 @@ import after from '../after'
 import before from '../before'
 import insertAfter from '../insertAfter'
 import insertBefore from '../insertBefore'
-import insertHTMLAfter from '../insertHTMLAfter'
-import insertHTMLBefore from '../insertHTMLBefore'
+import insertHTMLAfterBegin from '../insertHTMLAfterBegin'
+import insertHTMLAfterEnd from '../insertHTMLAfterEnd'
+import insertHTMLBeforeBegin from '../insertHTMLBeforeBegin'
+import insertHTMLBeforeEnd from '../insertHTMLBeforeEnd'
 
 const DOM = {
   insertAfter,
   insertBefore,
-  insertHTMLAfter,
-  insertHTMLBefore,
+  insertHTMLAfterBegin,
+  insertHTMLAfterEnd,
+  insertHTMLBeforeBegin,
+  insertHTMLBeforeEnd,
   append,
   prepend,
   after,

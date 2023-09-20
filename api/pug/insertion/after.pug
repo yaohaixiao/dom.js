@@ -2,62 +2,37 @@ section.section
   header.section__header
     h3.section__h3 after(el, reference)
   div.section__content
-    h4.section__h4 Description
     dl.section__dl
-      dt.section__dt Type：
-      dd.section__dd Function
-    dl.section__dl
-      dt.section__dt Default：
-      dd.section__dd null
-    p 可选，当导航菜单隐藏或者显示的时候，会触发执行 afterToggle 回调函数。
-    p 说明：afterSticky() 回调函数的 this 上下文执行 outline.chapters 对象。
+      dt.section__dt Category：
+      dd.section__dd DOM Insertion
+    p after() 方法用来将在指定 DOM 节点后添加子节点或者将 HTML 字符转化成节点添加到后面。
     h4.section__h4 Parameters
-    h5.section__h4 closed
+    h5.section__h4 el
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd Boolean
-    p closed 参数值为 true 表示菜单处于隐藏状态，否则表示菜单处于显示状态
-    h5.section__h4 isSticky
+      dd.section__dd HTMLElement|String
+    p （必须）el 参数指定要插入的 DOM 元素或者 HTML 字符。
+    h5.section__h4 reference
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd Boolean
-    p isSticky 参数值为 true 表示（position:fixed）菜单处于模拟 sticky 定位（position:fixed）状态，否则表示菜单处于普通状态。
+      dd.section__dd HTMLElement
+    p （必须）reference 指定 DOM 节点。
     pre.section__pre
-      code.section__code.
-        const $header = document.querySelector('#header')
-        const HEADER_STICKY = 'header_sticky'
-        const defaults = Outline.DEFAULTS
-        let outline
+      code.section__.
+        &lt;ul id="list" class="list"&gt;
+            &lt;li class="item about"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
 
-        defaults.position = 'fixed'
-        defaults.parentElement = '#aside'
-        defaults.stickyHeight = 86
-        defaults.homepage = './index.html'
-        defaults.afterSticky = function(closed, isStickying) {
-          const $nav = this.$el
-          const BORDER_RIGHT = 'utils-border-right'
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 after 单个方法
+        import after from '@yaohaixiao/dom.js/after'
 
-          if (closed) {
-            return false
-          }
+        const $list = DOM.byId('#list')
+        const $menu = DOM.html('&lt;ul&gt;&lt;li class="item project"&gt;Projects&lt;/li&gt;&lt;/ul&gt;')
 
-          if (isStickying) {
-            $nav.classList.add(BORDER_RIGHT)
-            $header.classList.add(HEADER_STICKY)
-          } else {
-            $nav.classList.remove(BORDER_RIGHT)
-            $header.classList.remove(HEADER_STICKY)
-          }
-        }
-        defaults.afterToggle = function(closed, isStickying) {
-          if (!isStickying) {
-            return false
-          }
+        // 将插入 html 插入到 $list 节点后面
+        DOM.after('&lt;ul&gt;&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;&lt;/ul&gt;', $list)
 
-          if (closed) {
-            $header.classList.remove(HEADER_STICKY)
-          } else {
-            $header.classList.add(HEADER_STICKY)
-          }
-        }
-        outline = new Outline(Outline.DEFAULTS)
+        // 将创建的 $menu 节点插入到 $list 节点后面
+        after($menu, $list)

@@ -1,17 +1,25 @@
 import isElement from './utils/types/isElement'
-import insertBefore from './insertBefore'
 import isHTML from './utils/types/isHTML'
-import insertHTMLBefore from './insertHTMLBefore'
+import insertBefore from './insertBefore'
+import insertHTMLBeforeBegin from './insertHTMLBeforeBegin'
 
+/**
+ * 在指定 DOM 节点后添加子节点或者将 HTML 字符转化成节点添加到前面
+ * ========================================================================
+ * @method after
+ * @param {HTMLElement|String} el
+ * @param {HTMLElement} reference
+ * @return {boolean}
+ */
 const before = (el, reference) => {
-  if (!isElement(el)) {
+  if (!isElement(reference)) {
     return false
   }
 
-  if (isElement(reference)) {
+  if (isElement(el)) {
     insertBefore(el, reference)
-  } else if (isHTML(reference)) {
-    insertHTMLBefore(el, reference)
+  } else if (isHTML(el)) {
+    insertHTMLBeforeBegin(reference, el)
   }
 }
 

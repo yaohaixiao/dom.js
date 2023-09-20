@@ -12,18 +12,19 @@ const isInBounding = (child, parent) => {
   let pRect
   let cRect
 
-  if(!isElement(child) || !isElement(parent)){
+  if (!isElement(child) || !isElement(parent)) {
     return false
   }
 
-  pRect = parent.getBoundingClientRect();
-  cRect = child.getBoundingClientRect();
+  pRect = parent.getBoundingClientRect()
+  cRect = child.getBoundingClientRect()
 
   if (
     cRect.top >= pRect.top &&
     cRect.right <= pRect.right &&
     cRect.bottom <= pRect.bottom &&
-    cRect.left >= pRect.left) {
+    cRect.left >= pRect.left
+  ) {
     return true
   }
 

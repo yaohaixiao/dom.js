@@ -2,20 +2,48 @@ section.section
   header.section__header
     h3.section__h3 insertBefore(el, reference)
   div.section__content
-    h4.section__h4 Description
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd DOM Insertion
+    p insertBefore() 方法用来在参考节点之前插入一个拥有指定父节点的子节点。如果给定的子节点是对文档中现有节点的引用，insertBefore() 会将其从当前位置移动到新位置（在将节点附加到其他节点之前，不需要从其父节点删除该节点）。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （必须）el 参数指定要插入的 DOM 元素。
+    h5.section__h4 reference
     dl.section__dl
       dt.section__dt Type：
       dd.section__dd String
+    p （必须）reference 指定参考节点。
+    h5.section__h4 Returns
     dl.section__dl
-      dt.section__dt Default：
-      dd.section__dd ''
-    p 可选，用来指定文章标题锚点链接图标的链接地址：
+      dt.section__dt Type：
+      dd.section__dd Boolean
+    p 函数返回被插入过的子节点；当 newNode 是 DocumentFragment 时，返回空 DocumentFragment。
     pre.section__pre
-      code.section__code.
-        // Default URL - 默认链接，点击图标，页面会滚动到当前标题位置
-        new Outline()
+      code.section__.
+        &lt;ul id="list" class="list"&gt;
+            &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item project"&gt;Projects&lt;/li&gt;
+            &lt;li class="item about"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
 
-        // Customize URL - 直接打开链接了
-        new Outline({
-          anchorURL: 'http://www.yaohaixiao.com/'
-        })
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 insertBefore 单个方法
+        import insertBefore from '@yaohaixiao/dom.js/insertBefore'
+
+        const $list = DOM.byId('#list')
+        const $home = DOM.byId('#home')
+        const $about = DOM.getEl('.about')
+        const $blog = DOM.html('&lt;li class="item blog"&gt;Blog&lt;/li&gt;')
+
+        // 插入创建的节点
+        DOM.insertBefore($blog, $home)
+        // -> &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+
+        // 插入引用节点
+        insertBefore($about, $home)
+        // -> &lt;li class="item about"&gt;About&lt;/li&gt;

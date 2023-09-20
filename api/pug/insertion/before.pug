@@ -2,41 +2,37 @@ section.section
   header.section__header
     h3.section__h3 before(el, reference)
   div.section__content
-    h4.section__h4 Description
     dl.section__dl
-      dt.section__dt Type：
-      dd.section__dd Function
-    dl.section__dl
-      dt.section__dt Default：
-      dd.section__dd null
-    p 可选，API 文档中，正文的方法会添加参数等信息，例如：getChapters(headings, showCode, chapterTextFilter)。而在 chapters 导航菜单，我希望显示为 getChapters()，这时我们就可以借助 chapterTextFilter 回调函数。对原始的文本进行过滤，返回我们期望的 getChapters() 文本。
+      dt.section__dt Category：
+      dd.section__dd DOM Insertion
+    p before() 方法用来将在指定 DOM 节点后添加子节点或者将 HTML 字符转化成节点添加到前面。
     h4.section__h4 Parameters
-    h5.section__h4 text
+    h5.section__h4 el
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd String
-    p chapterTextFilter() 回调函数有一个参数 text，返回的是当前 hx 标题中的文本。
+      dd.section__dd HTMLElement|String
+    p （必须）el 参数指定要插入的 DOM 元素或者 HTML 字符。
+    h5.section__h4 reference
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （必须）reference 指定 DOM 节点。
     pre.section__pre
-      code.section__code.
-        const defaults = Outline.DEFAULTS
-        let outline
+      code.section__.
+        &lt;ul id="list" class="list"&gt;
+            &lt;li class="item about"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
 
-        defaults.selector = 'h2,h3'
-        defaults.title = false
-        defaults.showCode = false
-        defaults.position = 'sticky'
-        defaults.parentElement = '#aside'
-        defaults.scrollElement = '#main'
-        defaults.articleElement = '#article'
-        defaults.homepage = './index.html'
-        defaults.git = 'https://github.com/yaohaixiao/outline.js'
-        defaults.tags = 'https://github.com/yaohaixiao/outline.js/tags'
-        defaults.issues = 'https://github.com/yaohaixiao/outline.js/issues'
-        defaults.print = {
-          element: '#article',
-          title: 'Outline.js'
-        }
-        defaults.chapterTextFilter = (text) => {
-          return text.replace(/\(.*?\)/, '()')
-        }
-        outline = new Outline(Outline.DEFAULTS)
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 before 单个方法
+        import before from '@yaohaixiao/dom.js/before'
+
+        const $list = DOM.byId('#list')
+        const $menu = DOM.html('&lt;ul&gt;&lt;li class="item project"&gt;Projects&lt;/li&gt;&lt;/ul&gt;')
+
+        // 将插入 html 插入到 $list 节点前面
+        DOM.before('&lt;ul&gt;&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;&lt;/ul&gt;', $list)
+
+        // 将创建的 $menu 节点插入到 $list 节点前面
+        before($menu, $list)

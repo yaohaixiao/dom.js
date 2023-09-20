@@ -1,8 +1,11 @@
 import isElement from './utils/types/isElement'
+import isHTML from './utils/types/isHTML'
 
 /**
- * 在指定元素的开头插入HTML字符串。
+ * 来将指定的文本解析为 Element 元素，并将结果节点插入元素内部的最后一个子节点之后。
  * ========================================================================
+ * @method insertHTMLBeforeEnd
+ * @see https://developer.mozilla.org/zh-CN/docs/Web/API/Element/insertAdjacentHTML
  * @param {HTMLElement|String} el
  * @param {String} html
  *
@@ -10,10 +13,10 @@ import isElement from './utils/types/isElement'
  * insertHTMLBefore(document.getElementById('myId'), '<p>before</p>');
  * // <p>before</p> <div id="myId">...</div>
  */
-const insertHTMLBefore = (el, html) => {
+const insertHTMLBeforeEnd = (el, html) => {
   let $el
 
-  if (!el || !html) {
+  if (!el || !isHTML(html)) {
     return false
   }
 
@@ -23,7 +26,7 @@ const insertHTMLBefore = (el, html) => {
     return false
   }
 
-  $el.insertAdjacentHTML('beforebegin', html)
+  $el.insertAdjacentHTML('beforeend', html)
 }
 
-export default insertHTMLBefore
+export default insertHTMLBeforeEnd
