@@ -1,6 +1,13 @@
 import isElement from './utils/types/isElement'
 import getPreviousSibling from './getPreviousSibling'
 
+/**
+ * 获取 DOM 元素的前面所有邻居元素节点。
+ * ========================================================================
+ * @method getPreviousSiblings
+ * @param {HTMLElement} el
+ * @return {Array}
+ */
 const getPreviousSiblings = (el) => {
   const prev = []
   let $sibling

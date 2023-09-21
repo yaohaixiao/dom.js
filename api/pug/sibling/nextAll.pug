@@ -2,23 +2,45 @@ section.section
   header.section__header
     h3.section__h3 nextAll(el)
   div.section__content
-    h4.section__h4 Description
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Selecting Siblings
+    dl.section__dl
+      dt.section__dt Alias：
+      dd.section__dd getNextSiblings
+    p nextAll() 方法用来获取 DOM 元素的后面所有邻居元素节点。
+    h4.section__h4 Parameters
+    h5.section__h4 el
     dl.section__dl
       dt.section__dt Type：
       dd.section__dd String
+    p （必须）el 参数指定 DOM 元素。
+    h4.section__h4 Returns
     dl.section__dl
-      dt.section__dt Default：
-      dd.section__dd '#aside'
-    ul
-      li String： 选择器字符串，默认值：html,body（即 window 窗口）;
-      li HTMLElement： DOM 元素;
-    p 可选，导航菜单将要插入的位置（DOM 元素）。仅在 position 设置为 sticky 和 fixed 布局时有效。
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p 返回 DOM 元素的后面所有邻居元素节点的数组，如果没有则返回空数组。
     pre.section__pre
       code.section__code.
-        // 在页面内部插入导航菜单
-        new Outline({
-          // 在（文章的）侧边栏显示导航菜单
-          parentElement: '#aside',
-          // 或者 sticky 定位
-          position: 'fixed'
-        })
+        &lt;ul id="list" class="list"&gt;
+            &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 nextAll 单个方法
+        import nextAll from '@yaohaixiao/dom.js/nextAll'
+
+        const $list = DOM.byId('#list')
+        const $home = DOM.byId('#home')
+
+        DOM.nextAll($list) // ->[]
+        nextAll($home)
+        // -> [
+        //   &lt;li class="item blog"&gt;Blog&lt;/li&gt;,
+        //   &lt;li class="item"&gt;Projects&lt;/li&gt;,
+        //   &lt;li class="item"&gt;About&lt;/li&gt;
+        // ]

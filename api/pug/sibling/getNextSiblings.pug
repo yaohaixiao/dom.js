@@ -2,16 +2,42 @@ section.section
   header.section__header
     h3.section__h3 getNextSiblings(el)
   div.section__content
-    h4.section__h4 Description
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Selecting Siblings
+    p getNextSiblings() 方法用来获取 DOM 元素的后面所有邻居元素节点。
+    h4.section__h4 Parameters
+    h5.section__h4 el
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd Array
-    p 存储的是 Outline 对象当前工具栏的完整的按钮配置信息：
+      dd.section__dd String
+    p （必须）el 参数指定 DOM 元素。
+    h4.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p 返回 DOM 元素的后面所有邻居元素节点的数组，如果没有则返回空数组。
     pre.section__pre
       code.section__code.
-        // 设置默认配置项
-        const outline = new Outline(Outline.DEFAULTS)
+        &lt;ul id="list" class="list"&gt;
+            &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
 
-        // 查看全部按钮配置信息
-        outline.buttons
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 getNextSiblings 单个方法
+        import getNextSiblings from '@yaohaixiao/dom.js/getNextSiblings'
 
+        const $list = DOM.byId('#list')
+        const $home = DOM.byId('#home')
+
+        DOM.getNextSiblings($list) // ->[]
+        getNextSiblings($home)
+        // -> [
+        //   &lt;li class="item blog"&gt;Blog&lt;/li&gt;,
+        //   &lt;li class="item"&gt;Projects&lt;/li&gt;,
+        //   &lt;li class="item"&gt;About&lt;/li&gt;
+        // ]

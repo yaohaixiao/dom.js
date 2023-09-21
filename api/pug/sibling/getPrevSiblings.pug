@@ -2,127 +2,42 @@ section.section
   header.section__header
     h3.section__h3 getPrevSiblings(el)
   div.section__content
-    h4.section__h4 Description
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Selecting Siblings
+    p getPrevSiblings() 方法用来获取 DOM 元素的前面所有邻居元素节点。
+    h4.section__h4 Parameters
+    h5.section__h4 el
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd Object
-    p Chapters 模块：独立的导航菜单模块；
+      dd.section__dd String
+    p （必须）el 参数指定 DOM 元素。
+    h4.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p 返回 DOM 元素的前面所有邻居元素节点的数组，如果没有则返回空数组。
     pre.section__pre
       code.section__code.
-        // 仅展示 API 中对外公开的方法和属性
-        class Chapters extends Base {
-          constructor(options) {
-            super()
+        &lt;ul id="list" class="list"&gt;
+            &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item about"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
 
-            this.attrs = Chapters.DEFAULTS
-            this.$el = null
-            this.$title = null
-            this.$main = null
-            this.$list = null
-            this.$placeholder = null
-            this.$parentElement = null
-            this.$scrollElement = null
-            this.chapters = []
-            this.closed = false
-            this.active = 0
-            this.getOffsetTop = 0
-            this.$active = null
-            this.timer = null
-            this.playing = false
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 getPrevSiblings 单个方法
+        import getPrevSiblings from '@yaohaixiao/dom.js/getPrevSiblings'
 
-            // 省略其它逻辑...
-          }
+        const $list = DOM.byId('#list')
+        const $about = DOM.getEl('.about')
 
-          isClosed() {
-              return this.closed
-          }
-
-          isSticky() {
-            const position = this.attrs('position')
-            return position === 'sticky'
-          }
-
-          isFixed() {
-            const position = this.attrs('position')
-            return position === 'fixed'
-          }
-
-          isInside() {
-            return this.isFixed() || this.isSticky()
-          }
-
-          isOutside() {
-            return !this.isInside()
-          }
-
-          attrs(prop, value) {
-            // 省略其它逻辑...
-            return this
-          }
-
-          render() {
-            // 省略其它逻辑...
-            return this
-          }
-
-          highlight(id) {
-            // 省略其它逻辑...
-            return this
-          }
-
-          sticky() {
-            // 省略其它逻辑...
-            return this
-          }
-
-          scrollTo(top, after) {
-            // 省略其它逻辑...
-            return this
-          }
-
-          show() {
-            // 省略其它逻辑...
-            return this
-          }
-
-          hide() {
-            // 省略其它逻辑...
-            return this
-          }
-
-          toggle() {
-            // 省略其它逻辑...
-            return this
-          }
-
-          destroy() {
-            this.removeListeners()
-            // 省略其它逻辑...
-            return this
-          }
-
-          reload(options) {
-            this.destroy().initialize(this.attrs(options))
-            return this
-          }
-        }
-
-        Chapters.DEFAULTS = {
-          parentElement: '',
-          scrollElement: '',
-          selector: '',
-          active: 0,
-          closed: false,
-          showCode: true,
-          position: 'relative',
-          chapters: [],
-          created: null,
-          mounted: null,
-          afterClosed: null,
-          afterOpened: null,
-          afterScroll: null,
-          beforeDestroy: null,
-          afterDestroy: null
-        }
-
-        export default Chapters
+        DOM.getPrevSiblings($list) // ->[]
+        getPrevSiblings($about)
+        // -> [
+        //   &lt;li class="item"&gt;Projects&lt;/li&gt;,
+        //   &lt;li class="item blog"&gt;Blog&lt;/li&gt;,
+        //   &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+        // ]
