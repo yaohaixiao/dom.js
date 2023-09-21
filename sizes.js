@@ -12,38 +12,38 @@ import outerWidth from './outerWidth'
  * @return {Object|Null}
  */
 const sizes = (el) => {
-  const size = _getElementSizes(el)
+  const elSizes = _getElementSizes(el)
 
-  if (!size) {
+  if (!elSizes) {
     return null
   }
 
   return {
-    offsetHeight: size.offsetHeight,
-    offsetWidth: size.offsetWidth,
+    offsetHeight: elSizes.offsetHeight,
+    offsetWidth: elSizes.offsetWidth,
     innerHeight: innerHeight(el),
     innerWidth: innerWidth(el),
     outerHeight: outerHeight(el),
     outerWidth: outerWidth(el),
     margin: {
-      top: size.marginTopHeight,
-      right: size.marginRightWidth,
-      bottom: size.marginBottomHeight,
-      left: size.marginLeftWidth
+      top: elSizes.marginTop,
+      right: elSizes.marginRight,
+      bottom: elSizes.marginBottom,
+      left: elSizes.marginLeft
     },
     border: {
-      top: size.borderTopHeight,
-      right: size.borderRightWidth,
-      bottom: size.borderBottomHeight,
-      left: size.borderLeftWidth
+      top: elSizes.borderTop,
+      right: elSizes.borderRight,
+      bottom: elSizes.borderBottom,
+      left: elSizes.borderLeft
     },
     padding: {
-      top: size.paddingTopHeight,
-      right: size.paddingRightWidth,
-      bottom: size.paddingBottomHeight,
-      left: size.paddingLeftWidth
+      top: elSizes.paddingTop,
+      right: elSizes.paddingRight,
+      bottom: elSizes.paddingBottom,
+      left: elSizes.paddingLeft
     },
-    rect: size.rect
+    rect: elSizes.rect
   }
 }
 

@@ -6,8 +6,8 @@ import _getElementSizes from './_getElementSizes'
 import setStyle from './setStyle'
 
 /**
- * 获取或设置 DOM 元素的 innerHeight 值；
- * innerHeight = style.height + padding 高度（paddingTop + paddingBottom）
+ * 获取或设置 DOM 元素的 innerWidth 值；
+ * innerWidth = style.height + padding 宽度（paddingRight + paddingLeft）
  * ========================================================================
  * @method innerHeight
  * @param {HTMLElement} el
@@ -22,31 +22,31 @@ const innerWidth = (el, val) => {
   }
 
   const {
-    borderLeftWidth,
-    borderRightWidth,
-    paddingLeftWidth,
-    paddingRightWidth,
+    borderLeft,
+    borderRight,
+    paddingLeft,
+    paddingRight,
     offsetWidth
   } = _getElementSizes(el)
 
   if (isFunction(val)) {
     return val(el, {
-      borderLeftWidth,
-      borderRightWidth,
-      paddingLeftWidth,
-      paddingRightWidth,
+      borderLeft,
+      borderRight,
+      paddingLeft,
+      paddingRight,
       offsetWidth
     })
   }
 
   if (!isUndefined(val)) {
-    width = offsetWidth - (borderLeftWidth + borderRightWidth)
+    width = offsetWidth - (borderLeft + borderRight)
 
     if (width !== val) {
-      setStyle(el, 'width', pixel(val - (paddingLeftWidth + paddingRightWidth)))
+      setStyle(el, 'width', pixel(val - (paddingLeft + paddingRight)))
     }
   } else {
-    return offsetWidth - (borderLeftWidth + borderRightWidth)
+    return offsetWidth - (borderLeft + borderRight)
   }
 }
 

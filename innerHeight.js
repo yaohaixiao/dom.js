@@ -22,35 +22,35 @@ const innerHeight = (el, val) => {
   }
 
   const {
-    borderTopHeight,
-    borderBottomHeight,
-    paddingTopHeight,
-    paddingBottomHeight,
+    borderTop,
+    borderBottom,
+    paddingTop,
+    paddingBottom,
     offsetHeight
   } = _getElementSizes(el)
 
   if (isFunction(val)) {
     return val(el, {
-      borderTopHeight,
-      borderBottomHeight,
-      paddingTopHeight,
-      paddingBottomHeight,
+      borderTop,
+      borderBottom,
+      paddingTop,
+      paddingBottom,
       offsetHeight
     })
   }
 
   if (!isUndefined(val)) {
-    height = offsetHeight - (borderTopHeight + borderBottomHeight)
+    height = offsetHeight - (borderTop + borderBottom)
 
     if (height !== val) {
       setStyle(
         el,
         'height',
-        pixel(val - (paddingTopHeight + paddingBottomHeight))
+        pixel(val - (paddingTop + paddingBottom))
       )
     }
   } else {
-    return offsetHeight - (borderTopHeight + borderBottomHeight)
+    return offsetHeight - (borderTop + borderBottom)
   }
 }
 

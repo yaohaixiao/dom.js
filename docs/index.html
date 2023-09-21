@@ -2716,695 +2716,188 @@ Anchors.DEFAULTS = {
   afterDestroy: null
 }
 
-export default Anchors</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Size</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用于获取 DOM 元素的尺寸大小。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getDocumentHeight()</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
-class Anchors extends Base {
-  constructor(options) {
-    super()
+export default Anchors</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Size</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用于获取 DOM 元素的尺寸大小。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getDocumentHeight()</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Size</dd></dl><p>getDocumentHeight()方法用来获取当前页面（滚动条）的高度。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回文档的高度值。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getDocumentHeight 单个方法
+import getDocumentHeight from '@yaohaixiao/dom.js/getDocumentHeight'
 
-    this.attrs = Anchors.DEFAULTS
-    this.$articleElement = null
-    this.$scrollElement = null
-    this.$headings = []
-    this.chapters = []
+DOM.getDocumentHeight() // -> 800</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getDocumentWidth()</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Size</dd></dl><p>getDocumentWidth()方法用来获取当前页面（滚动条）的宽度。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回文档的宽度值。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getDocumentWidth 单个方法
+import getDocumentWidth from '@yaohaixiao/dom.js/getDocumentWidth'
 
-    // 省略其它逻辑...
-  }
+DOM.getDocumentWidth() // -> 800</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getViewportHeight()</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Size</dd></dl><p>getViewportHeight()方法用来获取当前窗口视口高度。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回窗口视口的高度值。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getViewportHeight 单个方法
+import getViewportHeight from '@yaohaixiao/dom.js/getViewportHeight'
 
-  getChapters(isTreeStructured = false) {
-    const chapters = this.chapters
-    return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-  }
+DOM.getViewportHeight() // -> 600</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getViewportWidth()</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Size</dd></dl><p>getViewportWidth()方法用来获取当前窗口视口宽度。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回窗口视口的宽度值。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getViewportWidth 单个方法
+import getViewportWidth from '@yaohaixiao/dom.js/getViewportWidth'
 
-  count() {
-    return this.chapters.length
-  }
-
-  attrs(prop, value) {
-    const attrs = this.attrs
-
-    if (isString(prop)) {
-      // 只能扩展 attrs 中已有的属性
-      if (value && hasOwn(attrs, prop)) {
-        // 更新单个配置信息
-        attrs[prop] = value
-        return this
-      }
-
-      // 只传递 prop 参数，则返回对应的属性值
-      return attrs[prop]
-    } else if (isObject(prop)) {
-      // 批量更新配置信息
-      extend(attrs, prop)
-
-      return this
-    } else if (arguments.length === 0) {
-      // 不传递参数，直接返回整个
-      return attrs
-    }
-
-    return this
-  }
-
-  render() {
-    // 省略其它逻辑...
-    return this
-  }
-
-  scrollTo(top, after) {
-    // 省略其它逻辑...
-    return this
-  }
-
-  destroy() {
-    this.removeListeners()
-    // 省略其它逻辑...
-    return this
-  }
-
-  reload(options) {
-    this.destroy().initialize(this.attrs(options))
-    return this
-  }
+DOM.getViewportWidth() // -> 1280</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">innerHeight(el[, val])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Size</dd></dl><p>innerHeight() 方法用来获取或设置 DOM 元素的 innerHeight 值；innerHeight = style.height + padding 高度（paddingTop + paddingBottom）。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">val</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number|String|Function</dd></dl><p>（可选）val 参数指定 DOM 元素的 innerHeight 高度或者获取 innerHeight 高度的处理函数。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回窗口视口的高度值。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
+.list,
+.item {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: hidden;
 }
-
-Anchors.DEFAULTS = {
-  scrollElement: 'html,body',
-  articleElement: '#article',
-  selector: 'h1,h2,h3,h4,h5,h6',
-  anchorURL: '',
-  hasAnchor: true,
-  isAtStart: true,
-  showCode: false,
-  created: null,
-  mounted: null,
-  afterScroll: null,
-  beforeDestroy: null,
-  afterDestroy: null
+.item {
+  float: left;
+  border: 2px;
+  padding: 10px;
+  height: 40px;
+  overflow: hidden;
 }
+&lt;/style&gt;
 
-export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getDocumentWidth()</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
-class Anchors extends Base {
-  constructor(options) {
-    super()
+&lt;ul id="list" class="list"&gt;
+    &lt;li class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
 
-    this.attrs = Anchors.DEFAULTS
-    this.$articleElement = null
-    this.$scrollElement = null
-    this.$headings = []
-    this.chapters = []
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 innerHeight 单个方法
+import innerHeight from '@yaohaixiao/dom.js/innerHeight'
 
-    // 省略其它逻辑...
-  }
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
 
-  getChapters(isTreeStructured = false) {
-    const chapters = this.chapters
-    return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-  }
+DOM.innerHeight($list) // => 64
+DOM.innerHeight($home) // => 60
 
-  count() {
-    return this.chapters.length
-  }
+innerHeight($home, 50)
+DOM.getStyle($home, 'height') // => '30px'
 
-  attrs(prop, value) {
-    const attrs = this.attrs
-
-    if (isString(prop)) {
-      // 只能扩展 attrs 中已有的属性
-      if (value && hasOwn(attrs, prop)) {
-        // 更新单个配置信息
-        attrs[prop] = value
-        return this
-      }
-
-      // 只传递 prop 参数，则返回对应的属性值
-      return attrs[prop]
-    } else if (isObject(prop)) {
-      // 批量更新配置信息
-      extend(attrs, prop)
-
-      return this
-    } else if (arguments.length === 0) {
-      // 不传递参数，直接返回整个
-      return attrs
-    }
-
-    return this
-  }
-
-  render() {
-    // 省略其它逻辑...
-    return this
-  }
-
-  scrollTo(top, after) {
-    // 省略其它逻辑...
-    return this
-  }
-
-  destroy() {
-    this.removeListeners()
-    // 省略其它逻辑...
-    return this
-  }
-
-  reload(options) {
-    this.destroy().initialize(this.attrs(options))
-    return this
-  }
+// 使用回到函数获取自定义计算的 innerHeight 高度
+innerHeight($home, (el, sizes) => {
+  return sizes.offsetHeight - (sizes.borderTop + sizes.borderBottom + sizes.paddingTop + sizes.paddingBottom)
+})
+// -> 40</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">innerWidth(el[, val])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Size</dd></dl><p>innerWidth() 方法用来获取或设置 DOM 元素的 innerWidth 值；innerWidth = style.height + padding 宽度（paddingRight + paddingLeft）。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">val</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number|Function</dd></dl><p>（可选）val 参数指定 DOM 元素的 innerWidth 高度或者获取 innerWidth 高度的处理函数。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回窗口视口的高度值。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
+.list,
+.item {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: hidden;
 }
-
-Anchors.DEFAULTS = {
-  scrollElement: 'html,body',
-  articleElement: '#article',
-  selector: 'h1,h2,h3,h4,h5,h6',
-  anchorURL: '',
-  hasAnchor: true,
-  isAtStart: true,
-  showCode: false,
-  created: null,
-  mounted: null,
-  afterScroll: null,
-  beforeDestroy: null,
-  afterDestroy: null
+.item {
+  float: left;
+  width: 40px;
+  height: 40px;
+  border: 2px;
+  padding: 10px;
+  overflow: hidden;
 }
+&lt;/style&gt;
 
-export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getViewportHeight()</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
-class Anchors extends Base {
-  constructor(options) {
-    super()
+&lt;ul id="list" class="list"&gt;
+    &lt;li class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
 
-    this.attrs = Anchors.DEFAULTS
-    this.$articleElement = null
-    this.$scrollElement = null
-    this.$headings = []
-    this.chapters = []
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 innerWidth 单个方法
+import innerWidth from '@yaohaixiao/dom.js/innerWidth'
 
-    // 省略其它逻辑...
-  }
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
 
-  getChapters(isTreeStructured = false) {
-    const chapters = this.chapters
-    return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-  }
+DOM.innerWidth($list) // => 248
+DOM.innerWidth($home) // => 60
 
-  count() {
-    return this.chapters.length
-  }
+innerWidth($home, 50)
+DOM.getStyle($home, 'width') // => '30px'
 
-  attrs(prop, value) {
-    const attrs = this.attrs
-
-    if (isString(prop)) {
-      // 只能扩展 attrs 中已有的属性
-      if (value && hasOwn(attrs, prop)) {
-        // 更新单个配置信息
-        attrs[prop] = value
-        return this
-      }
-
-      // 只传递 prop 参数，则返回对应的属性值
-      return attrs[prop]
-    } else if (isObject(prop)) {
-      // 批量更新配置信息
-      extend(attrs, prop)
-
-      return this
-    } else if (arguments.length === 0) {
-      // 不传递参数，直接返回整个
-      return attrs
-    }
-
-    return this
-  }
-
-  render() {
-    // 省略其它逻辑...
-    return this
-  }
-
-  scrollTo(top, after) {
-    // 省略其它逻辑...
-    return this
-  }
-
-  destroy() {
-    this.removeListeners()
-    // 省略其它逻辑...
-    return this
-  }
-
-  reload(options) {
-    this.destroy().initialize(this.attrs(options))
-    return this
-  }
+// 使用回到函数获取自定义计算的 innerHeight 高度
+innerWidth($home, (el, sizes) => {
+  return sizes.offsetWidth - (sizes.borderRight + sizes.borderLeft + sizes.paddingRight + sizes.paddingLeft)
+})
+// -> 40</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">outerHeight(el[, val, includeMargin])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Size</dd></dl><p>outerHeight() 方法用来获取或设置 DOM 元素的 outerHeight 值：</p><ul><li>默认（不包含边距）：outerHeight = style.height + border 高度（borderTop + borderBottom）+ padding 高度（paddingTop + paddingBottom）;</li><li>包含边距：outerHeight = style.height + margin 高度（marginTop + marginBottom） + border 高度（borderTop + borderBottom）+ padding 高度（paddingTop + paddingBottom）;</li></ul><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">val</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number|String|Function|Boolean</dd></dl><p>（可选）val 参数指定 DOM 元素的 outerHeight 高度或者获取 outerHeight 高度的处理函数。</p><h5 class="section__h4">includeMargin<dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>（可选）指定 outerHeight 高度是否包含边距高度。</p></h5><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回窗口视口的高度值。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
+.list,
+.item {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: hidden;
 }
-
-Anchors.DEFAULTS = {
-  scrollElement: 'html,body',
-  articleElement: '#article',
-  selector: 'h1,h2,h3,h4,h5,h6',
-  anchorURL: '',
-  hasAnchor: true,
-  isAtStart: true,
-  showCode: false,
-  created: null,
-  mounted: null,
-  afterScroll: null,
-  beforeDestroy: null,
-  afterDestroy: null
+.item {
+  float: left;
+  margin: 5px 0;
+  border: 2px;
+  padding: 10px;
+  height: 40px;
+  overflow: hidden;
 }
+&lt;/style&gt;
 
-export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getViewportWidth()</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
-class Anchors extends Base {
-  constructor(options) {
-    super()
+&lt;ul id="list" class="list"&gt;
+    &lt;li class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
 
-    this.attrs = Anchors.DEFAULTS
-    this.$articleElement = null
-    this.$scrollElement = null
-    this.$headings = []
-    this.chapters = []
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 outerHeight 单个方法
+import outerHeight from '@yaohaixiao/dom.js/outerHeight'
 
-    // 省略其它逻辑...
-  }
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
 
-  getChapters(isTreeStructured = false) {
-    const chapters = this.chapters
-    return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-  }
+DOM.outerHeight($list) // => 64
+DOM.outerHeight($home, true) // => 74
+DOM.outerHeight($home) // => 64
 
-  count() {
-    return this.chapters.length
-  }
-
-  attrs(prop, value) {
-    const attrs = this.attrs
-
-    if (isString(prop)) {
-      // 只能扩展 attrs 中已有的属性
-      if (value && hasOwn(attrs, prop)) {
-        // 更新单个配置信息
-        attrs[prop] = value
-        return this
-      }
-
-      // 只传递 prop 参数，则返回对应的属性值
-      return attrs[prop]
-    } else if (isObject(prop)) {
-      // 批量更新配置信息
-      extend(attrs, prop)
-
-      return this
-    } else if (arguments.length === 0) {
-      // 不传递参数，直接返回整个
-      return attrs
-    }
-
-    return this
-  }
-
-  render() {
-    // 省略其它逻辑...
-    return this
-  }
-
-  scrollTo(top, after) {
-    // 省略其它逻辑...
-    return this
-  }
-
-  destroy() {
-    this.removeListeners()
-    // 省略其它逻辑...
-    return this
-  }
-
-  reload(options) {
-    this.destroy().initialize(this.attrs(options))
-    return this
-  }
+outerHeight($home, 70)
+DOM.getStyle($home, 'height') // => '46px'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">outerWidth(el[, val, includeMargin])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Size</dd></dl><p>outerWidth() 方法用来获取或设置 DOM 元素的 outerWidth 值：</p><ul><li>默认（不包含边距）：outerWidth = style.width + border 宽度（borderRight + borderLeft）+ padding 宽度（paddingRight + paddingLeft）;</li><li>包含边距：outerWidth = style.width + margin 宽度（marginRight + marginLeft） + border 宽度（borderRight + borderLeft）+ padding 宽度（paddingRight + paddingLeft）;</li></ul><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">val</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number|String|Function|Boolean</dd></dl><p>（可选）val 参数指定 DOM 元素的 outerWidth 高度或者获取 outerWidth 宽度的处理函数。</p><h5 class="section__h4">includeMargin<dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>（可选）指定 outerWidth 宽度是否包含边距宽度。</p></h5><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回窗口视口的高度值。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
+.list,
+.item {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: hidden;
 }
-
-Anchors.DEFAULTS = {
-  scrollElement: 'html,body',
-  articleElement: '#article',
-  selector: 'h1,h2,h3,h4,h5,h6',
-  anchorURL: '',
-  hasAnchor: true,
-  isAtStart: true,
-  showCode: false,
-  created: null,
-  mounted: null,
-  afterScroll: null,
-  beforeDestroy: null,
-  afterDestroy: null
+.item {
+  float: left;
+  margin: 5px 0;
+  border: 2px;
+  padding: 10px;
+  height: 40px;
+  overflow: hidden;
 }
+&lt;/style&gt;
 
-export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">innerHeight(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
-class Anchors extends Base {
-  constructor(options) {
-    super()
+&lt;ul id="list" class="list"&gt;
+    &lt;li class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
 
-    this.attrs = Anchors.DEFAULTS
-    this.$articleElement = null
-    this.$scrollElement = null
-    this.$headings = []
-    this.chapters = []
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 outerWidth 单个方法
+import outerWidth from '@yaohaixiao/dom.js/outerWidth'
 
-    // 省略其它逻辑...
-  }
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
 
-  getChapters(isTreeStructured = false) {
-    const chapters = this.chapters
-    return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-  }
+DOM.outerWidth($list) // => 248
+DOM.outerWidth($home, true) // => 74
+DOM.outerWidth($home) // => 64
 
-  count() {
-    return this.chapters.length
-  }
-
-  attrs(prop, value) {
-    const attrs = this.attrs
-
-    if (isString(prop)) {
-      // 只能扩展 attrs 中已有的属性
-      if (value && hasOwn(attrs, prop)) {
-        // 更新单个配置信息
-        attrs[prop] = value
-        return this
-      }
-
-      // 只传递 prop 参数，则返回对应的属性值
-      return attrs[prop]
-    } else if (isObject(prop)) {
-      // 批量更新配置信息
-      extend(attrs, prop)
-
-      return this
-    } else if (arguments.length === 0) {
-      // 不传递参数，直接返回整个
-      return attrs
-    }
-
-    return this
-  }
-
-  render() {
-    // 省略其它逻辑...
-    return this
-  }
-
-  scrollTo(top, after) {
-    // 省略其它逻辑...
-    return this
-  }
-
-  destroy() {
-    this.removeListeners()
-    // 省略其它逻辑...
-    return this
-  }
-
-  reload(options) {
-    this.destroy().initialize(this.attrs(options))
-    return this
-  }
-}
-
-Anchors.DEFAULTS = {
-  scrollElement: 'html,body',
-  articleElement: '#article',
-  selector: 'h1,h2,h3,h4,h5,h6',
-  anchorURL: '',
-  hasAnchor: true,
-  isAtStart: true,
-  showCode: false,
-  created: null,
-  mounted: null,
-  afterScroll: null,
-  beforeDestroy: null,
-  afterDestroy: null
-}
-
-export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">innerWidth(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
-class Anchors extends Base {
-  constructor(options) {
-    super()
-
-    this.attrs = Anchors.DEFAULTS
-    this.$articleElement = null
-    this.$scrollElement = null
-    this.$headings = []
-    this.chapters = []
-
-    // 省略其它逻辑...
-  }
-
-  getChapters(isTreeStructured = false) {
-    const chapters = this.chapters
-    return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-  }
-
-  count() {
-    return this.chapters.length
-  }
-
-  attrs(prop, value) {
-    const attrs = this.attrs
-
-    if (isString(prop)) {
-      // 只能扩展 attrs 中已有的属性
-      if (value && hasOwn(attrs, prop)) {
-        // 更新单个配置信息
-        attrs[prop] = value
-        return this
-      }
-
-      // 只传递 prop 参数，则返回对应的属性值
-      return attrs[prop]
-    } else if (isObject(prop)) {
-      // 批量更新配置信息
-      extend(attrs, prop)
-
-      return this
-    } else if (arguments.length === 0) {
-      // 不传递参数，直接返回整个
-      return attrs
-    }
-
-    return this
-  }
-
-  render() {
-    // 省略其它逻辑...
-    return this
-  }
-
-  scrollTo(top, after) {
-    // 省略其它逻辑...
-    return this
-  }
-
-  destroy() {
-    this.removeListeners()
-    // 省略其它逻辑...
-    return this
-  }
-
-  reload(options) {
-    this.destroy().initialize(this.attrs(options))
-    return this
-  }
-}
-
-Anchors.DEFAULTS = {
-  scrollElement: 'html,body',
-  articleElement: '#article',
-  selector: 'h1,h2,h3,h4,h5,h6',
-  anchorURL: '',
-  hasAnchor: true,
-  isAtStart: true,
-  showCode: false,
-  created: null,
-  mounted: null,
-  afterScroll: null,
-  beforeDestroy: null,
-  afterDestroy: null
-}
-
-export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">outerHeight(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
-class Anchors extends Base {
-  constructor(options) {
-    super()
-
-    this.attrs = Anchors.DEFAULTS
-    this.$articleElement = null
-    this.$scrollElement = null
-    this.$headings = []
-    this.chapters = []
-
-    // 省略其它逻辑...
-  }
-
-  getChapters(isTreeStructured = false) {
-    const chapters = this.chapters
-    return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-  }
-
-  count() {
-    return this.chapters.length
-  }
-
-  attrs(prop, value) {
-    const attrs = this.attrs
-
-    if (isString(prop)) {
-      // 只能扩展 attrs 中已有的属性
-      if (value && hasOwn(attrs, prop)) {
-        // 更新单个配置信息
-        attrs[prop] = value
-        return this
-      }
-
-      // 只传递 prop 参数，则返回对应的属性值
-      return attrs[prop]
-    } else if (isObject(prop)) {
-      // 批量更新配置信息
-      extend(attrs, prop)
-
-      return this
-    } else if (arguments.length === 0) {
-      // 不传递参数，直接返回整个
-      return attrs
-    }
-
-    return this
-  }
-
-  render() {
-    // 省略其它逻辑...
-    return this
-  }
-
-  scrollTo(top, after) {
-    // 省略其它逻辑...
-    return this
-  }
-
-  destroy() {
-    this.removeListeners()
-    // 省略其它逻辑...
-    return this
-  }
-
-  reload(options) {
-    this.destroy().initialize(this.attrs(options))
-    return this
-  }
-}
-
-Anchors.DEFAULTS = {
-  scrollElement: 'html,body',
-  articleElement: '#article',
-  selector: 'h1,h2,h3,h4,h5,h6',
-  anchorURL: '',
-  hasAnchor: true,
-  isAtStart: true,
-  showCode: false,
-  created: null,
-  mounted: null,
-  afterScroll: null,
-  beforeDestroy: null,
-  afterDestroy: null
-}
-
-export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">outerWidth(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
-class Anchors extends Base {
-  constructor(options) {
-    super()
-
-    this.attrs = Anchors.DEFAULTS
-    this.$articleElement = null
-    this.$scrollElement = null
-    this.$headings = []
-    this.chapters = []
-
-    // 省略其它逻辑...
-  }
-
-  getChapters(isTreeStructured = false) {
-    const chapters = this.chapters
-    return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-  }
-
-  count() {
-    return this.chapters.length
-  }
-
-  attrs(prop, value) {
-    const attrs = this.attrs
-
-    if (isString(prop)) {
-      // 只能扩展 attrs 中已有的属性
-      if (value && hasOwn(attrs, prop)) {
-        // 更新单个配置信息
-        attrs[prop] = value
-        return this
-      }
-
-      // 只传递 prop 参数，则返回对应的属性值
-      return attrs[prop]
-    } else if (isObject(prop)) {
-      // 批量更新配置信息
-      extend(attrs, prop)
-
-      return this
-    } else if (arguments.length === 0) {
-      // 不传递参数，直接返回整个
-      return attrs
-    }
-
-    return this
-  }
-
-  render() {
-    // 省略其它逻辑...
-    return this
-  }
-
-  scrollTo(top, after) {
-    // 省略其它逻辑...
-    return this
-  }
-
-  destroy() {
-    this.removeListeners()
-    // 省略其它逻辑...
-    return this
-  }
-
-  reload(options) {
-    this.destroy().initialize(this.attrs(options))
-    return this
-  }
-}
-
-Anchors.DEFAULTS = {
-  scrollElement: 'html,body',
-  articleElement: '#article',
-  selector: 'h1,h2,h3,h4,h5,h6',
-  anchorURL: '',
-  hasAnchor: true,
-  isAtStart: true,
-  showCode: false,
-  created: null,
-  mounted: null,
-  afterScroll: null,
-  beforeDestroy: null,
-  afterDestroy: null
-}
-
-export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">height(el, val)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
+outerWidth($home, 70)
+DOM.getStyle($home, 'width') // => '46px'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">height(el, val)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
 class Anchors extends Base {
   constructor(options) {
     super()
@@ -3576,93 +3069,76 @@ Anchors.DEFAULTS = {
   afterDestroy: null
 }
 
-export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">sizes(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
-class Anchors extends Base {
-  constructor(options) {
-    super()
-
-    this.attrs = Anchors.DEFAULTS
-    this.$articleElement = null
-    this.$scrollElement = null
-    this.$headings = []
-    this.chapters = []
-
-    // 省略其它逻辑...
+export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">sizes(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Size</dd></dl><p>sizes() 方法用来获取DOM 元素的尺寸信息，数据格式如下：</p><pre class="section__pre"><code class="section__code">{
+  offsetHeight: 210,
+  offsetWidth: 1625,
+  innerHeight: 210,
+  innerWidth": 1625,
+  outerHeight: 210,
+  outerWidth: 1625,
+  margin: {
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0
+  },
+  border: {
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0
+  },
+  padding: {
+    top: 70,
+    right: 0,
+    bottom: 0,
+    left: 0
+  },
+  rect: {
+    x: 274,
+    y: 14,
+    width: 1625,
+    height: 210,
+    top: 14,
+    right: 1899,
+    bottom: 224,
+    left: 274
   }
-
-  getChapters(isTreeStructured = false) {
-    const chapters = this.chapters
-    return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-  }
-
-  count() {
-    return this.chapters.length
-  }
-
-  attrs(prop, value) {
-    const attrs = this.attrs
-
-    if (isString(prop)) {
-      // 只能扩展 attrs 中已有的属性
-      if (value && hasOwn(attrs, prop)) {
-        // 更新单个配置信息
-        attrs[prop] = value
-        return this
-      }
-
-      // 只传递 prop 参数，则返回对应的属性值
-      return attrs[prop]
-    } else if (isObject(prop)) {
-      // 批量更新配置信息
-      extend(attrs, prop)
-
-      return this
-    } else if (arguments.length === 0) {
-      // 不传递参数，直接返回整个
-      return attrs
-    }
-
-    return this
-  }
-
-  render() {
-    // 省略其它逻辑...
-    return this
-  }
-
-  scrollTo(top, after) {
-    // 省略其它逻辑...
-    return this
-  }
-
-  destroy() {
-    this.removeListeners()
-    // 省略其它逻辑...
-    return this
-  }
-
-  reload(options) {
-    this.destroy().initialize(this.attrs(options))
-    return this
-  }
+}</code></pre><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>返回 DOM 元素相关的尺寸信息。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
+.list,
+.item {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: hidden;
 }
-
-Anchors.DEFAULTS = {
-  scrollElement: 'html,body',
-  articleElement: '#article',
-  selector: 'h1,h2,h3,h4,h5,h6',
-  anchorURL: '',
-  hasAnchor: true,
-  isAtStart: true,
-  showCode: false,
-  created: null,
-  mounted: null,
-  afterScroll: null,
-  beforeDestroy: null,
-  afterDestroy: null
+.item {
+  float: left;
+  margin: 5px 0;
+  border: 2px;
+  padding: 10px;
+  height: 40px;
+  overflow: hidden;
 }
+&lt;/style&gt;
 
-export default Anchors</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Style</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用以获取或者设置 DOM 元素的 css 样式属性：</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getStyle(el, attr)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Style</dd></dl><p>getStyle() 用来获取 DOM 元素的某个 CSS 样式值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">token</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）指定 CSS 属性名称。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>返回指定的 attr 的属性值。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+&lt;ul id="list" class="list"&gt;
+    &lt;li class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 sizes 单个方法
+import sizes from '@yaohaixiao/dom.js/sizes'
+
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
+
+DOM.sizes($list)
+sizes($home)</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Style</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用以获取或者设置 DOM 元素的 css 样式属性：</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getStyle(el, attr)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Style</dd></dl><p>getStyle() 用来获取 DOM 元素的某个 CSS 样式值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">token</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）指定 CSS 属性名称。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>返回指定的 attr 的属性值。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;

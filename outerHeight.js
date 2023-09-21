@@ -1,6 +1,7 @@
 import isElement from './utils/types/isElement'
 import isUndefined from './utils/types/isUndefined'
 import isFunction from './utils/types/isFunction'
+import isBoolean from './utils/types/isBoolean'
 import pixel from './utils/pixel'
 import _getElementSizes from './_getElementSizes'
 import setStyle from './setStyle'
@@ -10,8 +11,8 @@ import setStyle from './setStyle'
  * ========================================================================
  * @method outerHeight
  * @param {HTMLElement} el
- * @param {Number|String|Function} [val]
- * @param {Boolean} includeMargin
+ * @param {Number|String|Function|Boolean} [val]
+ * @param {Boolean} [includeMargin]
  * @return {number|*|boolean}
  */
 const outerHeight = (el, val, includeMargin = false) => {
@@ -22,56 +23,64 @@ const outerHeight = (el, val, includeMargin = false) => {
   }
 
   const {
-    marginTopHeight,
-    marginBottomHeight,
-    borderTopHeight,
-    borderBottomHeight,
-    paddingTopHeight,
-    paddingBottomHeight,
+    marginTop,
+    marginBottom,
+    borderTop,
+    borderBottom,
+    paddingTop,
+    paddingBottom,
     offsetHeight
   } = _getElementSizes(el)
 
+  // val 为 Function 类型，用来获取自定义的 outerHeight
   if (isFunction(val)) {
     return val(el, {
-      marginTopHeight,
-      marginBottomHeight,
-      borderTopHeight,
-      borderBottomHeight,
-      paddingTopHeight,
-      paddingBottomHeight,
+      marginTop,
+      marginBottom,
+      borderTop,
+      borderBottom,
+      paddingTop,
+      paddingBottom,
       offsetHeight
     })
   }
 
+  // 有设置 val 参数
   if (!isUndefined(val)) {
     height = offsetHeight
 
+    // 获取 outerHeight，包含边距
+    if (isBoolean(val)) {
+      includeMargin = val
+
+      if (includeMargin) {
+        height += marginTop + marginBottom
+      }
+
+      return height
+    }
+
+    // 设置 outerHeight，包含边距
     if (includeMargin) {
-      height += marginTopHeight + marginBottomHeight
+      height += marginTop + marginBottom
     }
 
     if (height !== val) {
       height =
         val -
-        (borderTopHeight +
-          borderBottomHeight +
-          paddingTopHeight +
-          paddingBottomHeight)
+        (borderTop +
+          borderBottom +
+          paddingTop +
+          paddingBottom)
 
       if (includeMargin) {
-        height -= marginTopHeight + marginBottomHeight
+        height -= marginTop + marginBottom
       }
 
       setStyle(el, 'height', pixel(height))
     }
   } else {
-    height = offsetHeight
-
-    if (includeMargin) {
-      height += marginTopHeight + marginBottomHeight
-    }
-
-    return height
+    return offsetHeight
   }
 }
 

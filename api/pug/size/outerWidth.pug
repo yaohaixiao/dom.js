@@ -1,99 +1,73 @@
 section.section
   header.section__header
-    h3.section__h3 outerWidth(el)
+    h3.section__h3 outerWidth(el[, val, includeMargin])
   div.section__content
-    h4.section__h4 Description
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Size
+    p outerWidth() 方法用来获取或设置 DOM 元素的 outerWidth 值：
+    ul
+      li 默认（不包含边距）：outerWidth = style.width + border 宽度（borderRight + borderLeft）+ padding 宽度（paddingRight + paddingLeft）;
+      li 包含边距：outerWidth = style.width + margin 宽度（marginRight + marginLeft） + border 宽度（borderRight + borderLeft）+ padding 宽度（paddingRight + paddingLeft）;
+    h4.section__h4 Parameters
+    h5.section__h4 el
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd Object
-    p Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。
+      dd.section__dd String
+    p （必须）el 参数指定 DOM 元素。
+    h5.section__h4 val
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Number|String|Function|Boolean
+    p （可选）val 参数指定 DOM 元素的 outerWidth 高度或者获取 outerWidth 宽度的处理函数。
+    h5.section__h4 includeMargin
+      dl.section__dl
+        dt.section__dt Type：
+        dd.section__dd Boolean
+      p （可选）指定 outerWidth 宽度是否包含边距宽度。
+    h4.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Number
+    p 返回窗口视口的高度值。
     pre.section__pre
       code.section__code.
-        // 仅展示 API 中对外公开的方法和属性
-        class Anchors extends Base {
-          constructor(options) {
-            super()
-
-            this.attrs = Anchors.DEFAULTS
-            this.$articleElement = null
-            this.$scrollElement = null
-            this.$headings = []
-            this.chapters = []
-
-            // 省略其它逻辑...
-          }
-
-          getChapters(isTreeStructured = false) {
-            const chapters = this.chapters
-            return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-          }
-
-          count() {
-            return this.chapters.length
-          }
-
-          attrs(prop, value) {
-            const attrs = this.attrs
-
-            if (isString(prop)) {
-              // 只能扩展 attrs 中已有的属性
-              if (value && hasOwn(attrs, prop)) {
-                // 更新单个配置信息
-                attrs[prop] = value
-                return this
-              }
-
-              // 只传递 prop 参数，则返回对应的属性值
-              return attrs[prop]
-            } else if (isObject(prop)) {
-              // 批量更新配置信息
-              extend(attrs, prop)
-
-              return this
-            } else if (arguments.length === 0) {
-              // 不传递参数，直接返回整个
-              return attrs
-            }
-
-            return this
-          }
-
-          render() {
-            // 省略其它逻辑...
-            return this
-          }
-
-          scrollTo(top, after) {
-            // 省略其它逻辑...
-            return this
-          }
-
-          destroy() {
-            this.removeListeners()
-            // 省略其它逻辑...
-            return this
-          }
-
-          reload(options) {
-            this.destroy().initialize(this.attrs(options))
-            return this
-          }
+        &lt;style&gt;
+        .list,
+        .item {
+          margin: 0;
+          padding: 0;
+          list-style-type: none;
+          overflow: hidden;
         }
-
-        Anchors.DEFAULTS = {
-          scrollElement: 'html,body',
-          articleElement: '#article',
-          selector: 'h1,h2,h3,h4,h5,h6',
-          anchorURL: '',
-          hasAnchor: true,
-          isAtStart: true,
-          showCode: false,
-          created: null,
-          mounted: null,
-          afterScroll: null,
-          beforeDestroy: null,
-          afterDestroy: null
+        .item {
+          float: left;
+          margin: 5px 0;
+          border: 2px;
+          padding: 10px;
+          height: 40px;
+          overflow: hidden;
         }
+        &lt;/style&gt;
 
-        export default Anchors
+        &lt;ul id="list" class="list"&gt;
+            &lt;li class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
 
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 outerWidth 单个方法
+        import outerWidth from '@yaohaixiao/dom.js/outerWidth'
+
+        const $list = DOM.byId('#list')
+        const $home = DOM.byId('#home')
+
+        DOM.outerWidth($list) // => 248
+        DOM.outerWidth($home, true) // => 74
+        DOM.outerWidth($home) // => 64
+
+        outerWidth($home, 70)
+        DOM.getStyle($home, 'width') // => '46px'
