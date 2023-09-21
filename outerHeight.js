@@ -66,12 +66,7 @@ const outerHeight = (el, val, includeMargin = false) => {
     }
 
     if (height !== val) {
-      height =
-        val -
-        (borderTop +
-          borderBottom +
-          paddingTop +
-          paddingBottom)
+      height = val - (borderTop + borderBottom + paddingTop + paddingBottom)
 
       if (includeMargin) {
         height -= marginTop + marginBottom

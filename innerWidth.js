@@ -21,13 +21,8 @@ const innerWidth = (el, val) => {
     return false
   }
 
-  const {
-    borderLeft,
-    borderRight,
-    paddingLeft,
-    paddingRight,
-    offsetWidth
-  } = _getElementSizes(el)
+  const { borderLeft, borderRight, paddingLeft, paddingRight, offsetWidth } =
+    _getElementSizes(el)
 
   if (isFunction(val)) {
     return val(el, {

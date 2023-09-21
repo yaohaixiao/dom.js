@@ -1,11 +1,11 @@
 section.section
   header.section__header
-    h3.section__h3 getPageY(el)
+    h3.section__h3 positions(el)
   div.section__content
     dl.section__dl
       dt.section__dt Category：
       dd.section__dd Position
-    p getPageY() 方法用来获取基于页面坐标获取元素的当前 Y 位置。
+    p positions() 方法用来获取 DOM 节点的定位信息。当 DOM 元素不可见或不再当前文档中，则返回 false。
     h4.section__h4 Parameters
     h5.section__h4 el
     dl.section__dl
@@ -15,8 +15,8 @@ section.section
     h4.section__h4 Returns
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd Number
-    p 返回 DOM 元素在当前页面的 Y 位置：el.getBoundingClientRect().top + getDocumentScrollTop()。
+      dd.section__dd Object|Boolean
+    p 返回 DOM 节点的定位信息。当 DOM 元素不可见或不再当前文档中，则返回 false。
     pre.section__pre
       code.section__code.
         &lt;style&gt;
@@ -49,11 +49,24 @@ section.section
 
         // 引入 DOM 模块（中的所有工具方法）
         import DOM from '@yaohaixiao/dom.js/dom
-        // 引用 getPageY 单个方法
-        import getPageY from '@yaohaixiao/dom.js/getPageY'
+        // 引用 positions 单个方法
+        import positions from '@yaohaixiao/dom.js/positions'
 
         const $list = DOM.byId('#list')
-        const $project = DOM.getEl('.project')
+        const $home = DOM.byId('#home')
 
-        DOM.getPageY($list) // -> 0
-        getPageY($project) // -> 128
+        DOM.positions($list)
+        // -> {
+          top: 0,
+          left: 0,
+          x: 0,
+          y: 0
+        }
+
+        positions($home)
+        // -> {
+          top: 0,
+          left: 0,
+          x: 0,
+          y: 64
+        }

@@ -15,7 +15,7 @@ const text = (el, str) => {
     return document.createTextNode(el)
   } else if (isElement(el)) {
     if (str) {
-      el.textContent  = str
+      el.textContent = str
     } else {
       return el.textContent
     }

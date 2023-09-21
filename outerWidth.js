@@ -66,12 +66,7 @@ const outerWidth = (el, val, includeMargin = false) => {
     }
 
     if (width !== val) {
-      width =
-        val -
-        (borderLeft +
-          borderRight +
-          paddingLeft +
-          paddingRight)
+      width = val - (borderLeft + borderRight + paddingLeft + paddingRight)
 
       if (includeMargin) {
         width -= marginLeft + marginRight

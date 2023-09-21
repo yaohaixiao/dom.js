@@ -1,0 +1,44 @@
+section.section
+  header.section__header
+    h3.section__h3 canPosition(el)
+  div.section__content
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Base
+    p canPosition() 方法用来检测 DOM 元素是否可以定位（可见且在当前当前文档中）。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （必须）el 参数指定 DOM 元素。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Boolean
+    p DOM 元素是否可以定位，返回 true，否则返回 false。
+    pre.section__pre
+      code.section__.
+        &lt;ul id="list" class="list"&gt;
+            &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+            &lt;li class="item project"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 canPosition 单个方法
+        import canPosition from '@yaohaixiao/dom.js/canPosition'
+
+        const $list = DOM.byId('#list')
+        const $home = DOM.html('&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;')
+
+        DOM.inDocument($list) // -> true
+        DOM.canPosition($list) // -> true
+        canPosition($home) // -> false
+
+        $list.appendChild($home)
+        canPosition($home) // -> true
+
+        DOM.setStyle($home, 'display', 'none')
+        canPosition($home) // -> false

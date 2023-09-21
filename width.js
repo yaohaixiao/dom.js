@@ -25,7 +25,7 @@ const width = (el, val) => {
   } else {
     if (isNumber(val)) {
       value = `${val}px`
-    } else if(isString(val)) {
+    } else if (isString(val)) {
       value = `${val.replace(/\D/gi, '')}px`
     }
     setStyle(el, 'width', value)

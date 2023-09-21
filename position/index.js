@@ -12,8 +12,9 @@ import getScrollTop from '../getScrollTop'
 import getScrollTotal from '../getScrollTotal'
 import getScrollTotalLeft from '../getScrollTotalLeft'
 import getScrollTotalTop from '../getScrollTotalTop'
-import scrollTo from '../scrollTo'
 import offset from '../offset'
+import positions from '../positions'
+import scrollTo from '../scrollTo'
 
 const DOM = {
   getOffset,
@@ -30,8 +31,9 @@ const DOM = {
   getScrollTotal,
   getScrollTotalLeft,
   getScrollTotalTop,
-  scrollTo,
-  offset
+  offset,
+  positions,
+  scrollTo
 }
 
 export default DOM

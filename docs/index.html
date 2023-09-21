@@ -352,7 +352,29 @@ const $active = DOM.byClass('.active', $clone) // => null
 
 // 采用深拷贝 $list，则会拷贝其子元素，因此可以查询到其子元素
 const $current = clone($list, true).querySelector('.active')
-// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">closet(el, selector[, ctx, includeCTX])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>closet() 方法用来获取父元素最近的包含 selector 选择器的元素。通常用于使用事件代理时，获取点击的目标 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 指定父元素。</p><h5 class="section__h4">selector</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）selector 指定要查询元素的选择器。</p><h5 class="section__h4">ctx</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（可选）ctx 指定比对的 DOM 元素</p><h5 class="section__h4">ctx</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>（可选）includeCTX 指定是否包含 ctx 参数指定的 DOM 元素.</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回匹配的 DOM 元素。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">canPosition(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>canPosition() 方法用来检测 DOM 元素是否可以定位（可见且在当前当前文档中）。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>DOM 元素是否可以定位，返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 canPosition 单个方法
+import canPosition from '@yaohaixiao/dom.js/canPosition'
+
+const $list = DOM.byId('#list')
+const $home = DOM.html('&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;')
+
+DOM.inDocument($list) // -> true
+DOM.canPosition($list) // -> true
+canPosition($home) // -> false
+
+$list.appendChild($home)
+canPosition($home) // -> true
+
+DOM.setStyle($home, 'display', 'none')
+canPosition($home) // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">closet(el, selector[, ctx, includeCTX])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>closet() 方法用来获取父元素最近的包含 selector 选择器的元素。通常用于使用事件代理时，获取点击的目标 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 指定父元素。</p><h5 class="section__h4">selector</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）selector 指定要查询元素的选择器。</p><h5 class="section__h4">ctx</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（可选）ctx 指定比对的 DOM 元素</p><h5 class="section__h4">ctx</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>（可选）includeCTX 指定是否包含 ctx 参数指定的 DOM 元素.</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回匹配的 DOM 元素。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -519,7 +541,25 @@ console.log(DOM.indexOf($home)) // -> 0
 console.log(indexOf('.blog', $list)) // -> 1
 
 // el 为选择器，且为指定指定父节点
-console.log(indexOf('.project')) // -> 2</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isInBounding(child, parent)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>isInBounding() 方法用来检测某个 DOM 节点的位置是否在另个一个 DOM 节点范围内。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">child</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）child 参数指定其中较小的那个 DOM 元素。</p><h5 class="section__h4">parent</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）parent 参数指定其中较大的那个 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>child 在 parent 范围内，返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+console.log(indexOf('.project')) // -> 2</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">inDocument(el[, doc])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>inDocument() 方法用来检测 DOM 元素是否在当前文档中。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">doc</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>（可选）doc 参数指定文档对象。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>DOM 元素是否在当前文档中，返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 inDocument 单个方法
+import inDocument from '@yaohaixiao/dom.js/inDocument'
+
+const $list = DOM.byId('#list')
+const $home = DOM.html('&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;')
+
+DOM.inDocument($list) // -> true
+inDocument($home) // -> false
+
+$list.appendChild($home)
+inDocument($home) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isInBounding(child, parent)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>isInBounding() 方法用来检测某个 DOM 节点的位置是否在另个一个 DOM 节点范围内。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">child</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）child 参数指定其中较小的那个 DOM 元素。</p><h5 class="section__h4">parent</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）parent 参数指定其中较大的那个 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>child 在 parent 范围内，返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item project"&gt;Projects&lt;/li&gt;
@@ -810,695 +850,260 @@ const $project = DOM.html('&lt;li class="item project"&gt;Projects&lt;/li&gt;')
 DOM.prepend('&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;', $list)
 
 // 将插入 html 插入到 $list 节点内部的最前面
-prepend($project, $list)</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Position</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用于获 DOM 元素的位置（offsetTop、offsetLeft、scrollTop、scrollLeft、pageX 和 pageY 等）信息。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getOffset(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
-class Anchors extends Base {
-  constructor(options) {
-    super()
+prepend($project, $list)</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Position</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用于获 DOM 元素的位置（offsetTop、offsetLeft、scrollTop、scrollLeft、pageX 和 pageY 等）信息。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getOffset(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Position</dd></dl><p>getOffset() 方法用来获取 DOM 节点相对于窗口的 top（纵坐标）值和 left（横坐标）值以及宽度和高度。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回 offsetTop 和 offsetLeft 值。如果元素存在 offsetParent 的父节点，那么这个值会累加直到其祖先节点不再有 offsetParent。</p><p>width 和 height 则为 DOM 元素的 offsetWidth 和 offsetHeight 值。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
+.list {
+  position: relative;
+  z-index: 1;
+}
+.list,
+.item {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: hidden;
+}
+.item {
+  margin: 0;
+  border: 2px;
+  padding: 10px;
+  height: 40px;
+  overflow: hidden;
+}
+&lt;/style&gt;
 
-    this.attrs = Anchors.DEFAULTS
-    this.$articleElement = null
-    this.$scrollElement = null
-    this.$headings = []
-    this.chapters = []
+&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
 
-    // 省略其它逻辑...
-  }
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getOffset 单个方法
+import getOffset from '@yaohaixiao/dom.js/getOffset'
 
-  getChapters(isTreeStructured = false) {
-    const chapters = this.chapters
-    return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-  }
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
 
-  count() {
-    return this.chapters.length
-  }
-
-  attrs(prop, value) {
-    const attrs = this.attrs
-
-    if (isString(prop)) {
-      // 只能扩展 attrs 中已有的属性
-      if (value && hasOwn(attrs, prop)) {
-        // 更新单个配置信息
-        attrs[prop] = value
-        return this
-      }
-
-      // 只传递 prop 参数，则返回对应的属性值
-      return attrs[prop]
-    } else if (isObject(prop)) {
-      // 批量更新配置信息
-      extend(attrs, prop)
-
-      return this
-    } else if (arguments.length === 0) {
-      // 不传递参数，直接返回整个
-      return attrs
-    }
-
-    return this
-  }
-
-  render() {
-    // 省略其它逻辑...
-    return this
-  }
-
-  scrollTo(top, after) {
-    // 省略其它逻辑...
-    return this
-  }
-
-  destroy() {
-    this.removeListeners()
-    // 省略其它逻辑...
-    return this
-  }
-
-  reload(options) {
-    this.destroy().initialize(this.attrs(options))
-    return this
-  }
+DOM.getOffset($list)
+// -> {
+  top: 0,
+  left: 0,
+  width: 256,
+  height: 64
 }
 
-Anchors.DEFAULTS = {
-  scrollElement: 'html,body',
-  articleElement: '#article',
-  selector: 'h1,h2,h3,h4,h5,h6',
-  anchorURL: '',
-  hasAnchor: true,
-  isAtStart: true,
-  showCode: false,
-  created: null,
-  mounted: null,
-  afterScroll: null,
-  beforeDestroy: null,
-  afterDestroy: null
+getOffsetTop($home)
+// -> {
+  top: 0,
+  left: 0,
+  width: 64,
+  height: 64
+}</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getOffsetLeft(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Position</dd></dl><p>getOffsetLeft() 方法用来获取 DOM 节点相对于窗口的 left（横坐标）值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回 offsetLeft 值。如果元素存在 offsetParent 的父节点，那么这个值会累加直到其祖先节点不再有 offsetParent。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
+.list {
+  position: relative;
+  z-index: 1;
 }
-
-export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getOffsetLeft(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
-class Anchors extends Base {
-  constructor(options) {
-    super()
-
-    this.attrs = Anchors.DEFAULTS
-    this.$articleElement = null
-    this.$scrollElement = null
-    this.$headings = []
-    this.chapters = []
-
-    // 省略其它逻辑...
-  }
-
-  getChapters(isTreeStructured = false) {
-    const chapters = this.chapters
-    return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-  }
-
-  count() {
-    return this.chapters.length
-  }
-
-  attrs(prop, value) {
-    const attrs = this.attrs
-
-    if (isString(prop)) {
-      // 只能扩展 attrs 中已有的属性
-      if (value && hasOwn(attrs, prop)) {
-        // 更新单个配置信息
-        attrs[prop] = value
-        return this
-      }
-
-      // 只传递 prop 参数，则返回对应的属性值
-      return attrs[prop]
-    } else if (isObject(prop)) {
-      // 批量更新配置信息
-      extend(attrs, prop)
-
-      return this
-    } else if (arguments.length === 0) {
-      // 不传递参数，直接返回整个
-      return attrs
-    }
-
-    return this
-  }
-
-  render() {
-    // 省略其它逻辑...
-    return this
-  }
-
-  scrollTo(top, after) {
-    // 省略其它逻辑...
-    return this
-  }
-
-  destroy() {
-    this.removeListeners()
-    // 省略其它逻辑...
-    return this
-  }
-
-  reload(options) {
-    this.destroy().initialize(this.attrs(options))
-    return this
-  }
+.list,
+.item {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: hidden;
 }
-
-Anchors.DEFAULTS = {
-  scrollElement: 'html,body',
-  articleElement: '#article',
-  selector: 'h1,h2,h3,h4,h5,h6',
-  anchorURL: '',
-  hasAnchor: true,
-  isAtStart: true,
-  showCode: false,
-  created: null,
-  mounted: null,
-  afterScroll: null,
-  beforeDestroy: null,
-  afterDestroy: null
+.item {
+  float: left;
+  border: 2px;
+  padding: 10px;
+  height: 40px;
+  overflow: hidden;
 }
+&lt;/style&gt;
 
-export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getOffsetTop(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
-class Anchors extends Base {
-  constructor(options) {
-    super()
+&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
 
-    this.attrs = Anchors.DEFAULTS
-    this.$articleElement = null
-    this.$scrollElement = null
-    this.$headings = []
-    this.chapters = []
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getOffsetLeft 单个方法
+import getOffsetLeft from '@yaohaixiao/dom.js/getOffsetLeft'
 
-    // 省略其它逻辑...
-  }
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
+const $blog = DOM.getEl('.blog')
+const $project = DOM.getEl('.project')
 
-  getChapters(isTreeStructured = false) {
-    const chapters = this.chapters
-    return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-  }
-
-  count() {
-    return this.chapters.length
-  }
-
-  attrs(prop, value) {
-    const attrs = this.attrs
-
-    if (isString(prop)) {
-      // 只能扩展 attrs 中已有的属性
-      if (value && hasOwn(attrs, prop)) {
-        // 更新单个配置信息
-        attrs[prop] = value
-        return this
-      }
-
-      // 只传递 prop 参数，则返回对应的属性值
-      return attrs[prop]
-    } else if (isObject(prop)) {
-      // 批量更新配置信息
-      extend(attrs, prop)
-
-      return this
-    } else if (arguments.length === 0) {
-      // 不传递参数，直接返回整个
-      return attrs
-    }
-
-    return this
-  }
-
-  render() {
-    // 省略其它逻辑...
-    return this
-  }
-
-  scrollTo(top, after) {
-    // 省略其它逻辑...
-    return this
-  }
-
-  destroy() {
-    this.removeListeners()
-    // 省略其它逻辑...
-    return this
-  }
-
-  reload(options) {
-    this.destroy().initialize(this.attrs(options))
-    return this
-  }
+DOM.getOffsetLeft($list) // -> 0
+getOffsetLeft($home) // -> 0
+getOffsetLeft($blog) // -> 64
+getOffsetLeft($project) // -> 128</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getOffsetTop(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Position</dd></dl><p>getOffsetTop() 方法用来获取 DOM 节点相对于窗口的 top（纵坐标）值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回 offsetTop 值。如果元素存在 offsetParent 的父节点，那么这个值会累加直到其祖先节点不再有 offsetParent。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
+.list {
+  position: relative;
+  z-index: 1;
 }
-
-Anchors.DEFAULTS = {
-  scrollElement: 'html,body',
-  articleElement: '#article',
-  selector: 'h1,h2,h3,h4,h5,h6',
-  anchorURL: '',
-  hasAnchor: true,
-  isAtStart: true,
-  showCode: false,
-  created: null,
-  mounted: null,
-  afterScroll: null,
-  beforeDestroy: null,
-  afterDestroy: null
+.list,
+.item {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: hidden;
 }
-
-export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getPageXY(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
-class Anchors extends Base {
-  constructor(options) {
-    super()
-
-    this.attrs = Anchors.DEFAULTS
-    this.$articleElement = null
-    this.$scrollElement = null
-    this.$headings = []
-    this.chapters = []
-
-    // 省略其它逻辑...
-  }
-
-  getChapters(isTreeStructured = false) {
-    const chapters = this.chapters
-    return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-  }
-
-  count() {
-    return this.chapters.length
-  }
-
-  attrs(prop, value) {
-    const attrs = this.attrs
-
-    if (isString(prop)) {
-      // 只能扩展 attrs 中已有的属性
-      if (value && hasOwn(attrs, prop)) {
-        // 更新单个配置信息
-        attrs[prop] = value
-        return this
-      }
-
-      // 只传递 prop 参数，则返回对应的属性值
-      return attrs[prop]
-    } else if (isObject(prop)) {
-      // 批量更新配置信息
-      extend(attrs, prop)
-
-      return this
-    } else if (arguments.length === 0) {
-      // 不传递参数，直接返回整个
-      return attrs
-    }
-
-    return this
-  }
-
-  render() {
-    // 省略其它逻辑...
-    return this
-  }
-
-  scrollTo(top, after) {
-    // 省略其它逻辑...
-    return this
-  }
-
-  destroy() {
-    this.removeListeners()
-    // 省略其它逻辑...
-    return this
-  }
-
-  reload(options) {
-    this.destroy().initialize(this.attrs(options))
-    return this
-  }
+.item {
+  margin: 0;
+  border: 2px;
+  padding: 10px;
+  height: 40px;
+  overflow: hidden;
 }
+&lt;/style&gt;
 
-Anchors.DEFAULTS = {
-  scrollElement: 'html,body',
-  articleElement: '#article',
-  selector: 'h1,h2,h3,h4,h5,h6',
-  anchorURL: '',
-  hasAnchor: true,
-  isAtStart: true,
-  showCode: false,
-  created: null,
-  mounted: null,
-  afterScroll: null,
-  beforeDestroy: null,
-  afterDestroy: null
+&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getOffsetTop 单个方法
+import getOffsetTop from '@yaohaixiao/dom.js/getOffsetTop'
+
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
+const $blog = DOM.getEl('.blog')
+const $project = DOM.getEl('.project')
+
+DOM.getOffsetTop($list) // -> 0
+getOffsetTop($home) // -> 0
+getOffsetTop($blog) // -> 64
+getOffsetTop($project) // -> 128</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getPageXY(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Position</dd></dl><p>getPageXY() 方法用来获取基于页面坐标获取元素的当前 X 和 Y 位置。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回 DOM 元素在当前页面的 X 和 Y 位置。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
+.list {
+  position: relative;
+  z-index: 1;
 }
-
-export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getPageX(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
-class Anchors extends Base {
-  constructor(options) {
-    super()
-
-    this.attrs = Anchors.DEFAULTS
-    this.$articleElement = null
-    this.$scrollElement = null
-    this.$headings = []
-    this.chapters = []
-
-    // 省略其它逻辑...
-  }
-
-  getChapters(isTreeStructured = false) {
-    const chapters = this.chapters
-    return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-  }
-
-  count() {
-    return this.chapters.length
-  }
-
-  attrs(prop, value) {
-    const attrs = this.attrs
-
-    if (isString(prop)) {
-      // 只能扩展 attrs 中已有的属性
-      if (value && hasOwn(attrs, prop)) {
-        // 更新单个配置信息
-        attrs[prop] = value
-        return this
-      }
-
-      // 只传递 prop 参数，则返回对应的属性值
-      return attrs[prop]
-    } else if (isObject(prop)) {
-      // 批量更新配置信息
-      extend(attrs, prop)
-
-      return this
-    } else if (arguments.length === 0) {
-      // 不传递参数，直接返回整个
-      return attrs
-    }
-
-    return this
-  }
-
-  render() {
-    // 省略其它逻辑...
-    return this
-  }
-
-  scrollTo(top, after) {
-    // 省略其它逻辑...
-    return this
-  }
-
-  destroy() {
-    this.removeListeners()
-    // 省略其它逻辑...
-    return this
-  }
-
-  reload(options) {
-    this.destroy().initialize(this.attrs(options))
-    return this
-  }
+.list,
+.item {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: hidden;
 }
-
-Anchors.DEFAULTS = {
-  scrollElement: 'html,body',
-  articleElement: '#article',
-  selector: 'h1,h2,h3,h4,h5,h6',
-  anchorURL: '',
-  hasAnchor: true,
-  isAtStart: true,
-  showCode: false,
-  created: null,
-  mounted: null,
-  afterScroll: null,
-  beforeDestroy: null,
-  afterDestroy: null
+.item {
+  margin: 0;
+  border: 2px;
+  padding: 10px;
+  height: 40px;
+  overflow: hidden;
 }
+&lt;/style&gt;
 
-export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getPageY(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
-class Anchors extends Base {
-  constructor(options) {
-    super()
+&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
 
-    this.attrs = Anchors.DEFAULTS
-    this.$articleElement = null
-    this.$scrollElement = null
-    this.$headings = []
-    this.chapters = []
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getPageXY 单个方法
+import getPageXY from '@yaohaixiao/dom.js/getPageXY'
 
-    // 省略其它逻辑...
-  }
+const $list = DOM.byId('#list')
+const $project = DOM.getEl('.project')
 
-  getChapters(isTreeStructured = false) {
-    const chapters = this.chapters
-    return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-  }
-
-  count() {
-    return this.chapters.length
-  }
-
-  attrs(prop, value) {
-    const attrs = this.attrs
-
-    if (isString(prop)) {
-      // 只能扩展 attrs 中已有的属性
-      if (value && hasOwn(attrs, prop)) {
-        // 更新单个配置信息
-        attrs[prop] = value
-        return this
-      }
-
-      // 只传递 prop 参数，则返回对应的属性值
-      return attrs[prop]
-    } else if (isObject(prop)) {
-      // 批量更新配置信息
-      extend(attrs, prop)
-
-      return this
-    } else if (arguments.length === 0) {
-      // 不传递参数，直接返回整个
-      return attrs
-    }
-
-    return this
-  }
-
-  render() {
-    // 省略其它逻辑...
-    return this
-  }
-
-  scrollTo(top, after) {
-    // 省略其它逻辑...
-    return this
-  }
-
-  destroy() {
-    this.removeListeners()
-    // 省略其它逻辑...
-    return this
-  }
-
-  reload(options) {
-    this.destroy().initialize(this.attrs(options))
-    return this
-  }
+DOM.getPageXY($list) // -> { x: 0, y: 0 }
+getPageXY($project) // -> { x: 0, y: 128 }</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getPageX(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Position</dd></dl><p>getPageX() 方法用来获取基于页面坐标获取元素的当前 X 位置。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回 DOM 元素在当前页面的 X 位置：el.getBoundingClientRect().left + getDocumentScrollLeft()。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
+.list {
+  position: relative;
+  z-index: 1;
 }
-
-Anchors.DEFAULTS = {
-  scrollElement: 'html,body',
-  articleElement: '#article',
-  selector: 'h1,h2,h3,h4,h5,h6',
-  anchorURL: '',
-  hasAnchor: true,
-  isAtStart: true,
-  showCode: false,
-  created: null,
-  mounted: null,
-  afterScroll: null,
-  beforeDestroy: null,
-  afterDestroy: null
+.list,
+.item {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: hidden;
 }
-
-export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getDocumentScrollLeft()</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
-class Anchors extends Base {
-  constructor(options) {
-    super()
-
-    this.attrs = Anchors.DEFAULTS
-    this.$articleElement = null
-    this.$scrollElement = null
-    this.$headings = []
-    this.chapters = []
-
-    // 省略其它逻辑...
-  }
-
-  getChapters(isTreeStructured = false) {
-    const chapters = this.chapters
-    return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-  }
-
-  count() {
-    return this.chapters.length
-  }
-
-  attrs(prop, value) {
-    const attrs = this.attrs
-
-    if (isString(prop)) {
-      // 只能扩展 attrs 中已有的属性
-      if (value && hasOwn(attrs, prop)) {
-        // 更新单个配置信息
-        attrs[prop] = value
-        return this
-      }
-
-      // 只传递 prop 参数，则返回对应的属性值
-      return attrs[prop]
-    } else if (isObject(prop)) {
-      // 批量更新配置信息
-      extend(attrs, prop)
-
-      return this
-    } else if (arguments.length === 0) {
-      // 不传递参数，直接返回整个
-      return attrs
-    }
-
-    return this
-  }
-
-  render() {
-    // 省略其它逻辑...
-    return this
-  }
-
-  scrollTo(top, after) {
-    // 省略其它逻辑...
-    return this
-  }
-
-  destroy() {
-    this.removeListeners()
-    // 省略其它逻辑...
-    return this
-  }
-
-  reload(options) {
-    this.destroy().initialize(this.attrs(options))
-    return this
-  }
+.item {
+  float: left;
+  border: 2px;
+  padding: 10px;
+  height: 40px;
+  overflow: hidden;
 }
+&lt;/style&gt;
 
-Anchors.DEFAULTS = {
-  scrollElement: 'html,body',
-  articleElement: '#article',
-  selector: 'h1,h2,h3,h4,h5,h6',
-  anchorURL: '',
-  hasAnchor: true,
-  isAtStart: true,
-  showCode: false,
-  created: null,
-  mounted: null,
-  afterScroll: null,
-  beforeDestroy: null,
-  afterDestroy: null
+&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getPageX 单个方法
+import getPageX from '@yaohaixiao/dom.js/getPageX'
+
+const $list = DOM.byId('#list')
+const $project = DOM.getEl('.project')
+
+DOM.getPageX($list) // -> 0
+getPageX($project) // -> 128</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getPageY(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Position</dd></dl><p>getPageY() 方法用来获取基于页面坐标获取元素的当前 Y 位置。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回 DOM 元素在当前页面的 Y 位置：el.getBoundingClientRect().top + getDocumentScrollTop()。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
+.list {
+  position: relative;
+  z-index: 1;
 }
-
-export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getDocumentScrollTop()</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
-class Anchors extends Base {
-  constructor(options) {
-    super()
-
-    this.attrs = Anchors.DEFAULTS
-    this.$articleElement = null
-    this.$scrollElement = null
-    this.$headings = []
-    this.chapters = []
-
-    // 省略其它逻辑...
-  }
-
-  getChapters(isTreeStructured = false) {
-    const chapters = this.chapters
-    return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-  }
-
-  count() {
-    return this.chapters.length
-  }
-
-  attrs(prop, value) {
-    const attrs = this.attrs
-
-    if (isString(prop)) {
-      // 只能扩展 attrs 中已有的属性
-      if (value && hasOwn(attrs, prop)) {
-        // 更新单个配置信息
-        attrs[prop] = value
-        return this
-      }
-
-      // 只传递 prop 参数，则返回对应的属性值
-      return attrs[prop]
-    } else if (isObject(prop)) {
-      // 批量更新配置信息
-      extend(attrs, prop)
-
-      return this
-    } else if (arguments.length === 0) {
-      // 不传递参数，直接返回整个
-      return attrs
-    }
-
-    return this
-  }
-
-  render() {
-    // 省略其它逻辑...
-    return this
-  }
-
-  scrollTo(top, after) {
-    // 省略其它逻辑...
-    return this
-  }
-
-  destroy() {
-    this.removeListeners()
-    // 省略其它逻辑...
-    return this
-  }
-
-  reload(options) {
-    this.destroy().initialize(this.attrs(options))
-    return this
-  }
+.list,
+.item {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: hidden;
 }
-
-Anchors.DEFAULTS = {
-  scrollElement: 'html,body',
-  articleElement: '#article',
-  selector: 'h1,h2,h3,h4,h5,h6',
-  anchorURL: '',
-  hasAnchor: true,
-  isAtStart: true,
-  showCode: false,
-  created: null,
-  mounted: null,
-  afterScroll: null,
-  beforeDestroy: null,
-  afterDestroy: null
+.item {
+  margin: 0;
+  border: 2px;
+  padding: 10px;
+  height: 40px;
+  overflow: hidden;
 }
+&lt;/style&gt;
 
-export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getScroll(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
+&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getPageY 单个方法
+import getPageY from '@yaohaixiao/dom.js/getPageY'
+
+const $list = DOM.byId('#list')
+const $project = DOM.getEl('.project')
+
+DOM.getPageY($list) // -> 0
+getPageY($project) // -> 128</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getDocumentScrollLeft(doc)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Size</dd></dl><p>getDocumentScrollLeft() 方法用来获取当前文档（窗口）滚动条的横向滚动的距离。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">doc</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Document</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">document</dd></dl><p>（可选）doc 参数指定要获取滚动距离的文档。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回文档滚动的距离。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getDocumentScrollLeft 单个方法
+import getDocumentScrollLeft from '@yaohaixiao/dom.js/getDocumentScrollLeft'
+
+DOM.getDocumentScrollLeft() // -> 100</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getDocumentScrollTop(doc)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Size</dd></dl><p>getDocumentScrollTop() 方法用来获取当前文档（窗口）滚动条的纵向滚动的距离。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">doc</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Document</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">document</dd></dl><p>（可选）doc 参数指定要获取滚动距离的文档。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回文档滚动的距离。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getDocumentScrollTop 单个方法
+import getDocumentScrollTop from '@yaohaixiao/dom.js/getDocumentScrollTop'
+
+DOM.getDocumentScrollTop() // -> 100</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getScroll(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
 class Anchors extends Base {
   constructor(options) {
     super()
@@ -2014,179 +1619,107 @@ Anchors.DEFAULTS = {
   afterDestroy: null
 }
 
-export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">scrollTo(el, top[, afterStop])</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
-class Anchors extends Base {
-  constructor(options) {
-    super()
+export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">offset(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Position</dd></dl><dl class="section__dl"><dt class="section__dt">Alias：</dt><dd class="section__dd">getOffset</dd></dl><p>offset() 方法用来获取 DOM 节点相对于窗口的 top（纵坐标）值和 left（横坐标）值以及宽度和高度。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回 offsetTop 和 offsetLeft 值。如果元素存在 offsetParent 的父节点，那么这个值会累加直到其祖先节点不再有 offsetParent。</p><p>width 和 height 则为 DOM 元素的 offsetWidth 和 offsetHeight 值。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
+.list {
+  position: relative;
+  z-index: 1;
+}
+.list,
+.item {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: hidden;
+}
+.item {
+  margin: 0;
+  border: 2px;
+  padding: 10px;
+  height: 40px;
+  overflow: hidden;
+}
+&lt;/style&gt;
 
-    this.attrs = Anchors.DEFAULTS
-    this.$articleElement = null
-    this.$scrollElement = null
-    this.$headings = []
-    this.chapters = []
+&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
 
-    // 省略其它逻辑...
-  }
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 offset 单个方法
+import offset from '@yaohaixiao/dom.js/offset'
 
-  getChapters(isTreeStructured = false) {
-    const chapters = this.chapters
-    return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-  }
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
 
-  count() {
-    return this.chapters.length
-  }
-
-  attrs(prop, value) {
-    const attrs = this.attrs
-
-    if (isString(prop)) {
-      // 只能扩展 attrs 中已有的属性
-      if (value && hasOwn(attrs, prop)) {
-        // 更新单个配置信息
-        attrs[prop] = value
-        return this
-      }
-
-      // 只传递 prop 参数，则返回对应的属性值
-      return attrs[prop]
-    } else if (isObject(prop)) {
-      // 批量更新配置信息
-      extend(attrs, prop)
-
-      return this
-    } else if (arguments.length === 0) {
-      // 不传递参数，直接返回整个
-      return attrs
-    }
-
-    return this
-  }
-
-  render() {
-    // 省略其它逻辑...
-    return this
-  }
-
-  scrollTo(top, after) {
-    // 省略其它逻辑...
-    return this
-  }
-
-  destroy() {
-    this.removeListeners()
-    // 省略其它逻辑...
-    return this
-  }
-
-  reload(options) {
-    this.destroy().initialize(this.attrs(options))
-    return this
-  }
+DOM.offset($list)
+// -> {
+  top: 0,
+  left: 0,
+  width: 256,
+  height: 64
 }
 
-Anchors.DEFAULTS = {
-  scrollElement: 'html,body',
-  articleElement: '#article',
-  selector: 'h1,h2,h3,h4,h5,h6',
-  anchorURL: '',
-  hasAnchor: true,
-  isAtStart: true,
-  showCode: false,
-  created: null,
-  mounted: null,
-  afterScroll: null,
-  beforeDestroy: null,
-  afterDestroy: null
+offset($home)
+// -> {
+  top: 0,
+  left: 0,
+  width: 64,
+  height: 64
+}</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">positions(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Position</dd></dl><p>positions() 方法用来获取 DOM 节点的定位信息。当 DOM 元素不可见或不再当前文档中，则返回 false。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object|Boolean</dd></dl><p>返回 DOM 节点的定位信息。当 DOM 元素不可见或不再当前文档中，则返回 false。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
+.list {
+  position: relative;
+  z-index: 1;
+}
+.list,
+.item {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: hidden;
+}
+.item {
+  margin: 0;
+  border: 2px;
+  padding: 10px;
+  height: 40px;
+  overflow: hidden;
+}
+&lt;/style&gt;
+
+&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 positions 单个方法
+import positions from '@yaohaixiao/dom.js/positions'
+
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
+
+DOM.positions($list)
+// -> {
+  top: 0,
+  left: 0,
+  x: 0,
+  y: 0
 }
 
-export default Anchors</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">offset(el)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。</p><pre class="section__pre"><code class="section__code">// 仅展示 API 中对外公开的方法和属性
-class Anchors extends Base {
-  constructor(options) {
-    super()
-
-    this.attrs = Anchors.DEFAULTS
-    this.$articleElement = null
-    this.$scrollElement = null
-    this.$headings = []
-    this.chapters = []
-
-    // 省略其它逻辑...
-  }
-
-  getChapters(isTreeStructured = false) {
-    const chapters = this.chapters
-    return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-  }
-
-  count() {
-    return this.chapters.length
-  }
-
-  attrs(prop, value) {
-    const attrs = this.attrs
-
-    if (isString(prop)) {
-      // 只能扩展 attrs 中已有的属性
-      if (value && hasOwn(attrs, prop)) {
-        // 更新单个配置信息
-        attrs[prop] = value
-        return this
-      }
-
-      // 只传递 prop 参数，则返回对应的属性值
-      return attrs[prop]
-    } else if (isObject(prop)) {
-      // 批量更新配置信息
-      extend(attrs, prop)
-
-      return this
-    } else if (arguments.length === 0) {
-      // 不传递参数，直接返回整个
-      return attrs
-    }
-
-    return this
-  }
-
-  render() {
-    // 省略其它逻辑...
-    return this
-  }
-
-  scrollTo(top, after) {
-    // 省略其它逻辑...
-    return this
-  }
-
-  destroy() {
-    this.removeListeners()
-    // 省略其它逻辑...
-    return this
-  }
-
-  reload(options) {
-    this.destroy().initialize(this.attrs(options))
-    return this
-  }
-}
-
-Anchors.DEFAULTS = {
-  scrollElement: 'html,body',
-  articleElement: '#article',
-  selector: 'h1,h2,h3,h4,h5,h6',
-  anchorURL: '',
-  hasAnchor: true,
-  isAtStart: true,
-  showCode: false,
-  created: null,
-  mounted: null,
-  afterScroll: null,
-  beforeDestroy: null,
-  afterDestroy: null
-}
-
-export default Anchors</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Selecting Siblings</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用于获取指定 DOM 元素的邻居节点。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getNextSibling(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><p>getNextSibling() 方法用来获取 DOM 元素的下一个邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 DOM 元素的下一个邻居元素节点。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+positions($home)
+// -> {
+  top: 0,
+  left: 0,
+  x: 0,
+  y: 64
+}</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">scrollTo(el, top[, afterStop])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Position</dd></dl><dl class="section__dl"><dt class="section__dt">Alias：</dt><dd class="section__dd">getOffset</dd></dl><p>scrollTo() 法用来将 DOM 节点在纵向滚动调上滚动到指定的 top 位置。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">top</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>（必须）top 参数指定 DOM 元素滚动的位置。</p><h5 class="section__h4">afterStop</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function</dd></dl><p>（可选）afterStop 参数指定 DOM 元素滚动到指定的位置后，执行的回调函数。</p><pre class="section__pre"><code class="section__code"></code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Selecting Siblings</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用于获取指定 DOM 元素的邻居节点。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getNextSibling(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><p>getNextSibling() 方法用来获取 DOM 元素的下一个邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 DOM 元素的下一个邻居元素节点。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -2428,22 +1961,22 @@ siblings($about, true)
 //   &lt;li class="item blog"&gt;Blog&lt;/li&gt;,
 //   &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;,
 //   &lt;li class="item about"&gt;About&lt;/li&gt;
-// ]</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Size</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用于获取 DOM 元素的尺寸大小。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getDocumentHeight()</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Size</dd></dl><p>getDocumentHeight()方法用来获取当前页面（滚动条）的高度。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回文档的高度值。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+// ]</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Size</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用于获取 DOM 元素的尺寸大小。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getDocumentHeight()</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Size</dd></dl><p>getDocumentHeight() 方法用来获取当前页面（滚动条）的高度。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回文档的高度值。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom
 // 引用 getDocumentHeight 单个方法
 import getDocumentHeight from '@yaohaixiao/dom.js/getDocumentHeight'
 
-DOM.getDocumentHeight() // -> 800</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getDocumentWidth()</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Size</dd></dl><p>getDocumentWidth()方法用来获取当前页面（滚动条）的宽度。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回文档的宽度值。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+DOM.getDocumentHeight() // -> 800</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getDocumentWidth()</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Size</dd></dl><p>getDocumentWidth() 方法用来获取当前页面（滚动条）的宽度。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回文档的宽度值。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom
 // 引用 getDocumentWidth 单个方法
 import getDocumentWidth from '@yaohaixiao/dom.js/getDocumentWidth'
 
-DOM.getDocumentWidth() // -> 800</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getViewportHeight()</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Size</dd></dl><p>getViewportHeight()方法用来获取当前窗口视口高度。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回窗口视口的高度值。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+DOM.getDocumentWidth() // -> 800</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getViewportHeight()</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Size</dd></dl><p>getViewportHeight() 方法用来获取当前窗口视口高度。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回窗口视口的高度值。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom
 // 引用 getViewportHeight 单个方法
 import getViewportHeight from '@yaohaixiao/dom.js/getViewportHeight'
 
-DOM.getViewportHeight() // -> 600</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getViewportWidth()</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Size</dd></dl><p>getViewportWidth()方法用来获取当前窗口视口宽度。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回窗口视口的宽度值。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+DOM.getViewportHeight() // -> 600</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getViewportWidth()</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Size</dd></dl><p>getViewportWidth() 方法用来获取当前窗口视口宽度。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回窗口视口的宽度值。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom
 // 引用 getViewportWidth 单个方法
 import getViewportWidth from '@yaohaixiao/dom.js/getViewportWidth'
@@ -2853,7 +2386,7 @@ setProperty('--outline-chapters-width', '100%')
 // 获取属性值
 DOM.getProperty('--outline-zIndex') // => '2000'
 DOM.getProperty('--outline-sticky-height') // => '100%'
-DOM.getProperty('--outline-chapters-width') // => '100%'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">css(el, attr[, value])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Style</dd></dl><p>css()方法用来设置或者查询 DOM 元素的 CSS 样式。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">attr</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|Object|Array</dd></dl><p>（必须）指定 CSS 属性名称。</p><h5 class="section__h4">value</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">true</dd></dl><p>(可选) 要设置的 CSS 属性值。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object|String</dd></dl><p>返回指定的单个或者 attr 的属性值。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+DOM.getProperty('--outline-chapters-width') // => '100%'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">css(el, attr[, value])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Style</dd></dl><p>css() 方法用来设置或者查询 DOM 元素的 CSS 样式。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">attr</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|Object|Array</dd></dl><p>（必须）指定 CSS 属性名称。</p><h5 class="section__h4">value</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">true</dd></dl><p>(可选) 要设置的 CSS 属性值。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object|String</dd></dl><p>返回指定的单个或者 attr 的属性值。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -2885,7 +2418,7 @@ css($list, ['background-color', 'float'])
 // -> {
 //      'background-color': '#f2f2f2',
 //      'float': 'left'
-//    }</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">prop(prop[, value])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Style</dd></dl><p>$emit()方法用来获取 CSS 样式的属性或者为一个声明了 CSS 样式的对象设置一个新的值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">prop</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）CSS 属性名称。</p><h5 class="section__h4">value</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）CSS 属性值。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
+//    }</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">prop(prop[, value])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Style</dd></dl><p>prop() 方法用来获取 CSS 样式的属性或者为一个声明了 CSS 样式的对象设置一个新的值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">prop</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）CSS 属性名称。</p><h5 class="section__h4">value</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）CSS 属性值。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
   :root {
     --outline - zIndex: 2000;
   }

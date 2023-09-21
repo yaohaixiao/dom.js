@@ -21,13 +21,8 @@ const innerHeight = (el, val) => {
     return false
   }
 
-  const {
-    borderTop,
-    borderBottom,
-    paddingTop,
-    paddingBottom,
-    offsetHeight
-  } = _getElementSizes(el)
+  const { borderTop, borderBottom, paddingTop, paddingBottom, offsetHeight } =
+    _getElementSizes(el)
 
   if (isFunction(val)) {
     return val(el, {
@@ -43,11 +38,7 @@ const innerHeight = (el, val) => {
     height = offsetHeight - (borderTop + borderBottom)
 
     if (height !== val) {
-      setStyle(
-        el,
-        'height',
-        pixel(val - (paddingTop + paddingBottom))
-      )
+      setStyle(el, 'height', pixel(val - (paddingTop + paddingBottom)))
     }
   } else {
     return offsetHeight - (borderTop + borderBottom)

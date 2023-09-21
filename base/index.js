@@ -1,5 +1,6 @@
 import createElement from '../createElement'
 import clone from '../clone'
+import canPosition from '../canPosition'
 import closest from '../closest'
 import contains from '../contains'
 import byClass from '../byClass'
@@ -9,6 +10,7 @@ import getHostOrParent from '../getHostOrParent'
 import getOffsetParent from '../getOffsetParent'
 import getScrollParent from '../getScrollParent'
 import index from '../index'
+import inDocument from '../inDocument'
 import isInBounding from '../isInBounding'
 import isInViewport from '../isInViewport'
 import isMatched from '../isMatched'
@@ -19,6 +21,7 @@ import children from '../children'
 const DOM = {
   createElement,
   clone,
+  canPosition,
   closest,
   contains,
   byClass,
@@ -28,6 +31,7 @@ const DOM = {
   getOffsetParent,
   getScrollParent,
   index,
+  inDocument,
   isInBounding,
   isInViewport,
   isMatched,
