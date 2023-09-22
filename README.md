@@ -75,10 +75,22 @@ const $list = DOM.byId('#list')
 ### ES6 Module
 
 ```js
-// Node.js 16 开始也支持 ES6 模块了
+// Node.js 16 开始也支持 ES6 模块了，可以直接在 Node 环境中使用
 import DOM from '@yaohaixiao/dom.js/dom'
+
+// 调用单独的子模块, 模块中包含的具体方法请参考 API 文档中的导航分类
+import DOM from '@yaohaixiao/dom.js/attributes'
+import DOM from '@yaohaixiao/dom.js/base'
+import DOM from '@yaohaixiao/dom.js/insertion'
+import DOM from '@yaohaixiao/dom.js/position'
+import DOM from '@yaohaixiao/dom.js/sibling'
+import DOM from '@yaohaixiao/dom.js/size'
+import DOM from '@yaohaixiao/dom.js/style'
+import DOM from '@yaohaixiao/dom.js/types'
+
 // 单独调用某个方法
 import getEl from '@yaohaixiao/dom.js/getEl'
+
 
 const $list = DOM.byId('#list')
 

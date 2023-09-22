@@ -1,11 +1,11 @@
 /**
  * @jest-environment jsdom
  */
-import isText from '../../isText'
-import isElement from '../../isElement'
-import isFragment from '../../isFragment'
-import isCollection from '../../isCollection'
-import isDOM from '../../isDOM'
+import isText from '@/isText'
+import isElement from '@/isElement'
+import isFragment from '@/isFragment'
+import isCollection from '@/isCollection'
+import isDOM from '@/isDOM'
 
 describe('isDOM() 方法：', () => {
   // Set up our document body
