@@ -3,7 +3,7 @@ import isElement from './utils/types/isElement'
 const getAttribute = (el, attr) => {
   let tagName
 
-  if (!isElement(el)) {
+  if (!isElement(el) || !attr) {
     return false
   }
 

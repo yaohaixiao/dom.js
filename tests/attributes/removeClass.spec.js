@@ -1,9 +1,12 @@
 /**
  * @jest-environment jsdom
  */
+import removeClass from '@/removeClass'
+import getAttribute from '@/getAttribute'
 import hasClass from '@/hasClass'
+import byId from '@/byId'
 
-describe('hasClass() 方法', () => {
+describe('removeClass() 方法', () => {
   // Set up our document body
   document.body.innerHTML =
     '<ul id="list" class="list">\n' +
@@ -21,27 +24,21 @@ describe('hasClass() 方法', () => {
     '  </li>\n' +
     '</ul>'
 
-  it(`hasClass($list, 'item')，返回： false`, () => {
-    const $list = document.querySelector('#list')
-    const $text = document.createTextNode('text')
-
-    expect(hasClass($list, 'item')).toEqual(false)
-    expect(hasClass($text)).toEqual(false)
+  it(`removeClass() 不传递 el 参数，返回： false`, () => {
+    expect(removeClass()).toBe(false)
   })
 
-  it(`hasClass($list, 'list')，返回： true`, () => {
-    const $list = document.querySelector('#list')
-
-    expect(hasClass($list, 'list')).toEqual(true)
+  it(`removeClass(el) 不传递 className 参数，返回： false`, () => {
+    const $home = byId('#item-home')
+    expect(removeClass($home)).toBe(false)
   })
 
-  it(`hasClass($support, 'item-support')，返回： true`, () => {
-    const $support = document.querySelector('#item-support')
+  it(`removeClass($home, 'item')，返回： false`, () => {
+    const $home = byId('#item-home')
 
-    $support.classList.contains = null
+    removeClass($home, 'item')
 
-    expect(hasClass($support, 'item')).toEqual(true)
-    expect(hasClass($support, 'item-support')).toEqual(true)
-    expect(hasClass($support, 'item-ok')).toEqual(true)
+    expect(getAttribute($home, 'className')).toEqual('item-home')
+    expect(hasClass($home, 'item')).toBe(false)
   })
 })

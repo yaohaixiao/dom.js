@@ -14,7 +14,7 @@ const removeClass = (el, className) => {
   let allClass
   let classList
 
-  if (!isElement(el)) {
+  if (!isElement(el) || !className) {
     return false
   }
 
