@@ -6,6 +6,7 @@ import getProperty from '../getProperty'
 import setProperty from '../setProperty'
 import css from '../css'
 import prop from '../prop'
+import toggle from '../toggle'
 
 const DOM = {
   getStyle,
@@ -15,7 +16,8 @@ const DOM = {
   getProperty,
   setProperty,
   css,
-  prop
+  prop,
+  toggle
 }
 
 export default DOM

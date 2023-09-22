@@ -2069,7 +2069,27 @@ prop('--outline-chapters-width', '100%')
 // 获取属性值
 prop('--outline-zIndex') // => '2000'
 prop('--outline-sticky-height') // => '100%'
-prop('--outline-chapters-width') // => '100%'</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Node Type Detection</h2></header><div class="section__content"><p>dom.js 提供以下方法用于检测 DOM 元素的 Node Type 类型。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">isCollection(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Node Type Detection</dd></dl><p>isCollection() 方法用来检测测试数据是否为 HTMLNodeList (元素集合)类型。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）el 参数指定待检测的 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 HTMLNodeList (元素集合)类型，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+prop('--outline-chapters-width') // => '100%'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">toggle(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Style</dd></dl><p>toggle() 方法用来设置 DOM 元素的显示和隐藏。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 toggle 单个方法
+import toggle from '@yaohaixiao/dom.js/toggle'
+
+const $list = DOM.byId('#list')
+
+// 隐藏 $list
+DOM.toggle($list)
+DOM.getStyle($list, 'display') // -> 'hidden'
+
+// 显示 $list
+DOM.toggle($list)
+DOM.getStyle($list, 'display') // -> 'block'</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Node Type Detection</h2></header><div class="section__content"><p>dom.js 提供以下方法用于检测 DOM 元素的 Node Type 类型。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">isCollection(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Node Type Detection</dd></dl><p>isCollection() 方法用来检测测试数据是否为 HTMLNodeList (元素集合)类型。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）el 参数指定待检测的 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 HTMLNodeList (元素集合)类型，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom'
 // 或者单独引用 isCollection() 方法
 import isCollection from '@yaohaixiao/types.js/isCollection'
