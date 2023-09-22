@@ -14,7 +14,9 @@ dom.js - 专门处理 DOM 操作的 JavaScript 工具库。
 
 ## 项目初衷
 
-dom.js 开发的目的是为初学 JavaScript 的朋友了解原生 JavaScript 中的 DOM 操作方法而写。源代码中 @see 属性给出了 MDN 中的 DOM API 接口的文档 URL 地址，希望初学的朋友们可以仔细阅读文档，了解其原理。从而能够摆脱对第三方框架的依赖，即使没有了框架，也能自如的通过 JavaScript 操作 DOM。当然，dom.js 中提供的工具方法也是可以应用到实际的日常开发中的。
+dom.js 开发的目的是为初学 JavaScript 的朋友了解原生 JavaScript 中的 DOM 操作方法而写。源代码中 @see 属性给出了 MDN 中的 DOM API 接口的文档 URL 地址，希望初学的朋友们可以仔细阅读文档，了解其原理。从而能够摆脱对第三方框架的依赖，即使没有了框架，也能自如的通过 JavaScript 操作 DOM。
+
+当然，dom.js 中提供的工具方法也是可以应用到实际的日常开发中的。
 
 
 
