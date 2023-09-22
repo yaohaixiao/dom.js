@@ -1,25 +1,33 @@
 section.section
   header.section__header
-    h3.section__h3 scrollTo(el, top[, afterStop])
+    h3.section__h3 scrollTo(el, position[, direction, afterStop])
   div.section__content
     dl.section__dl
       dt.section__dt Category：
       dd.section__dd Position
-    dl.section__dl
-      dt.section__dt Alias：
-      dd.section__dd getOffset
-    p scrollTo() 法用来将 DOM 节点在纵向滚动调上滚动到指定的 top 位置。
+    p scrollTo() 法用来将 DOM 节点滚动到指定位置。
     h4.section__h4 Parameters
     h5.section__h4 el
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd HTMLElement
-    p （必须）el 参数指定 DOM 元素。
-    h5.section__h4 top
+      dd.section__dd HTMLElement|String
+    p （必须）el 参数指定 DOM 元素获取选择器字符串。
+    h5.section__h4 position
     dl.section__dl
       dt.section__dt Type：
       dd.section__dd Number
-    p （必须）top 参数指定 DOM 元素滚动的位置。
+    p （必须）position 参数指定 DOM 元素滚动的位置。
+    h5.section__h4 direction
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd 'vertical'
+    p （可选）direction 参数指定 DOM 元素滚动的方向：
+    ul
+      li vertical: （默认值）纵向滚动；
+      li horizontal: 横向滚动；
     h5.section__h4 afterStop
     dl.section__dl
       dt.section__dt Type：
@@ -27,3 +35,45 @@ section.section
     p （可选）afterStop 参数指定 DOM 元素滚动到指定的位置后，执行的回调函数。
     pre.section__pre
       code.section__code.
+        &lt;style&gt;
+        .list {
+          position: relative;
+          z-index: 1;
+          height: 128px;
+          overflow: auto;
+        }
+        .list,
+        .item {
+          margin: 0;
+          padding: 0;
+          list-style-type: none;
+        }
+        .item {
+          margin: 0;
+          border: 2px;
+          padding: 10px;
+          height: 40px;
+          overflow: hidden;
+        }
+        &lt;/style&gt;
+
+        &lt;ul id="list" class="list"&gt;
+            &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+            &lt;li class="item project"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 scrollTo 单个方法
+        import scrollTo from '@yaohaixiao/dom.js/scrollTo'
+
+        const $list = DOM.byId('#list')
+
+        DOM.scrollTo($list, 64)
+        DOM.getScrollTop($list) // -> 64
+
+        scrollTo($list, 128, (pos) => {
+          console.log('position:', pos) // -> 128
+        })

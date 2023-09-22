@@ -2,98 +2,42 @@ section.section
   header.section__header
     h3.section__h3 getScrollTotalTop(el)
   div.section__content
-    h4.section__h4 Description
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Position
+    p getScrollTotalTop() 方法用来获取 DOM 节点预期所有父节点的纵向滚动距离。
+    h4.section__h4 Parameters
+    h5.section__h4 el
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd Object
-    p Anchors 模块：类似 AnchorJS 基础功能模块，自动分析段落层级。
+      dd.section__dd HTMLElement|Window
+    dl.section__dl
+      dt.section__dt Default：
+      dd.section__dd window
+    p （可选）el 参数指定 DOM 元素，未传递则默认为 window 对象。
+    h4.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Number
+    p 返回 DOM 元素的滚动条纵向滚动距离。
     pre.section__pre
       code.section__code.
-        // 仅展示 API 中对外公开的方法和属性
-        class Anchors extends Base {
-          constructor(options) {
-            super()
+        &lt;ul id="list" class="list"&gt;
+            &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+            &lt;li class="item project"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
 
-            this.attrs = Anchors.DEFAULTS
-            this.$articleElement = null
-            this.$scrollElement = null
-            this.$headings = []
-            this.chapters = []
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 getScrollTotalTop 单个方法
+        import getScrollTotalTop from '@yaohaixiao/dom.js/getScrollTotalTop'
 
-            // 省略其它逻辑...
-          }
+        const $list = DOM.byId('#list')
 
-          getChapters(isTreeStructured = false) {
-            const chapters = this.chapters
-            return isTreeStructured ? toTree(chapters, 'id', 'pid') : chapters
-          }
+        // 指定 DOM 元素
+        DOM.getScrollTotalTop($list) // -> 0
 
-          count() {
-            return this.chapters.length
-          }
-
-          attrs(prop, value) {
-            const attrs = this.attrs
-
-            if (isString(prop)) {
-              // 只能扩展 attrs 中已有的属性
-              if (value && hasOwn(attrs, prop)) {
-                // 更新单个配置信息
-                attrs[prop] = value
-                return this
-              }
-
-              // 只传递 prop 参数，则返回对应的属性值
-              return attrs[prop]
-            } else if (isObject(prop)) {
-              // 批量更新配置信息
-              extend(attrs, prop)
-
-              return this
-            } else if (arguments.length === 0) {
-              // 不传递参数，直接返回整个
-              return attrs
-            }
-
-            return this
-          }
-
-          render() {
-            // 省略其它逻辑...
-            return this
-          }
-
-          scrollTo(top, after) {
-            // 省略其它逻辑...
-            return this
-          }
-
-          destroy() {
-            this.removeListeners()
-            // 省略其它逻辑...
-            return this
-          }
-
-          reload(options) {
-            this.destroy().initialize(this.attrs(options))
-            return this
-          }
-        }
-
-        Anchors.DEFAULTS = {
-          scrollElement: 'html,body',
-          articleElement: '#article',
-          selector: 'h1,h2,h3,h4,h5,h6',
-          anchorURL: '',
-          hasAnchor: true,
-          isAtStart: true,
-          showCode: false,
-          created: null,
-          mounted: null,
-          afterScroll: null,
-          beforeDestroy: null,
-          afterDestroy: null
-        }
-
-        export default Anchors
-
+        // 默认获取 window 当前窗口的滚动距离
+        getScrollTotalTop() // -> 0

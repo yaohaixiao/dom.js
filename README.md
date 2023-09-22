@@ -5,16 +5,25 @@
 [![prettier code style](https://img.shields.io/badge/code_style-prettier-07b759.svg)](https://prettier.io)
 [![Coverage](https://codecov.io/gh/yaohaixiao/dom.js/branch/master/graph/badge.svg)](https://codecov.io/gh/yaohaixiao/dom.js)
 [![npm downloads](https://img.shields.io/npm/dt/@yaohaixiao/dom.js)](https://npmcharts.com/compare/@yaohaixiao/dom.js?minimal=true)
-[![MIT License](https://img.shields.io/github/license/yaohaixiao/dom.js.svg)](https://github.com/yaohaixiao/dom.js/blob/master/LICENSE)
+[![MIT License](https://img.shields.io/github/license/yaohaixiao/dom.js.svg)](https://github.com/yaohaixiao/dom.js/blob/main/LICENSE)
 
 
 dom.js - 专门处理 DOM 操作的 JavaScript 工具库。
 
 
+
 ## 项目初衷
 
-dom.js 开发的目的是为初学 JavaScript 的朋友了解原生 JavaScript 中的 DOM 操作方法而写。希望朋友们能够摆脱对第三方框架的依赖，即使没有了框架，也能自如的通过 JavaScript 操作 DOM。当然，dom.js 中提供的工具方法也是可以应用到实际的日常开发中的。
+dom.js 开发的目的是为初学 JavaScript 的朋友了解原生 JavaScript 中的 DOM 操作方法而写。源代码中 @see 属性给出了 MDN 中的 DOM API 接口的文档 URL 地址，希望初学的朋友们可以仔细阅读文档，了解其原理。从而能够摆脱对第三方框架的依赖，即使没有了框架，也能自如的通过 JavaScript 操作 DOM。当然，dom.js 中提供的工具方法也是可以应用到实际的日常开发中的。
 
+
+
+## Features
+
+* 原生 JavaScript 纯手动打造，无任何依赖；
+* 支持 UMD 和 ES6 模块规范，适应各种运行环境；
+* 支持调用 DOM 整体模块和独立调用方法；
+* 提供 90+ 使用的 DOM 操作方法，让你轻松应对日常开发的各种 DOM 应用场景；
 
 
 ## Browsers Support
@@ -68,8 +77,12 @@ const $list = DOM.byId('#list')
 ```js
 // Node.js 16 开始也支持 ES6 模块了
 import DOM from '@yaohaixiao/dom.js/dom'
+// 单独调用某个方法
+import getEl from '@yaohaixiao/dom.js/getEl'
 
 const $list = DOM.byId('#list')
+
+getEl('#list')
 ```
 
 
@@ -102,6 +115,12 @@ const $anchor = createElement('a', {
   target: '_blank'
 }, 'Fork on Github')
 ```
+
+
+## API Documentation
+
+API 文档地址：[https://yaohaixiao.github.io/dom.js/](https://yaohaixiao.github.io/dom.js/)
+
 
 
 ## License

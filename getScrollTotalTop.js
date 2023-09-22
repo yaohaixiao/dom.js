@@ -3,9 +3,10 @@ import getScrollTop from './getScrollTop'
 import getStyle from './getStyle'
 
 /**
- * 获取某个节点所有父节点的滚动位置
+ * 获取 DOM 节点预期所有父节点的纵向滚动距离
  * ====================================================
  * @method getScrollTotalTop
+ * @return {Number}
  */
 const getScrollTotalTop = (() => {
   const $root = window
