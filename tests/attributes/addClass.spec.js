@@ -25,7 +25,7 @@ describe('addClass() 方法', () => {
 
   const $list = byId('#list')
 
-  it(`addClass() 不传递 el 参数，返回： false`, () => {
+  it(`addClass() 不传参数，返回： false`, () => {
     expect(addClass()).toBe(false)
   })
 

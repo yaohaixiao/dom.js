@@ -25,12 +25,12 @@ describe('getAttribute() 方法', () => {
     '<label for="user" class="label">用户名：</label><input type="text" name="user" id="user" value="Robert" />'
 
   it(`getAttribute() 不传递 el 参数，返回： false`, () => {
-    expect(getAttribute()).toEqual(false)
+    expect(getAttribute()).toBe(false)
   })
 
   it(`getAttribute(el) 不传递 attr 参数，返回： false`, () => {
     const $list = byId('#list')
-    expect(getAttribute($list)).toEqual(false)
+    expect(getAttribute($list)).toBe(false)
   })
 
   it(`getAttribute(el, 'className') 获取 class 属性值，返回： 'list'`, () => {
@@ -52,7 +52,7 @@ describe('getAttribute() 方法', () => {
     const $user = byId('#user')
     const $home = getEl('.item-home')
     expect(getAttribute($user, 'value')).toEqual('Robert')
-    expect(getAttribute($home, 'value')).toEqual(null)
+    expect(getAttribute($home, 'value')).toBe(null)
   })
 
   it(`getAttribute(el, 'data-id') 获取其它标准的 html 属性值，返回相应的值：`, () => {

@@ -2089,10 +2089,10 @@ DOM.getStyle($list, 'display') // -> 'hidden'
 
 // 显示 $list
 DOM.toggle($list)
-DOM.getStyle($list, 'display') // -> 'block'</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Node Type Detection</h2></header><div class="section__content"><p>dom.js 提供以下方法用于检测 DOM 元素的 Node Type 类型。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">isCollection(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Node Type Detection</dd></dl><p>isCollection() 方法用来检测测试数据是否为 HTMLNodeList (元素集合)类型。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）el 参数指定待检测的 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 HTMLNodeList (元素集合)类型，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+DOM.getStyle($list, 'display') // -> 'block'</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Node Type Detection</h2></header><div class="section__content"><p>dom.js 提供以下方法用于检测 DOM 元素的 Node Type 类型。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">isHTMLCollection(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Node Type Detection</dd></dl><p>isHTMLCollection() 方法用来检测测试数据是否为 HTMLNodeList (元素集合)类型。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）el 参数指定待检测的 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 HTMLNodeList (元素集合)类型，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom'
-// 或者单独引用 isCollection() 方法
-import isCollection from '@yaohaixiao/types.js/isCollection'
+// 或者单独引用 isHTMLCollection() 方法
+import isHTMLCollection from '@yaohaixiao/types.js/isHTMLCollection'
 
 const $list = document.getElementById('list')
 const $div = document.createElement('div')
@@ -2101,19 +2101,19 @@ const $items = document.querySelectorAll('.item')
 const $fragment = document.createDocumentFragment()
 
 DOM.isElement($list) // -> true
-DOM.isCollection($list) // -> false
+DOM.isHTMLCollection($list) // -> false
 
 DOM.isElement($div) // -> true
-DOM.isCollection($div) // -> false
+DOM.isHTMLCollection($div) // -> false
 
 DOM.isElement($text) // -> false
-DOM.isCollection($text) // -> false
+DOM.isHTMLCollection($text) // -> false
 
 DOM.isElement($items) // -> false
-isCollection($items) // -> true
+isHTMLCollection($items) // -> true
 
 DOM.isElement($fragment) // -> false
-isCollection($fragment) // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isDOM(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Node Type Detection</dd></dl><p>isDOM() 方法用来检测测试数据是否为 DOM 类型数据：DOM 节点，TextNode，NodeList 和 DocumentFragment）。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>（必须）el 参数指定待检测的 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 DOM 类型数据，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+isHTMLCollection($fragment) // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isDOM(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Node Type Detection</dd></dl><p>isDOM() 方法用来检测测试数据是否为 DOM 类型数据：DOM 节点，TextNode，NodeList 和 DocumentFragment）。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>（必须）el 参数指定待检测的 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 DOM 类型数据，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom'
 // 或者单独引用 isTextNode() 方法
 import isDOM from '@yaohaixiao/dom.js/isDOM'
@@ -2127,7 +2127,7 @@ DOM.isDOM($list) // -> true
 DOM.isDOM($fragment) // -> true
 DOM.isElement($items) // -> false
 isDOM($items) // -> true
-isText($text) // -> true
+isTextNode($text) // -> true
 isDOM($text) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isElement(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Node Type Detection</dd></dl><p>isElement() 方法用来检测测试数据是否为 HTMLElement (元素节点)类型。</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Lang</dd></dl><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）el 参数指定待检测的 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 HTMLElement (元素节点)类型，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom'
 // 或者单独引用 isElement() 方法
@@ -2167,10 +2167,10 @@ DOM.isElement($items) // -> false
 isFragment($items) // -> false
 
 DOM.isElement($fragment) // -> false
-isFragment($fragment) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isText(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Node Type Detection</dd></dl><p>isText() 方法用来检测测试数据是否为 HTMLTextNode (文本节点)类型。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）el 参数指定待检测的 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 HTMLTextNode (文本节点)类型，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+isFragment($fragment) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isTextNode(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Node Type Detection</dd></dl><p>isTextNode() 方法用来检测测试数据是否为 HTMLTextNode (文本节点)类型。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）el 参数指定待检测的 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 HTMLTextNode (文本节点)类型，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom'
-// 或者单独引用 isText() 方法
-import isText from '@yaohaixiao/dom.js/isText'
+// 或者单独引用 isTextNode() 方法
+import isTextNode from '@yaohaixiao/dom.js/isTextNode'
 
 const $list = document.getElementById('list')
 const $div = document.createElement('div')
@@ -2179,18 +2179,18 @@ const $items = document.querySelectorAll('.item')
 const $text = document.createTextNode('text')
 
 DOM.isElement($list) // -> true
-DOM.isText($list) // -> false
+DOM.isTextNode($list) // -> false
 
 DOM.isElement($div) // -> true
-DOM.isText($div) // -> false
+DOM.isTextNode($div) // -> false
 
 DOM.isFragment($fragment) // -> true
-DOM.isText($fragment) // -> false
+DOM.isTextNode($fragment) // -> false
 
-DOM.isCollection($items) // -> true
+DOM.isHTMLCollection($items) // -> true
 DOM($items) // -> false
 
 DOM.isElement($text) // -> false
-isText($text) // -> true</code></pre></div></section></section></article><footer class="main__footer" id="footer"><p>Copyright &copy; 2023 <a href="https://github.com/yaohaixiao">Robert Yao</a>, all right reserved.</p><p>Code licensed under&nbsp;<a href="http://opensource.org/licenses/mit-license.html">MIT License</a></p><p>Documentation licensed under&nbsp;
+isTextNode($text) // -> true</code></pre></div></section></section></article><footer class="main__footer" id="footer"><p>Copyright &copy; 2023 <a href="https://github.com/yaohaixiao">Robert Yao</a>, all right reserved.</p><p>Code licensed under&nbsp;<a href="http://opensource.org/licenses/mit-license.html">MIT License</a></p><p>Documentation licensed under&nbsp;
 <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a></p><p><a href="https://github.com/yaohaixiao/dom.js">View on GitHub</a> ·
 <a href="https://github.com/yaohaixiao/dom.js/issues">Issues</a></p></footer></main></div><script src="js/dom.min.js" type="text/javascript"></script><script src="js/docs.min.js" type="text/javascript"></script></body></html>

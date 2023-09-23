@@ -4,19 +4,22 @@ import isElement from './utils/types/isElement'
  * 检测 DOM 节点是否包含名为 className 的样式
  * ========================================================================
  * @method hasClass
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList/contains
  * @param {HTMLElement} el - DOM 节点
  * @param {String} className - 样式名称
  * @returns {Boolean}
  */
 const hasClass = (el, className) => {
-  const pattern = new RegExp('(\\s|^)' + className + '(\\s|$)')
+  let pattern
   let allClass
   let classList
 
-  if (!isElement(el)) {
+  if (!isElement(el) || !className) {
     return false
   }
 
+  pattern = new RegExp('(\\s|^)' + className + '(\\s|$)')
   allClass = el.className
 
   if (!allClass) {

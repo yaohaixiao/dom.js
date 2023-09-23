@@ -11,9 +11,9 @@ import removeClass from './removeClass'
  * @param {String} className
  */
 const toggleClass = (el, className) => {
-  let classList = el.classList
+  let classList
 
-  if (!isElement(el)) {
+  if (!isElement(el) || !className) {
     return false
   }
 

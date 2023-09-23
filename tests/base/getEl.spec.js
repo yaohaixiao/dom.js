@@ -1,10 +1,10 @@
 /**
  * @jest-environment jsdom
  */
-import byId from '@/byId'
+import getEl from '@/getEl'
 import hasClass from '@/hasClass'
 
-describe('byId() 方法', () => {
+describe('getEl() 方法', () => {
   // Set up our document body
   document.body.innerHTML =
     '<ul id="list" class="list">\n' +
@@ -22,20 +22,20 @@ describe('byId() 方法', () => {
     '  </li>\n' +
     '</ul>'
 
-  it(`byId() 不传递参数，返回：null`, () => {
-    expect(byId()).toEqual(null)
+  it(`getEl() 不传递参数，返回：null`, () => {
+    expect(getEl()).toEqual(null)
   })
 
-  it(`byId('#list') 不传递 el 参数，默认使用 document.querySelector`, () => {
-    const $list = byId('#list')
-
-    expect(hasClass($list, 'list')).toBe(true)
-  })
-
-  it(`byId('#item-home', $list) 传递 el 参数，使用 $list.querySelector`, () => {
-    const $list = byId('#list')
-    const $home = byId('#item-home', $list)
+  it(`getEl('#item-home') 获取单个 DOM 元素，使用 $list.querySelector`, () => {
+    const $list = getEl('#list')
+    const $home = getEl('#item-home', $list)
 
     expect(hasClass($home, 'item-home')).toBe(true)
+  })
+
+  it(`getEl('.item', true) 获取多个 DOM 元素，使用 document.querySelectorAll`, () => {
+    const $items = getEl('.item', true)
+
+    expect($items.length).toEqual(3)
   })
 })

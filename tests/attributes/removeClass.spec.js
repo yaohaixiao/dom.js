@@ -5,6 +5,7 @@ import removeClass from '@/removeClass'
 import getAttribute from '@/getAttribute'
 import hasClass from '@/hasClass'
 import byId from '@/byId'
+import getEl from '@/getEl'
 
 describe('removeClass() 方法', () => {
   // Set up our document body
@@ -33,6 +34,12 @@ describe('removeClass() 方法', () => {
     expect(removeClass($home)).toBe(false)
   })
 
+  it(`removeClass(el, 'text') 移除不存在的 class，返回： false`, () => {
+    const $span = getEl('.item-home > span')
+
+    expect(removeClass($span, 'text')).toBe(false)
+  })
+
   it(`removeClass($home, 'item')，返回： false`, () => {
     const $home = byId('#item-home')
 
@@ -40,5 +47,14 @@ describe('removeClass() 方法', () => {
 
     expect(getAttribute($home, 'className')).toEqual('item-home')
     expect(hasClass($home, 'item')).toBe(false)
+  })
+
+  it(`removeClass($list, 'list')，不使用 classList.remove 移除样式`, () => {
+    const $list = byId('#list')
+
+    $list.classList.remove = null
+    removeClass($list, 'list')
+
+    expect(hasClass($list, 'list')).toBe(false)
   })
 })

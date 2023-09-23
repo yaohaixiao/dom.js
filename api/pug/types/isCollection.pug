@@ -1,11 +1,11 @@
 section.section
   header.section__header
-    h3.section__h3 isCollection(el)
+    h3.section__h3 isHTMLCollection(el)
   div.section__content
     dl.section__dl
       dt.section__dt Category：
       dd.section__dd Node Type Detection
-    p isCollection() 方法用来检测测试数据是否为 HTMLNodeList (元素集合)类型。
+    p isHTMLCollection() 方法用来检测测试数据是否为 HTMLNodeList (元素集合)类型。
     h4.section__h4 Parameters
     h5.section__h4 el
     dl.section__dl
@@ -21,8 +21,8 @@ section.section
       code.section__code.
         // 引入 DOM 模块（中的所有工具方法）
         import DOM from '@yaohaixiao/dom.js/dom'
-        // 或者单独引用 isCollection() 方法
-        import isCollection from '@yaohaixiao/types.js/isCollection'
+        // 或者单独引用 isHTMLCollection() 方法
+        import isHTMLCollection from '@yaohaixiao/types.js/isHTMLCollection'
 
         const $list = document.getElementById('list')
         const $div = document.createElement('div')
@@ -31,16 +31,16 @@ section.section
         const $fragment = document.createDocumentFragment()
 
         DOM.isElement($list) // -> true
-        DOM.isCollection($list) // -> false
+        DOM.isHTMLCollection($list) // -> false
 
         DOM.isElement($div) // -> true
-        DOM.isCollection($div) // -> false
+        DOM.isHTMLCollection($div) // -> false
 
         DOM.isElement($text) // -> false
-        DOM.isCollection($text) // -> false
+        DOM.isHTMLCollection($text) // -> false
 
         DOM.isElement($items) // -> false
-        isCollection($items) // -> true
+        isHTMLCollection($items) // -> true
 
         DOM.isElement($fragment) // -> false
-        isCollection($fragment) // -> false
+        isHTMLCollection($fragment) // -> false

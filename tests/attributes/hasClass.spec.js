@@ -2,6 +2,7 @@
  * @jest-environment jsdom
  */
 import hasClass from '@/hasClass'
+import byId from '@/byId'
 
 describe('hasClass() 方法', () => {
   // Set up our document body
@@ -21,27 +22,32 @@ describe('hasClass() 方法', () => {
     '  </li>\n' +
     '</ul>'
 
+  it(`hasClass() 不传递参数，返回： false`, () => {
+    expect(hasClass()).toBe(false)
+  })
+
+  it(`hasClass($list) 不传递 className 参数，返回： false`, () => {
+    const $list = byId('#list')
+    expect(hasClass($list)).toBe(false)
+  })
+
   it(`hasClass($list, 'item')，返回： false`, () => {
-    const $list = document.querySelector('#list')
-    const $text = document.createTextNode('text')
-
-    expect(hasClass($list, 'item')).toEqual(false)
-    expect(hasClass($text)).toEqual(false)
+    const $list = byId('#list')
+    expect(hasClass($list, 'item')).toBe(false)
   })
 
-  it(`hasClass($list, 'list')，返回： true`, () => {
-    const $list = document.querySelector('#list')
-
-    expect(hasClass($list, 'list')).toEqual(true)
+  it(`hasClass($list, 'list')，使用 classList.contains() 方法检测，返回： true`, () => {
+    const $list = byId('#list')
+    expect(hasClass($list, 'list')).toBe(true)
   })
 
-  it(`hasClass($support, 'item-support')，返回： true`, () => {
-    const $support = document.querySelector('#item-support')
+  it(`hasClass($support, 'item-support')，不使用 classList.contains() 方法检测，返回： true`, () => {
+    const $support = byId('#item-support')
 
     $support.classList.contains = null
 
-    expect(hasClass($support, 'item')).toEqual(true)
-    expect(hasClass($support, 'item-support')).toEqual(true)
-    expect(hasClass($support, 'item-ok')).toEqual(true)
+    expect(hasClass($support, 'item')).toBe(true)
+    expect(hasClass($support, 'item-support')).toBe(true)
+    expect(hasClass($support, 'item-ok')).toBe(true)
   })
 })

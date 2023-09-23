@@ -1,4 +1,5 @@
 import isElement from './utils/types/isElement'
+import isString from './utils/types/isString'
 
 /**
  * 返回文档中与指定 id 选择器匹配 Element对象
@@ -10,8 +11,16 @@ import isElement from './utils/types/isElement'
  * @return {Element}
  */
 const byId = (id, el) => {
-  const selector = id.replace(/^#/i, '')
-  const $el = isElement(el) ? el : document
+  let selector
+  let $el
+
+  if (!isString(id)) {
+    return null
+  }
+
+  selector = id.replace(/^#/i, '')
+  $el = isElement(el) ? el : document
+
   return $el.querySelector(`#${selector}`)
 }
 
