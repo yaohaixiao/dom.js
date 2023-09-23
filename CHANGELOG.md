@@ -1,3 +1,12 @@
+## [0.1.1](https://github.com/yaohaixiao/dom.js/compare/0.1.0...0.1.1) (2023-09-23)
+
+
+### Bug Fixes
+
+* 修复 toggleClass() 等方法不传递 className 参数报错的问题；进一步完善单测，添加 getEl()、byClass()、removeClass() 和 toggleClass() 方法的单测代码； ([322c310](https://github.com/yaohaixiao/dom.js/commit/322c310601ab04edc6421eae09f6ec678f42134a))
+
+
+
 # 0.1.0 (2023-09-22)
 
 dom.js - 专门处理 DOM 操作的 JavaScript 工具库。
