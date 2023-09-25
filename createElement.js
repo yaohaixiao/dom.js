@@ -11,10 +11,15 @@ import setAttributes from './setAttributes'
  * @param {String} tagName - 标签名称
  * @param {Object|Array|HTMLElement|DocumentFragment|String} attrs - 属性对象或者子节点
  * @param {Array|HTMLElement|DocumentFragment|String} [children] - 子节点数组
- * @returns {HTMLElement}
+ * @returns {HTMLElement|null}
  */
 const createElement = (tagName, attrs, children) => {
   const $fragment = document.createDocumentFragment()
+
+  if (!tagName) {
+    return null
+  }
+
   const $el = document.createElement(tagName)
   const isValidChild = (child) => {
     return isDOM(child) || isString(child)
