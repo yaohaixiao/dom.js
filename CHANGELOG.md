@@ -1,3 +1,12 @@
+## [0.1.2](https://github.com/yaohaixiao/dom.js/compare/0.1.1...0.1.2) (2023-09-26)
+
+
+### Bug Fixes
+
+* 逐步添加单测代码；调整 createElement() 方法，修复 attrs 参数为字符串和 DOM 时的逻辑错误； ([0b73f5a](https://github.com/yaohaixiao/dom.js/commit/0b73f5adda3d1109de57b677d8b79aa3a189f80e))
+
+
+
 ## [0.1.1](https://github.com/yaohaixiao/dom.js/compare/0.1.0...0.1.1) (2023-09-23)
 
 
