@@ -2,6 +2,7 @@ import isObject from './utils/types/isObject'
 import isString from './utils/types/isString'
 import isArray from './utils/types/isArray'
 import isDOM from './utils/types/isDOM'
+import text from './text'
 import setAttributes from './setAttributes'
 
 /**
@@ -9,7 +10,7 @@ import setAttributes from './setAttributes'
  * ========================================================================
  * @method createElement
  * @param {String} tagName - 标签名称
- * @param {Object|Array|HTMLElement|DocumentFragment|String} attrs - 属性对象或者子节点
+ * @param {Object|Array|HTMLElement|DocumentFragment|String} [attrs] - 属性对象或者子节点
  * @param {Array|HTMLElement|DocumentFragment|String} [children] - 子节点数组
  * @returns {HTMLElement|null}
  */
@@ -34,22 +35,22 @@ const createElement = (tagName, attrs, children) => {
     if (isDOM(child)) {
       $child = child
     } else if (isString(child)) {
-      $child = document.createTextNode(child)
+      $child = text(child)
     }
 
     $fragment.appendChild($child)
   }
 
-  if (isObject(attrs)) {
-    setAttributes($el, attrs)
+  if (isString(attrs)) {
+    append(text(attrs))
+  } else if (isDOM(attrs)) {
+    append(attrs)
   } else if (isArray(attrs) && attrs.every((attr) => isValidChild(attr))) {
     attrs.forEach((child) => {
       append(child)
     })
-  } else if (isDOM(attrs)) {
-    append(attrs)
-  } else if (isString(attrs)) {
-    append(document.createTextNode(attrs))
+  } else if (isObject(attrs) && !isDOM(attrs)) {
+    setAttributes($el, attrs)
   }
 
   if (isArray(children)) {
