@@ -34,8 +34,11 @@ const createElement = (tagName, attrs, children) => {
 
     if (isDOM(child)) {
       $child = child
-    } else if (isString(child)) {
-      $child = text(child)
+    } else {
+      /* istanbul ignore else */
+      if (isString(child)) {
+        $child = text(child)
+      }
     }
 
     $fragment.appendChild($child)

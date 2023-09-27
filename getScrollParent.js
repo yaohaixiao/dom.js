@@ -6,16 +6,18 @@ import getStyle from './getStyle'
  * （overflow/overflow-x/overflow-y: auto ）。
  * ========================================================================
  * @method getScrollParent
- * @param {HTMLElement} el
+ * @param {HTMLElement|Object} el
  * @return {HTMLElement|Document|null}
  */
 const getScrollParent = (el) => {
   const $root = window
-  const $parent = el.parentNode
+  let $parent
 
-  if (!isElement(el)) {
+  if (!isElement(el) && el !== document) {
     return null
   }
+
+  $parent = el.parentNode
 
   if (!$parent) {
     return el
@@ -30,6 +32,7 @@ const getScrollParent = (el) => {
   }
 
   // Firefox want us to check `-x` and `-y` variations as well
+  /* istanbul ignore else */
   if (
     ['scroll', 'auto'].indexOf(getStyle($parent, 'overflow')) !== -1 ||
     ['scroll', 'auto'].indexOf(getStyle($parent, 'overflow-x')) !== -1 ||

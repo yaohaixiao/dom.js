@@ -17,11 +17,17 @@ const getNextSiblings = (el) => {
   }
 
   $sibling = getNextSibling(el)
-  next.push($sibling)
+
+  if ($sibling) {
+    next.push($sibling)
+  }
 
   while ($sibling) {
     $sibling = getNextSibling($sibling)
-    next.push($sibling)
+
+    if ($sibling) {
+      next.push($sibling)
+    }
   }
 
   return next

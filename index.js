@@ -13,6 +13,13 @@ import getEl from './getEl'
  * @return {number}
  */
 const index = function (el, ancestor) {
+  /**
+   * 返回 target 元素在 siblings 数组的索引值
+   * @method indexOf
+   * @param {Array} siblings
+   * @param {HTMLElement} target
+   * @return {number}
+   */
   const indexOf = (siblings, target) => {
     let index = -1
 
