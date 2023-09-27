@@ -4,7 +4,7 @@
 import clone from '@/clone'
 import byId from '@/byId'
 import hasClass from '@/hasClass'
-import isElement from '@/isElement'
+import isElement from '@/utils/types/isElement'
 
 describe('clone() 方法', () => {
   // Set up our document body
