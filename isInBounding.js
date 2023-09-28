@@ -9,21 +9,21 @@ import isElement from './isElement'
  * @return {boolean}
  */
 const isInBounding = (child, parent) => {
-  let pRect
-  let cRect
+  let parentRect
+  let childRect
 
   if (!isElement(child) || !isElement(parent)) {
     return false
   }
 
-  pRect = parent.getBoundingClientRect()
-  cRect = child.getBoundingClientRect()
+  parentRect = parent.getBoundingClientRect()
+  childRect = child.getBoundingClientRect()
 
   if (
-    cRect.top >= pRect.top &&
-    cRect.right <= pRect.right &&
-    cRect.bottom <= pRect.bottom &&
-    cRect.left >= pRect.left
+    childRect.top >= parentRect.top &&
+    childRect.right <= parentRect.right &&
+    childRect.bottom <= parentRect.bottom &&
+    childRect.left >= parentRect.left
   ) {
     return true
   }

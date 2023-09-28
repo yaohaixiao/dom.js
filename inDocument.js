@@ -10,13 +10,15 @@ import _isAncestor from './_isAncestor'
  * @return {Boolean}
  */
 const inDocument = (el, doc) => {
+  let $doc
+
   if (!isElement(el)) {
     return false
   }
 
-  doc = doc || el.ownerDocument
+  $doc = doc || el.ownerDocument
 
-  return _isAncestor(doc.documentElement, el)
+  return _isAncestor($doc.documentElement, el)
 }
 
 export default inDocument

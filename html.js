@@ -14,13 +14,15 @@ const html = (el, strHTML) => {
   const $fragment = document.createDocumentFragment()
 
   if (isHTML(el)) {
-    const children = createElement('div', {
-      innerHTML: strHTML
-    }).childNodes
+    const template = createElement('div')
+    let children = []
 
+    template.innerHTML = el
+    children = [...template.childNodes]
     children.forEach((child) => {
-      return $fragment.appendChild(child)
+      $fragment.appendChild(child)
     })
+
     return $fragment
   } else if (isElement(el)) {
     if (strHTML) {
