@@ -1,3 +1,18 @@
+## [0.1.3](https://github.com/yaohaixiao/dom.js/compare/0.1.2...0.1.3) (2023-09-28)
+
+
+### Bug Fixes
+
+* 修复 getPreviousSiblings() 和 getNextSiblings() 方法中会收集 null 的问题；逐步添加 base 模块中相关方法的单测代码 ([988b336](https://github.com/yaohaixiao/dom.js/commit/988b336c07f7fb360f0a6e02339c196e7c982e05))
+* 修复 inDocument() 和 html() 发中导致错误的问题；继续添加单测代码； ([fb06571](https://github.com/yaohaixiao/dom.js/commit/fb065718534e5b3e0e858e8d71b0e3005aad4f42))
+
+
+### Features
+
+* 调整 getScroll()、 getScrollLeft()、 getScrollTop() 方法； ([415b525](https://github.com/yaohaixiao/dom.js/commit/415b52507de04d44980243aa9344a7e557da1255))
+
+
+
 ## [0.1.2](https://github.com/yaohaixiao/dom.js/compare/0.1.1...0.1.2) (2023-09-26)
 
 
