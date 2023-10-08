@@ -1,4 +1,4 @@
-## [0.1.4](https://github.com/yaohaixiao/dom.js/compare/0.1.3...0.1.4) (2023-10-08)
+## [0.1.5](https://github.com/yaohaixiao/dom.js/compare/0.1.3...0.1.4) (2023-10-08)
 
 
 ### Bug Fixes
