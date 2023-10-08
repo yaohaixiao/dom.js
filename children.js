@@ -1,14 +1,20 @@
 import siblings from './siblings'
+import isElement from './isElement'
 
 /**
  * 获取 DOM 元素下所有 HTMKLElement 类型的 DOM 元素
  * ========================================================================
  * @method childern
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/Element/firstElementChild
  * @param {HTMLElement} el
  * @return {*[]}
  */
 const children = (el) => {
-  return siblings(el.firstChild)
+  if (!isElement(el)) {
+    return []
+  }
+
+  return siblings(el.firstElementChild, true)
 }
 
 export default children
