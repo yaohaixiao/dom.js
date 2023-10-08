@@ -18,10 +18,8 @@ const after = (el, reference) => {
 
   if (isElement(el)) {
     insertAfter(el, reference)
-  } else {
-    if (isHTML(el)) {
-      insertHTMLAfterEnd(reference, el)
-    }
+  } else if (isHTML(el)) {
+    insertHTMLAfterEnd(reference, el)
   }
 }
 

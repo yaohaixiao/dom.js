@@ -21,12 +21,10 @@ const toggleClass = (el, className) => {
 
   if (classList?.toggle) {
     classList.toggle(className)
+  } else if (hasClass(el, className)) {
+    removeClass(el, className)
   } else {
-    if (hasClass(el, className)) {
-      removeClass(el, className)
-    } else {
-      addClass(el, className)
-    }
+    addClass(el, className)
   }
 }
 

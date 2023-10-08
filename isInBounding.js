@@ -19,16 +19,12 @@ const isInBounding = (child, parent) => {
   parentRect = parent.getBoundingClientRect()
   childRect = child.getBoundingClientRect()
 
-  if (
+  return (
     childRect.top >= parentRect.top &&
     childRect.right <= parentRect.right &&
     childRect.bottom <= parentRect.bottom &&
     childRect.left >= parentRect.left
-  ) {
-    return true
-  }
-
-  return false
+  )
 }
 
 export default isInBounding

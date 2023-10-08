@@ -19,9 +19,10 @@ const isMatched = (el, filter) => {
   if (isFunction(filter)) {
     return filter(el)
   } else {
-    /* istanbul ignore else */
     if (isString(filter)) {
       return !!matches(el, filter)
+    } else {
+      return false
     }
   }
 }

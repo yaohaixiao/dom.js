@@ -17,14 +17,11 @@ const text = (el, str) => {
 
   if (isString(el)) {
     return document.createTextNode(el)
-  } else {
-    /* istanbul ignore else */
-    if (isElement(el)) {
-      if (str) {
-        el.textContent = str
-      } else {
-        return el.textContent
-      }
+  } else if (isElement(el)) {
+    if (str) {
+      el.textContent = str
+    } else {
+      return el.textContent
     }
   }
 }

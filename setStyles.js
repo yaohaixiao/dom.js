@@ -30,10 +30,8 @@ const setStyles = (el, styles) => {
     }
 
     el.style.cssText += rules
-  } else {
-    if (isObject(styles)) {
-      extend(el.style, styles)
-    }
+  } else if (isObject(styles)) {
+    extend(el.style, styles)
   }
 }
 

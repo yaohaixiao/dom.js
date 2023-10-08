@@ -28,14 +28,11 @@ const html = (el, strHTML) => {
     })
 
     return $fragment
-  } else {
-    /* istanbul ignore else */
-    if (isElement(el)) {
-      if (strHTML) {
-        el.innerHTML = strHTML
-      } else {
-        return el.innerHTML
-      }
+  } else if (isElement(el)) {
+    if (strHTML) {
+      el.innerHTML = strHTML
+    } else {
+      return el.innerHTML
     }
   }
 }

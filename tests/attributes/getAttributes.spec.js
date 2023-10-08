@@ -33,38 +33,8 @@ describe('getAttributes() 方法', () => {
     expect(getAttributes($list)).toEqual({"class": "list", "id": "list"})
   })
 
-  it(`getAttributes(el, ['class']) 获取 class 属性值，返回： {"class": "list"}`, () => {
+  it(`getAttributes($list, ['class']) 获取 class 属性值，返回： {"class": "list"}`, () => {
     const $list = byId('#list')
     expect(getAttributes($list, ['class'])).toEqual({"class": "list"})
   })
-  //
-  // it(`getAttribute(el, 'style') 获取 style 属性值，返回： ''`, () => {
-  //   const $list = byId('#list')
-  //   expect(getAttribute($list, 'style')).toEqual('')
-  // })
-  //
-  // it(`getAttribute(el, 'htmlFor') 获取 for 属性值，返回： 'user'`, () => {
-  //   const $label = getEl('.label')
-  //   expect(getAttribute($label, 'htmlFor')).toEqual('user')
-  // })
-  //
-  // it(`getAttribute(el, 'value') 获取 value 属性值，返回相应的值：`, () => {
-  //   const $user = byId('#user')
-  //   const $home = getEl('.item-home')
-  //   expect(getAttribute($user, 'value')).toEqual('Robert')
-  //   expect(getAttribute($home, 'value')).toBe(null)
-  // })
-  //
-  // it(`getAttribute(el, 'data-id') 获取其它标准的 html 属性值，返回相应的值：`, () => {
-  //   const $user = byId('#user')
-  //   const $home = getEl('.item-home')
-  //   const $anchor = getEl('.remove')
-  //
-  //   expect(getAttribute($user, 'name')).toEqual('user')
-  //   expect(getAttribute($user, 'type')).toEqual('text')
-  //
-  //   expect(getAttribute($home, 'data-id')).toEqual('item-home')
-  //
-  //   expect(getAttribute($anchor, 'href')).toEqual('/sitemap#home')
-  // })
 })

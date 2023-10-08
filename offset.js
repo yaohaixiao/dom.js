@@ -3,7 +3,7 @@ import getOffset from './getOffset'
 
 const offset = (el) => {
   if (!isElement(el)) {
-    return false
+    return null
   }
 
   return getOffset(el)

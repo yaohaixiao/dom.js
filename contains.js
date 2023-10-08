@@ -18,10 +18,7 @@ const contains = (el, ancestor) => {
   if (isElement(el)) {
     return _isAncestor(ancestor, el)
   } else {
-    /* istanbul ignore else */
-    if (isString(el)) {
-      return !!ancestor.querySelector(el)
-    }
+    return !!ancestor.querySelector(el)
   }
 }
 
