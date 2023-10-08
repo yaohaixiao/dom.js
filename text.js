@@ -11,13 +11,20 @@ import isString from './utils/types/isString'
  * @return {*|Text}
  */
 const text = (el, str) => {
+  if (!el) {
+    return null
+  }
+
   if (isString(el)) {
     return document.createTextNode(el)
-  } else if (isElement(el)) {
-    if (str) {
-      el.textContent = str
-    } else {
-      return el.textContent
+  } else {
+    /* istanbul ignore else */
+    if (isElement(el)) {
+      if (str) {
+        el.textContent = str
+      } else {
+        return el.textContent
+      }
     }
   }
 }

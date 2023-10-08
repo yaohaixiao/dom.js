@@ -1,9 +1,19 @@
 import isElement from './utils/types/isElement'
+import isString from './utils/types/isString'
 
+/**
+ * 移除 DOM 元素的 DOM 属性值
+ * ========================================================================
+ * @method removeAttribute
+ * @see https://developer.mozilla.org/zh-CN/docs/Web/API/Element/removeAttribute
+ * @param {HTMLElement} el
+ * @param {String} attr
+ * @return {boolean}
+ */
 const removeAttribute = (el, attr) => {
   let tagName
 
-  if (!isElement(el)) {
+  if (!isElement(el) || !isString(attr)) {
     return false
   }
 

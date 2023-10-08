@@ -8,10 +8,14 @@ import createElement from './createElement'
  * @method html
  * @param {HTMLElement|String} el
  * @param {String} [strHTML]
- * @return {DocumentFragment|*}
+ * @return {DocumentFragment|*|null}
  */
 const html = (el, strHTML) => {
   const $fragment = document.createDocumentFragment()
+
+  if (!el) {
+    return null
+  }
 
   if (isHTML(el)) {
     const template = createElement('div')
@@ -24,11 +28,14 @@ const html = (el, strHTML) => {
     })
 
     return $fragment
-  } else if (isElement(el)) {
-    if (strHTML) {
-      el.innerHTML = strHTML
-    } else {
-      return el.innerHTML
+  } else {
+    /* istanbul ignore else */
+    if (isElement(el)) {
+      if (strHTML) {
+        el.innerHTML = strHTML
+      } else {
+        return el.innerHTML
+      }
     }
   }
 }

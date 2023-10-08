@@ -1,6 +1,14 @@
 import isElement from './utils/types/isElement'
 import removeAttribute from './removeAttribute'
 
+/**
+ * 移除 DOM 元素的 DOM 属性值
+ * ========================================================================
+ * @method removeAttributes
+ * @param el
+ * @param attrs
+ * @return {boolean}
+ */
 const removeAttributes = (el, attrs) => {
   let props = attrs
 
