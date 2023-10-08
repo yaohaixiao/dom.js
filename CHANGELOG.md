@@ -1,3 +1,12 @@
+## [0.1.4](https://github.com/yaohaixiao/dom.js/compare/0.1.3...0.1.4) (2023-10-08)
+
+
+### Bug Fixes
+
+* 修复 children() 方法获取子节点错误问题； ([4f910ba](https://github.com/yaohaixiao/dom.js/commit/4f910ba1fb8594f076ce833ad9f126a32517356d))
+
+
+
 ## [0.1.3](https://github.com/yaohaixiao/dom.js/compare/0.1.2...0.1.3) (2023-09-28)
 
 
