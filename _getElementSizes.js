@@ -1,4 +1,4 @@
-import isElement from './isElement'
+import isElement from './utils/types/isElement'
 import pixel from './utils/pixel'
 import getStyle from './getStyle'
 import offset from './offset'

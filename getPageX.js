@@ -17,6 +17,7 @@ const getPageX = (el) => {
   let doc
   let pageX
 
+  /* istanbul ignore else */
   if (!isElement(el) || !canPosition(el)) {
     return false
   }

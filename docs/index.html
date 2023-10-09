@@ -559,7 +559,7 @@ DOM.inDocument($list) // -> true
 inDocument($home) // -> false
 
 $list.appendChild($home)
-inDocument($home) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isInBounding(child, parent)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>isInBounding() 方法用来检测某个 DOM 节点的位置是否在另个一个 DOM 节点范围内。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">child</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）child 参数指定其中较小的那个 DOM 元素。</p><h5 class="section__h4">parent</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）parent 参数指定其中较大的那个 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>child 在 parent 范围内，返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+inDocument($home) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">inBounding(child, parent)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><dl class="section__dl"><dt class="section__dt">Since：</dt><dd class="section__dd">0.2.0</dd></dl><p>inBounding() 方法用来检测某个 DOM 节点的位置是否在另个一个 DOM 节点范围内。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">child</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）child 参数指定其中较小的那个 DOM 元素。</p><h5 class="section__h4">parent</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）parent 参数指定其中较大的那个 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>child 在 parent 范围内，返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item project"&gt;Projects&lt;/li&gt;
@@ -568,14 +568,14 @@ inDocument($home) // -> true</code></pre></div></section><section class="section
 
 // 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom
-// 引用 isInBounding 单个方法
-import isInBounding from '@yaohaixiao/dom.js/isInBounding'
+// 引用 inBounding 单个方法
+import inBounding from '@yaohaixiao/dom.js/inBounding'
 
 const $list = DOM.byId('#list')
 const $home = DOM.byId('#home')
 
-DOM.isInBounding($home, $list) // -> true
-isInBounding($list, $home) // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isInViewport(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>isInViewport() 方法用来检测某个 DOM 节点的位置是否在当前视口（当前窗口可见区域）之内。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>el 在当前视口内，返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;style&gt;
+DOM.inBounding($home, $list) // -> true
+inBounding($list, $home) // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">inViewport(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><dl class="section__dl"><dt class="section__dt">Since：</dt><dd class="section__dd">0.2.0</dd></dl><p>inViewport() 方法用来检测某个 DOM 节点的位置是否在当前视口（当前窗口可见区域）之内。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>el 在当前视口内，返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;style&gt;
 .blog{
   position: fixed;
   left: 99999;
@@ -591,14 +591,14 @@ isInBounding($list, $home) // -> false</code></pre></div></section><section clas
 
 // 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom
-// 引用 isInViewport 单个方法
-import isInViewport from '@yaohaixiao/dom.js/isInViewport'
+// 引用 inViewport 单个方法
+import inViewport from '@yaohaixiao/dom.js/inViewport'
 
 const $list = DOM.byId('#list')
 const $blog = DOM.getEl('.blog')
 
-DOM.isInViewport($list) // -> true
-isInViewport($blog) // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isMatched(el, filter)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>isMatched() 方法用来检测 DOM 节点是否为符合 filter 检测条件的节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">filter</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function|String</dd></dl><p>（必须）filter 参数指定用于检测 DOM 节点的回调函数或者选择器字符串。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>DOM 节点符合 filter 检测条件，返回 true，否则为 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+DOM.inViewport($list) // -> true
+inViewport($blog) // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isMatched(el, filter)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>isMatched() 方法用来检测 DOM 节点是否为符合 filter 检测条件的节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">filter</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function|String</dd></dl><p>（必须）filter 参数指定用于检测 DOM 节点的回调函数或者选择器字符串。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>DOM 节点符合 filter 检测条件，返回 true，否则为 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item project"&gt;Projects&lt;/li&gt;

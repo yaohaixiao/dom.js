@@ -1,8 +1,8 @@
-import isElement from './isElement'
+import isElement from './utils/types/isElement'
 import getViewportHeight from './getViewportHeight'
 import getViewportWidth from './getViewportWidth'
 
-const isInViewport = (el) => {
+const inViewport = (el) => {
   let rect
   let vh
   let vw
@@ -20,4 +20,4 @@ const isInViewport = (el) => {
   )
 }
 
-export default isInViewport
+export default inViewport

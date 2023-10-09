@@ -1,6 +1,6 @@
+import isElement from './utils/types/isElement'
 import getStyle from './getStyle'
 import inDocument from './inDocument'
-import isElement from './isElement'
 
 /**
  * 判断 DOM 元素是否可以定位（可见且在当前当前文档中）。

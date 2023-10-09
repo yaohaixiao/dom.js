@@ -1,11 +1,11 @@
 /**
  * @jest-environment jsdom
  */
-import isInViewport from '@/isInViewport'
+import inViewport from '@/inViewport'
 import byId from '@/byId'
 import html from '@/html'
 
-describe('isInViewport() 方法', () => {
+describe('inViewport() 方法', () => {
   // Set up our document body
   document.body.innerHTML =
     '<ul id="list" class="list">\n' +
@@ -23,23 +23,23 @@ describe('isInViewport() 方法', () => {
     '  </li>\n' +
     '</ul>'
 
-  it(`isInViewport() 不传递参数，返回：false`, () => {
-    expect(isInViewport()).toBe(false)
+  it(`inViewport() 不传递参数，返回：false`, () => {
+    expect(inViewport()).toBe(false)
   })
 
-  it(`查询文档中已有的 DOM 节点，isInViewport($list) ，返回：true`, () => {
+  it(`查询文档中已有的 DOM 节点，inViewport($list) ，返回：true`, () => {
     const $list = byId('#list')
 
-    expect(isInViewport($list)).toBe(true)
+    expect(inViewport($list)).toBe(true)
   })
 
-  it(`动态创建 DOM 节点，不追加但当前文档，isInViewport($li) ，返回：false`, () => {
+  it(`动态创建 DOM 节点，不追加但当前文档，inViewport($li) ，返回：false`, () => {
     const $li = html('<li class="item item-help" id="item-help">Help</li>')
 
-    expect(isInViewport($li)).toBe(false)
+    expect(inViewport($li)).toBe(false)
   })
 
-  it(`动态创建 DOM 节点，追加但当前文档，isInViewport($li) ，返回：true`, () => {
+  it(`动态创建 DOM 节点，追加但当前文档，inViewport($li) ，返回：true`, () => {
     const $list = byId('#list')
     let $li = html('<li class="item item-help" id="item-help">Help</li>')
 
@@ -56,6 +56,6 @@ describe('isInViewport() 方法', () => {
       left: 0
     }))
 
-    expect(isInViewport($li)).toBe(true)
+    expect(inViewport($li)).toBe(true)
   })
 })

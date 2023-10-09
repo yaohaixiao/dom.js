@@ -2,22 +2,14 @@
  * @jest-environment jsdom
  */
 import getPageX from '@/getPageX'
+import byId from '@/byId'
+import setStyle from '@/setStyle'
+import getStyle from '@/getStyle'
+import toggle from '@/toggle'
+import canPosition from '@/canPosition'
+import getDocumentScrollLeft from '@/getDocumentScrollLeft'
 
 describe('getPageX() 方法', () => {
-  Object.defineProperty(
-    window.navigator,
-    'userAgent',
-    ((value) => ({
-      get() {
-        return value
-      },
-
-      set(v) {
-        value = v
-      }
-    }))(window.navigator.userAgent)
-  )
-
   // Set up our document body
   document.body.innerHTML =
     '<ul id="list" class="list">\n' +
@@ -43,57 +35,42 @@ describe('getPageX() 方法', () => {
     '  </li>\n' +
     '</ul>'
 
-  let pageX = 0
-  let lastX = 0
-  const ie11 =
-    'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko'
-  const $list = document.querySelector('#list')
+  const $list = byId('#list')
   const fn = jest.fn()
-  const getX = function (evt) {
-    pageX = getPageX(evt)
+  let pageX = 0
+
+  it('getPageX() 不传递参数，返回：false', () => {
+    expect(getPageX()).toBe(false)
+  })
+
+  it('getPageX($list) $list 节点无法定位，返回：false', () => {
+    setStyle($list, 'display', 'none')
+    expect(canPosition($list)).toBe(false)
+    expect(getPageX($list)).toBe(false)
+  })
+
+  it('getPageX($list) 获取位置，返回：40', () => {
+    toggle($list)
+    expect(canPosition($list)).toBe(true)
+    expect(getStyle($list, 'display')).toEqual('block')
+
+    pageX = getPageX($list)
     fn.mockImplementation((base) => base + 40)
-    pageX = fn(lastX)
-  }
-
-  it('非 IE 浏览器，调用 getPageX()：', () => {
-    const $support = document.querySelector('a[data-id="support"]')
-
-    $list.addEventListener('click', getX, false)
-    $list.click()
-
-    lastX = pageX
+    pageX = fn(0)
 
     expect(pageX).toEqual(40)
     expect(fn).toHaveBeenCalled()
-
-    $support.addEventListener('click', getX, false)
-    $support.click()
-
-    expect(pageX).toEqual(80)
-    expect(fn).toHaveBeenCalled()
   })
 
-  it('IE 浏览器，调用 getPageX()：', () => {
-    const $support = document.querySelector('a[data-id="support"]')
+  it('窗口横向滚动 40，getPageX($list) 获取位置，返回：80', () => {
+    document.documentElement.scrollLeft = 40
+    expect(getDocumentScrollLeft()).toEqual(40)
 
-    navigator.userAgent = ie11
-    document.scrollLeft = 20
-    pageX = 0
-
-    $list.addEventListener('click', getX, false)
-    $list.click()
-
-    lastX = pageX
+    pageX = getPageX($list)
+    fn.mockImplementation((base) => base + 40)
+    pageX = fn(40)
 
     expect(pageX).toEqual(80)
-    expect(fn).toHaveBeenCalled()
-
-    document.scrollLeft = 30
-
-    $support.addEventListener('click', getX, false)
-    $support.click()
-
-    expect(pageX).toEqual(120)
     expect(fn).toHaveBeenCalled()
   })
 })

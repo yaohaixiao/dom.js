@@ -1,14 +1,14 @@
-import isElement from './isElement'
+import isElement from './utils/types/isElement'
 
 /**
  * 检测某个 DOM 节点的位置是否在另个一个 DOM 节点范围内
  * ========================================================================
- * @method isInBounding
+ * @method inBounding
  * @param {HTMLElement} child
  * @param {HTMLElement} parent
  * @return {boolean}
  */
-const isInBounding = (child, parent) => {
+const inBounding = (child, parent) => {
   let parentRect
   let childRect
 
@@ -27,4 +27,4 @@ const isInBounding = (child, parent) => {
   )
 }
 
-export default isInBounding
+export default inBounding

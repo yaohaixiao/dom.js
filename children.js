@@ -1,5 +1,5 @@
+import isElement from './utils/types/isElement'
 import siblings from './siblings'
-import isElement from './isElement'
 
 /**
  * 获取 DOM 元素下所有 HTMKLElement 类型的 DOM 元素

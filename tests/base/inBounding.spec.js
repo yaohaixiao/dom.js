@@ -1,12 +1,12 @@
 /**
  * @jest-environment jsdom
  */
-import isInBounding from '@/isInBounding'
+import inBounding from '@/inBounding'
 import text from '@/text'
 import byId from '@/byId'
 import toggle from '@/toggle'
 
-describe('isInBounding() 方法', () => {
+describe('inBounding() 方法', () => {
   // Set up our document body
   document.body.innerHTML =
     '<ul id="list" class="list">\n' +
@@ -24,24 +24,24 @@ describe('isInBounding() 方法', () => {
     '  </li>\n' +
     '</ul>'
 
-  it(`isInBounding() 不传递参数，返回：false`, () => {
-    expect(isInBounding()).toBe(false)
+  it(`inBounding() 不传递参数，返回：false`, () => {
+    expect(inBounding()).toBe(false)
   })
 
-  it(`动态创建 DOM 节点，未追加到文档中，isInBounding($text) 返回：false`, () => {
+  it(`动态创建 DOM 节点，未追加到文档中，inBounding($text) 返回：false`, () => {
     const $text = text('动态创建 DOM 节点')
 
-    expect(isInBounding($text, document.body)).toBe(false)
+    expect(inBounding($text, document.body)).toBe(false)
   })
 
-  it(`isInBounding($list, $home) 检测父节点中的子节点是否在父节点返回，返回：true`, () => {
+  it(`inBounding($list, $home) 检测父节点中的子节点是否在父节点返回，返回：true`, () => {
     const $list = byId('#list')
     const $home = byId('#item-home')
 
-    expect(isInBounding($home, $list)).toBe(true)
+    expect(inBounding($home, $list)).toBe(true)
   })
 
-  it(`isInBounding($list, $home) 将父节点中的子节点设置为 fixed 定位，定位到父节区域之外，返回：false`, () => {
+  it(`inBounding($list, $home) 将父节点中的子节点设置为 fixed 定位，定位到父节区域之外，返回：false`, () => {
     const $list = byId('#list')
     const $home = byId('#item-home')
 
@@ -56,6 +56,6 @@ describe('isInBounding() 方法', () => {
       left: 44851.671875
     }))
 
-    expect(isInBounding($home, $list)).toBe(false)
+    expect(inBounding($home, $list)).toBe(false)
   })
 })

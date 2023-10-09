@@ -1,31 +1,32 @@
 section.section
   header.section__header
-    h3.section__h3 isInViewport(el)
+    h3.section__h3 inBounding(child, parent)
   div.section__content
     dl.section__dl
       dt.section__dt Category：
       dd.section__dd Base
-    p isInViewport() 方法用来检测某个 DOM 节点的位置是否在当前视口（当前窗口可见区域）之内。
+    dl.section__dl
+      dt.section__dt Since：
+      dd.section__dd 0.2.0
+    p inBounding() 方法用来检测某个 DOM 节点的位置是否在另个一个 DOM 节点范围内。
     h4.section__h4 Parameters
-    h5.section__h4 el
+    h5.section__h4 child
     dl.section__dl
       dt.section__dt Type：
       dd.section__dd HTMLElement
-    p （必须）el 参数指定 DOM 元素。
+    p （必须）child 参数指定其中较小的那个 DOM 元素。
+    h5.section__h4 parent
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （必须）parent 参数指定其中较大的那个 DOM 元素。
     h5.section__h4 Returns
     dl.section__dl
       dt.section__dt Type：
       dd.section__dd Boolean
-    p el 在当前视口内，返回 true，否则返回 false。
+    p child 在 parent 范围内，返回 true，否则返回 false。
     pre.section__pre
       code.section__.
-        &lt;style&gt;
-        .blog{
-          position: fixed;
-          left: 99999;
-        }
-        &lt;/style&gt;
-
         &lt;ul id="list" class="list"&gt;
             &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
             &lt;li class="item blog"&gt;Blog&lt;/li&gt;
@@ -35,11 +36,11 @@ section.section
 
         // 引入 DOM 模块（中的所有工具方法）
         import DOM from '@yaohaixiao/dom.js/dom
-        // 引用 isInViewport 单个方法
-        import isInViewport from '@yaohaixiao/dom.js/isInViewport'
+        // 引用 inBounding 单个方法
+        import inBounding from '@yaohaixiao/dom.js/inBounding'
 
         const $list = DOM.byId('#list')
-        const $blog = DOM.getEl('.blog')
+        const $home = DOM.byId('#home')
 
-        DOM.isInViewport($list) // -> true
-        isInViewport($blog) // -> false
+        DOM.inBounding($home, $list) // -> true
+        inBounding($list, $home) // -> false

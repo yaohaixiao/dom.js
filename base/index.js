@@ -11,8 +11,8 @@ import getOffsetParent from '../getOffsetParent'
 import getScrollParent from '../getScrollParent'
 import index from '../index'
 import inDocument from '../inDocument'
-import isInBounding from '../isInBounding'
-import isInViewport from '../isInViewport'
+import inBounding from '../inBounding'
+import inViewport from '../inViewport'
 import isMatched from '../isMatched'
 import matches from '../matches'
 import parent from '../parent'
@@ -32,8 +32,8 @@ const DOM = {
   getScrollParent,
   index,
   inDocument,
-  isInBounding,
-  isInViewport,
+  isInBounding: inBounding,
+  isInViewport: inViewport,
   isMatched,
   matches,
   parent,
