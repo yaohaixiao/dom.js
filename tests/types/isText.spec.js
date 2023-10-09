@@ -1,12 +1,12 @@
 /**
  * @jest-environment jsdom
  */
-import isText from '@/utils/types/isTextNode'
+import isText from '@/isText'
+import isCollection from '@/isCollection'
 import isElement from '@/utils/types/isElement'
 import isFragment from '@/utils/types/isFragment'
-import isCollection from '@/utils/types/isHTMLCollection'
 
-describe('isTextNode() 方法：', () => {
+describe('isText() 方法：', () => {
   // Set up our document body
   document.body.innerHTML =
     '<ul id="list" class="list">\n' +

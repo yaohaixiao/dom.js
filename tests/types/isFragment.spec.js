@@ -4,7 +4,7 @@
 import isFragment from '@/utils/types/isFragment'
 import isElement from '@/utils/types/isElement'
 
-describe('is() 方法：', () => {
+describe('isFragment() 方法：', () => {
   // Set up our document body
   document.body.innerHTML =
     '<ul id="list" class="list">\n' +
