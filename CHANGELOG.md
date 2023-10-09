@@ -1,3 +1,18 @@
+# [0.2.0](https://github.com/yaohaixiao/dom.js/compare/0.1.5...0.2.0) (2023-10-09)
+
+
+### Bug Fixes
+
+* 修复 attrs() 方法无法设置多个属性的问题； ([0daa753](https://github.com/yaohaixiao/dom.js/commit/0daa7532f2201ef658bf75635ccb3eb697c62962))
+
+
+### Features
+
+* 调整 attrs()、contains()、createElement()、html()、isMatched() 和 text() 方法的异常数据判断逻辑，重新生成代码； ([c2c34dd](https://github.com/yaohaixiao/dom.js/commit/c2c34dd0e4e731e8f6f570f1efdbfb21e31fff11))
+* 将 isInBounding() 调整为 inBounding()，将 isInViewport() 调整为 inViewport()，并调整 API 文档；添加 Position 子模楷中的方法的单测代码； ([a02b859](https://github.com/yaohaixiao/dom.js/commit/a02b8590c0e964956ddf3e5cb382fdf97ce12de3))
+
+
+
 ## [0.1.5](https://github.com/yaohaixiao/dom.js/compare/0.1.3...0.1.4) (2023-10-08)
 
 
