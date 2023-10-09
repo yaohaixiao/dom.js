@@ -27,6 +27,10 @@ const attrs = (el, attr, value) => {
     return getAttributes(el)
   }
 
+  if (!isString(attr) && !isArray(attr) && !isObject(attr)) {
+    return null
+  }
+
   // 传递 attr 属性
   if (isString(attr)) {
     // 传递了 value 值，用于设置 DOM 属性

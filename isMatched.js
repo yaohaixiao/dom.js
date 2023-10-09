@@ -12,18 +12,14 @@ import matches from './matches'
  * @return {Boolean}
  */
 const isMatched = (el, filter) => {
-  if (!isElement(el)) {
+  if (!isElement(el) || (!isFunction(filter) && !isString(filter))) {
     return false
   }
 
   if (isFunction(filter)) {
     return filter(el)
   } else {
-    if (isString(filter)) {
-      return !!matches(el, filter)
-    } else {
-      return false
-    }
+    return !!matches(el, filter)
   }
 }
 

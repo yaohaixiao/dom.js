@@ -1,5 +1,6 @@
 import isHTML from './utils/types/isHTML'
 import isElement from './utils/types/isElement'
+import isString from './utils/types/isString'
 import createElement from './createElement'
 
 /**
@@ -13,7 +14,7 @@ import createElement from './createElement'
 const html = (el, strHTML) => {
   const $fragment = document.createDocumentFragment()
 
-  if (!el) {
+  if (!el || (!isHTML(el) && !isString(el) && !isElement(el))) {
     return null
   }
 
@@ -28,12 +29,10 @@ const html = (el, strHTML) => {
     })
 
     return $fragment
-  } else if (isElement(el)) {
-    if (strHTML) {
-      el.innerHTML = strHTML
-    } else {
-      return el.innerHTML
-    }
+  } else if (isString(strHTML)) {
+    el.innerHTML = strHTML
+  } else {
+    return el.innerHTML
   }
 }
 

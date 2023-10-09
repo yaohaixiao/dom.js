@@ -1,6 +1,7 @@
 import isElement from './utils/types/isElement'
 import isString from './utils/types/isString'
 import _isAncestor from './_isAncestor'
+import getEl from './getEl'
 
 /**
  * 判断某个 DOM 元素中是否包含另一个 DOM 元素
@@ -11,14 +12,14 @@ import _isAncestor from './_isAncestor'
  * @return {boolean}
  */
 const contains = (el, ancestor) => {
-  if (!isElement(ancestor)) {
+  if (!isElement(ancestor) || (!isElement(el) && !isString(el))) {
     return false
   }
 
   if (isElement(el)) {
     return _isAncestor(ancestor, el)
   } else {
-    return !!ancestor.querySelector(el)
+    return !!getEl(el, ancestor)
   }
 }
 

@@ -34,7 +34,7 @@ const createElement = (tagName, attrs, children) => {
 
     if (isDOM(child)) {
       $child = child
-    } else if (isString(child)) {
+    } else {
       $child = text(child)
     }
 
