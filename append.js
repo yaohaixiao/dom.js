@@ -1,5 +1,7 @@
+import isString from './utils/types/isString'
 import isHTML from './utils/types/isHTML'
 import isElement from './isElement'
+import text from './text'
 import insertAfter from './insertAfter'
 import insertHTMLBeforeEnd from './insertHTMLBeforeEnd'
 
@@ -10,17 +12,22 @@ import insertHTMLBeforeEnd from './insertHTMLBeforeEnd'
  * @method prepend
  * @param {HTMLElement|String} el
  * @param {HTMLElement} reference
- * @return {boolean}
+ * @return {Element|Text|null}
  */
 const append = (el, reference) => {
-  if (!isElement(reference)) {
-    return false
+  if (
+    !isElement(reference) ||
+    (!isHTML(el) && !isString(el) && !isElement(el))
+  ) {
+    return null
   }
 
   if (isElement(el)) {
-    insertAfter(el, reference)
-  } else if (isHTML(el)) {
-    insertHTMLBeforeEnd(reference, el)
+    return insertAfter(el, reference)
+  } else if (isString(el)) {
+    return insertAfter(text(el), reference)
+  } else {
+    return insertHTMLBeforeEnd(reference, el)
   }
 }
 

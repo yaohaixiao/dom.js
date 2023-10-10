@@ -9,17 +9,17 @@ import insertHTMLAfterEnd from './insertHTMLAfterEnd'
  * @method after
  * @param {HTMLElement|String} el
  * @param {HTMLElement} reference
- * @return {boolean}
+ * @return {Element|null}
  */
 const after = (el, reference) => {
-  if (!isElement(reference)) {
-    return false
+  if (!isElement(reference) || (!isElement(el) && !isHTML(el))) {
+    return null
   }
 
   if (isElement(el)) {
-    insertAfter(el, reference)
-  } else if (isHTML(el)) {
-    insertHTMLAfterEnd(reference, el)
+    return insertAfter(el, reference)
+  } else {
+    return insertHTMLAfterEnd(reference, el)
   }
 }
 

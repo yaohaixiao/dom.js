@@ -10,8 +10,8 @@ section.section
     h5.section__h4 el
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd HTMLElement
-    p （必须）el 参数指定要插入的 DOM 元素。
+      dd.section__dd Element
+    p （必须）el 参数指定要插入的 DOM 元素（DocumentFragment，HTMLElement或者TextNode）。
     h5.section__h4 reference
     dl.section__dl
       dt.section__dt Type：
@@ -20,8 +20,8 @@ section.section
     h5.section__h4 Returns
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd Boolean
-    p 函数返回被插入过的子节点；当 newNode 是 DocumentFragment 时，返回空 DocumentFragment。
+      dd.section__dd Element|null
+    p 函数返回被插入的子节点。当 el 是 DocumentFragment 时，返回空 DocumentFragment。参数不合法时返回 null。
     pre.section__pre
       code.section__.
         &lt;ul id="list" class="list"&gt;

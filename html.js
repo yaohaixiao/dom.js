@@ -1,5 +1,6 @@
 import isHTML from './utils/types/isHTML'
 import isString from './utils/types/isString'
+import stripScripts from './utils/string/stripScripts'
 import isElement from './isElement'
 import createElement from './createElement'
 
@@ -22,7 +23,7 @@ const html = (el, strHTML) => {
     const template = createElement('div')
     let children = []
 
-    template.innerHTML = el
+    template.innerHTML = stripScripts(el)
     children = [...template.childNodes]
     children.forEach((child) => {
       $fragment.appendChild(child)
@@ -30,7 +31,7 @@ const html = (el, strHTML) => {
 
     return $fragment
   } else if (isString(strHTML)) {
-    el.innerHTML = strHTML
+    el.innerHTML = stripScripts(strHTML)
   } else {
     return el.innerHTML
   }

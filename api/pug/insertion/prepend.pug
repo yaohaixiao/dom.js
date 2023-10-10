@@ -5,13 +5,13 @@ section.section
     dl.section__dl
       dt.section__dt Category：
       dd.section__dd DOM Insertion
-    p prepend() 方法用来将指定 DOM 节点或者 html 文本解析为 Element 元素，并将结果节点插入 el 元素自身内部的最前面。
+    p prepend() 方法用来将指定 DOM 节点或者 html 文本解析为 DOM 元素，并将结果节点插入 el 元素自身内部的最前面。
     h4.section__h4 Parameters
     h5.section__h4 el
     dl.section__dl
       dt.section__dt Type：
       dd.section__dd HTMLElement|String
-    p （必须）el 参数指定要插入的 DOM 元素或者 HTML 字符。
+    p （必须）el 参数指定要插入的 DOM 元素或者字符串（HTML或者普通字符串）。
     h5.section__h4 reference
     dl.section__dl
       dt.section__dt Type：
@@ -36,3 +36,6 @@ section.section
 
         // 将插入 html 插入到 $list 节点内部的最前面
         prepend($project, $list)
+
+        // 将普通字符串插入到 $list 节点内部的最前面
+        prepend('将普通字符串插入到 $list 节点内部的最前面', $list)

@@ -1,6 +1,6 @@
 section.section
   header.section__header
-    h3.section__h3 insertHTMLAfterBegin(el, html)
+    h3.section__h3 insertHTMLAfterBegin(el, strHTML, dangerouslyUseHTMLString = true)
   div.section__content
     dl.section__dl
       dt.section__dt Category：
@@ -10,13 +10,27 @@ section.section
     h5.section__h4 el
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd HTMLElement
-    p （必须）el 参数指定要插入的 DOM 元素。
-    h5.section__h4 html
+      dd.section__dd HTMLElement|String
+    p （必须）el 参数指定要插入的 DOM 元素或 DOM 元素的选择器字符串。
+    h5.section__h4 str
     dl.section__dl
       dt.section__dt Type：
       dd.section__dd String
-    p （必须）html 指定希望插入的 html 字符串。
+    p （必须）str 指定希望插入的 html 字符串。
+    h5.section__h4 dangerouslyUseHTMLString
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Boolean
+    dl.section__dl
+      dt.section__dt Default：
+      dd.section__dd true
+    p （必须）dangerouslyUseHTMLString 指定是否将 str 文本解析为 Element 元素（默认值：true）。
+    p 注意：insertHTMLAfterBegin() 方法默认会过滤掉 str 文本中的 &lt;script&gt; 危险文本。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Element|null
+    p 函数返回被插入的子节点。参数不合法时返回 null。
     pre.section__pre
       code.section__.
         &lt;ul id="list" class="list"&gt;
@@ -34,4 +48,4 @@ section.section
         DOM.insertHTMLAfterBegin($list, '&lt;ul&gt;&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;&lt;/ul&gt;')
 
         // 将插入 html 插入到 $list 节点前面
-        insertHTMLAfterBegin($list, '&lt;ul&gt;&lt;li class="item project"&gt;Projects&lt;/li&gt;&lt;/ul&gt;')
+        insertHTMLAfterBegin($list, '&lt;ul&gt;&lt;li class="item project"&gt;Projects&lt;/li&gt;&lt;/ul&gt;', false)

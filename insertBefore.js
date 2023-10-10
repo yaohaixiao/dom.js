@@ -1,4 +1,5 @@
 import isElement from './isElement'
+import isDOM from './isDOM'
 
 /**
  * 在参考节点之前插入一个拥有指定父节点的子节点。函数返回被插入过的子节点；
@@ -11,15 +12,15 @@ import isElement from './isElement'
  * @return {Element|null}
  */
 const insertBefore = (el, reference) => {
-  const $parent = reference.parentNode
+  let $parent
 
-  if (
-    !el ||
-    !isElement(el) ||
-    !reference ||
-    !isElement(reference) ||
-    !$parent
-  ) {
+  if (!isDOM(el) || !isElement(reference)) {
+    return null
+  }
+
+  $parent = reference.parentNode
+
+  if (!$parent) {
     return null
   }
 
