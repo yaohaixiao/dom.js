@@ -1,3 +1,18 @@
+# [0.3.0](https://github.com/yaohaixiao/dom.js/compare/0.2.0...0.3.0) (2023-10-10)
+
+
+### Bug Fixes
+
+* 修复 getOffsetTop() 和 offsetLeft() 传递非 DOM 元素参数报错的问题； ([69a0eba](https://github.com/yaohaixiao/dom.js/commit/69a0eba20e84b8b5e052c8132685edf58670c5a4))
+* 修复 insertAfter() 方法，el 参数为非 HTMLElement 无法插入的问题； ([4acfb96](https://github.com/yaohaixiao/dom.js/commit/4acfb969d2a5f61e758ae0ad8abf7441528d3c15))
+
+
+### Features
+
+* 调整 insertion 模块中 prepend()、append()、insertHTMLAfterBegin()、insertHTMLAfterEnd()、insertHTMLBeforeBegin() 和 insertHTMLBeforeEnd() 方法的 API，返回追加的 DOM 元素； ([a35e162](https://github.com/yaohaixiao/dom.js/commit/a35e162868357f132412e26f152b50085a8f7c1a))
+
+
+
 # [0.2.0](https://github.com/yaohaixiao/dom.js/compare/0.1.5...0.2.0) (2023-10-09)
 
 
