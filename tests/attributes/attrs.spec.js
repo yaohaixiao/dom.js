@@ -24,7 +24,12 @@ describe('attrs() 方法', () => {
     '<label for="user" class="label">用户名：</label><input type="text" name="user" id="user" value="Robert" />'
 
   it(`attrs() 不传递参数，返回： null`, () => {
-    expect(attrs()).toBe(null)
+    expect(attrs()).toBeNull()
+  })
+
+  it(`attrs($list, 24) 获取异常属性的值，返回：null`, () => {
+    const $list = byId('#list')
+    expect(attrs($list, 24)).toBeNull()
   })
 
   it(`attrs($list) 获取 $list 节点所有属性，返回： {"class": "list", "id": "list"}`, () => {

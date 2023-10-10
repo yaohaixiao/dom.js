@@ -3,9 +3,9 @@
  */
 import isText from '@/isText'
 import isCollection from '@/isCollection'
-import isElement from '@/utils/types/isElement'
-import isFragment from '@/utils/types/isFragment'
-import isDOM from '@/utils/types/isDOM'
+import isElement from '@/isElement'
+import isFragment from '@/isFragment'
+import isDOM from '@/isDOM'
 
 describe('isDOM() 方法：', () => {
   // Set up our document body

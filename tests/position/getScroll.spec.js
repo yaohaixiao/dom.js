@@ -7,20 +7,6 @@ import getScrollTop from '@/getScrollTop'
 import byId from '@/byId'
 
 describe('getScroll() 方法', () => {
-  Object.defineProperty(
-    document,
-    'documentElement',
-    ((value) => ({
-      get() {
-        return value
-      },
-
-      set(v) {
-        value = v
-      }
-    }))(document.documentElement)
-  )
-
   // Set up our document body
   document.body.innerHTML =
     '<ul id="list" class="list">\n' +
@@ -45,6 +31,20 @@ describe('getScroll() 方法', () => {
     '    <a href="/sitemap#exit" class="remove" data-id="exit">删除</a>\n' +
     '  </li>\n' +
     '</ul>'
+
+  Object.defineProperty(
+    document,
+    'documentElement',
+    ((value) => ({
+      get() {
+        return value
+      },
+
+      set(v) {
+        value = v
+      }
+    }))(document.documentElement)
+  )
 
   const documentElement = document.documentElement
 

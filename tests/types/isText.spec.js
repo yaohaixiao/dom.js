@@ -3,8 +3,8 @@
  */
 import isText from '@/isText'
 import isCollection from '@/isCollection'
-import isElement from '@/utils/types/isElement'
-import isFragment from '@/utils/types/isFragment'
+import isElement from '@/isElement'
+import isFragment from '@/isFragment'
 
 describe('isText() 方法：', () => {
   // Set up our document body

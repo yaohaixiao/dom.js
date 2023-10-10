@@ -1,8 +1,8 @@
 /**
  * @jest-environment jsdom
  */
-import isFragment from '@/utils/types/isFragment'
-import isElement from '@/utils/types/isElement'
+import isFragment from '@/isFragment'
+import isElement from '@/isElement'
 
 describe('isFragment() 方法：', () => {
   // Set up our document body
