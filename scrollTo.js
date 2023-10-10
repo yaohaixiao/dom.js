@@ -1,6 +1,7 @@
 import easeInQuad from './utils/lang/easeInQuad'
 import isFunction from './utils/types/isFunction'
-import isElement from './utils/types/isElement'
+import isElement from './isElement'
+import getEl from './getEl'
 
 /**
  * 使 DOM 节点滚动到指定位置
@@ -12,7 +13,7 @@ import isElement from './utils/types/isElement'
  * @param {Function} [afterStop] - （可选）滚动完成的回调函数
  */
 const scrollTo = (el, position, direction = 'vertical', afterStop = null) => {
-  const $el = isElement(el) ? el : document.querySelector(el)
+  const $el = isElement(el) ? el : getEl(el)
   let scrollValue = direction === 'vertical' ? $el.scrollTop : $el.scrollLeft
   let step = 0
   const distance = position - scrollValue

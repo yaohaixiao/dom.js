@@ -1,4 +1,4 @@
-import isElement from './utils/types/isElement'
+import isElement from './isElement'
 
 /**
  * 给 DOM 节点设置属性/值

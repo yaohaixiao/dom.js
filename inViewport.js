@@ -1,7 +1,13 @@
-import isElement from './utils/types/isElement'
+import isElement from './isElement'
 import getViewportHeight from './getViewportHeight'
 import getViewportWidth from './getViewportWidth'
 
+/**
+ * ========================================================================
+ * @method inViewport
+ * @param el
+ * @return {boolean}
+ */
 const inViewport = (el) => {
   let rect
   let vh

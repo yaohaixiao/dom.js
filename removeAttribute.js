@@ -1,5 +1,5 @@
-import isElement from './utils/types/isElement'
 import isString from './utils/types/isString'
+import isElement from './isElement'
 
 /**
  * 移除 DOM 元素的 DOM 属性值

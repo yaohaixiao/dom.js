@@ -1,5 +1,5 @@
-import isElement from './utils/types/isElement'
 import isString from './utils/types/isString'
+import isElement from './isElement'
 
 /**
  * 返回与指定的类选择器组匹配的文档中的元素列表 (使用深度优先的先序遍历文档的节点)。

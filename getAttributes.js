@@ -1,5 +1,5 @@
-import isElement from './utils/types/isElement'
 import isArray from './utils/types/isArray'
+import isElement from './isElement'
 import getAttribute from './getAttribute'
 
 /**

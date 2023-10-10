@@ -1,4 +1,4 @@
-import isElement from './utils/types/isElement'
+import isElement from './isElement'
 import hasClass from './hasClass'
 import addClass from './addClass'
 import removeClass from './removeClass'

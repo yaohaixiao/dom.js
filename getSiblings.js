@@ -1,6 +1,6 @@
+import isElement from './isElement'
 import getPreviousSiblings from './getPreviousSiblings'
 import getNextSiblings from './getNextSiblings'
-import isElement from './utils/types/isElement'
 
 /**
  * 获取 DOM 元素的前面或后面所有邻居元素节点。

@@ -1,9 +1,9 @@
-import isElement from './utils/types/isElement'
 import isNumber from './utils/types/isNumber'
 import isString from './utils/types/isString'
+import isUndefined from './utils/types/isUndefined'
+import isElement from './isElement'
 import setStyle from './setStyle'
 import offset from './offset'
-import isUndefined from './utils/types/isUndefined'
 
 /**
  * 获取或设置 DOM 元素的高度。

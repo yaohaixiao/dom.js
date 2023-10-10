@@ -1,4 +1,4 @@
-import isElement from './utils/types/isElement'
+import isElement from './isElement'
 
 /**
  * 检测某个 DOM 节点的位置是否在另个一个 DOM 节点范围内

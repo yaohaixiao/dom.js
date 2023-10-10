@@ -1,5 +1,5 @@
-import isElement from './utils/types/isElement'
 import isString from './utils/types/isString'
+import isElement from './isElement'
 
 /**
  * 获取或者设置 DOM 元素的 innerText 属性值，或者通过字符串，创建 TextNode 元素

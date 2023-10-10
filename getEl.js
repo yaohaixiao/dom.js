@@ -1,5 +1,5 @@
-import isElement from './utils/types/isElement'
 import isBoolean from './utils/types/isBoolean'
+import isElement from './isElement'
 
 /**
  * 返回与指定的选择器组匹配的文档中的 DOM 元素或者 DOM 元素列表。

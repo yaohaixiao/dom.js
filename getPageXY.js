@@ -1,4 +1,4 @@
-import isElement from './utils/types/isElement'
+import isElement from './isElement'
 import getPageX from './getPageX'
 import getPageY from './getPageY'
 import canPosition from './canPosition'

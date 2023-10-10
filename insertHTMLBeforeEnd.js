@@ -1,5 +1,5 @@
-import isElement from './utils/types/isElement'
 import isHTML from './utils/types/isHTML'
+import isElement from './isElement'
 
 /**
  * 来将指定的文本解析为 Element 元素，并将结果节点插入元素内部的最后一个子节点之后。

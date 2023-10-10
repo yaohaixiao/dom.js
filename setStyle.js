@@ -1,5 +1,5 @@
 import toCamel from './utils/string/toCamel'
-import isElement from './utils/types/isElement'
+import isElement from './isElement'
 
 /**
  * 给 DOM 元素添加 CSS 样式

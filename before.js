@@ -1,5 +1,5 @@
-import isElement from './utils/types/isElement'
 import isHTML from './utils/types/isHTML'
+import isElement from './isElement'
 import insertBefore from './insertBefore'
 import insertHTMLBeforeBegin from './insertHTMLBeforeBegin'
 

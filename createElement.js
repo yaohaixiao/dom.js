@@ -1,7 +1,7 @@
 import isObject from './utils/types/isObject'
 import isString from './utils/types/isString'
 import isArray from './utils/types/isArray'
-import isDOM from './utils/types/isDOM'
+import isDOM from './isDOM'
 import text from './text'
 import setAttributes from './setAttributes'
 

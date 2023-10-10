@@ -1,5 +1,12 @@
-import isElement from './utils/types/isElement'
+import isElement from './isElement'
 
+/**
+ * ========================================================================
+ * @method getAttribute
+ * @param el
+ * @param attr
+ * @return {*|string|string|string|boolean}
+ */
 const getAttribute = (el, attr) => {
   let tagName
 

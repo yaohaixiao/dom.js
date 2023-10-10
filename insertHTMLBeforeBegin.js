@@ -1,5 +1,5 @@
-import isElement from './utils/types/isElement'
 import isHTML from './utils/types/isHTML'
+import isElement from './isElement'
 
 /**
  * 在指定元素的开头插入HTML字符串。

@@ -1,5 +1,5 @@
-import isElement from './utils/types/isElement'
-import isTextNode from './utils/types/isTextNode'
+import isElement from './isElement'
+import isText from './isText'
 import getOffsetParent from './getOffsetParent'
 import getScrollParent from './getScrollParent'
 import getHostOrParent from './getHostOrParent'
@@ -15,7 +15,7 @@ import getHostOrParent from './getHostOrParent'
 const parent = (el, type) => {
   let $parent = null
 
-  if (!isElement(el) && !isTextNode(el)) {
+  if (!isElement(el) && !isText(el)) {
     return $parent
   }
 

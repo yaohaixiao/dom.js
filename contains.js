@@ -1,5 +1,5 @@
-import isElement from './utils/types/isElement'
 import isString from './utils/types/isString'
+import isElement from './isElement'
 import _isAncestor from './_isAncestor'
 import getEl from './getEl'
 

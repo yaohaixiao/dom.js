@@ -1,10 +1,10 @@
-import isElement from './utils/types/isElement'
+import isElement from './isElement'
 import getScrollTop from './getScrollTop'
 import getStyle from './getStyle'
 
 /**
  * 获取 DOM 节点预期所有父节点的纵向滚动距离
- * ====================================================
+ * ========================================================================
  * @method getScrollTotalTop
  * @return {Number}
  */

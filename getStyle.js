@@ -1,5 +1,5 @@
 import toCamel from './utils/string/toCamel'
-import isElement from './utils/types/isElement'
+import isElement from './isElement'
 /**
  * 获取 DOM 元素的某个 CSS 样式值
  * ========================================================================

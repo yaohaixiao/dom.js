@@ -1,4 +1,5 @@
-import isElement from './utils/types/isElement'
+import isElement from './isElement'
+import isDOM from './isDOM'
 import getNextSibling from './getNextSibling'
 
 /**
@@ -8,20 +9,20 @@ import getNextSibling from './getNextSibling'
  * @method insertAfter
  * @see https://developer.mozilla.org/zh-CN/docs/Web/API/Node/insertBefore
  * @param {Element} el
- * @param {Element} reference
+ * @param {HTMLElement} reference
  * @return {Element|null}
  */
 const insertAfter = (el, reference) => {
-  const $parent = reference.parentNode
+  let $parent
   let $nextSibling
 
-  if (
-    !el ||
-    !isElement(el) ||
-    !reference ||
-    !isElement(reference) ||
-    !$parent
-  ) {
+  if (!isDOM(el) || !isElement(reference)) {
+    return null
+  }
+
+  $parent = reference.parentNode
+
+  if (!$parent) {
     return null
   }
 

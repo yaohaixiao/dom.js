@@ -1,6 +1,6 @@
-import isElement from './utils/types/isElement'
 import isFunction from './utils/types/isFunction'
 import isString from './utils/types/isString'
+import isElement from './isElement'
 import matches from './matches'
 
 /**

@@ -1,4 +1,4 @@
-import isElement from './utils/types/isElement'
+import isElement from './isElement'
 
 /**
  * 返回一个指向最近的（指包含层级上的最近）包含该元素的定位元素。

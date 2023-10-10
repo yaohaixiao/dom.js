@@ -1,6 +1,6 @@
-import isElement from './utils/types/isElement'
 import isString from './utils/types/isString'
 import isArray from './utils/types/isArray'
+import isElement from './isElement'
 import getSiblings from './getSiblings'
 import getEl from './getEl'
 

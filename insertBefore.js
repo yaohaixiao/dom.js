@@ -1,4 +1,4 @@
-import isElement from './utils/types/isElement'
+import isElement from './isElement'
 
 /**
  * 在参考节点之前插入一个拥有指定父节点的子节点。函数返回被插入过的子节点；

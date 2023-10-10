@@ -1,7 +1,7 @@
-import isElement from './utils/types/isElement'
 import isString from './utils/types/isString'
 import isObject from './utils/types/isObject'
 import extend from './utils/lang/extend'
+import isElement from './isElement'
 
 /**
  * 给 DOM 元素批量添加 CSS 样式

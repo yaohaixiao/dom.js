@@ -1,4 +1,4 @@
-import isElement from './utils/types/isElement'
+import isElement from './isElement'
 import _isAncestor from './_isAncestor'
 
 /**

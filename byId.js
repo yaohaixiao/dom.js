@@ -1,5 +1,5 @@
-import isElement from './utils/types/isElement'
 import isString from './utils/types/isString'
+import isElement from './isElement'
 
 /**
  * 返回文档中与指定 id 选择器匹配 Element对象

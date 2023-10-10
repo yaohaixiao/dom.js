@@ -1,6 +1,6 @@
 import isHTML from './utils/types/isHTML'
-import isElement from './utils/types/isElement'
 import isString from './utils/types/isString'
+import isElement from './isElement'
 import createElement from './createElement'
 
 /**
