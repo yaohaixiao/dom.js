@@ -83,6 +83,7 @@ import DOM from '@yaohaixiao/dom.js/dom'
 // 调用单独的子模块, 模块中包含的具体方法请参考 API 文档中的导航分类
 import DOM from '@yaohaixiao/dom.js/attributes'
 import DOM from '@yaohaixiao/dom.js/base'
+import DOM from '@yaohaixiao/dom.js/color'
 import DOM from '@yaohaixiao/dom.js/insertion'
 import DOM from '@yaohaixiao/dom.js/position'
 import DOM from '@yaohaixiao/dom.js/sibling'
