@@ -1,0 +1,38 @@
+section.section
+  header.section__header
+    h3.section__h3 find(selector)
+  div.section__content
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Base
+    p 返回文档（document）中与指定的选择器组匹配的第一个 DOM 元素。
+    h4.section__h4 Parameters
+    h5.section__h4 selector
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （必须）选择器字符串。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p 返回检索匹配的 DOM 元素。
+    pre.section__pre
+      code.section__.
+        &lt;ul id="list" class="list"&gt;
+            &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 find 单个方法
+        import find from '@yaohaixiao/dom.js/find'
+
+        const $list = DOM.find('#list')
+
+        // 匹配第一个
+        const $item = find('.item')
+        const $blog = find('.blog')

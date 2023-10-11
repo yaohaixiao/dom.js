@@ -6,6 +6,8 @@ import contains from '../contains'
 import byClass from '../byClass'
 import byId from '../byId'
 import getEl from '../getEl'
+import find from '../find'
+import findAll from '../findAll'
 import getHostOrParent from '../getHostOrParent'
 import getOffsetParent from '../getOffsetParent'
 import getScrollParent from '../getScrollParent'
@@ -27,6 +29,8 @@ const DOM = {
   byClass,
   byId,
   getEl,
+  find,
+  findAll,
   getHostOrParent,
   getOffsetParent,
   getScrollParent,

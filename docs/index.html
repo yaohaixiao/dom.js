@@ -454,7 +454,37 @@ const $items = getEl('.item', true)
 const $items = getEl('.item', $list, true)
 
 // 仅匹配第一个
-const $items = getEl('.item', $list)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getHostOrParent(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getHostOrParent() 方法用来获取 DOM 元素的父节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>el 参数指定 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回查询到的 DOM 元素的父节点。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+const $items = getEl('.item', $list)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">find(selector)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>返回文档（document）中与指定的选择器组匹配的第一个 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">selector</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）选择器字符串。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回检索匹配的 DOM 元素。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 find 单个方法
+import find from '@yaohaixiao/dom.js/find'
+
+const $list = DOM.find('#list')
+
+// 匹配第一个
+const $item = find('.item')
+const $blog = find('.blog')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">findAll(selector)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>返回文档（document）中与指定的选择器组匹配的所有 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">selector</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）选择器字符串。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">NodeList</dd></dl><p>返回检索匹配的 DOM 元素列表。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 findAll 单个方法
+import findAll from '@yaohaixiao/dom.js/findAll'
+
+const $items = DOM.findAll('.item')
+
+const $blog = findAll('.blog')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getHostOrParent(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getHostOrParent() 方法用来获取 DOM 元素的父节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>el 参数指定 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回查询到的 DOM 元素的父节点。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
