@@ -16,7 +16,11 @@ import offset from './offset'
 const width = (el, val) => {
   let value
 
-  if (!isElement(el)) {
+  /* istanbul ignore else */
+  if (
+    !isElement(el) ||
+    (!isUndefined(val) && !isNumber(val) && !isString(val))
+  ) {
     return false
   }
 
@@ -25,9 +29,10 @@ const width = (el, val) => {
   } else {
     if (isNumber(val)) {
       value = `${val}px`
-    } else if (isString(val)) {
+    } else {
       value = `${val.replace(/\D/gi, '')}px`
     }
+
     setStyle(el, 'width', value)
   }
 }

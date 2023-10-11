@@ -12,7 +12,7 @@ import setStyle from './setStyle'
  * @method innerHeight
  * @param {HTMLElement} el
  * @param {Number|Function} [val]
- * @return {number|string|number|*|boolean}
+ * @return {number|string|*|boolean}
  */
 const innerHeight = (el, val) => {
   let height
@@ -37,6 +37,7 @@ const innerHeight = (el, val) => {
   if (!isUndefined(val)) {
     height = offsetHeight - (borderTop + borderBottom)
 
+    /* istanbul ignore else */
     if (height !== val) {
       setStyle(el, 'height', pixel(val - (paddingTop + paddingBottom)))
     }

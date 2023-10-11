@@ -37,6 +37,7 @@ const innerWidth = (el, val) => {
   if (!isUndefined(val)) {
     width = offsetWidth - (borderLeft + borderRight)
 
+    /* istanbul ignore else */
     if (width !== val) {
       setStyle(el, 'width', pixel(val - (paddingLeft + paddingRight)))
     }

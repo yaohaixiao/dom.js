@@ -1,4 +1,6 @@
 import toCamel from './utils/string/toCamel'
+import isString from './utils/types/isString'
+import isUndefined from './utils/types/isUndefined'
 import isElement from './isElement'
 
 /**
@@ -13,7 +15,7 @@ import isElement from './isElement'
 const setStyle = (el, attr, val) => {
   let prop
 
-  if (!isElement(el)) {
+  if (!isElement(el) || !isString(attr) || isUndefined(attr)) {
     return false
   }
 

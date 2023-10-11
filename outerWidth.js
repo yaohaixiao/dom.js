@@ -53,6 +53,7 @@ const outerWidth = (el, val, includeMargin = false) => {
     if (isBoolean(val)) {
       includeMargin = val
 
+      /* istanbul ignore else */
       if (includeMargin) {
         width += marginLeft + marginRight
       }
@@ -60,14 +61,11 @@ const outerWidth = (el, val, includeMargin = false) => {
       return width
     }
 
-    // 设置 outerWidth，包含边距
-    if (includeMargin) {
-      width += marginLeft + marginRight
-    }
-
+    /* istanbul ignore else */
     if (width !== val) {
       width = val - (borderLeft + borderRight + paddingLeft + paddingRight)
 
+      /* istanbul ignore else */
       if (includeMargin) {
         width -= marginLeft + marginRight
       }

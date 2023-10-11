@@ -16,7 +16,10 @@ import offset from './offset'
 const height = (el, val) => {
   let value
 
-  if (!isElement(el)) {
+  if (
+    !isElement(el) ||
+    (!isUndefined(val) && !isNumber(val) && !isString(val))
+  ) {
     return false
   }
 
@@ -25,9 +28,10 @@ const height = (el, val) => {
   } else {
     if (isNumber(val)) {
       value = `${val}px`
-    } else if (isString(val)) {
+    } else {
       value = `${val.replace(/\D/gi, '')}px`
     }
+
     setStyle(el, 'height', value)
   }
 }

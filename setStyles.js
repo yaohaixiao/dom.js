@@ -1,6 +1,5 @@
 import isString from './utils/types/isString'
 import isObject from './utils/types/isObject'
-import extend from './utils/lang/extend'
 import isElement from './isElement'
 
 /**
@@ -15,24 +14,20 @@ import isElement from './isElement'
 const setStyles = (el, styles) => {
   let rules = ''
 
-  if (!isElement(el)) {
+  if (!isElement(el) || (!isObject(styles) && !isString(styles))) {
     return false
   }
 
-  if (el.style.cssText) {
-    if (isObject(styles)) {
-      Object.keys(styles).forEach((prop) => {
-        const val = styles[prop]
-        rules += `${prop}:${val};`
-      })
-    } else if (isString(styles)) {
-      rules = styles
-    }
-
-    el.style.cssText += rules
-  } else if (isObject(styles)) {
-    extend(el.style, styles)
+  if (isObject(styles)) {
+    Object.keys(styles).forEach((prop) => {
+      const val = styles[prop]
+      rules += `${prop}:${val};`
+    })
+  } else {
+    rules = styles
   }
+
+  el.style.cssText += rules
 }
 
 export default setStyles

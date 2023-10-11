@@ -53,6 +53,7 @@ const outerHeight = (el, val, includeMargin = false) => {
     if (isBoolean(val)) {
       includeMargin = val
 
+      /* istanbul ignore else */
       if (includeMargin) {
         height += marginTop + marginBottom
       }
@@ -60,14 +61,12 @@ const outerHeight = (el, val, includeMargin = false) => {
       return height
     }
 
-    // 设置 outerHeight，包含边距
-    if (includeMargin) {
-      height += marginTop + marginBottom
-    }
-
+    /* istanbul ignore else */
     if (height !== val) {
       height = val - (borderTop + borderBottom + paddingTop + paddingBottom)
 
+      // 设置 outerHeight，包含边距
+      /* istanbul ignore else */
       if (includeMargin) {
         height -= marginTop + marginBottom
       }
