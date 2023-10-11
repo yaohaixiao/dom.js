@@ -1,21 +1,23 @@
 import { KEYWORDS, REG_RGB, REG_HEX3 } from './utils/enum'
 
 /**
- *
+ * 返回将指定颜色（颜色英文名称或RGB格式色值）转化成 16 进制色值
+ * ========================================================================
  * @method toHex
- * @param {String} val
+ * @param {String} color
  * @return {String}
  */
-const toHex = (val) => {
-  let hex = KEYWORDS[val] || val
+const toHex = (color) => {
+  let hex = KEYWORDS[color] || color
+  let matches = REG_RGB.exec(hex)
   let r
   let g
   let b
 
-  if (REG_RGB.exec(hex)) {
-    r = RegExp.$1.length === 1 ? '0' + RegExp.$1 : Number(RegExp.$1)
-    g = RegExp.$2.length === 1 ? '0' + RegExp.$2 : Number(RegExp.$2)
-    b = RegExp.$3.length === 1 ? '0' + RegExp.$3 : Number(RegExp.$3)
+  if (matches) {
+    r = matches[1]?.length === 1 ? '0' + matches[1] : Number(matches[1])
+    g = matches[2]?.length === 1 ? '0' + matches[2] : Number(matches[2])
+    b = matches[3]?.length === 1 ? '0' + matches[3] : Number(matches[3])
 
     hex = [r.toString(16), g.toString(16), b.toString(16)].join('')
   }
