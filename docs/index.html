@@ -40,7 +40,7 @@ DOM.addClass($list, 'primary')
 // 判断是否存在 class 样式
 DOM.hasClass($list, 'nav') => true
 hasClass($list, 'primary') => true
-hasClass($list, 'top-menu') => false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">replaceClass(el, oldCls, newCls)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Attributes</dd></dl><p>replaceClass() 方法用来替换 DOM 元素中的 className 的样式。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定需要替换 class 样式的 DOM 元素。</p><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）oldCls 要替换的 class 样式名称。</p><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）newCls 用来替换的 class 样式名称。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+hasClass($list, 'top-menu') => false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">replaceClass(el, oldCls, newCls)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Attributes</dd></dl><p>replaceClass() 方法用来替换 DOM 元素中的 className 的样式。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定需要替换 class 样式的 DOM 元素。</p><h5 class="section__h4">oldCls</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）oldCls 要替换的 class 样式名称。</p><h5 class="section__h4">newCls</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）newCls 用来替换的 class 样式名称。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -110,7 +110,7 @@ hasClass($active, 'active') // -> false
 
 // 判断是否存在 class 样式
 toggleClass($active, 'active')
-hasClass($active, 'active') // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getAttribute(el, attr)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Attributes</dd></dl><p>getAttribute() 方法用来获取 DOM 元素的 DOM 属性值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）attr 参数指定要获取的属性名称。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>返回指定的属性值。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+hasClass($active, 'active') // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getAttribute(el, attr)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Attributes</dd></dl><p>getAttribute() 方法用来获取 DOM 元素的 DOM 属性值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">attr</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）attr 参数指定要获取的属性名称。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>返回指定的属性值。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -130,7 +130,7 @@ DOM.getAttribute($list, 'className') // -> 'list'
 
 DOM.addClass($list, 'nav')
 // 也可以直接实用 class 属性，因为在获取属性时，class 不存在 JS 的保留关键字的限制
-DOM.getAttribute($list, 'class') // -> 'list nav'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getAttributes(el, props)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Attributes</dd></dl><p>getAttribute() 方法用来获取 DOM 元素的单个或多个 HTML 属性值（键/值对象）。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Array</dd></dl><p>（可选）props 参数指定要获取的属性名称的数组，不指定则获取全部 DOM 属性。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>返回查询的多属性的键/值对象。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+DOM.getAttribute($list, 'class') // -> 'list nav'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getAttributes(el, props)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Attributes</dd></dl><p>getAttribute() 方法用来获取 DOM 元素的单个或多个 HTML 属性值（键/值对象）。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">props</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Array</dd></dl><p>（可选）props 参数指定要获取的属性名称的数组，不指定则获取全部 DOM 属性。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>返回查询的多属性的键/值对象。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -374,7 +374,7 @@ $list.appendChild($home)
 canPosition($home) // -> true
 
 DOM.setStyle($home, 'display', 'none')
-canPosition($home) // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">closet(el, selector[, ctx, includeCTX])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>closet() 方法用来获取父元素最近的包含 selector 选择器的元素。通常用于使用事件代理时，获取点击的目标 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 指定父元素。</p><h5 class="section__h4">selector</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）selector 指定要查询元素的选择器。</p><h5 class="section__h4">ctx</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（可选）ctx 指定比对的 DOM 元素</p><h5 class="section__h4">ctx</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>（可选）includeCTX 指定是否包含 ctx 参数指定的 DOM 元素.</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回匹配的 DOM 元素。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+canPosition($home) // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">closet(el, selector[, ctx, includeCTX])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>closet() 方法用来获取父元素最近的包含 selector 选择器的元素。通常用于使用事件代理时，获取点击的目标 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 指定父元素。</p><h5 class="section__h4">selector</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）selector 指定要查询元素的选择器。</p><h5 class="section__h4">ctx</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（可选）ctx 指定比对的 DOM 元素</p><h5 class="section__h4">includeCTX</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>（可选）includeCTX 指定是否包含 ctx 参数指定的 DOM 元素.</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回匹配的 DOM 元素。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -390,7 +390,7 @@ const $list = DOM.byId('#list')
 const $home = DOM.byId('#home')
 
 closet($home, '.active', $list)
-// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">contains(el, ancestor)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>contains() 方法用来判断某个 DOM 元素中是否包含另一个 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）被包含的 DOM 元素或者 DOM 元素的选择器字符串：</p><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）ancestor 指定用来查询目标 DOM 元素的父元素：</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>包含查询元素返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">contains(el, ancestor)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>contains() 方法用来判断某个 DOM 元素中是否包含另一个 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）被包含的 DOM 元素或者 DOM 元素的选择器字符串：</p><h5 class="section__h4">ancestor</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）ancestor 指定用来查询目标 DOM 元素的父元素：</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>包含查询元素返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -1954,7 +1954,7 @@ const $list = DOM.byId('#list')
 const $home = DOM.byId('#home')
 
 DOM.sizes($list)
-sizes($home)</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Style</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用以获取或者设置 DOM 元素的 css 样式属性：</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getStyle(el, attr)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Style</dd></dl><p>getStyle() 用来获取 DOM 元素的某个 CSS 样式值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">token</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）指定 CSS 属性名称。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>返回指定的 attr 的属性值。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+sizes($home)</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Style</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用以获取或者设置 DOM 元素的 css 样式属性：</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getStyle(el, attr)</h3></header><div class="section__content"><h4 class="section__h4">Description</h4><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Style</dd></dl><p>getStyle() 用来获取 DOM 元素的某个 CSS 样式值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">attr</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）指定 CSS 属性名称。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>返回指定的 attr 的属性值。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -1991,7 +1991,7 @@ const $list = DOM.byId('#list')
 DOM.setStyle($list, 'display', 'none')
 DOM.setStyle($list, 'display', 'block')
 
-setStyle($list, 'background-color', '#f2f2f2')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getStyles(el, attrs)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Style</dd></dl><p>getStyles() 方法用来设置或者获取初始化时配置的 attrs 信息的。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">prop</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|HTMLElement</dd></dl><p>（可选）options 中的属性名称或者要配置的 attrs 信息。</p><h5 class="section__h4">value</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（可选）要设置的 prop 属性的值</p><ul><li>不传递任何参数：返回完整的 attrs 配置信息；</li><li>仅传递 prop：</li><ul><li>String: 返回 attrs 配型信息中与 prop 对应的值；</li><li>Object: 用来设置 attrs 配置信息；</li></ul><li>同时传递 prop 和 value 参数：设置 attrs 配置信息中的某个属性值；</li></ul><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>配置信息 attrs 的属性值或者 Outline 对象。</p><pre class="section__pre"><code class="section__code">const outline = new Outline({
+setStyle($list, 'background-color', '#f2f2f2')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getStyles(el, attrs)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Style</dd></dl><p>getStyles() 方法用来设置或者获取初始化时配置的 attrs 信息的。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|HTMLElement</dd></dl><p>（可选）options 中的属性名称或者要配置的 attrs 信息。</p><h5 class="section__h4">attrs</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|Object</dd></dl><p>（可选）要设置的 prop 属性的值</p><ul><li>不传递任何参数：返回完整的 attrs 配置信息；</li><li>仅传递 prop：</li><ul><li>String: 返回 attrs 配型信息中与 prop 对应的值；</li><li>Object: 用来设置 attrs 配置信息；</li></ul><li>同时传递 prop 和 value 参数：设置 attrs 配置信息中的某个属性值；</li></ul><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>配置信息 attrs 的属性值或者 Outline 对象。</p><pre class="section__pre"><code class="section__code">const outline = new Outline({
    article: '#article',
    title: 'Outline v2.0.0'
 })
@@ -2125,10 +2125,10 @@ DOM.getStyle($list, 'display') // -> 'hidden'
 
 // 显示 $list
 DOM.toggle($list)
-DOM.getStyle($list, 'display') // -> 'block'</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Node Type Detection</h2></header><div class="section__content"><p>dom.js 提供以下方法用于检测 DOM 元素的 Node Type 类型。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">isHTMLCollection(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Node Type Detection</dd></dl><p>isHTMLCollection() 方法用来检测测试数据是否为 HTMLNodeList (元素集合)类型。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）el 参数指定待检测的 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 HTMLNodeList (元素集合)类型，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+DOM.getStyle($list, 'display') // -> 'block'</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Node Type Detection</h2></header><div class="section__content"><p>dom.js 提供以下方法用于检测 DOM 元素的 Node Type 类型。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">isCollection(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Node Type Detection</dd></dl><p>isCollection() 方法用来检测测试数据是否为 HTMLNodeList (元素集合)类型。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）el 参数指定待检测的 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 HTMLNodeList (元素集合)类型，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom'
-// 或者单独引用 isHTMLCollection() 方法
-import isHTMLCollection from '@yaohaixiao/types.js/isHTMLCollection'
+// 或者单独引用 isCollection() 方法
+import isCollection from '@yaohaixiao/types.js/isCollection'
 
 const $list = document.getElementById('list')
 const $div = document.createElement('div')
@@ -2137,19 +2137,19 @@ const $items = document.querySelectorAll('.item')
 const $fragment = document.createDocumentFragment()
 
 DOM.isElement($list) // -> true
-DOM.isHTMLCollection($list) // -> false
+DOM.isCollection($list) // -> false
 
 DOM.isElement($div) // -> true
-DOM.isHTMLCollection($div) // -> false
+DOM.isCollection($div) // -> false
 
 DOM.isElement($text) // -> false
-DOM.isHTMLCollection($text) // -> false
+DOM.isCollection($text) // -> false
 
 DOM.isElement($items) // -> false
-isHTMLCollection($items) // -> true
+isCollection($items) // -> true
 
 DOM.isElement($fragment) // -> false
-isHTMLCollection($fragment) // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isDOM(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Node Type Detection</dd></dl><p>isDOM() 方法用来检测测试数据是否为 DOM 类型数据：DOM 节点，TextNode，NodeList 和 DocumentFragment）。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>（必须）el 参数指定待检测的 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 DOM 类型数据，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+isCollection($fragment) // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isDOM(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Node Type Detection</dd></dl><p>isDOM() 方法用来检测测试数据是否为 DOM 类型数据：DOM 节点，TextNode，NodeList 和 DocumentFragment）。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>（必须）el 参数指定待检测的 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 DOM 类型数据，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom'
 // 或者单独引用 isTextNode() 方法
 import isDOM from '@yaohaixiao/dom.js/isDOM'
@@ -2203,10 +2203,10 @@ DOM.isElement($items) // -> false
 isFragment($items) // -> false
 
 DOM.isElement($fragment) // -> false
-isFragment($fragment) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isTextNode(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Node Type Detection</dd></dl><p>isTextNode() 方法用来检测测试数据是否为 HTMLTextNode (文本节点)类型。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）el 参数指定待检测的 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 HTMLTextNode (文本节点)类型，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+isFragment($fragment) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isText(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Node Type Detection</dd></dl><p>isText() 方法用来检测测试数据是否为 HTMLTextNode (文本节点)类型。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）el 参数指定待检测的 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 HTMLTextNode (文本节点)类型，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom'
-// 或者单独引用 isTextNode() 方法
-import isTextNode from '@yaohaixiao/dom.js/isTextNode'
+// 或者单独引用 isText() 方法
+import isText from '@yaohaixiao/dom.js/isText'
 
 const $list = document.getElementById('list')
 const $div = document.createElement('div')
@@ -2215,18 +2215,18 @@ const $items = document.querySelectorAll('.item')
 const $text = document.createTextNode('text')
 
 DOM.isElement($list) // -> true
-DOM.isTextNode($list) // -> false
+DOM.isText($list) // -> false
 
 DOM.isElement($div) // -> true
-DOM.isTextNode($div) // -> false
+DOM.isText($div) // -> false
 
 DOM.isFragment($fragment) // -> true
-DOM.isTextNode($fragment) // -> false
+DOM.isText($fragment) // -> false
 
-DOM.isHTMLCollection($items) // -> true
-DOM($items) // -> false
+DOM.isCollection($items) // -> true
+isText($items) // -> false
 
 DOM.isElement($text) // -> false
-isTextNode($text) // -> true</code></pre></div></section></section></article><footer class="main__footer" id="footer"><p>Copyright &copy; 2023 <a href="https://github.com/yaohaixiao">Robert Yao</a>, all right reserved.</p><p>Code licensed under&nbsp;<a href="http://opensource.org/licenses/mit-license.html">MIT License</a></p><p>Documentation licensed under&nbsp;
+isText($text) // -> true</code></pre></div></section></section></article><footer class="main__footer" id="footer"><p>Copyright &copy; 2023 <a href="https://github.com/yaohaixiao">Robert Yao</a>, all right reserved.</p><p>Code licensed under&nbsp;<a href="http://opensource.org/licenses/mit-license.html">MIT License</a></p><p>Documentation licensed under&nbsp;
 <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a></p><p><a href="https://github.com/yaohaixiao/dom.js">View on GitHub</a> ·
 <a href="https://github.com/yaohaixiao/dom.js/issues">Issues</a></p></footer></main></div><script src="js/dom.min.js" type="text/javascript"></script><script src="js/docs.min.js" type="text/javascript"></script></body></html>
