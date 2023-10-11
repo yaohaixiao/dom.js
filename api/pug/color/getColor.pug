@@ -1,0 +1,72 @@
+section.section
+  header.section__header
+    h3.section__h3 getColor(el, attr, isHex = true)
+  div.section__content
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Color
+    p getColor() 方法用来获取 DOM 元素指定的颜色值。可指定获取 16 进制色值或者 RGB 色值。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （必须）el 参数指定 DOM 节点。
+    h5.section__h4 attr
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （必须）attr 参数指定表示颜色的属性字符串：
+    pre.section__pre
+      code.section__.
+        // 只能是以下包含的颜色属性
+        [
+          'accent-color',
+          'background-color',
+          'border-color',
+          'border-bottom-color',
+          'border-left-color',
+          'border-right-color',
+          'border-top-color',
+          'color',
+          'outline-color',
+          'text-decoration-color'
+        ]
+    h5.section__h4 isHex
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Boolean
+    dl.section__dl
+      dt.section__dt Default：
+      dd.section__dd true
+    p （可选）isHex 参数指定是否为 16 进制色值:
+    ul
+      li true: （默认值） 16 进制色值；
+      li false: RGB 色值；
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p 返回表示色值的字符串。
+    pre.section__pre
+      code.section__.
+        &lt;style&gt;
+          .list {
+            background-color: rgb(255,255,255);
+            color: black;
+          }
+        &lt;/style&gt;
+
+        &lt;ul id="list" class="list"&gt;
+            &lt;li class="item about"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 getColor 单个方法
+        import getColor from '@yaohaixiao/dom.js/getColor'
+
+        const $list = DOM.byId('#list')
+
+        DOM.getColor($list, 'color', false) // 'rgb(0, 0, 0)'
+        getColor($list, 'background-color') // '#ffffff'

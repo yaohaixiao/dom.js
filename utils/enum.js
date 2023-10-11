@@ -17,6 +17,19 @@ export const KEYWORDS = {
   aqua: '0ff'
 }
 
+export const COLOR_PROPS = [
+  'accent-color',
+  'background-color',
+  'border-color',
+  'border-bottom-color',
+  'border-left-color',
+  'border-right-color',
+  'border-top-color',
+  'color',
+  'outline-color',
+  'text-decoration-color'
+]
+
 export const REG_RGB = /^rgb\((\d+)\s*,\s*(\d+)\s*,\s*(\d+)\)$/i
 export const REG_HEX = /^#?([0-9A-F]{2})([0-9A-F]{2})([0-9A-F]{2})$/i
 export const REG_HEX3 = /([0-9A-F])/gi

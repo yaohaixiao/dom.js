@@ -1,3 +1,18 @@
+# [0.4.0](https://github.com/yaohaixiao/dom.js/compare/0.3.0...0.4.0) (2023-10-11)
+
+
+### Bug Fixes
+
+* 修复 outerHeight() 和 outerWidth() 方法中设置尺寸包括 margin 的计算逻辑错误的问题； ([dfa1b0a](https://github.com/yaohaixiao/dom.js/commit/dfa1b0ae9a913f95e11d10e2f21828218d3c361e))
+
+
+### Features
+
+* 添加 find() 和 findAll() 方法； ([49dd8b3](https://github.com/yaohaixiao/dom.js/commit/49dd8b35eb034b6d3da4fde320028b2f9e33fb12))
+* 添加 toHex() 方法和 toRGB() 方法；添加 color 子模块； ([b37fb5d](https://github.com/yaohaixiao/dom.js/commit/b37fb5d0badc2a883c170005eb946e242d7f979a))
+
+
+
 # [0.3.0](https://github.com/yaohaixiao/dom.js/compare/0.2.0...0.3.0) (2023-10-10)
 
 
