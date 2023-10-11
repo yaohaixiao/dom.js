@@ -1,0 +1,41 @@
+section.section
+  header.section__header
+    h3.section__h3 toHex(val)
+  div.section__content
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Color
+    p toHex() 方法用来将指定颜色（颜色英文名称或RGB格式色值）转化成 16 进制色值。
+    h4.section__h4 Parameters
+    h5.section__h4 val
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （必须）el 参数指定指定颜色。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p 返回转化后的 16 进制色值。
+    pre.section__pre
+      code.section__.
+        &lt;style&gt;
+          .list {
+            background-color: rgb(255,255,255);
+            color: black;
+          }
+        &lt;/style&gt;
+
+        &lt;ul id="list" class="list"&gt;
+            &lt;li class="item about"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 toHex 单个方法
+        import toHex from '@yaohaixiao/dom.js/toHex'
+
+        const $list = DOM.byId('#list')
+
+        DOM.toHex(DOM.getStyle($list, 'color')) // '#000'
+        toHex(DOM.getStyle($list, 'background-color')) // '#ffffff'

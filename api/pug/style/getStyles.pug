@@ -5,25 +5,21 @@ section.section
     dl.section__dl
       dt.section__dt Category：
       dd.section__dd Style
-    p getStyles() 方法用来设置或者获取初始化时配置的 attrs 信息的。
+    p getStyles() 方法用来获取 DOM 元素 attrs 数组中指定的多个 CSS 样式值。
     h4.section__h4 Parameters
     h5.section__h4 el
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd String|HTMLElement
+      dd.section__dd HTMLElement
     p （可选）options 中的属性名称或者要配置的 attrs 信息。
     h5.section__h4 attrs
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd String|Object
-    p （可选）要设置的 prop 属性的值
+      dd.section__dd Array
+    p （可选）要获取的 CSS 样式的名称数组
     ul
       li 不传递任何参数：返回完整的 attrs 配置信息；
-      li 仅传递 prop：
-      ul
-        li String: 返回 attrs 配型信息中与 prop 对应的值；
-        li Object: 用来设置 attrs 配置信息；
-      li 同时传递 prop 和 value 参数：设置 attrs 配置信息中的某个属性值；
+      li attrs 为数组：返回 DOM 元素 attrs 数组中指定的多个 CSS 样式值
     h4.section__h4 Returns
     dl.section__dl
       dt.section__dt Type：
@@ -31,11 +27,32 @@ section.section
     p 配置信息 attrs 的属性值或者 Outline 对象。
     pre.section__pre
       code.section__code.
-        const outline = new Outline({
-           article: '#article',
-           title: 'Outline v2.0.0'
-        })
+        &lt;style&gt;
+          .list {
+            background-color: '#fff';
+            color: '#222';
+            font-size: 13px;
+          }
+        &lt;/style&gt;
 
-        outline.attrs('title') // -> 'Outline v2.0.0'
-        outline.attrs('title', '目录') // -> 设置 title 配置信息的值为 '目录'
-        outline.attrs() // -> 返回完整配置参数 attrs 信息
+        &lt;ul id="list" class="list"&gt;
+            &lt;li class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 getStyles 单个方法
+        import getStyles from '@yaohaixiao/dom.js/getStyles'
+
+        const $list = DOM.byId('#list')
+
+        // 参数非法
+        DOM.getStyles($list) // -> null
+        DOM.getStyles($list, 'display') // -> null
+        getStyles($list, []) // -> null
+
+        getStyles($list, ['background-color']) // -> {backgroundColor: '#fff'}
+        getStyles($list, ['color', 'font-size']) // -> {color: '#222', fontSize: '13px'}

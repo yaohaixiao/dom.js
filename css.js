@@ -18,7 +18,10 @@ import getStyles from './getStyles'
  * @return {Object|String}
  */
 const css = (el, attr, value) => {
-  if (!isElement(el)) {
+  if (
+    !isElement(el) ||
+    (!isString(attr) && !isObject(attr) && !isArray(attr))
+  ) {
     return null
   }
 
@@ -28,10 +31,9 @@ const css = (el, attr, value) => {
     } else {
       return getStyle(el, attr)
     }
-  } else if (isObject(attr)) {
-    if (isArray(attr)) {
-      return getStyles(el, attr)
-    }
+  } else if (isArray(attr)) {
+    return getStyles(el, attr)
+  } else {
     setStyles(el, attr)
   }
 }

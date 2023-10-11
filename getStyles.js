@@ -4,28 +4,41 @@ import isArray from './utils/types/isArray'
 import isElement from './isElement'
 
 /**
- * 获取 DOM 元素的某个 CSS 样式值
+ * 获取 DOM 元素 attrs 数组中指定的多个 CSS 样式值
  * ========================================================================
  * @param {HTMLElement} el
- * @param {Array} [attrs]
+ * @param {Array} attrs
  * @returns {*}
  */
 const getStyles = (el, attrs = []) => {
   const styles = {}
   let props = null
+  let keys
 
-  if (!isElement(el) || !isArray(attrs) || attrs.length < 1) {
+  if (
+    !isElement(el) ||
+    !isArray(attrs) ||
+    (isArray(attrs) && attrs.length < 1)
+  ) {
     return props
   }
 
   props = getComputedStyle(el)
+  keys = Object.keys(props)
 
-  attrs.forEach((attr) => {
+  /* istanbul ignore else */
+  if (attrs.length > 0) {
+    keys = attrs
+  }
+
+  keys.forEach((attr) => {
     const prop = toCamel(attr)
+    const isNumber = /\d+/g
     const value = props[prop]
 
-    if (!isUndefined(value)) {
-      styles[prop] = value
+    /* istanbul ignore else */
+    if (!isUndefined(prop) && !isNumber.test(prop) && !isUndefined(value)) {
+      styles[prop] = props[prop]
     }
   })
 

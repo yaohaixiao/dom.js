@@ -22,6 +22,7 @@ const getSiblings = (el, includeSelf = false) => {
   prev = getPreviousSiblings(el)
   list.push(...prev)
 
+  /* istanbul ignore else */
   if (includeSelf) {
     list.push(el)
   }

@@ -9,7 +9,7 @@ import getSiblings from './getSiblings'
  * @param {Boolean} [includeSelf]
  * @return {Array}
  */
-const siblings = (el, includeSelf = false) => {
+const siblings = (el, includeSelf) => {
   return getSiblings(el, includeSelf)
 }
 
