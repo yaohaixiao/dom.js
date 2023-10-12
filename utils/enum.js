@@ -30,6 +30,17 @@ export const COLOR_PROPS = [
   'text-decoration-color'
 ]
 
+export const FROM_ELEMENT_TAGS = [
+  'input',
+  'textarea',
+  'checkbox',
+  'radio',
+  'select',
+  'datalist',
+  'option',
+  'output'
+]
+
 export const REG_RGB = /^rgb\((\d+)\s*,\s*(\d+)\s*,\s*(\d+)\)$/i
 export const REG_HEX = /^#?([0-9A-F]{2})([0-9A-F]{2})([0-9A-F]{2})$/i
 export const REG_HEX3 = /([0-9A-F])/gi

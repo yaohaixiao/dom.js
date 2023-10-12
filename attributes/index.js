@@ -5,6 +5,8 @@ import removeAttribute from '../removeAttribute'
 import getAttributes from '../getAttributes'
 import setAttributes from '../setAttributes'
 import removeAttributes from '../removeAttributes'
+import getValue from '../getValue'
+import setValue from '../setValue'
 import hasClass from '../hasClass'
 import addClass from '../addClass'
 import replaceClass from '../replaceClass'
@@ -12,6 +14,7 @@ import removeClass from '../removeClass'
 import toggleClass from '../toggleClass'
 import html from '../html'
 import text from '../text'
+import val from '../val'
 
 const DOM = {
   getAttribute,
@@ -20,6 +23,8 @@ const DOM = {
   getAttributes,
   setAttributes,
   removeAttributes,
+  getValue,
+  setValue,
   hasClass,
   addClass,
   replaceClass,
@@ -27,7 +32,8 @@ const DOM = {
   toggleClass,
   attrs,
   html,
-  text
+  text,
+  val
 }
 
 export default DOM

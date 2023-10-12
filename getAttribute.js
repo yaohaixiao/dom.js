@@ -1,5 +1,6 @@
 import isElement from './isElement'
 import isString from './utils/types/isString'
+import { FROM_ELEMENT_TAGS } from './utils/enum'
 
 /**
  * 获取 DOM 元素的某个 HTML 属性的值
@@ -26,7 +27,7 @@ const getAttribute = (el, attr) => {
     case 'style':
       return el.style.cssText
     case 'value':
-      if (tagName === 'input' || tagName === 'textarea') {
+      if (FROM_ELEMENT_TAGS.indexOf(tagName) > -1) {
         return el.value
       } else {
         return el.getAttribute(attr)
