@@ -9,13 +9,13 @@ import outerWidth from './outerWidth'
  * ========================================================================
  * @method sizes
  * @param {HTMLElement} el
- * @return {Object|Null}
+ * @return {Object|Boolean}
  */
 const sizes = (el) => {
   const elSizes = _getElementSizes(el)
 
   if (!elSizes) {
-    return null
+    return false
   }
 
   return {

@@ -23,8 +23,8 @@ describe('text() 方法', () => {
     '  </li>\n' +
     '</ul>'
 
-  it(`text() 不传递参数，返回：null`, () => {
-    expect(text()).toBe(null)
+  it(`text() 不传递参数，返回：false`, () => {
+    expect(text()).toBe(false)
   })
 
   it(`text($text) 获取 $text 节点的文本内容，返回：'Home'`, () => {

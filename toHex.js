@@ -4,6 +4,7 @@ import { KEYWORDS, REG_RGB, REG_HEX3 } from './utils/enum'
  * 返回将指定颜色（颜色英文名称或RGB格式色值）转化成 16 进制色值
  * ========================================================================
  * @method toHex
+ * @since 0.4.0
  * @param {String} color
  * @return {String|Boolean}
  */

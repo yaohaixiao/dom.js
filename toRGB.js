@@ -5,8 +5,9 @@ import { REG_RGB, REG_HEX } from './utils/enum'
  * 返回将指定颜色（16 进制色值）转化成 RGB 色值
  * ========================================================================
  * @method toRGB
+ * @since 0.4.0
  * @param {String} color
- * @return {String|*}
+ * @return {String|Boolean}
  */
 const toRGB = (color) => {
   let matches = []

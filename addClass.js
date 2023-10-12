@@ -9,7 +9,6 @@ import hasClass from './hasClass'
  * @see https://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList/add
  * @param {HTMLElement} el - DOM 节点
  * @param {String} className - 样式名称
- * @returns {Boolean}
  */
 const addClass = (el, className) => {
   let classList

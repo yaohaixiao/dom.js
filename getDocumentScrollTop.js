@@ -3,7 +3,7 @@
  * ========================================================================
  * @method getDocumentScrollTop
  * @param {Document} [doc]
- * @return {number}
+ * @return {Number}
  */
 const getDocumentScrollTop = (doc = document) => {
   const $document = doc

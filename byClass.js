@@ -9,7 +9,7 @@ import isElement from './isElement'
  * @see https://developer.mozilla.org/zh-CN/docs/Web/API/Document/querySelectorAll
  * @param {String} className
  * @param {HTMLElement} [el]
- * @return {NodeListOf<Element>}
+ * @return {NodeListOf<Element>|null}
  */
 const byClass = (className, el) => {
   let selector

@@ -7,7 +7,7 @@ import getOffsetTop from './getOffsetTop'
  * ========================================================================
  * @method getOffset
  * @param {HTMLElement} el - DOM 节点
- * @returns {{top: Number, left: Number, width: (*|number|number), height: number}|null}
+ * @returns {Object|null}
  */
 const getOffset = (el) => {
   let top

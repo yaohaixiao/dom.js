@@ -1,7 +1,7 @@
 /**
  * ========================================================================
  * @method getViewportWidth
- * @return {number}
+ * @return {Number}
  */
 const getViewportWidth = () => {
   return Math.max(document.documentElement.clientWidth, window.innerWidth)

@@ -37,15 +37,15 @@ describe('removeAttributes() 方法', () => {
     expect(getAttributes($list)).toEqual({"class": "list", "id": "list"})
 
     removeAttributes($list, ['className'])
-    expect(getAttributes($list)).toEqual({"id": "list"})
+    expect(getAttributes($list, ['id'])).toEqual({"id": "list"})
   })
 
   it(`removeAttributes($list) 移除全部 HTML 属性，然后 getAttributes($list)，返回： {}`, () => {
     const $list = byId('#list')
 
-    expect(getAttributes($list)).toEqual({"id": "list"})
+    expect(getAttributes($list, ['id'])).toEqual({"id": "list"})
 
     removeAttributes($list)
-    expect(getAttributes($list)).toEqual({})
+    expect(getAttributes($list, ['id'])).toEqual({})
   })
 })

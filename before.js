@@ -9,7 +9,7 @@ import insertHTMLBeforeBegin from './insertHTMLBeforeBegin'
  * @method after
  * @param {HTMLElement|String} el
  * @param {HTMLElement} reference
- * @return {boolean}
+ * @return {Element|Boolean}
  */
 const before = (el, reference) => {
   if (!isElement(reference)) {
@@ -17,9 +17,9 @@ const before = (el, reference) => {
   }
 
   if (isElement(el)) {
-    insertBefore(el, reference)
+    return insertBefore(el, reference)
   } else if (isHTML(el)) {
-    insertHTMLBeforeBegin(reference, el)
+    return insertHTMLBeforeBegin(reference, el)
   }
 }
 

@@ -3,7 +3,7 @@
  * ========================================================================
  * @method getHostOrParent
  * @param {*|HTMLElement} el - （必须）要获取父节点的 DOM 元素
- * @returns {*|HTMLElement}
+ * @returns {HTMLElement|*}
  */
 const getHostOrParent = (el) => {
   return el.host && el !== document && el.host.nodeType

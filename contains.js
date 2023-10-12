@@ -9,7 +9,7 @@ import getEl from './getEl'
  * @method contains
  * @param {HTMLElement|String} el
  * @param {HTMLElement} ancestor
- * @return {boolean}
+ * @return {Boolean}
  */
 const contains = (el, ancestor) => {
   if (!isElement(ancestor) || (!isElement(el) && !isString(el))) {

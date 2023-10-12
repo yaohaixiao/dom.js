@@ -3,7 +3,7 @@ import getViewportWidth from './getViewportWidth'
 /**
  * ========================================================================
  * @method getDocumentWidth
- * @return {number}
+ * @return {Number}
  */
 const getDocumentWidth = () => {
   const scrollWidth =

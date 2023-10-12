@@ -10,7 +10,7 @@ import getNextSibling from './getNextSibling'
  * @see https://developer.mozilla.org/zh-CN/docs/Web/API/Node/insertBefore
  * @param {Element} el
  * @param {HTMLElement} reference
- * @return {Element|null}
+ * @return {HTMLElement|null}
  */
 const insertAfter = (el, reference) => {
   let $parent

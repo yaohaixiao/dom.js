@@ -8,7 +8,7 @@ import getNextSibling from './getNextSibling'
  * @method getNextSiblingBy
  * @param {HTMLElement} el
  * @param {Function|String} filter
- * @return {Element|null}
+ * @return {HTMLElement|null}
  */
 const getNextSiblingBy = (el, filter) => {
   let $el = isElement(el) ? el : null

@@ -1,3 +1,4 @@
+import isArray from './utils/types/isArray'
 import isElement from './isElement'
 import removeAttribute from './removeAttribute'
 
@@ -5,16 +6,17 @@ import removeAttribute from './removeAttribute'
  * 移除 DOM 元素的 DOM 属性值
  * ========================================================================
  * @method removeAttributes
- * @param el
- * @param attrs
- * @return {boolean}
+ * @param {HTMLElement} el
+ * @param {Array} attrs
  */
 const removeAttributes = (el, attrs) => {
-  let props = attrs
+  let props = []
 
-  if (!isElement(el)) {
+  if (!isElement(el) || isArray(attrs)) {
     return false
   }
+
+  props = attrs
 
   if (!props) {
     props = el.getAttributeNames()

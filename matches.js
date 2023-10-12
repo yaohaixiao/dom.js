@@ -9,7 +9,7 @@
  * @see https://developer.mozilla.org/en-US/docs/web/api/element/matches
  * @param {HTMLElement} el - （必须）DOM 元素
  * @param {String} selector - （必须）匹配 DOM 元素的选择器
- * @returns {Boolean|HTMLElement}
+ * @returns {HTMLElement|Boolean}
  */
 const matches = (el, selector = '') => {
   const sel = selector.replace(/^>/i, '')

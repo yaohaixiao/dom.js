@@ -24,8 +24,8 @@ describe('getAttributes() 方法', () => {
     '</ul>\n' +
     '<label for="user" class="label">用户名：</label><input type="text" name="user" id="user" value="Robert" />'
 
-  it(`getAttributes() 不传递 el 参数，返回： null`, () => {
-    expect(getAttributes()).toBe(null)
+  it(`getAttributes() 不传递 el 参数，返回： false`, () => {
+    expect(getAttributes()).toBe(false)
   })
 
   it(`getAttributes($list) 获取 $list 节点所有属性，返回： {"class": "list", "id": "list"}`, () => {

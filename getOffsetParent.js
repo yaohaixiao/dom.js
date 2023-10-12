@@ -7,7 +7,7 @@ import isElement from './isElement'
  * @method getOffsetParent
  * @see https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetParent
  * @param {HTMLElement} el
- * @return {Element|null}
+ * @return {HTMLElement|null}
  */
 const getOffsetParent = (el) => {
   if (!isElement(el)) {

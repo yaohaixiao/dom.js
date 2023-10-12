@@ -8,7 +8,7 @@ import offset from './offset'
  * ========================================================================
  * @method _getElementSizes
  * @param {HTMLElement} el
- * @return {{paddingRight: (*|number|string), offsetWidth: (*|number), borderTop: (*|number|string), marginLeft: (*|number|string), marginRight: (*|number|string), borderLeft: (*|number|string), rect: DOMRect, paddingBottom: (*|number|string), borderRight: (*|number|string), offsetHeight: number, marginBottom: (*|number|string), paddingTop: (*|number|string), borderBottom: (*|number|string), paddingLeft: (*|number|string), marginTop: (*|number|string)}|null}
+ * @return {Object|null}
  * @private
  */
 const _getElementSizes = (el) => {

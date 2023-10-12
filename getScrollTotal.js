@@ -6,7 +6,7 @@ import getScrollTotalTop from './getScrollTotalTop'
  * ========================================================================
  * @method getScrollTotal
  * @param {HTMLElement|Window} [el]
- * @return {{top: (*[]|*[]|*), left: (*[]|*[]|*)}}
+ * @return {Object}
  */
 const getScrollTotal = (el = window) => {
   return {

@@ -11,7 +11,7 @@ import offset from './offset'
  * @method width
  * @param {HTMLElement} el
  * @param {Number|String} [val]
- * @return {*|number|boolean}
+ * @return {Number|*}
  */
 const width = (el, val) => {
   let value

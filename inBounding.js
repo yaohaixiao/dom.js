@@ -6,7 +6,7 @@ import isElement from './isElement'
  * @method inBounding
  * @param {HTMLElement} child
  * @param {HTMLElement} parent
- * @return {boolean}
+ * @return {Boolean}
  */
 const inBounding = (child, parent) => {
   let parentRect

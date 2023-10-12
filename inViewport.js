@@ -3,10 +3,11 @@ import getViewportHeight from './getViewportHeight'
 import getViewportWidth from './getViewportWidth'
 
 /**
+ * 检测 DOM 元素是否在当前视口内可见
  * ========================================================================
  * @method inViewport
- * @param el
- * @return {boolean}
+ * @param {HTMLElement} el
+ * @return {Boolean}
  */
 const inViewport = (el) => {
   let rect

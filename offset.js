@@ -2,11 +2,12 @@ import isElement from './isElement'
 import getOffset from './getOffset'
 
 /**
+ * 获取 DOM 节点相对于窗口的 left 和 top 值
  * ========================================================================
  * @method offset
  * @alias getOffset
  * @param el
- * @return {{top: Number, left: Number, width: (*|number), height: number}|null}
+ * @return {Object}
  */
 const offset = (el) => {
   if (!isElement(el)) {

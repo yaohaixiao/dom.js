@@ -3,7 +3,7 @@
  * ========================================================================
  * @method getDocumentScrollLeft
  * @param {Document} [doc]
- * @return {number}
+ * @return {Number}
  */
 const getDocumentScrollLeft = (doc = document) => {
   const $document = doc

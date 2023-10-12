@@ -1,16 +1,18 @@
 import isElement from './isElement'
+import isString from './utils/types/isString'
 
 /**
+ * 获取 DOM 元素的某个 HTML 属性的值
  * ========================================================================
  * @method getAttribute
- * @param el
- * @param attr
- * @return {*|string|string|string|boolean}
+ * @param {HTMLElement} el
+ * @param {String} attr
+ * @return {String|Boolean}
  */
 const getAttribute = (el, attr) => {
   let tagName
 
-  if (!isElement(el) || !attr) {
+  if (!isElement(el) || !isString(attr)) {
     return false
   }
 

@@ -8,7 +8,6 @@ import inDocument from './inDocument'
  * @method canPosition
  * @param {HTMLElement} el
  * @return {Boolean}
- * @private
  */
 const canPosition = (el) => {
   if (!isElement(el)) {

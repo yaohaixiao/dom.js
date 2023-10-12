@@ -8,7 +8,7 @@ import isElement from './isElement'
  * @param {String} selector
  * @param {HTMLElement|Boolean} [el]
  * @param {Boolean} [multiple]
- * @return {NodeListOf<*>|*}
+ * @return {NodeListOf<*>|HTMLElement|*}
  */
 const getEl = (selector, el, multiple = false) => {
   const $el = isElement(el) ? el : document

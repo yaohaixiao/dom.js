@@ -8,11 +8,11 @@ import isElement from './isElement'
  * @see https://developer.mozilla.org/zh-CN/docs/Web/API/Node/textContent
  * @param {HTMLElement|String} el
  * @param {String} [str]
- * @return {*|Text}
+ * @return {Text|*}
  */
 const text = (el, str) => {
   if (!el || (!isString(el) && !isElement(el))) {
-    return null
+    return false
   }
 
   if (isString(el)) {

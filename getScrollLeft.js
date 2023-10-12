@@ -5,7 +5,7 @@ import getDocumentScrollLeft from './getDocumentScrollLeft'
  * ========================================================================
  * @method getScrollLeft
  * @param {HTMLElement|Object|Window} [el]
- * @return {number|number}
+ * @return {Number}
  */
 const getScrollLeft = (el = window) => {
   if (el === document) {

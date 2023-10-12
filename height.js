@@ -11,7 +11,7 @@ import offset from './offset'
  * @method height
  * @param {HTMLElement} el
  * @param {String|Number} [val]
- * @return {number|boolean}
+ * @return {Number|*}
  */
 const height = (el, val) => {
   let value

@@ -12,7 +12,7 @@ import setStyle from './setStyle'
  * @method innerHeight
  * @param {HTMLElement} el
  * @param {Number|Function} [val]
- * @return {number|*|boolean}
+ * @return {Number|*}
  */
 const innerWidth = (el, val) => {
   let width

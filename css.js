@@ -15,7 +15,7 @@ import getStyles from './getStyles'
  * @param {HTMLElement} el
  * @param {String|Object|Array} attr
  * @param {String} [value]
- * @return {Object|String}
+ * @return {Object|String|*}
  */
 const css = (el, attr, value) => {
   if (

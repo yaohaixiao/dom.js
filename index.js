@@ -10,7 +10,7 @@ import getEl from './getEl'
  * @method index
  * @param {HTMLElement|String} el
  * @param {HTMLElement} [ancestor]
- * @return {number}
+ * @return {Number}
  */
 const index = function (el, ancestor) {
   /**

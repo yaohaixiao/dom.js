@@ -13,7 +13,7 @@ import setStyle from './setStyle'
  * @param {HTMLElement} el
  * @param {Number|String|Function|Boolean} [val]
  * @param {Boolean} [includeMargin]
- * @return {number|*|boolean}
+ * @return {Number|*}
  */
 const outerWidth = (el, val, includeMargin = false) => {
   let width

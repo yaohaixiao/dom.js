@@ -8,7 +8,7 @@ import isElement from './isElement'
  * @see https://developer.mozilla.org/zh-CN/docs/Web/API/Document/querySelector
  * @param {String} id
  * @param {HTMLElement} [el]
- * @return {Element}
+ * @return {HTMLElement}
  */
 const byId = (id, el) => {
   let selector

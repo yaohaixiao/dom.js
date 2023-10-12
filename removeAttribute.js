@@ -8,7 +8,6 @@ import isElement from './isElement'
  * @see https://developer.mozilla.org/zh-CN/docs/Web/API/Element/removeAttribute
  * @param {HTMLElement} el
  * @param {String} attr
- * @return {boolean}
  */
 const removeAttribute = (el, attr) => {
   let tagName

@@ -8,7 +8,7 @@ import isElement from './isElement'
  * ========================================================================
  * @param {HTMLElement} el
  * @param {Array} attrs
- * @returns {*}
+ * @returns {Object|null}
  */
 const getStyles = (el, attrs = []) => {
   const styles = {}

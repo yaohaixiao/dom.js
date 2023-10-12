@@ -10,7 +10,7 @@ import getHostOrParent from './getHostOrParent'
  * @method parent
  * @param {HTMLElement|Text} el
  * @param {String} [type]
- * @return {*|null}
+ * @return {null|*}
  */
 const parent = (el, type) => {
   let $parent = null

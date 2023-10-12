@@ -8,7 +8,7 @@ import getPreviousSibling from './getPreviousSibling'
  * @method getPreviousSiblingBy
  * @param {HTMLElement} el
  * @param {Function|String} filter
- * @return {Element|null}
+ * @return {HTMLElement|null}
  */
 const getPreviousSiblingBy = (el, filter) => {
   let $el = isElement(el) ? el : null

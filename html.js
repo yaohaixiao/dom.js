@@ -10,7 +10,7 @@ import createElement from './createElement'
  * @method html
  * @param {HTMLElement|String} el
  * @param {String} [strHTML]
- * @return {DocumentFragment|*|null}
+ * @return {DocumentFragment|null|*}
  */
 const html = (el, strHTML) => {
   const $fragment = document.createDocumentFragment()

@@ -8,7 +8,7 @@ import canPosition from './canPosition'
  * ========================================================================
  * @method positions
  * @param {HTMLElement} el
- * @return {{top: Number, left: Number}|boolean}
+ * @return {Object|Boolean}
  */
 const positions = (el) => {
   let offset

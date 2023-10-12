@@ -7,7 +7,7 @@ import siblings from './siblings'
  * @method childern
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Element/firstElementChild
  * @param {HTMLElement} el
- * @return {*[]}
+ * @return {Array}
  */
 const children = (el) => {
   if (!isElement(el)) {

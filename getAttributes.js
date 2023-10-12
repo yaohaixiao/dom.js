@@ -8,14 +8,14 @@ import getAttribute from './getAttribute'
  * @method getAttributes
  * @param {HTMLElement} el
  * @param {Array} [props]
- * @return {Object|null}
+ * @return {Object|Boolean}
  */
 const getAttributes = (el, props = []) => {
   const attrs = {}
   let keys = [...props]
 
   if (!isElement(el)) {
-    return null
+    return false
   }
 
   if (!isArray(keys) || keys.length < 1) {

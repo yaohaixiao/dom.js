@@ -10,7 +10,6 @@ import hasClass from './hasClass'
  * @param {HTMLElement} el - 要替换样式的 DOM 节点
  * @param {String} oldCls - 要替换的目标样式名称
  * @param {String} newCls - 新的样式名称
- * @returns {*}
  */
 const replaceClass = (el, oldCls, newCls) => {
   let allClass

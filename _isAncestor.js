@@ -4,7 +4,7 @@
  * @method _isAncestor
  * @param {HTMLElement} ancestor
  * @param {HTMLElement} descendent
- * @return {boolean}
+ * @return {Boolean}
  * @private
  */
 const _isAncestor = (ancestor, descendent) => {

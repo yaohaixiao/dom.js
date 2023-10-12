@@ -8,7 +8,7 @@ import setProperty from './setProperty'
  * @method prop
  * @param {String} prop
  * @param {String} [value]
- * @return {String|void}
+ * @return {String|*}
  */
 const prop = (prop, value) => {
   if (!isUndefined(value)) {

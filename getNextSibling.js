@@ -6,7 +6,7 @@ import isElement from './isElement'
  * @method getNextSibling
  * @see https://developer.mozilla.org/zh-CN/docs/Web/API/Element/nextElementSibling
  * @param {HTMLElement} el
- * @return {Element|null}
+ * @return {HTMLElement|null}
  */
 const getNextSibling = (el) => {
   return isElement(el) ? el.nextElementSibling : null

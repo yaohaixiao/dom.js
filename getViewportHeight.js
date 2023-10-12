@@ -1,7 +1,7 @@
 /**
  * ========================================================================
  * @method getViewportHeight
- * @return {number}
+ * @return {Number}
  */
 const getViewportHeight = () => {
   return Math.max(document.documentElement.clientHeight, window.innerHeight)
