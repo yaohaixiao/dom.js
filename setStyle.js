@@ -6,11 +6,10 @@ import isElement from './isElement'
 /**
  * 给 DOM 元素添加 CSS 样式
  * ========================================================================
- * @method getStyle
+ * @method setStyle
  * @param {HTMLElement} el
  * @param {String} attr
  * @param {String} val
- * @return {boolean}
  */
 const setStyle = (el, attr, val) => {
   let prop

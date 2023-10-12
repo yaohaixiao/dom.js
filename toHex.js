@@ -5,14 +5,21 @@ import { KEYWORDS, REG_RGB, REG_HEX3 } from './utils/enum'
  * ========================================================================
  * @method toHex
  * @param {String} color
- * @return {String}
+ * @return {String|Boolean}
  */
 const toHex = (color) => {
-  let hex = KEYWORDS[color] || color
-  let matches = REG_RGB.exec(hex)
+  let hex
+  let matches
   let r
   let g
   let b
+
+  if (!color) {
+    return false
+  }
+
+  hex = KEYWORDS[color] || color
+  matches = REG_RGB.exec(hex)
 
   if (matches) {
     r = matches[1]?.length === 1 ? '0' + matches[1] : Number(matches[1])

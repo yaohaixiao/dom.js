@@ -3,15 +3,16 @@ import getProperty from './getProperty'
 import setProperty from './setProperty'
 
 /**
+ * 设置或获取 CSS 样式变量
  * ========================================================================
  * @method prop
- * @param prop
- * @param value
+ * @param {String} prop
+ * @param {String} [value]
  * @return {String|void}
  */
 const prop = (prop, value) => {
   if (!isUndefined(value)) {
-    return setProperty(prop, value)
+    setProperty(prop, value)
   } else {
     return getProperty(prop)
   }

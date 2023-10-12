@@ -5,7 +5,7 @@ import setStyles from '@/setStyles'
 import getStyles from '@/getStyles'
 import byId from '@/byId'
 import toRGB from '@/toRGB'
-import getColor from '../../getColor'
+import getColor from '@/getColor'
 
 describe('setStyles() 方法', () => {
   // Set up our document body

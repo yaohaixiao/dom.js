@@ -3,10 +3,10 @@ import getStyle from './getStyle'
 import setStyle from './setStyle'
 
 /**
+ * 隐藏或者显示指定 DOM 元素
  * ========================================================================
- * @method
- * @param el
- * @return {boolean}
+ * @method toggle
+ * @param {HTMLElement} el
  */
 const toggle = (el) => {
   if (!isElement(el)) {

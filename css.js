@@ -22,7 +22,7 @@ const css = (el, attr, value) => {
     !isElement(el) ||
     (!isString(attr) && !isObject(attr) && !isArray(attr))
   ) {
-    return null
+    return false
   }
 
   if (isString(attr)) {

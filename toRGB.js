@@ -6,11 +6,15 @@ import { REG_RGB, REG_HEX } from './utils/enum'
  * ========================================================================
  * @method toRGB
  * @param {String} color
- * @return {String}
+ * @return {String|*}
  */
 const toRGB = (color) => {
   let matches = []
   let rgb = color
+
+  if (!color) {
+    return false
+  }
 
   if (!REG_RGB.test(rgb)) {
     rgb = toHex(rgb)

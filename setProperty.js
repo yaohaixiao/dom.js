@@ -1,3 +1,5 @@
+import isString from './utils/types/isString'
+
 /**
  * 为一个声明了 CSS 样式的对象设置一个新的值。
  * ========================================================================
@@ -8,6 +10,11 @@
  */
 const setProperty = (prop, value) => {
   const documentElement = document.documentElement
+
+  if (!isString(prop) || !isString(value)) {
+    return false
+  }
+
   documentElement.style.setProperty(prop, value)
 }
 

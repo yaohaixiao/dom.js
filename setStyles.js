@@ -9,7 +9,6 @@ import isElement from './isElement'
  * @see https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/cssText
  * @param {HTMLElement} el
  * @param {Object|String} styles
- * @returns {Boolean}
  */
 const setStyles = (el, styles) => {
   let rules = ''
