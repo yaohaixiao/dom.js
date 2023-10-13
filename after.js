@@ -1,4 +1,5 @@
 import isHTML from './utils/types/isHTML'
+import isDOM from './isDOM'
 import isElement from './isElement'
 import insertAfter from './insertAfter'
 import insertHTMLAfterEnd from './insertHTMLAfterEnd'
@@ -12,11 +13,11 @@ import insertHTMLAfterEnd from './insertHTMLAfterEnd'
  * @return {Element|null}
  */
 const after = (el, reference) => {
-  if (!isElement(reference) || (!isElement(el) && !isHTML(el))) {
+  if (!isElement(reference) || (!isDOM(el) && !isHTML(el))) {
     return null
   }
 
-  if (isElement(el)) {
+  if (isDOM(el)) {
     return insertAfter(el, reference)
   } else {
     return insertHTMLAfterEnd(reference, el)

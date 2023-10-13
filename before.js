@@ -1,4 +1,5 @@
 import isHTML from './utils/types/isHTML'
+import isDOM from './isDOM'
 import isElement from './isElement'
 import insertBefore from './insertBefore'
 import insertHTMLBeforeBegin from './insertHTMLBeforeBegin'
@@ -12,13 +13,13 @@ import insertHTMLBeforeBegin from './insertHTMLBeforeBegin'
  * @return {Element|Boolean}
  */
 const before = (el, reference) => {
-  if (!isElement(reference)) {
+  if (!isElement(reference) || (!isDOM(el) && !isHTML(el))) {
     return false
   }
 
-  if (isElement(el)) {
+  if (isDOM(el)) {
     return insertBefore(el, reference)
-  } else if (isHTML(el)) {
+  } else {
     return insertHTMLBeforeBegin(reference, el)
   }
 }

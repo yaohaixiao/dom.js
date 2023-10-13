@@ -1,0 +1,60 @@
+section.section
+  header.section__header
+    h3.section__h3 setValue(el, val)
+  div.section__content
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Attributes
+    dl.section__dl
+      dt.section__dt Since：
+      dd.section__dd 0.5.0
+    p getValue() 方法用来给 DOM （表单）元素设置 value 属性值。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    h5.section__h4 val
+      dl.section__dl
+        dt.section__dt Type：
+        dd.section__dd String|Number|Boolean
+    p （必须）val 参数指定属性值。
+    h4.section__h4 Usage
+    pre.section__pre
+      code.section__code.
+        &lt;label for="user" class="label"&gt;用户名：&lt;/label&gt;&lt;input type="text" name="user" id="user" value="Robert" /&gt;
+        &lt;label for="group" class="label"&gt;部门：&lt;/label&gt;
+        &lt;select id="group" name="group" class="select"&gt;
+          &lt;option value="全部"&gt;全部&lt;/option&gt;
+          &lt;option value="开发云" selected&gt;开发云&lt;/option&gt;
+          &lt;option id="option" value="建模"&gt;建模&lt;/option&gt;
+          &lt;option value="售楼"&gt;售楼&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;label for="desc" class="label"&gt;备注：&lt;/label&gt;&lt;textarea name="desc" id="desc"&gt;前端工程师&lt;/textarea&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 getValue 单个方法
+        import getValue from '@yaohaixiao/dom.js/getValue'
+
+        const $user = byId('#user')
+        const $group = byId('#group')
+        const $option = byId('#option')
+        const $desc = byId('#desc')
+
+        DOM.getValue($user) // -> 'Robert'
+        DOM.setValue($user, 'Yaohaixiao')
+        DOM.getValue($user) // -> 'Yaohaixiao'
+
+
+        DOM.getValue($group) // -> '开发云'
+        setValue($group, '建模')
+        DOM.getValue($group) // -> '建模'
+
+        getValue($option) // -> '建模'
+        setValue($option, '成本')
+        DOM.getValue($group) // -> '成本'
+
+        DOM.getValue($desc) // -> '前端工程师'
+        setValue($desc, '软件工程师')
+        DOM.getValue($desc) // -> '软件工程师'

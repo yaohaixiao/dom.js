@@ -18,6 +18,7 @@ const removeAttributes = (el, attrs) => {
 
   props = attrs
 
+  /* istanbul ignore else */
   if (!props) {
     props = el.getAttributeNames()
   }

@@ -227,7 +227,66 @@ const $list = byId('#list')
 // 效果相同 removeAttributes(el)
 DOM.removeAttributes($list, ['id', 'class'])
 DOM.getAttribute($list, 'id') // -> null
-DOM.getAttribute($list, 'class') // -> null</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">attrs(el[, attr, value])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Attributes</dd></dl><p>attrs() 方法用来设置或者获取 DOM 元素的（一个或多个） DOM 属性值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">attrs</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|Array|Object</dd></dl><p>（可选）attrs 参数指定属性名称。</p><h5 class="section__h4">value</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（可选）value 参数指定属性值。</p><p>attrs() 方法的参数配置有以下几种场景：</p><ol><li>仅传递 el 参数：用于获取 el 元素上的所有 DOM 属性；</li><li>传递了 attr 参数<ol><li>attr 参数为 String 类型<ol><li>传递了 value 参数：用于给 el 元素设置（单个） DOM 属性；</li><li>未传递 value 参数：用于获取 el 元素的（单个）DOM 属性值；</li></ol></li><li>未传递 value 参数<ol><li>attr 参数为 Array 类型：用于获取 el 元素的多个 DOM 属性/值；</li><li>attr 参数为 Object 类型：用于给 el 元素设置多个 DOM 属性/值；</li></ol></li></ol></li></ol><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>返回获取的单个或者多个 DOM 属性。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+DOM.getAttribute($list, 'class') // -> null</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getValue(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Attributes</dd></dl><dl class="section__dl"><dt class="section__dt">Since：</dt><dd class="section__dd">0.5.0</dd></dl><p>getValue() 方法用来获取 DOM （表单）元素的 value 属性值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>返回指定的属性值。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;label for="user" class="label"&gt;用户名：&lt;/label&gt;&lt;input type="text" name="user" id="user" value="Robert" /&gt;
+&lt;label for="group" class="label"&gt;部门：&lt;/label&gt;
+&lt;select id="group" name="group" class="select"&gt;
+  &lt;option value="全部"&gt;全部&lt;/option&gt;
+  &lt;option value="开发云" selected&gt;开发云&lt;/option&gt;
+  &lt;option id="option" value="建模"&gt;建模&lt;/option&gt;
+  &lt;option value="售楼"&gt;售楼&lt;/option&gt;
+&lt;/select&gt;
+&lt;label for="desc" class="label"&gt;备注：&lt;/label&gt;&lt;textarea name="desc" id="desc"&gt;前端工程师&lt;/textarea&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 setValue 单个方法
+import setValue from '@yaohaixiao/dom.js/setValue'
+
+const $user = byId('#user')
+const $group = byId('#group')
+const $option = byId('#option')
+const $desc = byId('#desc')
+
+DOM.getValue($user) // -> 'Robert'
+DOM.getValue($group) // -> '开发云'
+
+getValue($option) // -> '开发云'
+getValue($desc) // -> '前端工程师'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">setValue(el, val)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Attributes</dd></dl><dl class="section__dl"><dt class="section__dt">Since：</dt><dd class="section__dd">0.5.0</dd></dl><p>getValue() 方法用来给 DOM （表单）元素设置 value 属性值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><h5 class="section__h4">val<dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|Number|Boolean</dd></dl></h5><p>（必须）val 参数指定属性值。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;label for="user" class="label"&gt;用户名：&lt;/label&gt;&lt;input type="text" name="user" id="user" value="Robert" /&gt;
+&lt;label for="group" class="label"&gt;部门：&lt;/label&gt;
+&lt;select id="group" name="group" class="select"&gt;
+  &lt;option value="全部"&gt;全部&lt;/option&gt;
+  &lt;option value="开发云" selected&gt;开发云&lt;/option&gt;
+  &lt;option id="option" value="建模"&gt;建模&lt;/option&gt;
+  &lt;option value="售楼"&gt;售楼&lt;/option&gt;
+&lt;/select&gt;
+&lt;label for="desc" class="label"&gt;备注：&lt;/label&gt;&lt;textarea name="desc" id="desc"&gt;前端工程师&lt;/textarea&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getValue 单个方法
+import getValue from '@yaohaixiao/dom.js/getValue'
+
+const $user = byId('#user')
+const $group = byId('#group')
+const $option = byId('#option')
+const $desc = byId('#desc')
+
+DOM.getValue($user) // -> 'Robert'
+DOM.setValue($user, 'Yaohaixiao')
+DOM.getValue($user) // -> 'Yaohaixiao'
+
+
+DOM.getValue($group) // -> '开发云'
+setValue($group, '建模')
+DOM.getValue($group) // -> '建模'
+
+getValue($option) // -> '建模'
+setValue($option, '成本')
+DOM.getValue($group) // -> '成本'
+
+DOM.getValue($desc) // -> '前端工程师'
+setValue($desc, '软件工程师')
+DOM.getValue($desc) // -> '软件工程师'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">attrs(el[, attr, value])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Attributes</dd></dl><p>attrs() 方法用来设置或者获取 DOM 元素的（一个或多个） DOM 属性值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">attrs</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|Array|Object</dd></dl><p>（可选）attrs 参数指定属性名称。</p><h5 class="section__h4">value</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（可选）value 参数指定属性值。</p><p>attrs() 方法的参数配置有以下几种场景：</p><ol><li>仅传递 el 参数：用于获取 el 元素上的所有 DOM 属性；</li><li>传递了 attr 参数<ol><li>attr 参数为 String 类型<ol><li>传递了 value 参数：用于给 el 元素设置（单个） DOM 属性；</li><li>未传递 value 参数：用于获取 el 元素的（单个）DOM 属性值；</li></ol></li><li>未传递 value 参数<ol><li>attr 参数为 Array 类型：用于获取 el 元素的多个 DOM 属性/值；</li><li>attr 参数为 Object 类型：用于给 el 元素设置多个 DOM 属性/值；</li></ol></li></ol></li></ol><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>返回获取的单个或者多个 DOM 属性。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
    &lt;li class="item active"&gt;Home&lt;/li&gt;
    &lt;li class="item"&gt;Blog&lt;/li&gt;
    &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -301,7 +360,41 @@ text($active, 'Homepage')
 const $text = test('URL')
 // 将创建的 $text 元素添加到 $active
 $active.appendChild($text)
-text($active) // -> 'HomepageURL'</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Base</h2></header><div class="section__content"><p>dom.js 提供以下方法用以创建或查询 DOM 元素等基础 DOM 操作。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">createElement(tagName[, attrs, children])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>createElement() 方法用来创建 DOM 节点，并添加属性和子节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">tagName</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）标签名称。</p><h5 class="section__h4">attrs</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object|Array|HTMLElement|DocumentFragment|String</dd></dl><ul><li>Object：要添加的 HTML 属性/值对象；</li><li>Array：添加到创建的 DOM 元素中的多个子元素的数组；</li><li>HTMLElement：添加到创建的 DOM 元素中的（单个）子元素；</li><li>DocumentFragment：添加到创建的 DOM 元素中的文档碎片；</li><li>String：添加到创建的 DOM 元素中的文本（会作为文本节点）；</li></ul><p>（可选）给创建的 DOM 元素添加的 HTML 属性/值对象或者子元素。</p><h5 class="section__h4">children</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Array|HTMLElement|DocumentFragment|String</dd></dl><ul><li>Array：添加到创建的 DOM 元素中的多个子元素的数组；</li><li>HTMLElement：添加到创建的 DOM 元素中的（单个）子元素；</li><li>DocumentFragment：添加到创建的 DOM 元素中的文档碎片；</li><li>String：添加到创建的 DOM 元素中的文本（会作为文本节点）；</li></ul><p>（可选）给创建的 DOM 元素添加的子元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回创建的 DOM 元素。</p><pre class="section__pre"><code class="section__">// 引入 DOM 模块（中的所有工具方法）
+text($active) // -> 'HomepageURL'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">val(el, value)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Attributes</dd></dl><dl class="section__dl"><dt class="section__dt">Since：</dt><dd class="section__dd">0.5.0</dd></dl><p>val() 方法用来获取或者设置 DOM （表单）元素的 value 属性值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><h5 class="section__h4">value<dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|Number|Boolean</dd></dl></h5><p>（可选）value 参数指定属性值。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>返回指定的属性值。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;label for="user" class="label"&gt;用户名：&lt;/label&gt;&lt;input type="text" name="user" id="user" value="Robert" /&gt;
+&lt;label for="group" class="label"&gt;部门：&lt;/label&gt;
+&lt;select id="group" name="group" class="select"&gt;
+  &lt;option value="全部"&gt;全部&lt;/option&gt;
+  &lt;option value="开发云" selected&gt;开发云&lt;/option&gt;
+  &lt;option id="option" value="建模"&gt;建模&lt;/option&gt;
+  &lt;option value="售楼"&gt;售楼&lt;/option&gt;
+&lt;/select&gt;
+&lt;label for="desc" class="label"&gt;备注：&lt;/label&gt;&lt;textarea name="desc" id="desc"&gt;前端工程师&lt;/textarea&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 val 单个方法
+import val from '@yaohaixiao/dom.js/val'
+
+const $user = byId('#user')
+const $group = byId('#group')
+const $option = byId('#option')
+const $desc = byId('#desc')
+
+DOM.val($user) // -> 'Robert'
+DOM.val($user, 'Yaohaixiao')
+DOM.val($user) // -> 'Yaohaixiao'
+
+val($group) // -> '开发云'
+val($group, '建模')
+val($group) // -> '建模'
+
+val($option) // -> '建模'
+val($option, '成本')
+val($group) // -> '成本'
+
+val($desc) // -> '前端工程师'
+val($desc, '软件工程师')
+val($desc) // -> '软件工程师'</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Base</h2></header><div class="section__content"><p>dom.js 提供以下方法用以创建或查询 DOM 元素等基础 DOM 操作。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">createElement(tagName[, attrs, children])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>createElement() 方法用来创建 DOM 节点，并添加属性和子节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">tagName</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）标签名称。</p><h5 class="section__h4">attrs</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object|Array|HTMLElement|DocumentFragment|String</dd></dl><ul><li>Object：要添加的 HTML 属性/值对象；</li><li>Array：添加到创建的 DOM 元素中的多个子元素的数组；</li><li>HTMLElement：添加到创建的 DOM 元素中的（单个）子元素；</li><li>DocumentFragment：添加到创建的 DOM 元素中的文档碎片；</li><li>String：添加到创建的 DOM 元素中的文本（会作为文本节点）；</li></ul><p>（可选）给创建的 DOM 元素添加的 HTML 属性/值对象或者子元素。</p><h5 class="section__h4">children</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Array|HTMLElement|DocumentFragment|String</dd></dl><ul><li>Array：添加到创建的 DOM 元素中的多个子元素的数组；</li><li>HTMLElement：添加到创建的 DOM 元素中的（单个）子元素；</li><li>DocumentFragment：添加到创建的 DOM 元素中的文档碎片；</li><li>String：添加到创建的 DOM 元素中的文本（会作为文本节点）；</li></ul><p>（可选）给创建的 DOM 元素添加的子元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回创建的 DOM 元素。</p><pre class="section__pre"><code class="section__">// 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom
 // 引用 createElement 单个方法
 import createElement from '@yaohaixiao/dom.js/createElement'
