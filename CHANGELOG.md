@@ -1,3 +1,17 @@
+# [0.5.0](https://github.com/yaohaixiao/dom.js/compare/0.4.0...0.5.0) (2023-10-13)
+
+
+### Bug Fixes
+
+* 修复 toHex() 和 toRGB() 方法，未设置 color 参数报错的问题； ([bcf0bc4](https://github.com/yaohaixiao/dom.js/commit/bcf0bc4749ac4c6e2a443960fe47789d7c62186a))
+
+
+### Features
+
+* 添加 setValue()、getValue() 和 val() 方法； ([6009c56](https://github.com/yaohaixiao/dom.js/commit/6009c56ec1610b6a14e2c68290a9f8549f29773c))
+
+
+
 # [0.4.0](https://github.com/yaohaixiao/dom.js/compare/0.3.0...0.4.0) (2023-10-11)
 
 
