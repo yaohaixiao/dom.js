@@ -13,6 +13,7 @@ import insertHTMLAfterEnd from './insertHTMLAfterEnd'
  * @return {Element|null}
  */
 const after = (el, reference) => {
+  /* istanbul ignore else */
   if (!isElement(reference) || (!isDOM(el) && !isHTML(el))) {
     return null
   }

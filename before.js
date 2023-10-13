@@ -10,11 +10,11 @@ import insertHTMLBeforeBegin from './insertHTMLBeforeBegin'
  * @method after
  * @param {HTMLElement|String} el
  * @param {HTMLElement} reference
- * @return {Element|Boolean}
+ * @return {Element|null}
  */
 const before = (el, reference) => {
   if (!isElement(reference) || (!isDOM(el) && !isHTML(el))) {
-    return false
+    return null
   }
 
   if (isDOM(el)) {
