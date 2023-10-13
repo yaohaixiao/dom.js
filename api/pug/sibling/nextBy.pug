@@ -1,11 +1,14 @@
 section.section
   header.section__header
-    h3.section__h3 getPrevSiblingBy(el, filter)
+    h3.section__h3 nextBy(el, filter)
   div.section__content
     dl.section__dl
       dt.section__dt Category：
       dd.section__dd Selecting Siblings
-    p getPrevSiblingBy() 方法用来通过过滤器获取 DOM 元素匹配的前面的邻居元素节点。
+    dl.section__dl
+      dt.section__dt Alias：
+      dd.section__dd getNextSiblingBy
+    p nextBy() 方法用来通过过滤器获取 DOM 元素匹配的后面的邻居元素节点。
     h4.section__h4 Parameters
     h5.section__h4 el
     dl.section__dl
@@ -28,18 +31,18 @@ section.section
             &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
             &lt;li class="item blog"&gt;Blog&lt;/li&gt;
             &lt;li class="item"&gt;Projects&lt;/li&gt;
-            &lt;li id="about" class="item about"&gt;About&lt;/li&gt;
+            &lt;li class="item about"&gt;About&lt;/li&gt;
         &lt;/ul&gt;
 
         // 引入 DOM 模块（中的所有工具方法）
         import DOM from '@yaohaixiao/dom.js/dom
-        // 引用 getPrevSiblingBy 单个方法
-        import getPrevSiblingBy from '@yaohaixiao/dom.js/getPrevSiblingBy'
+        // 引用 nextBy 单个方法
+        import nextBy from '@yaohaixiao/dom.js/nextBy'
 
-        const $about = DOM.byId('#home')
+        const $home = DOM.byId('#home')
 
-        DOM.getPrevSiblingBy($about, '.item.about') // -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
-        getPrevSiblingBy($about, (el) => {
-          return DOM.hasClass(el, 'blog')
+        DOM.nextBy($home, '.item.blog') // -> &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+        nextBy($home, (el) => {
+          return DOM.hasClass(el, 'about')
         })
-        // -> &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+        // -> &lt;li class="item about"&gt;About&lt;/li&gt;

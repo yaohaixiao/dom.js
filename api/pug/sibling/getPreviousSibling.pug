@@ -1,11 +1,11 @@
 section.section
   header.section__header
-    h3.section__h3 getPrevSiblings(el)
+    h3.section__h3 getPreviousSibling(el)
   div.section__content
     dl.section__dl
       dt.section__dt Category：
       dd.section__dd Selecting Siblings
-    p getPrevSiblings() 方法用来获取 DOM 元素的前面所有邻居元素节点。
+    p getPreviousSibling() 方法用来获取 DOM 元素的前一个邻居元素节点。
     h4.section__h4 Parameters
     h5.section__h4 el
     dl.section__dl
@@ -16,28 +16,25 @@ section.section
     dl.section__dl
       dt.section__dt Type：
       dd.section__dd HTMLElement
-    p 返回 DOM 元素的前面所有邻居元素节点的数组，如果没有则返回空数组。
+    p 返回 DOM 元素的前一个邻居元素节点。
     pre.section__pre
       code.section__code.
         &lt;ul id="list" class="list"&gt;
             &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
             &lt;li class="item blog"&gt;Blog&lt;/li&gt;
             &lt;li class="item"&gt;Projects&lt;/li&gt;
-            &lt;li class="item about"&gt;About&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
         &lt;/ul&gt;
 
         // 引入 DOM 模块（中的所有工具方法）
         import DOM from '@yaohaixiao/dom.js/dom
-        // 引用 getPrevSiblings 单个方法
-        import getPrevSiblings from '@yaohaixiao/dom.js/getPrevSiblings'
+        // 引用 getPreviousSibling 单个方法
+        import getPreviousSibling from '@yaohaixiao/dom.js/getPreviousSibling'
 
         const $list = DOM.byId('#list')
-        const $about = DOM.getEl('.about')
+        const $home = DOM.byId('#home')
+        const $blog = DOM.getEl('.blog')
 
-        DOM.getPrevSiblings($list) // ->[]
-        getPrevSiblings($about)
-        // -> [
-        //   &lt;li class="item"&gt;Projects&lt;/li&gt;,
-        //   &lt;li class="item blog"&gt;Blog&lt;/li&gt;,
-        //   &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
-        // ]
+        DOM.getPreviousSibling($list) // -> null
+        getPreviousSibling($home) // -> null
+        getPreviousSibling($blog) // -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;

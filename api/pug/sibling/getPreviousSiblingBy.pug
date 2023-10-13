@@ -1,0 +1,45 @@
+section.section
+  header.section__header
+    h3.section__h3 getPreviousSiblingBy(el, filter)
+  div.section__content
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Selecting Siblings
+    p getPreviousSiblingBy() 方法用来通过过滤器获取 DOM 元素匹配的前面的邻居元素节点。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （必须）el 参数指定 DOM 元素。
+    h5.section__h4 filter
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Function|String
+    p （必须）filter 参数指定用于过滤的回调函数或者选择器字符串。
+    h4.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p 返回 DOM 元素的下一个邻居元素节点。
+    pre.section__pre
+      code.section__code.
+        &lt;ul id="list" class="list"&gt;
+            &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li id="about" class="item about"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 getPreviousSiblingBy 单个方法
+        import getPreviousSiblingBy from '@yaohaixiao/dom.js/getPreviousSiblingBy'
+
+        const $about = DOM.byId('#home')
+
+        DOM.getPreviousSiblingBy($about, '.item.about') // -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+        getPreviousSiblingBy($about, (el) => {
+          return DOM.hasClass(el, 'blog')
+        })
+        // -> &lt;li class="item blog"&gt;Blog&lt;/li&gt;

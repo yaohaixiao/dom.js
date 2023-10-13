@@ -25,7 +25,7 @@ dom.js 开发的目的是为初学 JavaScript 的朋友了解原生 JavaScript �
 * 原生 JavaScript 纯手动打造，无任何依赖；
 * 支持 UMD 和 ES6 模块规范，适应各种运行环境；
 * 支持调用 DOM 整体模块和独立调用方法；
-* 提供 90+ 使用的 DOM 操作方法，让你轻松应对日常开发的各种 DOM 应用场景；
+* 提供 100+ 实用的 DOM 操作方法，让你轻松应对日常开发的各种 DOM 应用场景；
 
 
 ## Browsers Support
