@@ -9,10 +9,6 @@ import _insertAdjacentHTML from './_insertAdjacentHTML'
  * @param {String} str
  * @param {Boolean} [dangerouslyUseHTMLString]
  * @return {Element|null}
- *
- * @example
- * insertHTMLBefore(document.getElementById('myId'), '<p>before</p>');
- * // <p>before</p> <div id="myId">...</div>
  */
 const insertHTMLBeforeEnd = (el, str, dangerouslyUseHTMLString = true) => {
   return _insertAdjacentHTML(el, 'beforeend', str, dangerouslyUseHTMLString)

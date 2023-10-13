@@ -1,5 +1,6 @@
 import isString from './utils/types/isString'
 import isHTML from './utils/types/isHTML'
+import isDOM from './isDOM'
 import isElement from './isElement'
 import text from './text'
 import insertAfter from './insertAfter'
@@ -15,19 +16,16 @@ import insertHTMLBeforeEnd from './insertHTMLBeforeEnd'
  * @return {Element|Text|null}
  */
 const append = (el, reference) => {
-  if (
-    !isElement(reference) ||
-    (!isHTML(el) && !isString(el) && !isElement(el))
-  ) {
+  if (!isElement(reference) || (!isHTML(el) && !isString(el) && !isDOM(el))) {
     return null
   }
 
-  if (isElement(el)) {
+  if (isDOM(el)) {
     return insertAfter(el, reference)
-  } else if (isString(el)) {
-    return insertAfter(text(el), reference)
-  } else {
+  } else if (isHTML(el)) {
     return insertHTMLBeforeEnd(reference, el)
+  } else {
+    return insertAfter(text(el), reference)
   }
 }
 

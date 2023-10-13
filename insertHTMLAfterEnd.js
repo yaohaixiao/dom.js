@@ -9,10 +9,6 @@ import _insertAdjacentHTML from './_insertAdjacentHTML'
  * @param {String} str
  * @param {Boolean} [dangerouslyUseHTMLString]
  * @return {Element|null}
- *
- * @example
- * insertAfter(document.getElementById('myId'), '<p>after</p>');
- * // <div id="myId">...</div> <p>after</p>
  */
 const insertHTMLAfterEnd = (el, str, dangerouslyUseHTMLString = true) => {
   return _insertAdjacentHTML(el, 'afterend', str, dangerouslyUseHTMLString)

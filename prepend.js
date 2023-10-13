@@ -1,4 +1,5 @@
 import isHTML from './utils/types/isHTML'
+import isDOM from './isDOM'
 import isElement from './isElement'
 import text from './text'
 import insertBefore from './insertBefore'
@@ -15,23 +16,17 @@ import isString from './utils/types/isString'
  * @return {Element|Text|null}
  */
 const prepend = (el, reference) => {
-  let $firstChild
-
-  if (
-    !isElement(reference) ||
-    (!isHTML(el) && !isString(el) && !isElement(el))
-  ) {
+  if (!isElement(reference) || (!isHTML(el) && !isString(el) && !isDOM(el))) {
     return null
   }
 
-  if (isElement(el)) {
-    $firstChild = reference.firstChild
-    return insertBefore(el, $firstChild)
+  if (isDOM(el)) {
+    return insertBefore(el, reference)
   }
-  if (isString(el)) {
-    return insertBefore(text(el), reference)
-  } else {
+  if (isHTML(el)) {
     return insertHTMLBeforeBegin(reference, el)
+  } else {
+    return insertBefore(text(el), reference)
   }
 }
 

@@ -36,6 +36,10 @@ describe('getPreviousSiblings() 方法', () => {
     expect(getPreviousSiblings()).toEqual([])
   })
 
+  it('getPreviousSiblings(24) 递任非法参数，返回：[]', () => {
+    expect(getPreviousSiblings(24)).toEqual([])
+  })
+
   it('getPreviousSiblings($list) 没有上一个邻居节点，返回：[]', () => {
     expect(getPreviousSiblings($list)).toEqual([])
   })
