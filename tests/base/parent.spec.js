@@ -39,8 +39,10 @@ describe('parent() 方法', () => {
     const $list = byId('#list')
 
     Object.defineProperty(HTMLElement.prototype, 'offsetParent', {
-      get() { return this.parentNode; },
-    });
+      get() {
+        return this.parentNode
+      }
+    })
     setStyle($list, 'position:relative')
 
     expect(parent($home, 'offset')).toEqual($list)
@@ -49,7 +51,6 @@ describe('parent() 方法', () => {
   it(`parent($home, 'scroll') 获取 scrollParent，返回：$list`, () => {
     const $home = byId('#item-home')
     const $list = byId('#list')
-
 
     setStyle($list, 'overflow-y', 'auto')
     expect(parent($home, 'scroll')).toEqual($list)

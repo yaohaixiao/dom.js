@@ -1,3 +1,18 @@
+# [1.0.0](https://github.com/yaohaixiao/dom.js/compare/0.5.0...1.0.0) (2023-10-13)
+
+
+### Bug Fixes
+
+* 统一 after() 和 before() 方法的返回类型； ([f47e1cb](https://github.com/yaohaixiao/dom.js/commit/f47e1cb0821eb02b19aff6bdedf8086f40898bbe))
+* 修复 prepend() 和 append() 方法插入 HTML 字符串无法解析为 DOM 的问题； ([d0aec5d](https://github.com/yaohaixiao/dom.js/commit/d0aec5d6150560a58e7b9818b13b433b3a184995))
+
+
+### Features
+
+* 添加 nextBy() 和 prevBy() 方法； ([0250489](https://github.com/yaohaixiao/dom.js/commit/025048996ad899ec91d5da201d002b8ec98a956e))
+
+
+
 # [0.5.0](https://github.com/yaohaixiao/dom.js/compare/0.4.0...0.5.0) (2023-10-13)
 
 

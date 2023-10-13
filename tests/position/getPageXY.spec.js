@@ -39,7 +39,7 @@ describe('getPageXY() 方法', () => {
   const fn = jest.fn()
   let pageX = 0
   let pageY = 0
-  let pageXY = {x: 0, y: 0}
+  let pageXY = { x: 0, y: 0 }
 
   it('getPageXY() 不传递参数，返回：false', () => {
     expect(getPageXY()).toBe(false)

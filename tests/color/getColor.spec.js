@@ -26,7 +26,9 @@ describe('getColor() 方法', () => {
   it(`setStyle($list, 'background-color', ${WHITE})，设置背景色，再通过 getColor($list, 'background-color', false) 获取 RGB 格式色值，返回：'rgb(255, 255, 255)'`, () => {
     setStyle($list, 'background-color', WHITE)
 
-    expect(getColor($list, 'background-color', false)).toEqual('rgb(255, 255, 255)')
+    expect(getColor($list, 'background-color', false)).toEqual(
+      'rgb(255, 255, 255)'
+    )
   })
 
   it(`getColor($list, 'color') 获取未设置的值，返回：'transparent'`, () => {

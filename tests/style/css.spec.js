@@ -46,7 +46,10 @@ describe('css() 方法', () => {
   })
 
   it(`css($list, {'font-size', '14px', color: '#222'}) 不传递参数，返回：false`, () => {
-    css($list, {'font-size': '14px', color: '#222'})
-    expect(css($list, ['font-size', 'color'])).toEqual({fontSize: '14px', color: 'rgb(34, 34, 34)'})
+    css($list, { 'font-size': '14px', color: '#222' })
+    expect(css($list, ['font-size', 'color'])).toEqual({
+      fontSize: '14px',
+      color: 'rgb(34, 34, 34)'
+    })
   })
 })

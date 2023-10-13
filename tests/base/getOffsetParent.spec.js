@@ -32,8 +32,10 @@ describe('getOffsetParent() 方法', () => {
     const $home = byId('#item-home')
 
     Object.defineProperty(HTMLElement.prototype, 'offsetParent', {
-      get() { return this.parentNode; },
-    });
+      get() {
+        return this.parentNode
+      }
+    })
 
     setStyle($list, 'position', 'relative')
     expect(getOffsetParent($home)).toEqual($list)

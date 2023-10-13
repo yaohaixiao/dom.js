@@ -36,7 +36,8 @@ describe('before() 方法', () => {
   })
 
   it(`before($help, $home) 在 $home 节点后插入动态创建的 $help 节点，返回： $help`, () => {
-    const HELP = '    <span>Help</span>\n' +
+    const HELP =
+      '    <span>Help</span>\n' +
       '    <a href="/sitemap#help" class="remove" data-id="help">删除</a>\n'
     const $help = createElement('li', html(HELP))
     const $home = byId('#item-home')
@@ -44,7 +45,8 @@ describe('before() 方法', () => {
   })
 
   it(`before(HELP, $home) 在 $home 后插入 HTML 字符串（HTML 字符串会解析动态创建为 $help 节点），返回： $help`, () => {
-    const HELP = '  <li class="item-help" data-id="item-help" id="item-help">\n' +
+    const HELP =
+      '  <li class="item-help" data-id="item-help" id="item-help">\n' +
       '    <span>Help</span>\n' +
       '    <a href="/sitemap#help" class="remove" data-id="help">删除</a>\n' +
       '  </li>\n'

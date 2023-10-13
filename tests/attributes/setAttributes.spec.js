@@ -41,7 +41,7 @@ describe('setAttributes() 方法', () => {
     const $label = getEl('.label')
 
     setAttributes($label, {
-      'htmlFor': 'user'
+      htmlFor: 'user'
     })
 
     expect(getAttribute($label, 'htmlFor')).toEqual('user')

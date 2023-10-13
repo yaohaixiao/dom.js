@@ -44,7 +44,9 @@ describe('setStyles() 方法', () => {
 
     const rules = getStyles($list, ['background-color', 'color', 'font-size'])
 
-    expect(getColor($list, 'background-color', false)).toEqual('rgb(255, 255, 255)')
+    expect(getColor($list, 'background-color', false)).toEqual(
+      'rgb(255, 255, 255)'
+    )
     expect(getColor($list, 'color')).toEqual('transparent')
     expect(rules.fontSize).toEqual('13px')
 
@@ -54,7 +56,11 @@ describe('setStyles() 方法', () => {
   })
 
   it(`setStyles($list, {'background-color':'#fff',color:'black','font-size': '13px'}) styles 参数采用 Object 对象格式设置多个样式：`, () => {
-    setStyles($list, {'background-color':'#fff',color:'black','font-size': '13px'})
+    setStyles($list, {
+      'background-color': '#fff',
+      color: 'black',
+      'font-size': '13px'
+    })
 
     const rules = getStyles($list, ['background-color', 'color', 'font-size'])
 

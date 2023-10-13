@@ -37,7 +37,9 @@ describe('insertHTMLAfterEnd() 方法', () => {
   })
 
   it(`insertHTMLAfterEnd(createElement('li'), '<span>文本内容</span>')) 动态创建的 DOM 没有父级节点，返回： null`, () => {
-    expect(insertHTMLAfterEnd(createElement('li'), '<span>文本内容</span>')).toBeNull()
+    expect(
+      insertHTMLAfterEnd(createElement('li'), '<span>文本内容</span>')
+    ).toBeNull()
   })
 
   it(`insertHTMLAfterEnd('#item-home', '<span>文本内容</span>') 传递 HTML 字符串（HTML字符串会解析为 DOM 节点 $span），返回： $span`, () => {
@@ -53,6 +55,8 @@ describe('insertHTMLAfterEnd() 方法', () => {
     const str = '<span>文本内容</span>'
     const encodeStr = encodeHTML(str)
 
-    expect(insertHTMLAfterEnd(selector, str, false).textContent).toEqual(encodeStr)
+    expect(insertHTMLAfterEnd(selector, str, false).textContent).toEqual(
+      encodeStr
+    )
   })
 })

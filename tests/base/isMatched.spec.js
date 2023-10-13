@@ -37,7 +37,15 @@ describe('isMatched() 方法', () => {
   it(`isMatched($list, (el)=>{return hasClass(el, '.list')})) 传递参数 filter 参数（函数），返回：false`, () => {
     const $list = byId('#list')
 
-    expect(isMatched($list, (el)=>{return hasClass(el, 'list')})).toBe(true)
-    expect(isMatched($list, (el) => {return el.id === '#item-home'})).toBe(false)
+    expect(
+      isMatched($list, (el) => {
+        return hasClass(el, 'list')
+      })
+    ).toBe(true)
+    expect(
+      isMatched($list, (el) => {
+        return el.id === '#item-home'
+      })
+    ).toBe(false)
   })
 })

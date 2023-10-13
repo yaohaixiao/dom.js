@@ -30,11 +30,11 @@ describe('getAttributes() 方法', () => {
 
   it(`getAttributes($list) 获取 $list 节点所有属性，返回： {"class": "list", "id": "list"}`, () => {
     const $list = byId('#list')
-    expect(getAttributes($list)).toEqual({"class": "list", "id": "list"})
+    expect(getAttributes($list)).toEqual({ class: 'list', id: 'list' })
   })
 
   it(`getAttributes($list, ['class']) 获取 class 属性值，返回： {"class": "list"}`, () => {
     const $list = byId('#list')
-    expect(getAttributes($list, ['class'])).toEqual({"class": "list"})
+    expect(getAttributes($list, ['class'])).toEqual({ class: 'list' })
   })
 })

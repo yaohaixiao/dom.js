@@ -40,7 +40,6 @@ describe('replaceClass() 方法', () => {
     expect(replaceClass($span, 'text', 'span')).toBe(false)
   })
 
-
   it(`replaceClass($home, 'item', 'active')，使用 classList.replace() 方法替换样式`, () => {
     const $home = byId('#item-home')
 

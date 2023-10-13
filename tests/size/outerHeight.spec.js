@@ -31,15 +31,26 @@ describe('outerHeight() 方法', () => {
     '  </li>\n' +
     '</ul>'
 
-  const originalOffsetHeight = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetHeight')
+  const originalOffsetHeight = Object.getOwnPropertyDescriptor(
+    HTMLElement.prototype,
+    'offsetHeight'
+  )
   const $list = byId('#list')
 
   beforeAll(() => {
-    Object.defineProperty(HTMLElement.prototype, 'offsetHeight', { configurable: true, writable: true, value: 30 })
+    Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
+      configurable: true,
+      writable: true,
+      value: 30
+    })
   })
 
   afterAll(() => {
-    Object.defineProperty(HTMLElement.prototype, 'offsetHeight', originalOffsetHeight)
+    Object.defineProperty(
+      HTMLElement.prototype,
+      'offsetHeight',
+      originalOffsetHeight
+    )
   })
 
   it('outerHeight() 不传递任何参数，返回：false', () => {
@@ -55,7 +66,11 @@ describe('outerHeight() 方法', () => {
     setStyle($list, 'border', '5px solid #ddd')
     expect(outerHeight($list)).toEqual(30)
 
-    expect(outerHeight($list, (el, {offsetHeight})=>{return offsetHeight})).toEqual(30)
+    expect(
+      outerHeight($list, (el, { offsetHeight }) => {
+        return offsetHeight
+      })
+    ).toEqual(30)
   })
 
   it('outerHeight($list, 60) 设置 $list 的 outerHeight 高度，再用 outerHeight($list) 获取高度，返回：40', () => {

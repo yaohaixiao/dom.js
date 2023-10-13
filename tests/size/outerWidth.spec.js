@@ -31,15 +31,26 @@ describe('outerWidth() 方法', () => {
     '  </li>\n' +
     '</ul>'
 
-  const originalOffsetWidth = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetWidth')
+  const originalOffsetWidth = Object.getOwnPropertyDescriptor(
+    HTMLElement.prototype,
+    'offsetWidth'
+  )
   const $list = byId('#list')
 
   beforeAll(() => {
-    Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { configurable: true, writable: true, value: 30 })
+    Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
+      configurable: true,
+      writable: true,
+      value: 30
+    })
   })
 
   afterAll(() => {
-    Object.defineProperty(HTMLElement.prototype, 'offsetWidth', originalOffsetWidth)
+    Object.defineProperty(
+      HTMLElement.prototype,
+      'offsetWidth',
+      originalOffsetWidth
+    )
   })
 
   it('outerWidth() 不传递任何参数，返回：false', () => {
@@ -55,7 +66,11 @@ describe('outerWidth() 方法', () => {
     setStyle($list, 'border', '5px solid #ddd')
     expect(outerWidth($list)).toEqual(30)
 
-    expect(outerWidth($list, (el, {offsetWidth})=>{return offsetWidth})).toEqual(30)
+    expect(
+      outerWidth($list, (el, { offsetWidth }) => {
+        return offsetWidth
+      })
+    ).toEqual(30)
   })
 
   it('outerWidth($list, 60) 设置 $list 的 outerWidth 宽度，再用 outerWidth($list) 获取宽度，返回：40', () => {

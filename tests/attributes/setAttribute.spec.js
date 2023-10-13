@@ -61,7 +61,6 @@ describe('setAttribute() 方法', () => {
     expect(getAttribute($label, 'style')).toEqual('font-size: 12px;')
   })
 
-
   it(`setAttribute($user, 'value', 'Yaohaixiao')，然后 getAttribute($user, 'value')，返回： 'Yaohaixiao'`, () => {
     const $user = byId('#user')
     const $home = getEl('.item-home')

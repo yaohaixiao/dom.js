@@ -40,6 +40,8 @@ describe('insertHTMLAfterBegin() 方法', () => {
 
   it(`insertHTMLAfterBegin('#item-home', '<span>文本内容</span>') 传递 HTML 字符串（HTML字符串作为普通字符串，HTML 标签会 encode），返回： ${encodeStr}`, () => {
     const selector = '#item-home'
-    expect(insertHTMLAfterBegin(selector, str, false).textContent).toEqual(encodeStr)
+    expect(insertHTMLAfterBegin(selector, str, false).textContent).toEqual(
+      encodeStr
+    )
   })
 })

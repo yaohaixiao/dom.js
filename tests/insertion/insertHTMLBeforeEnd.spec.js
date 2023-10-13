@@ -44,6 +44,8 @@ describe('insertHTMLBeforeEnd() 方法', () => {
     const str = '<span>文本内容</span>'
     const encodeStr = encodeHTML(str)
 
-    expect(insertHTMLBeforeEnd(selector, str, false).textContent).toEqual(encodeStr)
+    expect(insertHTMLBeforeEnd(selector, str, false).textContent).toEqual(
+      encodeStr
+    )
   })
 })

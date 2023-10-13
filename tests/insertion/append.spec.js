@@ -37,7 +37,8 @@ describe('append() 方法', () => {
   })
 
   it(`append($help, $list) 在 $list 节点最后面插入动态创建的 $help 节点，返回： $help`, () => {
-    const HELP = '    <span>Help</span>\n' +
+    const HELP =
+      '    <span>Help</span>\n' +
       '    <a href="/sitemap#help" class="remove" data-id="help">删除</a>\n'
     const $help = createElement('li', html(HELP))
 
@@ -52,7 +53,8 @@ describe('append() 方法', () => {
   })
 
   it(`prepend(HELP, $list) 在 $list 节点最后面插入 HTML 字符串（HTML 字符串会解析动态创建为 $help 节点），返回： $help`, () => {
-    const HELP = '  <li class="item-help" data-id="item-help" id="item-help">\n' +
+    const HELP =
+      '  <li class="item-help" data-id="item-help" id="item-help">\n' +
       '    <span>Help</span>\n' +
       '    <a href="/sitemap#help" class="remove" data-id="help">删除</a>\n' +
       '  </li>\n'

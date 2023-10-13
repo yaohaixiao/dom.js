@@ -33,11 +33,15 @@ describe('insertHTMLBeforeBegin() 方法', () => {
   })
 
   it(`insertHTMLBeforeBegin('#undefined', '<span>文本内容</span>')) 无法插入不存在的 DOM 节点 byId('#undefined')，返回： null`, () => {
-    expect(insertHTMLBeforeBegin('#undefined', '<span>文本内容</span>')).toBeNull()
+    expect(
+      insertHTMLBeforeBegin('#undefined', '<span>文本内容</span>')
+    ).toBeNull()
   })
 
   it(`insertHTMLBeforeBegin(createElement('li'), '<span>文本内容</span>')) 动态创建的 DOM 没有父级节点，返回： null`, () => {
-    expect(insertHTMLBeforeBegin(createElement('li'), '<span>文本内容</span>')).toBeNull()
+    expect(
+      insertHTMLBeforeBegin(createElement('li'), '<span>文本内容</span>')
+    ).toBeNull()
   })
 
   it(`insertHTMLBeforeBegin('#item-home', '<span>文本内容</span>') 传递 HTML 字符串（HTML字符串会解析为 DOM 节点 $span），返回： $span`, () => {
@@ -53,6 +57,8 @@ describe('insertHTMLBeforeBegin() 方法', () => {
     const str = '<span>文本内容</span>'
     const encodeStr = encodeHTML(str)
 
-    expect(insertHTMLBeforeBegin(selector, str, false).textContent).toEqual(encodeStr)
+    expect(insertHTMLBeforeBegin(selector, str, false).textContent).toEqual(
+      encodeStr
+    )
   })
 })

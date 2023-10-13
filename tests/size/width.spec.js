@@ -31,15 +31,26 @@ describe('width() 方法', () => {
     '  </li>\n' +
     '</ul>'
 
-  const originalOffsetWidth = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetWidth')
+  const originalOffsetWidth = Object.getOwnPropertyDescriptor(
+    HTMLElement.prototype,
+    'offsetWidth'
+  )
   const $list = byId('#list')
 
   beforeAll(() => {
-    Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { configurable: true, writable: true, value: 30 })
+    Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
+      configurable: true,
+      writable: true,
+      value: 30
+    })
   })
 
   afterAll(() => {
-    Object.defineProperty(HTMLElement.prototype, 'offsetWidth', originalOffsetWidth)
+    Object.defineProperty(
+      HTMLElement.prototype,
+      'offsetWidth',
+      originalOffsetWidth
+    )
   })
 
   it('width() 不传递任何参数，返回：false', () => {
@@ -48,7 +59,7 @@ describe('width() 方法', () => {
 
   it(`width($list, false) 参数 val 不为 String 或者 Number 类型，返回：false`, () => {
     expect(width($list, false)).toBe(false)
-    expect(width($list, ()=>{})).toBe(false)
+    expect(width($list, () => {})).toBe(false)
   })
 
   it('width($list) 获取 $list 的宽度，返回：30', () => {

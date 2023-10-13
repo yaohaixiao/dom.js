@@ -32,4 +32,3 @@ screenshot
 
 .husky
 *.min.js
-/tests/

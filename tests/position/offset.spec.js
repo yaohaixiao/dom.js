@@ -1,10 +1,10 @@
 /**
  * @jest-environment jsdom
  */
-import getOffsetLeft from '@/getOffsetLeft'
+import offset from '@/offset'
 import byId from '@/byId'
 
-describe('getOffsetLeft() 方法', () => {
+describe('offset() 方法', () => {
   // Set up our document body
   document.body.innerHTML =
     '<ul id="list" class="list">\n' +
@@ -34,10 +34,19 @@ describe('getOffsetLeft() 方法', () => {
     HTMLElement.prototype,
     'offsetLeft'
   )
+  const originalOffsetTop = Object.getOwnPropertyDescriptor(
+    HTMLElement.prototype,
+    'offsetTop'
+  )
   const $list = byId('#list')
 
   beforeAll(() => {
     Object.defineProperty(HTMLElement.prototype, 'offsetLeft', {
+      configurable: true,
+      writable: true,
+      value: 0
+    })
+    Object.defineProperty(HTMLElement.prototype, 'offsetTop', {
       configurable: true,
       writable: true,
       value: 0
@@ -55,34 +64,46 @@ describe('getOffsetLeft() 方法', () => {
       'offsetLeft',
       originalOffsetLeft
     )
+    Object.defineProperty(HTMLElement.prototype, 'offsetTop', originalOffsetTop)
   })
 
-  it('getOffsetLeft() 不传递参数，返回：0', () => {
-    expect(getOffsetLeft()).toEqual(0)
+  it('offset() 不传递参数，返回：null', () => {
+    expect(offset()).toBe(null)
   })
 
-  it('getOffsetLeft($list) 返回：40', () => {
+  it('offset($list) 返回：40', () => {
+    const position = {
+      top: 0,
+      left: 0
+    }
+
     $list.offsetLeft = 40
-    expect(getOffsetLeft($list)).toEqual(40)
+    $list.offsetTop = 40
+
+    position.left = offset($list).left
+    position.top = offset($list).top
+
+    expect(position.left).toEqual(40)
+    expect(position.top).toEqual(40)
   })
 
-  it('getOffsetLeft($home)，父节点的 offsetLeft=40，自身 offsetLeft=20，返回：60', () => {
-    const $list = byId('#list')
+  it('offset($home)，父节点的 offsetLeft=40，offsetTop=40，自身 offsetLeft=20，offsetTop=10，返回：{left: 60, top: 50}', () => {
+    const position = {
+      top: 0,
+      left: 0
+    }
     const $home = byId('#item-home')
 
     $list.offsetLeft = 40
+    $list.offsetTop = 40
+
     $home.offsetLeft = 20
-    expect(getOffsetLeft($home)).toEqual(60)
-  })
+    $home.offsetTop = 10
 
-  it('getOffsetLeft($text)，祖先节点 offsetLeft=10，父节点的 offsetLeft=40，自身 offsetLeft=20，返回：70', () => {
-    const $list = byId('#list')
-    const $home = byId('#item-home')
-    const $text = byId('#text')
+    position.left = offset($home).left
+    position.top = offset($home).top
 
-    $list.offsetLeft = 10
-    $home.offsetLeft = 40
-    $text.offsetLeft = 20
-    expect(getOffsetLeft($text)).toEqual(70)
+    expect(position.left).toEqual(60)
+    expect(position.top).toEqual(50)
   })
 })

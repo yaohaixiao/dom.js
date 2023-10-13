@@ -6,13 +6,16 @@ import byId from '@/byId'
 import isFragment from '@/utils/types/isFragment'
 
 describe('html() 方法', () => {
-  const HOME_INNER = '\n<span id="text">Home</span>\n' +
+  const HOME_INNER =
+    '\n<span id="text">Home</span>\n' +
     '    <a href="/sitemap#home" class="remove" data-id="home">删除</a>\n'
 
   // Set up our document body
   document.body.innerHTML =
     '<ul id="list" class="list">\n' +
-    '  <li class="item item-home" id="item-home">' + HOME_INNER  + '</li>\n' +
+    '  <li class="item item-home" id="item-home">' +
+    HOME_INNER +
+    '</li>\n' +
     '  <li class="item item-support item-ok" id="item-support">\n' +
     '    <span>Support</span>\n' +
     '    <a href="/sitemap#support" class="remove" data-id="support">删除</a>\n' +

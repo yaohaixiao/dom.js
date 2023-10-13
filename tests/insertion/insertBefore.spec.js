@@ -30,7 +30,8 @@ describe('insertBefore() 方法', () => {
   })
 
   it(`insertBefore($home, $help) 将 $home 插入动态创建的 $help 节点前，返回： null`, () => {
-    const HELP = '    <span>Help</span>\n' +
+    const HELP =
+      '    <span>Help</span>\n' +
       '    <a href="/sitemap#help" class="remove" data-id="help">删除</a>\n'
     const $help = createElement('li', html(HELP))
     const $home = byId('#item-home')
@@ -38,7 +39,8 @@ describe('insertBefore() 方法', () => {
   })
 
   it(`insertBefore($help, $home) 在 $home 前插入动态创建的 $help 节点，返回： $help`, () => {
-    const HELP = '  <li class="item-help" data-id="item-help" id="item-help">\n' +
+    const HELP =
+      '  <li class="item-help" data-id="item-help" id="item-help">\n' +
       '    <span>Help</span>\n' +
       '    <a href="/sitemap#help" class="remove" data-id="help">删除</a>\n' +
       '  </li>\n'
@@ -48,7 +50,8 @@ describe('insertBefore() 方法', () => {
   })
 
   it(`insertBefore($help, $faqs) 在 $faqs 前插入动态创建的 $help 节点，返回： $help`, () => {
-    const HELP = '  <li class="item-help" data-id="item-help" id="item-help">\n' +
+    const HELP =
+      '  <li class="item-help" data-id="item-help" id="item-help">\n' +
       '    <span>Help</span>\n' +
       '    <a href="/sitemap#help" class="remove" data-id="help">删除</a>\n' +
       '  </li>\n'

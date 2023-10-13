@@ -31,15 +31,26 @@ describe('height() 方法', () => {
     '  </li>\n' +
     '</ul>'
 
-  const originalOffsetHeight = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetHeight')
+  const originalOffsetHeight = Object.getOwnPropertyDescriptor(
+    HTMLElement.prototype,
+    'offsetHeight'
+  )
   const $list = byId('#list')
 
   beforeAll(() => {
-    Object.defineProperty(HTMLElement.prototype, 'offsetHeight', { configurable: true, writable: true, value: 30 })
+    Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
+      configurable: true,
+      writable: true,
+      value: 30
+    })
   })
 
   afterAll(() => {
-    Object.defineProperty(HTMLElement.prototype, 'offsetHeight', originalOffsetHeight)
+    Object.defineProperty(
+      HTMLElement.prototype,
+      'offsetHeight',
+      originalOffsetHeight
+    )
   })
 
   it('height() 不传递任何参数，返回：false', () => {
@@ -48,7 +59,7 @@ describe('height() 方法', () => {
 
   it(`height($list, false) 参数 val 不为 String 或者 Number 类型，返回：false`, () => {
     expect(height($list, false)).toBe(false)
-    expect(height($list, ()=>{})).toBe(false)
+    expect(height($list, () => {})).toBe(false)
   })
 
   it('height($list) 获取 $list 的高度，返回：30', () => {

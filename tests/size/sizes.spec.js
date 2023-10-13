@@ -19,18 +19,40 @@ describe('sizes() 方法', () => {
     '  </li>\n' +
     '</ul>'
 
-  const originalOffsetWidth = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetWidth')
-  const originalOffsetHeight = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetHeight')
+  const originalOffsetWidth = Object.getOwnPropertyDescriptor(
+    HTMLElement.prototype,
+    'offsetWidth'
+  )
+  const originalOffsetHeight = Object.getOwnPropertyDescriptor(
+    HTMLElement.prototype,
+    'offsetHeight'
+  )
   const $list = byId('#list')
 
   beforeAll(() => {
-    Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { configurable: true, writable: true, value: 30 })
-    Object.defineProperty(HTMLElement.prototype, 'offsetHeight', { configurable: true, writable: true, value: 30 })
+    Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
+      configurable: true,
+      writable: true,
+      value: 30
+    })
+    Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
+      configurable: true,
+      writable: true,
+      value: 30
+    })
   })
 
   afterAll(() => {
-    Object.defineProperty(HTMLElement.prototype, 'offsetWidth', originalOffsetWidth)
-    Object.defineProperty(HTMLElement.prototype, 'offsetHeight', originalOffsetHeight)
+    Object.defineProperty(
+      HTMLElement.prototype,
+      'offsetWidth',
+      originalOffsetWidth
+    )
+    Object.defineProperty(
+      HTMLElement.prototype,
+      'offsetHeight',
+      originalOffsetHeight
+    )
   })
 
   it('sizes() 不传递任何参数，返回：false', () => {
@@ -59,8 +81,8 @@ describe('sizes() 方法', () => {
     expect(props.outerHeight).toEqual(outerHeight($list))
     expect(props.outerWidth).toEqual(outerWidth($list))
 
-    expect(props.margin).toEqual({top:5,right:5,bottom:5,left:5})
-    expect(props.padding).toEqual({top:5,right:5,bottom:5,left:5})
-    expect(props.border).toEqual({top:1,right:1,bottom:1,left:1})
+    expect(props.margin).toEqual({ top: 5, right: 5, bottom: 5, left: 5 })
+    expect(props.padding).toEqual({ top: 5, right: 5, bottom: 5, left: 5 })
+    expect(props.border).toEqual({ top: 1, right: 1, bottom: 1, left: 1 })
   })
 })

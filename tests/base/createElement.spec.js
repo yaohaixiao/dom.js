@@ -20,14 +20,14 @@ describe('createElement() 方法', () => {
     '  </li>\n' +
     '</ul>'
 
-  const support = '  <li class="item item-support item-ok" id="item-support">\n' +
-  '    <span>Support</span>\n' +
-  '    <a href="/sitemap#support" class="remove" data-id="support">删除</a>\n' +
-  '  </li>\n' +
-
-  it(`createElement() 不传递参数，返回：null`, () => {
-    expect(createElement()).toEqual(null)
-  })
+  const support =
+    '  <li class="item item-support item-ok" id="item-support">\n' +
+    '    <span>Support</span>\n' +
+    '    <a href="/sitemap#support" class="remove" data-id="support">删除</a>\n' +
+    '  </li>\n' +
+    it(`createElement() 不传递参数，返回：null`, () => {
+      expect(createElement()).toEqual(null)
+    })
 
   it(`createElement('div') 不传递 attrs 和 children 参数，创建空白 div 节点：`, () => {
     const $div = createElement('div')
@@ -36,7 +36,12 @@ describe('createElement() 方法', () => {
   })
 
   it(`createElement('div', { id: 'first', className: 'first' }) 传递 attrs（对象），创建节点，并添加 html 属性：`, () => {
-    const $user = createElement('input', { className: 'input', type: 'text', name: 'user', value: 'robert' })
+    const $user = createElement('input', {
+      className: 'input',
+      type: 'text',
+      name: 'user',
+      value: 'robert'
+    })
 
     expect($user.tagName.toLowerCase()).toEqual('input')
     expect(hasClass($user, 'input')).toBe(true)
@@ -51,8 +56,17 @@ describe('createElement() 方法', () => {
   })
 
   it(`createElement('div', [$label, $user]) 传递 attrs（数组），创建节点，并添加子节点：`, () => {
-    const $user = createElement('input', { id:'user', className: 'input', type: 'text', name: 'user', value: 'robert' })
-    const $label = createElement('label', { htmlFor: 'user', className: 'label' })
+    const $user = createElement('input', {
+      id: 'user',
+      className: 'input',
+      type: 'text',
+      name: 'user',
+      value: 'robert'
+    })
+    const $label = createElement('label', {
+      htmlFor: 'user',
+      className: 'label'
+    })
     const $div = createElement('div', [$label, $user, 'str'])
 
     expect($div.tagName.toLowerCase()).toEqual('div')
@@ -60,7 +74,11 @@ describe('createElement() 方法', () => {
   })
 
   it(`createElement('div', $label) 传递 attrs（DOM 节点），创建节点，并添加子节点：`, () => {
-    const $label = createElement('label', { htmlFor: 'user', className: 'label' }, '用户名')
+    const $label = createElement(
+      'label',
+      { htmlFor: 'user', className: 'label' },
+      '用户名'
+    )
     const $div = createElement('div', $label)
 
     expect($label.innerHTML).toEqual('用户名')
@@ -76,24 +94,48 @@ describe('createElement() 方法', () => {
   })
 
   it(`createElement('div', { id: 'first', className: 'first' }, [$label, $user]) 传递 children（数组），创建节点，并添加子节点：`, () => {
-    const $user = createElement('input', { id:'user', className: 'input', type: 'text', name: 'user', value: 'robert' })
-    const $label = createElement('label', { htmlFor: 'user', className: 'label' })
-    const $div = createElement('div', { id: 'first', className: 'first' }, [$label, $user, 'str'])
+    const $user = createElement('input', {
+      id: 'user',
+      className: 'input',
+      type: 'text',
+      name: 'user',
+      value: 'robert'
+    })
+    const $label = createElement('label', {
+      htmlFor: 'user',
+      className: 'label'
+    })
+    const $div = createElement('div', { id: 'first', className: 'first' }, [
+      $label,
+      $user,
+      'str'
+    ])
 
     expect($div.tagName.toLowerCase()).toEqual('div')
     expect(hasClass($div.firstChild, 'label')).toBe(true)
   })
 
   it(`createElement('div', { id: 'first', className: 'first' }, $label) 传递 children（节点），创建节点，并添加子节点：`, () => {
-    const $label = createElement('label', { htmlFor: 'user', className: 'label' })
-    const $div = createElement('div', { id: 'first', className: 'first' }, $label)
+    const $label = createElement('label', {
+      htmlFor: 'user',
+      className: 'label'
+    })
+    const $div = createElement(
+      'div',
+      { id: 'first', className: 'first' },
+      $label
+    )
 
     expect($div.tagName.toLowerCase()).toEqual('div')
     expect(hasClass($div.firstChild, 'label')).toBe(true)
   })
 
   it(`createElement('div', { id: 'first', className: 'first' }, 'First') 传递 children（字符串），创建节点，并添加子节点：`, () => {
-    const $div = createElement('div', { id: 'first', className: 'first' }, 'First')
+    const $div = createElement(
+      'div',
+      { id: 'first', className: 'first' },
+      'First'
+    )
 
     expect($div.tagName.toLowerCase()).toEqual('div')
     expect(isText($div.firstChild)).toBe(true)

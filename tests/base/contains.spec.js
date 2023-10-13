@@ -3,7 +3,6 @@
  */
 import contains from '@/contains'
 import byId from '@/byId'
-import hasClass from '@/hasClass'
 
 describe('contains() 方法', () => {
   // Set up our document body
@@ -37,6 +36,9 @@ describe('contains() 方法', () => {
     const $list = byId('#list')
     const $home = byId('#item-home')
 
+    expect(contains($home, $list)).toBe(true)
+
+    $list.contains = null
     expect(contains($home, $list)).toBe(true)
   })
 

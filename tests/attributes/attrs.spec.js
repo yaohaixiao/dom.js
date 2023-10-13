@@ -34,7 +34,7 @@ describe('attrs() 方法', () => {
 
   it(`attrs($list) 获取 $list 节点所有属性，返回： {"class": "list", "id": "list"}`, () => {
     const $list = byId('#list')
-    expect(attrs($list)).toEqual({"class": "list", "id": "list"})
+    expect(attrs($list)).toEqual({ class: 'list', id: 'list' })
   })
 
   it(`attrs($list, 'id') 获取 $list 节点单个属性，返回： "list"`, () => {
@@ -44,7 +44,7 @@ describe('attrs() 方法', () => {
 
   it(`attrs($list, ['class', 'id']) 获取多个 HTML 属性值，返回： {"class": "list", "id": "list"}`, () => {
     const $list = byId('#list')
-    expect(attrs($list, ['class', 'id'])).toEqual({"class": "list", "id": "list"})
+    expect(attrs($list, ['class', 'id'])).toEqual({ class: 'list', id: 'list' })
   })
 
   it(`attrs($list, 'id', 'nav') 设置 $list 节点单个属性`, () => {
@@ -57,7 +57,11 @@ describe('attrs() 方法', () => {
   it(`attrs($list, {'id': 'list', 'data-id': 'nav'}) 设置 $list 节点多个属性，再使用 attrs($list) 获取所有属性，返回：{"class": "list", "data-id": "nav", "id": "list"}`, () => {
     const $list = byId('#nav')
 
-    attrs($list, {'id': 'list', 'data-id': 'nav'})
-    expect(attrs($list)).toEqual({"class": "list", "data-id": "nav", "id": "list"})
+    attrs($list, { id: 'list', 'data-id': 'nav' })
+    expect(attrs($list)).toEqual({
+      class: 'list',
+      'data-id': 'nav',
+      id: 'list'
+    })
   })
 })

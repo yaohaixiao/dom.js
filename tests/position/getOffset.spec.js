@@ -30,20 +30,40 @@ describe('getOffset() 方法', () => {
     '  </li>\n' +
     '</ul>'
 
-  const originalOffsetLeft = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetLeft')
-  const originalOffsetTop = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetTop')
+  const originalOffsetLeft = Object.getOwnPropertyDescriptor(
+    HTMLElement.prototype,
+    'offsetLeft'
+  )
+  const originalOffsetTop = Object.getOwnPropertyDescriptor(
+    HTMLElement.prototype,
+    'offsetTop'
+  )
   const $list = byId('#list')
 
   beforeAll(() => {
-    Object.defineProperty(HTMLElement.prototype, 'offsetLeft', { configurable: true, writable: true, value: 0 })
-    Object.defineProperty(HTMLElement.prototype, 'offsetTop', { configurable: true, writable: true, value: 0 })
+    Object.defineProperty(HTMLElement.prototype, 'offsetLeft', {
+      configurable: true,
+      writable: true,
+      value: 0
+    })
+    Object.defineProperty(HTMLElement.prototype, 'offsetTop', {
+      configurable: true,
+      writable: true,
+      value: 0
+    })
     Object.defineProperty(HTMLElement.prototype, 'offsetParent', {
-      get() { return this.parentNode }
+      get() {
+        return this.parentNode
+      }
     })
   })
 
   afterAll(() => {
-    Object.defineProperty(HTMLElement.prototype, 'offsetLeft', originalOffsetLeft)
+    Object.defineProperty(
+      HTMLElement.prototype,
+      'offsetLeft',
+      originalOffsetLeft
+    )
     Object.defineProperty(HTMLElement.prototype, 'offsetTop', originalOffsetTop)
   })
 

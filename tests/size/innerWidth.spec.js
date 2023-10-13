@@ -31,15 +31,26 @@ describe('innerWidth() 方法', () => {
     '  </li>\n' +
     '</ul>'
 
-  const originalOffsetWidth = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetWidth')
+  const originalOffsetWidth = Object.getOwnPropertyDescriptor(
+    HTMLElement.prototype,
+    'offsetWidth'
+  )
   const $list = byId('#list')
 
   beforeAll(() => {
-    Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { configurable: true, writable: true, value: 30 })
+    Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
+      configurable: true,
+      writable: true,
+      value: 30
+    })
   })
 
   afterAll(() => {
-    Object.defineProperty(HTMLElement.prototype, 'offsetWidth', originalOffsetWidth)
+    Object.defineProperty(
+      HTMLElement.prototype,
+      'offsetWidth',
+      originalOffsetWidth
+    )
   })
 
   it('innerWidth() 不传递任何参数，返回：false', () => {
@@ -55,7 +66,11 @@ describe('innerWidth() 方法', () => {
     setStyle($list, 'border', '5px solid #ddd')
     expect(innerWidth($list)).toEqual(20)
 
-    expect(innerWidth($list, (el, {offsetWidth})=>{return offsetWidth})).toEqual(30)
+    expect(
+      innerWidth($list, (el, { offsetWidth }) => {
+        return offsetWidth
+      })
+    ).toEqual(30)
   })
 
   it('innerWidth($list, 60) 设置 $list 的 innerHeight 宽度，再用 innerWidth($list) 获取宽度，返回：40', () => {

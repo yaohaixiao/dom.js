@@ -30,18 +30,31 @@ describe('getOffsetTop() 方法', () => {
     '  </li>\n' +
     '</ul>'
 
-  const originalOffsetTop = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetTop')
+  const originalOffsetTop = Object.getOwnPropertyDescriptor(
+    HTMLElement.prototype,
+    'offsetTop'
+  )
   const $list = byId('#list')
 
   beforeAll(() => {
-    Object.defineProperty(HTMLElement.prototype, 'offsetTop', { configurable: true, writable: true, value: 0 })
+    Object.defineProperty(HTMLElement.prototype, 'offsetTop', {
+      configurable: true,
+      writable: true,
+      value: 0
+    })
     Object.defineProperty(HTMLElement.prototype, 'offsetParent', {
-      get() { return this.parentNode }
+      get() {
+        return this.parentNode
+      }
     })
   })
 
   afterAll(() => {
-    Object.defineProperty(HTMLElement.prototype, 'offsetWidth', originalOffsetTop)
+    Object.defineProperty(
+      HTMLElement.prototype,
+      'offsetWidth',
+      originalOffsetTop
+    )
   })
 
   it('getOffsetTop() 不传递参数，返回：0', () => {
