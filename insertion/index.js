@@ -9,6 +9,8 @@ import prepend from '../prepend'
 import after from '../after'
 import before from '../before'
 import replace from '../replace'
+import wrap from '../wrap'
+import wrapAll from '../wrapAll'
 
 const DOM = {
   insertAfter,
@@ -21,7 +23,9 @@ const DOM = {
   prepend,
   after,
   before,
-  replace
+  replace,
+  wrap,
+  wrapAll
 }
 
 export default DOM

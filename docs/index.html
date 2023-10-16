@@ -1048,7 +1048,7 @@ const $menu = DOM.html('&lt;ul&gt;&lt;li class="item project"&gt;Projects&lt;/li
 DOM.before('&lt;ul&gt;&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;&lt;/ul&gt;', $list)
 
 // 将创建的 $menu 节点插入到 $list 节点前面
-before($menu, $list)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">replace(el, reference)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><p>replace() 方法用来将 DOM 节点或者 HTML 字符转化成 DOM 节点，已替换指定的 DOM 节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）el 参数指定要插入的 DOM 元素或者 HTML 字符。</p><h5 class="section__h4">reference</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）reference 指定要替换的 DOM 节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+before($menu, $list)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">replace(el, reference)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><dl class="section__dl"><dt class="section__dt">Since：</dt><dd class="section__dd">1.1.0</dd></dl><p>replace() 方法用来将 DOM 节点或者 HTML 字符转化成 DOM 节点，已替换指定的 DOM 节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）el 参数指定要插入的 DOM 元素或者 HTML 字符。</p><h5 class="section__h4">reference</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）reference 指定要替换的 DOM 节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
     &lt;li class="item about"&gt;About&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -2340,7 +2340,7 @@ prop('--outline-chapters-width', '100%')
 // 获取属性值
 prop('--outline-zIndex') // => '2000'
 prop('--outline-sticky-height') // => '100%'
-prop('--outline-chapters-width') // => '100%'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">show(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Style</dd></dl><p>show() 方法用来显示指定的 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+prop('--outline-chapters-width') // => '100%'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">show(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Style</dd></dl><dl class="section__dl"><dt class="section__dt">Since：</dt><dd class="section__dd">1.1.0</dd></dl><p>show() 方法用来显示指定的 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
   &lt;li class="item active"&gt;Home&lt;/li&gt;
   &lt;li class="item"&gt;Blog&lt;/li&gt;
   &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -2360,7 +2360,7 @@ DOM.getStyle($list, 'display') // -> 'hidden'
 
 // 显示 $list
 show($list)
-DOM.getStyle($list, 'display') // -> 'block'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">hide(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Style</dd></dl><p>hide() 方法用来隐藏指定的 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+DOM.getStyle($list, 'display') // -> 'block'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">hide(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Style</dd></dl><dl class="section__dl"><dt class="section__dt">Since：</dt><dd class="section__dd">1.1.0</dd></dl><p>hide() 方法用来隐藏指定的 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
   &lt;li class="item active"&gt;Home&lt;/li&gt;
   &lt;li class="item"&gt;Blog&lt;/li&gt;
   &lt;li class="item"&gt;Projects&lt;/li&gt;

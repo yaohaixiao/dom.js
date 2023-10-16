@@ -1,3 +1,4 @@
+import build from '../build'
 import createElement from '../createElement'
 import clone from '../clone'
 import canPosition from '../canPosition'
@@ -21,6 +22,7 @@ import parent from '../parent'
 import children from '../children'
 
 const DOM = {
+  build,
   createElement,
   clone,
   canPosition,

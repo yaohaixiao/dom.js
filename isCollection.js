@@ -4,7 +4,7 @@ import isHTMLCollection from './utils/types/isHTMLCollection'
  * 检测是否为 NodeList
  * ========================================================================
  * @method isCoolection
- * @param {HTMLElement} el
+ * @param {HTMLElement|Object} el
  * @return {Boolean}
  */
 const isCollection = (el) => {

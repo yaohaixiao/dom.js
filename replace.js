@@ -1,4 +1,5 @@
 import isHTML from './utils/types/isHTML'
+import isFunction from './utils/types/isFunction'
 import isDOM from './isDOM'
 import isElement from './isElement'
 import insertAfter from './insertAfter'
@@ -8,6 +9,7 @@ import insertHTMLAfterEnd from './insertHTMLAfterEnd'
  * 用指定 DOM 节点或者将 HTML 字符转化成节点替换 reference 节点
  * ========================================================================
  * @method replace
+ * @see https://developer.mozilla.org/zh-CN/docs/Web/API/Element/replaceWith
  * @param {HTMLElement|String} el
  * @param {HTMLElement} reference
  * @return {Element|null}
@@ -33,7 +35,11 @@ const replace = (el, reference) => {
     $replace = insertHTMLAfterEnd(reference, el)
   }
 
-  $parent.removeChild(reference)
+  if(isFunction(reference.replaceWith)) {
+    reference.replaceWith($replace)
+  } else {
+    reference.remove()
+  }
 
   return $replace
 }
