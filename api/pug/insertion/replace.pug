@@ -1,11 +1,11 @@
 section.section
   header.section__header
-    h3.section__h3 before(el, reference)
+    h3.section__h3 replace(el, reference)
   div.section__content
     dl.section__dl
       dt.section__dt Category：
       dd.section__dd DOM Insertion
-    p before() 方法用来在指定 DOM 节点后添加子节点或者将 HTML 字符转化成节点添加到前面。
+    p replace() 方法用来将 DOM 节点或者 HTML 字符转化成 DOM 节点，已替换指定的 DOM 节点。
     h4.section__h4 Parameters
     h5.section__h4 el
     dl.section__dl
@@ -16,7 +16,7 @@ section.section
     dl.section__dl
       dt.section__dt Type：
       dd.section__dd HTMLElement
-    p （必须）reference 指定 DOM 节点。
+    p （必须）reference 指定要替换的 DOM 节点。
     pre.section__pre
       code.section__.
         &lt;ul id="list" class="list"&gt;
@@ -25,14 +25,14 @@ section.section
 
         // 引入 DOM 模块（中的所有工具方法）
         import DOM from '@yaohaixiao/dom.js/dom
-        // 引用 before 单个方法
-        import before from '@yaohaixiao/dom.js/before'
+        // 引用 replace 单个方法
+        import replace from '@yaohaixiao/dom.js/replace'
 
         const $list = DOM.byId('#list')
         const $menu = DOM.html('&lt;ul&gt;&lt;li class="item project"&gt;Projects&lt;/li&gt;&lt;/ul&gt;')
 
-        // 将插入 html 插入到 $list 节点前面
-        DOM.before('&lt;ul&gt;&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;&lt;/ul&gt;', $list)
+        // 用 html 字符转化的 DOM 节点 替换 $list 节点
+        DOM.replace('&lt;ul&gt;&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;&lt;/ul&gt;', $list)
 
-        // 将创建的 $menu 节点插入到 $list 节点前面
-        before($menu, $list)
+        // 用动态创建的 $menu 节点替换 $list 节点
+        replace($menu, $list)

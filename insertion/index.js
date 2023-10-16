@@ -8,6 +8,7 @@ import append from '../append'
 import prepend from '../prepend'
 import after from '../after'
 import before from '../before'
+import replace from '../replace'
 
 const DOM = {
   insertAfter,
@@ -19,7 +20,8 @@ const DOM = {
   append,
   prepend,
   after,
-  before
+  before,
+  replace
 }
 
 export default DOM

@@ -1,0 +1,37 @@
+section.section
+  header.section__header
+    h3.section__h3 hide(el)
+  div.section__content
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Style
+    p hide() 方法用来隐藏指定的 DOM 元素。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （必须）el 参数指定 DOM 元素。
+    pre.section__pre
+      code.section__code.
+        &lt;ul id="list" class="list"&gt;
+          &lt;li class="item active"&gt;Home&lt;/li&gt;
+          &lt;li class="item"&gt;Blog&lt;/li&gt;
+          &lt;li class="item"&gt;Projects&lt;/li&gt;
+          &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 hide 单个方法
+        import hide from '@yaohaixiao/dom.js/hide'
+
+        const $list = DOM.byId('#list')
+
+        // 隐藏 $list
+        DOM.hide($list)
+        DOM.getStyle($list, 'display') // -> 'hidden'
+
+        // 显示 $list
+        DOM.toggle($list)
+        DOM.getStyle($list, 'display') // -> 'block'

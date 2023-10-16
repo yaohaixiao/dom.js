@@ -1,6 +1,7 @@
 import isElement from './isElement'
 import getStyle from './getStyle'
-import setStyle from './setStyle'
+import show from './show'
+import hide from './hide'
 
 /**
  * 隐藏或者显示指定 DOM 元素
@@ -14,9 +15,9 @@ const toggle = (el) => {
   }
 
   if (getStyle(el, 'display') !== 'none') {
-    setStyle(el, 'display', 'none')
+    hide(el)
   } else {
-    setStyle(el, 'display', 'block')
+    show(el)
   }
 }
 

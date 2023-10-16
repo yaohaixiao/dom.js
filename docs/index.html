@@ -978,39 +978,7 @@ const $list = DOM.byId('#list')
 DOM.insertHTMLBeforeEnd($list, '&lt;ul&gt;&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;&lt;/ul&gt;')
 
 // 将插入 html 插入到 $list 节点后面
-insertHTMLBeforeEnd($list, '&lt;ul&gt;&lt;li class="item project"&gt;Projects&lt;/li&gt;&lt;/ul&gt;', false)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">after(el, reference)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><p>after() 方法用来将在指定 DOM 节点后添加子节点或者将 HTML 字符转化成节点添加到后面。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）el 参数指定要插入的 DOM 元素或者 HTML 字符。</p><h5 class="section__h4">reference</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）reference 指定 DOM 节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
-    &lt;li class="item about"&gt;About&lt;/li&gt;
-&lt;/ul&gt;
-
-// 引入 DOM 模块（中的所有工具方法）
-import DOM from '@yaohaixiao/dom.js/dom
-// 引用 after 单个方法
-import after from '@yaohaixiao/dom.js/after'
-
-const $list = DOM.byId('#list')
-const $menu = DOM.html('&lt;ul&gt;&lt;li class="item project"&gt;Projects&lt;/li&gt;&lt;/ul&gt;')
-
-// 将插入 html 插入到 $list 节点后面
-DOM.after('&lt;ul&gt;&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;&lt;/ul&gt;', $list)
-
-// 将创建的 $menu 节点插入到 $list 节点后面
-after($menu, $list)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">before(el, reference)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><p>before() 方法用来将在指定 DOM 节点后添加子节点或者将 HTML 字符转化成节点添加到前面。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）el 参数指定要插入的 DOM 元素或者 HTML 字符。</p><h5 class="section__h4">reference</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）reference 指定 DOM 节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
-    &lt;li class="item about"&gt;About&lt;/li&gt;
-&lt;/ul&gt;
-
-// 引入 DOM 模块（中的所有工具方法）
-import DOM from '@yaohaixiao/dom.js/dom
-// 引用 before 单个方法
-import before from '@yaohaixiao/dom.js/before'
-
-const $list = DOM.byId('#list')
-const $menu = DOM.html('&lt;ul&gt;&lt;li class="item project"&gt;Projects&lt;/li&gt;&lt;/ul&gt;')
-
-// 将插入 html 插入到 $list 节点前面
-DOM.before('&lt;ul&gt;&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;&lt;/ul&gt;', $list)
-
-// 将创建的 $menu 节点插入到 $list 节点前面
-before($menu, $list)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">append(el, reference)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><p>append() 方法用来将指定 DOM 节点或者 html 文本解析为 DOM 元素，并将结果节点插入 el 元素自身内部的最后面。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）el 参数指定要插入的 DOM 元素或者字符串（HTML或者普通字符串）。</p><h5 class="section__h4">reference</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）reference 指定 DOM 节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+insertHTMLBeforeEnd($list, '&lt;ul&gt;&lt;li class="item project"&gt;Projects&lt;/li&gt;&lt;/ul&gt;', false)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">append(el, reference)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><p>append() 方法用来将指定 DOM 节点或者 html 文本解析为 DOM 元素，并将结果节点插入 el 元素自身内部的最后面。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）el 参数指定要插入的 DOM 元素或者字符串（HTML或者普通字符串）。</p><h5 class="section__h4">reference</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）reference 指定 DOM 节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
     &lt;li class="item about"&gt;About&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -1048,7 +1016,55 @@ DOM.prepend('&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;', $list)
 prepend($project, $list)
 
 // 将普通字符串插入到 $list 节点内部的最前面
-prepend('将普通字符串插入到 $list 节点内部的最前面', $list)</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Position</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用于获 DOM 元素的位置（offsetTop、offsetLeft、scrollTop、scrollLeft、pageX 和 pageY 等）信息。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getOffset(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Position</dd></dl><p>getOffset() 方法用来获取 DOM 节点相对于窗口的 top（纵坐标）值和 left（横坐标）值以及宽度和高度。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回 offsetTop 和 offsetLeft 值。如果元素存在 offsetParent 的父节点，那么这个值会累加直到其祖先节点不再有 offsetParent。</p><p>width 和 height 则为 DOM 元素的 offsetWidth 和 offsetHeight 值。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
+prepend('将普通字符串插入到 $list 节点内部的最前面', $list)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">after(el, reference)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><p>after() 方法用来在指定 DOM 节点后添加子节点或者将 HTML 字符转化成节点添加到后面。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）el 参数指定要插入的 DOM 元素或者 HTML 字符。</p><h5 class="section__h4">reference</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）reference 指定 DOM 节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item about"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 after 单个方法
+import after from '@yaohaixiao/dom.js/after'
+
+const $list = DOM.byId('#list')
+const $menu = DOM.html('&lt;ul&gt;&lt;li class="item project"&gt;Projects&lt;/li&gt;&lt;/ul&gt;')
+
+// 将插入 html 插入到 $list 节点后面
+DOM.after('&lt;ul&gt;&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;&lt;/ul&gt;', $list)
+
+// 将创建的 $menu 节点插入到 $list 节点后面
+after($menu, $list)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">before(el, reference)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><p>before() 方法用来在指定 DOM 节点后添加子节点或者将 HTML 字符转化成节点添加到前面。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）el 参数指定要插入的 DOM 元素或者 HTML 字符。</p><h5 class="section__h4">reference</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）reference 指定 DOM 节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item about"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 before 单个方法
+import before from '@yaohaixiao/dom.js/before'
+
+const $list = DOM.byId('#list')
+const $menu = DOM.html('&lt;ul&gt;&lt;li class="item project"&gt;Projects&lt;/li&gt;&lt;/ul&gt;')
+
+// 将插入 html 插入到 $list 节点前面
+DOM.before('&lt;ul&gt;&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;&lt;/ul&gt;', $list)
+
+// 将创建的 $menu 节点插入到 $list 节点前面
+before($menu, $list)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">replace(el, reference)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><p>replace() 方法用来将 DOM 节点或者 HTML 字符转化成 DOM 节点，已替换指定的 DOM 节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）el 参数指定要插入的 DOM 元素或者 HTML 字符。</p><h5 class="section__h4">reference</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）reference 指定要替换的 DOM 节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item about"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 replace 单个方法
+import replace from '@yaohaixiao/dom.js/replace'
+
+const $list = DOM.byId('#list')
+const $menu = DOM.html('&lt;ul&gt;&lt;li class="item project"&gt;Projects&lt;/li&gt;&lt;/ul&gt;')
+
+// 用 html 字符转化的 DOM 节点 替换 $list 节点
+DOM.replace('&lt;ul&gt;&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;&lt;/ul&gt;', $list)
+
+// 用动态创建的 $menu 节点替换 $list 节点
+replace($menu, $list)</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Position</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用于获 DOM 元素的位置（offsetTop、offsetLeft、scrollTop、scrollLeft、pageX 和 pageY 等）信息。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getOffset(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Position</dd></dl><p>getOffset() 方法用来获取 DOM 节点相对于窗口的 top（纵坐标）值和 left（横坐标）值以及宽度和高度。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回 offsetTop 和 offsetLeft 值。如果元素存在 offsetParent 的父节点，那么这个值会累加直到其祖先节点不再有 offsetParent。</p><p>width 和 height 则为 DOM 元素的 offsetWidth 和 offsetHeight 值。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
 .list {
   position: relative;
   z-index: 1;
@@ -2324,7 +2340,47 @@ prop('--outline-chapters-width', '100%')
 // 获取属性值
 prop('--outline-zIndex') // => '2000'
 prop('--outline-sticky-height') // => '100%'
-prop('--outline-chapters-width') // => '100%'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">toggle(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Style</dd></dl><p>toggle() 方法用来设置 DOM 元素的显示和隐藏。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+prop('--outline-chapters-width') // => '100%'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">show(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Style</dd></dl><p>show() 方法用来显示指定的 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+  &lt;li class="item active"&gt;Home&lt;/li&gt;
+  &lt;li class="item"&gt;Blog&lt;/li&gt;
+  &lt;li class="item"&gt;Projects&lt;/li&gt;
+  &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 show 单个方法
+import show from '@yaohaixiao/dom.js/show'
+
+const $list = DOM.byId('#list')
+
+// 隐藏 $list
+DOM.hide($list)
+DOM.getStyle($list, 'display') // -> 'hidden'
+
+// 显示 $list
+show($list)
+DOM.getStyle($list, 'display') // -> 'block'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">hide(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Style</dd></dl><p>hide() 方法用来隐藏指定的 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+  &lt;li class="item active"&gt;Home&lt;/li&gt;
+  &lt;li class="item"&gt;Blog&lt;/li&gt;
+  &lt;li class="item"&gt;Projects&lt;/li&gt;
+  &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 hide 单个方法
+import hide from '@yaohaixiao/dom.js/hide'
+
+const $list = DOM.byId('#list')
+
+// 隐藏 $list
+DOM.hide($list)
+DOM.getStyle($list, 'display') // -> 'hidden'
+
+// 显示 $list
+DOM.toggle($list)
+DOM.getStyle($list, 'display') // -> 'block'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">toggle(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Style</dd></dl><p>toggle() 方法用来设置 DOM 元素的显示和隐藏。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
   &lt;li class="item active"&gt;Home&lt;/li&gt;
   &lt;li class="item"&gt;Blog&lt;/li&gt;
   &lt;li class="item"&gt;Projects&lt;/li&gt;
