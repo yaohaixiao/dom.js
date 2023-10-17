@@ -5,6 +5,8 @@ import replace from '@/replace'
 import byId from '@/byId'
 import html from '@/html'
 import createElement from '@/createElement'
+import isFragment from '@/isFragment'
+import isElement from '@/isElement'
 
 describe('replace() 方法', () => {
   // Set up our document body
@@ -49,14 +51,14 @@ describe('replace() 方法', () => {
     expect(replace($anchor, $created)).toBeNull()
   })
 
-  it(`replace($help, $home) 用动态创建的 $help 节点 替换 $home 节点，返回： $help`, () => {
-    const HELP =
-      '    <span>Help</span>\n' +
-      '    <a href="/sitemap#help" class="remove" data-id="help">删除</a>\n'
-    const $help = createElement('li', html(HELP))
+  it(`replace($delete, $home) 用动态创建的 $delete 节点 替换 $home 节点，返回： $delete`, () => {
+    const DELETE =
+      '    <span>Delete</span>\n' +
+      '    <a href="/sitemap#help" class="remove" data-id="delete">删除</a>\n'
+    const $delete = createElement('li', html(DELETE))
     const $home = byId('#item-home')
 
-    expect(replace($help, $home)).toEqual($help)
+    expect(replace($delete, $home)).toEqual($delete)
     expect(byId('#item-home')).toBeNull()
   })
 
@@ -66,10 +68,12 @@ describe('replace() 方法', () => {
       '    <span>Help</span>\n' +
       '    <a href="/sitemap#help" class="remove" data-id="help">删除</a>\n' +
       '  </li>\n'
-    const $help = html(HELP)
     const $support = byId('#item-support')
 
-    expect(replace(HELP, $support)).toEqual($help)
-    expect(byId('#item-home')).toBeNull()
+    $support.replaceWith = null
+
+    expect(isFragment(replace(HELP, $support))).toBe(true)
+    expect(isElement(byId('#item-help'))).toBe(true)
+    expect(byId('#item-support')).toBeNull()
   })
 })

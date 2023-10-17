@@ -1,8 +1,9 @@
-import isElement from './isElement'
+import isFunction from './utils/types/isFunction'
 import isHTML from './utils/types/isHTML'
 import isString from './utils/types/isString'
+import isElement from './isElement'
 import isCollection from './isCollection'
-import hide from './clone'
+import hide from './hide'
 import show from './show'
 import before from './before'
 import build from './build'
@@ -23,10 +24,12 @@ const wrapAll = (collection, wrapElement) => {
   let strHTML = ''
   let $temp
   let $first
+  let $return
 
+  /* istanbul ignore else */
   if (
     !isCollection(collection) ||
-    (!isHTML(wrapElement) && !isString(wrapElement) && !isElement(wrapElement))
+    (!isHTML(wrapElement) && !isString(wrapElement) && !isElement(wrapElement) && !isFunction(wrapElement))
   ) {
     return false
   }
@@ -41,10 +44,18 @@ const wrapAll = (collection, wrapElement) => {
 
   if (isHTML(wrapElement)) {
     warpHTML = wrapElement
-  } else if (isElement(getEl(wrapElement))) {
+  } else if (isString(wrapElement) && isElement(getEl(wrapElement))) {
     warpHTML = clone(getEl(wrapElement), true).outerHTML
-  } else {
+  } else if(isElement(wrapElement)){
     warpHTML = clone(wrapElement, true).outerHTML
+  } else {
+    $return = wrapElement()
+
+    if(isElement($return)) {
+      warpHTML = clone($return, true).outerHTML
+    } else {
+      warpHTML = build($return).outerHTML
+    }
   }
 
   $temp = build(warpHTML)
@@ -52,10 +63,6 @@ const wrapAll = (collection, wrapElement) => {
   before($temp, $first)
 
   $collection.forEach(($node, i) => {
-    if (!isElement($node)) {
-      return false
-    }
-
     strHTML += $node.outerHTML
     hide($node)
     $node.remove()

@@ -1,0 +1,50 @@
+section.section
+  header.section__header
+    h3.section__h3 build(str)
+  div.section__content
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Attributes
+    dl.section__dl
+      dt.section__dt Since：
+      dd.section__dd 1.1.0
+    p build() 方法用来将 HTML 字符串解析生成 DOM 节点。
+    p 注意：build() 方法与 html() 方法的不同指出在于 build() 方法返回的是 HTML 字符串解析后生成 DOM 元素，而 html() 方法返回的是包含 HTML 字符串解析后生成 DOM 元素的文档碎片。
+    h4.section__h4 Parameters
+    h5.section__h4 str
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （可选）str 参数指定用来创建 DOM 节点的 HTML 字符串。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p 返回创建的 DOM 元素。
+    h4.section__h4 Usage
+    pre.section__pre
+      code.section__code.
+         &lt;ul id="list" class="list"&gt;
+            &lt;li class="item active"&gt;Home&lt;/li&gt;
+         &lt;/ul&gt;
+
+         // 引入 DOM 模块（中的所有工具方法）
+         import DOM from '@yaohaixiao/dom.js/dom
+         // 引用 build 单个方法
+         import build from '@yaohaixiao/dom.js/build'
+
+         const $list = byId('#list')
+
+         // 获取 innerHTML 属性（字符串）
+         const $blog = DOM.build('&lt;li class="item"&gt;Blog&lt;/li&gt;')
+
+         DOM.isElement($blog) // -> true
+         DOM.append($blog, $list)
+         // &lt;ul id="list" class="list"&gt;
+         //   &lt;li class="item active"&gt;Home&lt;/li&gt;
+         //   &lt;li class="item"&gt;Blog&lt;/li&gt;
+         // &lt;/ul&gt;
+
+         const $projects = build('&lt;li class="item"&gt;Projects&lt;/li&gt;')
+
+         DOM.isElement($projects) // -> true

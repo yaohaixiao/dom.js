@@ -19,7 +19,9 @@ const wrapInner = (collection, wrapElement) => {
   let $collection = []
   let strHTML = ''
   let wrapHTML = ''
+  let $return
 
+  /* istanbul ignore else */
   if (
     !isCollection(collection) ||
     (!isHTML(wrapElement) &&
@@ -37,28 +39,26 @@ const wrapInner = (collection, wrapElement) => {
   }
 
   $collection.forEach(($node, i) => {
-    if (!isElement($node)) {
-      return false
-    }
-
     strHTML = $node.innerHTML
 
     // HTML 字符串
     if (isHTML(wrapElement)) {
       wrapHTML = build(wrapElement).outerHTML
-    } else if (isElement(getEl(wrapElement))) {
+    } else if (isString(wrapElement) && isElement(getEl(wrapElement))) {
       // DOM 元素选择器
       wrapHTML = clone(getEl(wrapElement), true).outerHTML
     } else if (isElement(wrapElement)) {
       // DOM 元素
       wrapHTML = clone(wrapElement, true).outerHTML
     } else {
+      $return = wrapElement($node, i)
+
       // Function 返回 DOM 元素
-      if (isElement(wrapElement($node))) {
-        strHTML = wrapElement($node).outerHTML
+      if (isElement($return)) {
+        wrapHTML = clone($return,true).outerHTML
       } else {
         // Function 返回（HTML）字符串
-        strHTML = build(wrapElement($node, i)).innerHTML
+        wrapHTML = build($return).outerHTML
       }
     }
 

@@ -394,7 +394,30 @@ val($group) // -> '成本'
 
 val($desc) // -> '前端工程师'
 val($desc, '软件工程师')
-val($desc) // -> '软件工程师'</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Base</h2></header><div class="section__content"><p>dom.js 提供以下方法用以创建或查询 DOM 元素等基础 DOM 操作。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">createElement(tagName[, attrs, children])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>createElement() 方法用来创建 DOM 节点，并添加属性和子节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">tagName</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）标签名称。</p><h5 class="section__h4">attrs</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object|Array|HTMLElement|DocumentFragment|String</dd></dl><ul><li>Object：要添加的 HTML 属性/值对象；</li><li>Array：添加到创建的 DOM 元素中的多个子元素的数组；</li><li>HTMLElement：添加到创建的 DOM 元素中的（单个）子元素；</li><li>DocumentFragment：添加到创建的 DOM 元素中的文档碎片；</li><li>String：添加到创建的 DOM 元素中的文本（会作为文本节点）；</li></ul><p>（可选）给创建的 DOM 元素添加的 HTML 属性/值对象或者子元素。</p><h5 class="section__h4">children</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Array|HTMLElement|DocumentFragment|String</dd></dl><ul><li>Array：添加到创建的 DOM 元素中的多个子元素的数组；</li><li>HTMLElement：添加到创建的 DOM 元素中的（单个）子元素；</li><li>DocumentFragment：添加到创建的 DOM 元素中的文档碎片；</li><li>String：添加到创建的 DOM 元素中的文本（会作为文本节点）；</li></ul><p>（可选）给创建的 DOM 元素添加的子元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回创建的 DOM 元素。</p><pre class="section__pre"><code class="section__">// 引入 DOM 模块（中的所有工具方法）
+val($desc) // -> '软件工程师'</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Base</h2></header><div class="section__content"><p>dom.js 提供以下方法用以创建或查询 DOM 元素等基础 DOM 操作。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">build(str)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Attributes</dd></dl><dl class="section__dl"><dt class="section__dt">Since：</dt><dd class="section__dd">1.1.0</dd></dl><p>build() 方法用来将 HTML 字符串解析生成 DOM 节点。</p><p>注意：build() 方法与 html() 方法的不同指出在于 build() 方法返回的是 HTML 字符串解析后生成 DOM 元素，而 html() 方法返回的是包含 HTML 字符串解析后生成 DOM 元素的文档碎片。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">str</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（可选）str 参数指定用来创建 DOM 节点的 HTML 字符串。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回创建的 DOM 元素。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+   &lt;li class="item active"&gt;Home&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 build 单个方法
+import build from '@yaohaixiao/dom.js/build'
+
+const $list = byId('#list')
+
+// 获取 innerHTML 属性（字符串）
+const $blog = DOM.build('&lt;li class="item"&gt;Blog&lt;/li&gt;')
+
+DOM.isElement($blog) // -> true
+DOM.append($blog, $list)
+// &lt;ul id="list" class="list"&gt;
+//   &lt;li class="item active"&gt;Home&lt;/li&gt;
+//   &lt;li class="item"&gt;Blog&lt;/li&gt;
+// &lt;/ul&gt;
+
+const $projects = build('&lt;li class="item"&gt;Projects&lt;/li&gt;')
+
+DOM.isElement($projects) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">createElement(tagName[, attrs, children])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>createElement() 方法用来创建 DOM 节点，并添加属性和子节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">tagName</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）标签名称。</p><h5 class="section__h4">attrs</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object|Array|HTMLElement|DocumentFragment|String</dd></dl><ul><li>Object：要添加的 HTML 属性/值对象；</li><li>Array：添加到创建的 DOM 元素中的多个子元素的数组；</li><li>HTMLElement：添加到创建的 DOM 元素中的（单个）子元素；</li><li>DocumentFragment：添加到创建的 DOM 元素中的文档碎片；</li><li>String：添加到创建的 DOM 元素中的文本（会作为文本节点）；</li></ul><p>（可选）给创建的 DOM 元素添加的 HTML 属性/值对象或者子元素。</p><h5 class="section__h4">children</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Array|HTMLElement|DocumentFragment|String</dd></dl><ul><li>Array：添加到创建的 DOM 元素中的多个子元素的数组；</li><li>HTMLElement：添加到创建的 DOM 元素中的（单个）子元素；</li><li>DocumentFragment：添加到创建的 DOM 元素中的文档碎片；</li><li>String：添加到创建的 DOM 元素中的文本（会作为文本节点）；</li></ul><p>（可选）给创建的 DOM 元素添加的子元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回创建的 DOM 元素。</p><pre class="section__pre"><code class="section__">// 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom
 // 引用 createElement 单个方法
 import createElement from '@yaohaixiao/dom.js/createElement'
