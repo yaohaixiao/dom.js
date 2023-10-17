@@ -1,16 +1,21 @@
 import isElement from './isElement'
 import isHTML from './utils/types/isHTML'
+import isString from './utils/types/isString'
 import isCollection from './isCollection'
 import hide from './clone'
 import show from './show'
 import before from './before'
 import build from './build'
+import getEl from './getEl'
+import clone from './clone'
 
 /**
- *
+ * 给（以组邻近的）NodeList 包裹上指定的 HTML 标签
+ * ========================================================================
  * @method wrap
+ * @since 1.1.0
  * @param {HTMLCollection|NodeList} collection
- * @param {String|HTMLElement} wrapElement
+ * @param {String|HTMLElement|Function} wrapElement
  */
 const wrapAll = (collection, wrapElement) => {
   let $collection = []
@@ -19,7 +24,10 @@ const wrapAll = (collection, wrapElement) => {
   let $temp
   let $first
 
-  if (!isCollection(collection) || (!isHTML(wrapElement) && !isElement(wrapElement))) {
+  if (
+    !isCollection(collection) ||
+    (!isHTML(wrapElement) && !isString(wrapElement) && !isElement(wrapElement))
+  ) {
     return false
   }
 
@@ -31,10 +39,12 @@ const wrapAll = (collection, wrapElement) => {
 
   $first = $collection[0]
 
-  if(isHTML(wrapElement)) {
+  if (isHTML(wrapElement)) {
     warpHTML = wrapElement
+  } else if (isElement(getEl(wrapElement))) {
+    warpHTML = clone(getEl(wrapElement), true).outerHTML
   } else {
-    warpHTML = wrapElement.outerHTML
+    warpHTML = clone(wrapElement, true).outerHTML
   }
 
   $temp = build(warpHTML)

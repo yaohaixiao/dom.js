@@ -1064,7 +1064,224 @@ const $menu = DOM.html('&lt;ul&gt;&lt;li class="item project"&gt;Projects&lt;/li
 DOM.replace('&lt;ul&gt;&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;&lt;/ul&gt;', $list)
 
 // 用动态创建的 $menu 节点替换 $list 节点
-replace($menu, $list)</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Position</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用于获 DOM 元素的位置（offsetTop、offsetLeft、scrollTop、scrollLeft、pageX 和 pageY 等）信息。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getOffset(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Position</dd></dl><p>getOffset() 方法用来获取 DOM 节点相对于窗口的 top（纵坐标）值和 left（横坐标）值以及宽度和高度。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回 offsetTop 和 offsetLeft 值。如果元素存在 offsetParent 的父节点，那么这个值会累加直到其祖先节点不再有 offsetParent。</p><p>width 和 height 则为 DOM 元素的 offsetWidth 和 offsetHeight 值。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
+replace($menu, $list)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">unwrap(collection, selector)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><dl class="section__dl"><dt class="section__dt">Since：</dt><dd class="section__dd">1.1.0</dd></dl><p>wrap() 方法用来从 DOM 中移除匹配元素集的父元素，将匹配的元素保留在它们的位置。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">collection</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">NodeList</dd></dl><p>（必须）collection 需要包裹的 NodeList 列表。</p><h5 class="section__h4">wrapElement</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）selector 指定去表包裹 NodeList 的 HTML 标签的 DOM 父节点：</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+  &lt;li class="item"&gt;Home&lt;/li&gt;
+  &lt;li class="item"&gt;Blog&lt;/li&gt;
+  &lt;li class="item"&gt;Projects&lt;/li&gt;
+  &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="wrapper"&gt;&lt;/div&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 unwrap 单个方法
+import unwrap from '@yaohaixiao/dom.js/unwrap'
+
+const $list = DOM.byId('#list')
+const $items = DOM.byClass('.item', $list)
+
+// 用 html 字符
+DOM.wrap($items, '<div class="wrap"></div>')
+// ->  &lt;ul id="list" class="list"&gt;
+//       &lt;div class="wrap"&gt;
+//         &lt;li class="item"&gt;Home&lt;/li&gt;
+//       &lt;/div&gt;
+//       &lt;div class="wrap"&gt;
+//         &lt;li class="item"&gt;Blog&lt;/li&gt;
+//       &lt;/div&gt;
+//       &lt;div class="wrap"&gt;
+//         &lt;li class="item"&gt;Projects&lt;/li&gt;
+//       &lt;/div&gt;
+//       &lt;div class="wrap"&gt;
+//         &lt;li class="item"&gt;About&lt;/li&gt;
+//       &lt;/div&gt;
+//     &lt;/ul&gt;
+
+// 用选择器获取 DOM 节点，实用 DOM 元素的 outerHTML 作为包裹的 HTML 标签
+unwrap($items, '.wrap')
+// ->  &lt;ul id="list" class="list"&gt;
+//       &lt;li class="item"&gt;Home&lt;/li&gt;
+//       &lt;li class="item"&gt;Blog&lt;/li&gt;
+//       &lt;li class="item"&gt;Projects&lt;/li&gt;
+//       &lt;li class="item"&gt;About&lt;/li&gt;
+//     &lt;/ul&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">wrap(collection, wrapElement)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><dl class="section__dl"><dt class="section__dt">Since：</dt><dd class="section__dd">1.1.0</dd></dl><p>wrap() 方法用来给 NodeList 中的每个 DOM 节点包裹上指定 HTML 标签。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">collection</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">NodeList</dd></dl><p>（必须）collection 需要包裹的 NodeList 列表。</p><h5 class="section__h4">wrapElement</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|HTMLElement|Function</dd></dl><p>（必须）wrapElement 指定包裹 NodeList 的 HTML 标签：</p><ul><li>String - 指定 HTML 标签或者用来包裹的 DOM 元素的选择器字符串；</li><li>HTMLElement - 包裹的 DOM 元素，将实用 DOM 元素的 outerHTML 作为包裹的 HTML 标签；</li><li>Function($node, index) - 获取包裹 HTML 标签的回调函数，可以返回 HTML 标签或者 DOM 元素：</li><ul><li>参数 $node：NodeList 中的 DOM 元素；</li><li>参数 index：DOM 元素在 NodeList 中的索引值；</li></ul></ul><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+  &lt;li class="item"&gt;Home&lt;/li&gt;
+  &lt;li class="item"&gt;Blog&lt;/li&gt;
+  &lt;li class="item"&gt;Projects&lt;/li&gt;
+  &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="wrapper"&gt;&lt;/div&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 wrap 单个方法
+import wrap from '@yaohaixiao/dom.js/wrap'
+
+const $list = DOM.byId('#list')
+const $items = DOM.byClass('.item', $list)
+
+// 用 html 字符
+DOM.wrap($items, '<div class="wrap"></div>')
+// ->  &lt;ul id="list" class="list"&gt;
+//       &lt;div class="wrap"&gt;
+//         &lt;li class="item"&gt;Home&lt;/li&gt;
+//       &lt;/div&gt;
+//       &lt;div class="wrap"&gt;
+//         &lt;li class="item"&gt;Blog&lt;/li&gt;
+//       &lt;/div&gt;
+//       &lt;div class="wrap"&gt;
+//         &lt;li class="item"&gt;Projects&lt;/li&gt;
+//       &lt;/div&gt;
+//       &lt;div class="wrap"&gt;
+//         &lt;li class="item"&gt;About&lt;/li&gt;
+//       &lt;/div&gt;
+//     &lt;/ul&gt;
+
+// 用选择器获取 DOM 节点，实用 DOM 元素的 outerHTML 作为包裹的 HTML 标签
+wrap($items, '.wrapper')
+// ->  &lt;ul id="list" class="list"&gt;
+//       &lt;div class="wrapper"&gt;
+//         &lt;li class="item"&gt;Home&lt;/li&gt;
+//       &lt;/div&gt;
+//       &lt;div class="wrapper"&gt;
+//         &lt;li class="item"&gt;Blog&lt;/li&gt;
+//       &lt;/div&gt;
+//       &lt;div class="wrapper"&gt;
+//         &lt;li class="item"&gt;Projects&lt;/li&gt;
+//       &lt;/div&gt;
+//       &lt;div class="wrapper"&gt;
+//         &lt;li class="item"&gt;About&lt;/li&gt;
+//       &lt;/div&gt;
+//     &lt;/ul&gt;
+
+// 实用 DOM 元素或者函数返回 DOM 元素的行为和使用选择器指定 DOM 元素的行为一致
+wrap($items, DOM.getEl('.wrapper'))
+wrap($items, () => DOM.getEl('.wrapper'))
+
+// 回调函数返回 HTML 标签
+wrap($items, ($item, index) => { return `&lt;div data-id="${index}" class="wrap"&gt&lt;div&gt` })
+// ->  &lt;ul id="list" class="list"&gt;
+//       &lt;div data-id="0" class="wrap"&gt;
+//         &lt;li class="item"&gt;Home&lt;/li&gt;
+//       &lt;/div&gt;
+//       &lt;div data-id="1" class="wrap"&gt;
+//         &lt;li class="item"&gt;Blog&lt;/li&gt;
+//       &lt;/div&gt;
+//       &lt;div data-id="2" class="wrap"&gt;
+//         &lt;li class="item"&gt;Projects&lt;/li&gt;
+//       &lt;/div&gt;
+//       &lt;div data-id="3" class="wrap"&gt;
+//         &lt;li class="item"&gt;About&lt;/li&gt;
+//       &lt;/div&gt;
+//     &lt;/ul&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">wrapAll(collection, wrapElement)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><dl class="section__dl"><dt class="section__dt">Since：</dt><dd class="section__dd">1.1.0</dd></dl><p>wrapAll() 方法用来给（以组邻近的）NodeList 包裹上指定的 HTML 标签。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">collection</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">NodeList</dd></dl><p>（必须）collection 需要包裹的 NodeList 列表。</p><h5 class="section__h4">wrapElement</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|HTMLElement</dd></dl><p>（必须）wrapElement 指定包裹 NodeList 的 HTML 标签：</p><ul><li>String - 指定 HTML 标签或者用来包裹的 DOM 元素的选择器字符串；</li><li>HTMLElement - 包裹的 DOM 元素，将实用 DOM 元素的 outerHTML 作为包裹的 HTML 标签；</li></ul><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+  &lt;li class="item"&gt;Home&lt;/li&gt;
+  &lt;li class="item"&gt;Blog&lt;/li&gt;
+  &lt;li class="item"&gt;Projects&lt;/li&gt;
+  &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="wrapper"&gt;&lt;/div&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 wrap 单个方法
+import wrapAll from '@yaohaixiao/dom.js/wrapAll'
+
+const $list = DOM.byId('#list')
+const $items = DOM.byClass('.item', $list)
+
+// 用 html 字符
+DOM.wrapAll($items, '<div class="wrap"></div>')
+// ->  &lt;ul id="list" class="list"&gt;
+//       &lt;div class="wrap"&gt;
+//         &lt;li class="item"&gt;Home&lt;/li&gt;
+//         &lt;li class="item"&gt;Blog&lt;/li&gt;
+//         &lt;li class="item"&gt;Projects&lt;/li&gt;
+//         &lt;li class="item"&gt;About&lt;/li&gt;
+//       &lt;/div&gt;
+//     &lt;/ul&gt;
+
+// 用选择器获取 DOM 节点，实用 DOM 元素的 outerHTML 作为包裹的 HTML 标签
+wrap($items, '.wrapper')
+// ->  &lt;ul id="list" class="list"&gt;
+//       &lt;div class="wrapper"&gt;
+//         &lt;li class="item"&gt;Home&lt;/li&gt;
+//         &lt;li class="item"&gt;Blog&lt;/li&gt;
+//         &lt;li class="item"&gt;Projects&lt;/li&gt;
+//         &lt;li class="item"&gt;About&lt;/li&gt;
+//       &lt;/div&gt;
+//     &lt;/ul&gt;
+
+// 使用 DOM 元素和使用选择器指定 DOM 元素的行为一致
+wrap($items, DOM.getEl('.wrapper'))</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">wrapInner(collection, wrapElement)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><dl class="section__dl"><dt class="section__dt">Since：</dt><dd class="section__dd">1.1.0</dd></dl><p>wrapInner() 方法用来给 NodeList 中的每个 DOM 节点内部包裹上指定 HTML 标签。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">collection</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">NodeList</dd></dl><p>（必须）collection 需要包裹的 NodeList 列表。</p><h5 class="section__h4">wrapElement</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|HTMLElement|Function</dd></dl><p>（必须）wrapElement 指定包裹 NodeList 的 HTML 标签：</p><ul><li>String - 指定 HTML 标签或者用来包裹的 DOM 元素的选择器字符串；</li><li>HTMLElement - 包裹的 DOM 元素，将实用 DOM 元素的 outerHTML 作为包裹的 HTML 标签；</li><li>Function($node, index) - 获取包裹 HTML 标签的回调函数，可以返回 HTML 标签或者 DOM 元素：</li><ul><li>参数 $node：NodeList 中的 DOM 元素；</li><li>参数 index：DOM 元素在 NodeList 中的索引值；</li></ul></ul><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+  &lt;li class="item"&gt;Home&lt;/li&gt;
+  &lt;li class="item"&gt;Blog&lt;/li&gt;
+  &lt;li class="item"&gt;Projects&lt;/li&gt;
+  &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="wrapper"&gt;&lt;/div&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 wrapInner 单个方法
+import wrapInner from '@yaohaixiao/dom.js/wrapInner'
+
+const $list = DOM.byId('#list')
+const $items = DOM.byClass('.item', $list)
+
+// 用 html 字符
+DOM.wrapInner($items, '<div class="wrap"></div>')
+// ->  &lt;ul id="list" class="list"&gt;
+//       &lt;li class="item"&gt;
+//         &lt;div class="wrap"&gt;Home&lt;/div&gt;
+//       &lt;/li&gt;
+//       &lt;li class="item"&gt;
+//         &lt;div class="wrap"&gt;Blog&lt;/div&gt;
+//       &lt;/li&gt;
+//       &lt;li class="item"&gt;
+//         &lt;div class="wrap"&gt;Projects&lt;/div&gt;
+//       &lt;/li&gt;
+//       &lt;li class="item"&gt;
+//         &lt;div class="wrap"&gt;About&lt;/div&gt;
+//       &lt;/li&gt;
+//     &lt;/ul&gt;
+
+// 用选择器获取 DOM 节点，实用 DOM 元素的 outerHTML 作为包裹的 HTML 标签
+wrapInner($items, '.wrapper')
+// ->  &lt;ul id="list" class="list"&gt;
+//       &lt;li class="item"&gt;
+//         &lt;div class="wrapper"&gt;Home&lt;/div&gt;
+//       &lt;/li&gt;
+//       &lt;li class="item"&gt;
+//         &lt;div class="wrapper"&gt;Blog&lt;/div&gt;
+//       &lt;/li&gt;
+//       &lt;li class="item"&gt;
+//         &lt;div class="wrapper"&gt;Projects&lt;/div&gt;
+//       &lt;/li&gt;
+//       &lt;li class="item"&gt;
+//         &lt;div class="wrapper"&gt;About&lt;/div&gt;
+//       &lt;/li&gt;
+//     &lt;/ul&gt;
+
+// 实用 DOM 元素或者函数返回 DOM 元素的行为和使用选择器指定 DOM 元素的行为一致
+wrapInner($items, DOM.getEl('.wrapper'))
+wrapInner($items, () => DOM.getEl('.wrapper'))
+
+// 回调函数返回 HTML 标签
+wrapInner($items, ($item, index) => { return `&lt;div data-id="${index}" class="wrap"&gt&lt;div&gt` })
+// ->  &lt;ul id="list" class="list"&gt;
+//       &lt;li class="item"&gt;
+//         &lt;div data-id="0" class="wrap"&gt;Home&lt;/div&gt;
+//       &lt;/li&gt;
+//       &lt;li class="item"&gt;
+//         &lt;div data-id="1" class="wrap"&gt;Blog&lt;/div&gt;
+//       &lt;/li&gt;
+//       &lt;li class="item"&gt;
+//         &lt;div data-id="2" class="wrap"&gt;Projects&lt;/div&gt;
+//       &lt;/li&gt;
+//       &lt;li class="item"&gt;
+//         &lt;div data-id="3" class="wrap"&gt;About&lt;/div&gt;
+//       &lt;/li&gt;
+//     &lt;/ul&gt;</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Position</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用于获 DOM 元素的位置（offsetTop、offsetLeft、scrollTop、scrollLeft、pageX 和 pageY 等）信息。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getOffset(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Position</dd></dl><p>getOffset() 方法用来获取 DOM 节点相对于窗口的 top（纵坐标）值和 left（横坐标）值以及宽度和高度。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回 offsetTop 和 offsetLeft 值。如果元素存在 offsetParent 的父节点，那么这个值会累加直到其祖先节点不再有 offsetParent。</p><p>width 和 height 则为 DOM 元素的 offsetWidth 和 offsetHeight 值。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
 .list {
   position: relative;
   z-index: 1;

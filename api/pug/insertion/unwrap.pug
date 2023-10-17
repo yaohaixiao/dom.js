@@ -1,0 +1,65 @@
+section.section
+  header.section__header
+    h3.section__h3 unwrap(collection, selector)
+  div.section__content
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd DOM Insertion
+    dl.section__dl
+      dt.section__dt Since：
+      dd.section__dd 1.1.0
+    p wrap() 方法用来从 DOM 中移除匹配元素集的父元素，将匹配的元素保留在它们的位置。
+    h4.section__h4 Parameters
+    h5.section__h4 collection
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd NodeList
+    p （必须）collection 需要包裹的 NodeList 列表。
+    h5.section__h4 wrapElement
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （必须）selector 指定去表包裹 NodeList 的 HTML 标签的 DOM 父节点：
+    pre.section__pre
+      code.section__.
+        &lt;ul id="list" class="list"&gt;
+          &lt;li class="item"&gt;Home&lt;/li&gt;
+          &lt;li class="item"&gt;Blog&lt;/li&gt;
+          &lt;li class="item"&gt;Projects&lt;/li&gt;
+          &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div class="wrapper"&gt;&lt;/div&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 unwrap 单个方法
+        import unwrap from '@yaohaixiao/dom.js/unwrap'
+
+        const $list = DOM.byId('#list')
+        const $items = DOM.byClass('.item', $list)
+
+        // 用 html 字符
+        DOM.wrap($items, '<div class="wrap"></div>')
+        // ->  &lt;ul id="list" class="list"&gt;
+        //       &lt;div class="wrap"&gt;
+        //         &lt;li class="item"&gt;Home&lt;/li&gt;
+        //       &lt;/div&gt;
+        //       &lt;div class="wrap"&gt;
+        //         &lt;li class="item"&gt;Blog&lt;/li&gt;
+        //       &lt;/div&gt;
+        //       &lt;div class="wrap"&gt;
+        //         &lt;li class="item"&gt;Projects&lt;/li&gt;
+        //       &lt;/div&gt;
+        //       &lt;div class="wrap"&gt;
+        //         &lt;li class="item"&gt;About&lt;/li&gt;
+        //       &lt;/div&gt;
+        //     &lt;/ul&gt;
+
+        // 用选择器获取 DOM 节点，实用 DOM 元素的 outerHTML 作为包裹的 HTML 标签
+        unwrap($items, '.wrap')
+        // ->  &lt;ul id="list" class="list"&gt;
+        //       &lt;li class="item"&gt;Home&lt;/li&gt;
+        //       &lt;li class="item"&gt;Blog&lt;/li&gt;
+        //       &lt;li class="item"&gt;Projects&lt;/li&gt;
+        //       &lt;li class="item"&gt;About&lt;/li&gt;
+        //     &lt;/ul&gt;

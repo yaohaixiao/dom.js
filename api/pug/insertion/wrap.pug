@@ -1,0 +1,101 @@
+section.section
+  header.section__header
+    h3.section__h3 wrap(collection, wrapElement)
+  div.section__content
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd DOM Insertion
+    dl.section__dl
+      dt.section__dt Since：
+      dd.section__dd 1.1.0
+    p wrap() 方法用来给 NodeList 中的每个 DOM 节点包裹上指定 HTML 标签。
+    h4.section__h4 Parameters
+    h5.section__h4 collection
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd NodeList
+    p （必须）collection 需要包裹的 NodeList 列表。
+    h5.section__h4 wrapElement
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String|HTMLElement|Function
+    p （必须）wrapElement 指定包裹 NodeList 的 HTML 标签：
+    ul
+      li String - 指定 HTML 标签或者用来包裹的 DOM 元素的选择器字符串；
+      li HTMLElement - 包裹的 DOM 元素，将实用 DOM 元素的 outerHTML 作为包裹的 HTML 标签；
+      li Function($node, index) - 获取包裹 HTML 标签的回调函数，可以返回 HTML 标签或者 DOM 元素：
+      ul
+        li 参数 $node：NodeList 中的 DOM 元素；
+        li 参数 index：DOM 元素在 NodeList 中的索引值；
+    pre.section__pre
+      code.section__.
+        &lt;ul id="list" class="list"&gt;
+          &lt;li class="item"&gt;Home&lt;/li&gt;
+          &lt;li class="item"&gt;Blog&lt;/li&gt;
+          &lt;li class="item"&gt;Projects&lt;/li&gt;
+          &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div class="wrapper"&gt;&lt;/div&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 wrap 单个方法
+        import wrap from '@yaohaixiao/dom.js/wrap'
+
+        const $list = DOM.byId('#list')
+        const $items = DOM.byClass('.item', $list)
+
+        // 用 html 字符
+        DOM.wrap($items, '<div class="wrap"></div>')
+        // ->  &lt;ul id="list" class="list"&gt;
+        //       &lt;div class="wrap"&gt;
+        //         &lt;li class="item"&gt;Home&lt;/li&gt;
+        //       &lt;/div&gt;
+        //       &lt;div class="wrap"&gt;
+        //         &lt;li class="item"&gt;Blog&lt;/li&gt;
+        //       &lt;/div&gt;
+        //       &lt;div class="wrap"&gt;
+        //         &lt;li class="item"&gt;Projects&lt;/li&gt;
+        //       &lt;/div&gt;
+        //       &lt;div class="wrap"&gt;
+        //         &lt;li class="item"&gt;About&lt;/li&gt;
+        //       &lt;/div&gt;
+        //     &lt;/ul&gt;
+
+        // 用选择器获取 DOM 节点，实用 DOM 元素的 outerHTML 作为包裹的 HTML 标签
+        wrap($items, '.wrapper')
+        // ->  &lt;ul id="list" class="list"&gt;
+        //       &lt;div class="wrapper"&gt;
+        //         &lt;li class="item"&gt;Home&lt;/li&gt;
+        //       &lt;/div&gt;
+        //       &lt;div class="wrapper"&gt;
+        //         &lt;li class="item"&gt;Blog&lt;/li&gt;
+        //       &lt;/div&gt;
+        //       &lt;div class="wrapper"&gt;
+        //         &lt;li class="item"&gt;Projects&lt;/li&gt;
+        //       &lt;/div&gt;
+        //       &lt;div class="wrapper"&gt;
+        //         &lt;li class="item"&gt;About&lt;/li&gt;
+        //       &lt;/div&gt;
+        //     &lt;/ul&gt;
+
+        // 实用 DOM 元素或者函数返回 DOM 元素的行为和使用选择器指定 DOM 元素的行为一致
+        wrap($items, DOM.getEl('.wrapper'))
+        wrap($items, () => DOM.getEl('.wrapper'))
+
+        // 回调函数返回 HTML 标签
+        wrap($items, ($item, index) => { return `&lt;div data-id="${index}" class="wrap"&gt&lt;div&gt` })
+        // ->  &lt;ul id="list" class="list"&gt;
+        //       &lt;div data-id="0" class="wrap"&gt;
+        //         &lt;li class="item"&gt;Home&lt;/li&gt;
+        //       &lt;/div&gt;
+        //       &lt;div data-id="1" class="wrap"&gt;
+        //         &lt;li class="item"&gt;Blog&lt;/li&gt;
+        //       &lt;/div&gt;
+        //       &lt;div data-id="2" class="wrap"&gt;
+        //         &lt;li class="item"&gt;Projects&lt;/li&gt;
+        //       &lt;/div&gt;
+        //       &lt;div data-id="3" class="wrap"&gt;
+        //         &lt;li class="item"&gt;About&lt;/li&gt;
+        //       &lt;/div&gt;
+        //     &lt;/ul&gt;

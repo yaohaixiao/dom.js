@@ -3,23 +3,22 @@ import isString from './utils/types/isString'
 import isHTML from './utils/types/isHTML'
 import isElement from './isElement'
 import isCollection from './isCollection'
-import getEl from './getEl'
 import build from './build'
 import clone from './clone'
-import replace from './replace'
+import getEl from './getEl'
 
 /**
- * 给 NodeList 中的每个 DOM 节点包裹上指定 HTML 标签
+ * 给 NodeList 中的每个 DOM 节点内部包裹上指定 HTML 标签
  * ========================================================================
- * @method wrap
+ * @method wrapInner
  * @since 1.1.0
  * @param {HTMLCollection|NodeList} collection
  * @param {String|HTMLElement|Function} wrapElement
  */
-const wrap = (collection, wrapElement) => {
+const wrapInner = (collection, wrapElement) => {
   let $collection = []
-  let $temp
-  let strHTML
+  let strHTML = ''
+  let wrapHTML = ''
 
   if (
     !isCollection(collection) ||
@@ -42,35 +41,30 @@ const wrap = (collection, wrapElement) => {
       return false
     }
 
+    strHTML = $node.innerHTML
+
+    // HTML 字符串
     if (isHTML(wrapElement)) {
-      // HTML 字符串
-      strHTML = build(wrapElement).outerHTML
+      wrapHTML = build(wrapElement).outerHTML
     } else if (isElement(getEl(wrapElement))) {
-      // DOM 元素的选择器
-      strHTML = clone(getEl(wrapElement), true).outerHTML
+      // DOM 元素选择器
+      wrapHTML = clone(getEl(wrapElement), true).outerHTML
     } else if (isElement(wrapElement)) {
       // DOM 元素
-      strHTML = clone(wrapElement, true).outerHTML
+      wrapHTML = clone(wrapElement, true).outerHTML
     } else {
       // Function 返回 DOM 元素
       if (isElement(wrapElement($node))) {
-        strHTML = wrapElement($node, i).outerHTML
+        strHTML = wrapElement($node).outerHTML
       } else {
         // Function 返回（HTML）字符串
-        strHTML = build(wrapElement($node, i)).outerHTML
+        strHTML = build(wrapElement($node, i)).innerHTML
       }
     }
 
-    strHTML = strHTML.replace(
-      />(?:\s*)<\//,
-      `>${clone($node, true).outerHTML}</`
-    )
-    $temp = build(strHTML)
-
-    if ($temp) {
-      replace($temp, $node)
-    }
+    strHTML = wrapHTML.replace(/>(?:\s*)<\//, `>${strHTML}</`)
+    $node.innerHTML = strHTML
   })
 }
 
-export default wrap
+export default wrapInner
