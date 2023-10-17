@@ -1,3 +1,14 @@
+# [1.1.0](https://github.com/yaohaixiao/dom.js/compare/1.0.0...1.1.0) (2023-10-17)
+
+
+### Features
+
+* 添加 build() wrap() 和 wrapAll() 方法 ([369a32f](https://github.com/yaohaixiao/dom.js/commit/369a32fe432ee2f2b27513c8b57a0ab689c477e7))
+* 添加 show() 和 hide() 方法，调整 toggle() 方法逻辑；添加 replace() 方法； ([f0a5378](https://github.com/yaohaixiao/dom.js/commit/f0a5378627a9931777345d4f87942b1ec921baaa))
+* 添加 wrapInner() 和 unwrap() 方法； ([38f0f42](https://github.com/yaohaixiao/dom.js/commit/38f0f42fe208aaf9c53d751908b7277b09eae30c))
+
+
+
 # [1.0.0](https://github.com/yaohaixiao/dom.js/compare/0.5.0...1.0.0) (2023-10-13)
 
 
