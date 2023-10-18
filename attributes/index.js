@@ -14,6 +14,7 @@ import toggleClass from '../toggleClass'
 import attrs from '../attrs'
 import enable from '../enable'
 import disable from '../disable'
+import readonly from '../readonly'
 import html from '../html'
 import text from '../text'
 import val from '../val'
@@ -35,6 +36,7 @@ const DOM = {
   attrs,
   enable,
   disable,
+  readonly,
   html,
   text,
   val

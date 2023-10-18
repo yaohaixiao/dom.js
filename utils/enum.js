@@ -52,6 +52,21 @@ export const DISABLE_TAGS = [
   'input'
 ]
 
+export const READONLY_INPUT_TYPES = [
+  'text',
+  'search',
+  'url',
+  'tel',
+  'email',
+  'password',
+  'date',
+  'month',
+  'week',
+  'time',
+  'datetime-local',
+  'number'
+]
+
 export const REG_RGB = /^rgb\((\d+)\s*,\s*(\d+)\s*,\s*(\d+)\)$/i
 export const REG_HEX = /^#?([0-9A-F]{2})([0-9A-F]{2})([0-9A-F]{2})$/i
 export const REG_HEX3 = /([0-9A-F])/gi
