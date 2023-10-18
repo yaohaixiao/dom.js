@@ -1,5 +1,5 @@
 import isElement from './utils/types/isElement'
-import pixel from './utils/pixel'
+import pixel from './pixel'
 import getStyle from './getStyle'
 import offset from './offset'
 

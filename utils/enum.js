@@ -41,6 +41,17 @@ export const FROM_ELEMENT_TAGS = [
   'output'
 ]
 
+export const DISABLE_TAGS = [
+  'button',
+  'command',
+  'fieldset',
+  'optgroup',
+  'option',
+  'select',
+  'textarea',
+  'input'
+]
+
 export const REG_RGB = /^rgb\((\d+)\s*,\s*(\d+)\s*,\s*(\d+)\)$/i
 export const REG_HEX = /^#?([0-9A-F]{2})([0-9A-F]{2})([0-9A-F]{2})$/i
 export const REG_HEX3 = /([0-9A-F])/gi

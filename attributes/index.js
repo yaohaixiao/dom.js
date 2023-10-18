@@ -12,6 +12,8 @@ import replaceClass from '../replaceClass'
 import removeClass from '../removeClass'
 import toggleClass from '../toggleClass'
 import attrs from '../attrs'
+import enable from '../enable'
+import disable from '../disable'
 import html from '../html'
 import text from '../text'
 import val from '../val'
@@ -31,6 +33,8 @@ const DOM = {
   removeClass,
   toggleClass,
   attrs,
+  enable,
+  disable,
   html,
   text,
   val

@@ -58,7 +58,8 @@ describe('wrapAll() 方法', () => {
   it(`wrapAll($items, '.wrapper') wrapElement 参数为 DOM 元素选择器，使用选择器查询的 DOM 元素的 HTML 代码包裹`, () => {
     let $wrappers
 
-    $list.innerHTML = '  <li class="item item-home" data-id="item-home" id="item-home">\n' +
+    $list.innerHTML =
+      '  <li class="item item-home" data-id="item-home" id="item-home">\n' +
       '    <span>Home</span>\n' +
       '    <a href="/sitemap#home" class="remove" data-id="home">删除</a>\n' +
       '  </li>\n' +
@@ -84,7 +85,8 @@ describe('wrapAll() 方法', () => {
   it(`wrapAll($items, getEl('.wrapper')) wrapElement 为 DOM 元素，$items 使用 DOM 元素的 HTML 代码包裹：`, () => {
     let $wrappers
 
-    $list.innerHTML = '  <li class="item item-home" data-id="item-home" id="item-home">\n' +
+    $list.innerHTML =
+      '  <li class="item item-home" data-id="item-home" id="item-home">\n' +
       '    <span>Home</span>\n' +
       '    <a href="/sitemap#home" class="remove" data-id="home">删除</a>\n' +
       '  </li>\n' +
@@ -110,7 +112,8 @@ describe('wrapAll() 方法', () => {
   it(`wrapAll($items, () => getEl('.wrapper')) wrapElement 参数为 Function，$items 使用 wrapElement 返回的 DOM 元素的 HTML 代码包裹：`, () => {
     let $wrappers
 
-    $list.innerHTML = '  <li class="item item-home" data-id="item-home" id="item-home">\n' +
+    $list.innerHTML =
+      '  <li class="item item-home" data-id="item-home" id="item-home">\n' +
       '    <span>Home</span>\n' +
       '    <a href="/sitemap#home" class="remove" data-id="home">删除</a>\n' +
       '  </li>\n' +
@@ -136,7 +139,8 @@ describe('wrapAll() 方法', () => {
   it(`wrapAll($items, () => '<div class="wrapper"></div>') wrapElement 参数为 Function，$items 使用返回的 HTML 代码包裹：`, () => {
     let $wrappers
 
-    $list.innerHTML = '  <li class="item item-home" data-id="item-home" id="item-home">\n' +
+    $list.innerHTML =
+      '  <li class="item item-home" data-id="item-home" id="item-home">\n' +
       '    <span>Home</span>\n' +
       '    <a href="/sitemap#home" class="remove" data-id="home">删除</a>\n' +
       '  </li>\n' +

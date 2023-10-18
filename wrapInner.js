@@ -55,7 +55,7 @@ const wrapInner = (collection, wrapElement) => {
 
       // Function 返回 DOM 元素
       if (isElement($return)) {
-        wrapHTML = clone($return,true).outerHTML
+        wrapHTML = clone($return, true).outerHTML
       } else {
         // Function 返回（HTML）字符串
         wrapHTML = build($return).outerHTML

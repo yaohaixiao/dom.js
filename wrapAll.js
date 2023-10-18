@@ -29,7 +29,10 @@ const wrapAll = (collection, wrapElement) => {
   /* istanbul ignore else */
   if (
     !isCollection(collection) ||
-    (!isHTML(wrapElement) && !isString(wrapElement) && !isElement(wrapElement) && !isFunction(wrapElement))
+    (!isHTML(wrapElement) &&
+      !isString(wrapElement) &&
+      !isElement(wrapElement) &&
+      !isFunction(wrapElement))
   ) {
     return false
   }
@@ -46,12 +49,12 @@ const wrapAll = (collection, wrapElement) => {
     warpHTML = wrapElement
   } else if (isString(wrapElement) && isElement(getEl(wrapElement))) {
     warpHTML = clone(getEl(wrapElement), true).outerHTML
-  } else if(isElement(wrapElement)){
+  } else if (isElement(wrapElement)) {
     warpHTML = clone(wrapElement, true).outerHTML
   } else {
     $return = wrapElement()
 
-    if(isElement($return)) {
+    if (isElement($return)) {
       warpHTML = clone($return, true).outerHTML
     } else {
       warpHTML = build($return).outerHTML

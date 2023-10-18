@@ -784,28 +784,7 @@ DOM.matches($list, '.active')
 matches($home, '#home')
 // -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
 
-matches($home, '.blog') // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">parent(el[, type])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>matches() 方法用来获取给定 el 元素的父节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">type</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（可选）type 指定父节点的类型：</p><ul><li>offset：获取最近的（指包含层级上的最近）包含该元素的定位父元素;</li><li>scroll: 获取最近的（指包含层级上的最近）包含该元素的滚动父元素（overflow/overflow-x/overflow-y: auto ）；</li><li>其它：获取 el 的父节点；</li></ul><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 el 节点（指定类型）的父节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
-    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
-    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
-    &lt;li class="item project"&gt;Projects&lt;/li&gt;
-    &lt;li class="item"&gt;About&lt;/li&gt;
-&lt;/ul&gt;
-
-// 引入 DOM 模块（中的所有工具方法）
-import DOM from '@yaohaixiao/dom.js/dom
-// 引用 parent 单个方法
-import parent from '@yaohaixiao/dom.js/parent'
-
-const $list = DOM.byId('#list')
-const $home = DOM.byId('#home')
-
-DOM.parent($home)
-// -> &lt;ul id="list" class="list"&gt;
-parent($home, 'scroll')
-// -> document.documentElement
-
-parent($list, 'offset')
-// -> document.body</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">children(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>children() 方法用来获取指定 DOM 元素下所有元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>el 参数指定 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Array</dd></dl><p>返回查询到的 DOM 元素的数组。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+matches($home, '.blog') // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">children(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>children() 方法用来获取指定 DOM 元素下所有元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>el 参数指定 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Array</dd></dl><p>返回查询到的 DOM 元素的数组。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -828,7 +807,28 @@ DOM.children($list)
 //   &lt;li class="item"&gt;About&lt;/li&gt;
 // ]
 
-children($home) // -> []</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Color</h2></header><div class="section__content"><p>dom.js 提供以下方法用于处理 DOM 元素的颜色值相关的操作。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getColor(el, attr, isHex = true)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Color</dd></dl><dl class="section__dl"><dt class="section__dt">Since：</dt><dd class="section__dd">0.4.0</dd></dl><p>getColor() 方法用来获取 DOM 元素指定的颜色值。可指定获取 16 进制色值或者 RGB 色值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 节点。</p><h5 class="section__h4">attr</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）attr 参数指定表示颜色的属性字符串：</p><pre class="section__pre"><code class="section__">// 只能是以下包含的颜色属性
+children($home) // -> []</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">parent(el[, type])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>matches() 方法用来获取给定 el 元素的父节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">type</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（可选）type 指定父节点的类型：</p><ul><li>offset：获取最近的（指包含层级上的最近）包含该元素的定位父元素;</li><li>scroll: 获取最近的（指包含层级上的最近）包含该元素的滚动父元素（overflow/overflow-x/overflow-y: auto ）；</li><li>其它：获取 el 的父节点；</li></ul><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 el 节点（指定类型）的父节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 parent 单个方法
+import parent from '@yaohaixiao/dom.js/parent'
+
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
+
+DOM.parent($home)
+// -> &lt;ul id="list" class="list"&gt;
+parent($home, 'scroll')
+// -> document.documentElement
+
+parent($list, 'offset')
+// -> document.body</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Color</h2></header><div class="section__content"><p>dom.js 提供以下方法用于处理 DOM 元素的颜色值相关的操作。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getColor(el, attr, isHex = true)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Color</dd></dl><dl class="section__dl"><dt class="section__dt">Since：</dt><dd class="section__dd">0.4.0</dd></dl><p>getColor() 方法用来获取 DOM 元素指定的颜色值。可指定获取 16 进制色值或者 RGB 色值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 节点。</p><h5 class="section__h4">attr</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）attr 参数指定表示颜色的属性字符串：</p><pre class="section__pre"><code class="section__">// 只能是以下包含的颜色属性
 [
   'accent-color',
   'background-color',
