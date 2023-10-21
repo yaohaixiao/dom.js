@@ -7,18 +7,28 @@ import isNumber from './utils/types/isNumber'
  * @method pixel
  * @since 1.2.0
  * @param {String|Number} val
- * @return {Number|String|Boolean}
+ * @return {Number|String|Array|Boolean}
  */
 const pixel = (val) => {
-  if (isString(val) && isNumber(val)) {
+  const parse = (str) => {
+    const value = str.replace(/\D*$/i, '')
+
+    if (value.indexOf('.') > -1) {
+      return Math.ceil(Number(value))
+    } else {
+      return Number(value)
+    }
+  }
+
+  if (!isString(val) && !isNumber(val)) {
     return false
   }
 
   if (isString(val)) {
-    if (val.indexOf('.') > -1) {
-      return Math.ceil(Number(val.replace(/px$/i, '')))
+    if (val.indexOf(' ') > -1) {
+      return val.split(' ').map((item) => pixel(item))
     } else {
-      return Number(val.replace(/\D/g, ''))
+      return parse(val)
     }
   } else {
     return `${val}px`

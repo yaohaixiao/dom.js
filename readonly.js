@@ -2,6 +2,7 @@ import isElement from './isElement'
 import getAttribute from './getAttribute'
 import removeAttribute from './removeAttribute'
 import setAttribute from './setAttribute'
+import getStyle from './getStyle'
 import { READONLY_INPUT_TYPES } from './utils/enum'
 
 /**
@@ -14,7 +15,10 @@ import { READONLY_INPUT_TYPES } from './utils/enum'
  * @return {boolean}
  */
 const readonly = (el) => {
-  const TAGS = ['input', 'textarea']
+  const TAGS = [
+    'input',
+    'textarea'
+  ]
   let tagName
   let type
 
@@ -28,10 +32,15 @@ const readonly = (el) => {
     return false
   }
 
-  type = getAttribute(el, 'type').toLowerCase()
+  if (tagName === 'input') {
+    type = getAttribute(el, 'type').toLowerCase()
 
-  if (READONLY_INPUT_TYPES.indexOf(type) === -1) {
-    return false
+    if (
+      READONLY_INPUT_TYPES.indexOf(type) === -1 ||
+      getStyle(el, 'display') === 'hidden'
+    ) {
+      return false
+    }
   }
 
   if (getAttribute(el, 'readonly')) {
