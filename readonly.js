@@ -15,10 +15,7 @@ import { READONLY_INPUT_TYPES } from './utils/enum'
  * @return {boolean}
  */
 const readonly = (el) => {
-  const TAGS = [
-    'input',
-    'textarea'
-  ]
+  const TAGS = ['input', 'textarea']
   let tagName
   let type
 

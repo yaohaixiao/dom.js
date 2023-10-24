@@ -24,7 +24,6 @@ describe('disable() 方法', () => {
     '<input type="checkbox" id="reading" name="hobby" class="checkbox" value="reading" />读书\n' +
     '<textarea id="desc" class="desc">I\'m a programmer</textarea>'
 
-
   const $list = byId('#list')
   const $user = byId('#user')
   const $desc = byId('#desc')

@@ -23,7 +23,6 @@ describe('enable() 方法', () => {
     '<input type="checkbox" id="reading" name="hobby" class="checkbox" value="reading" />读书\n' +
     '<textarea id="desc" class="desc">I\'m a programmer</textarea>'
 
-
   const $list = byId('#list')
   const $user = byId('#user')
   const $desc = byId('#desc')
@@ -39,7 +38,6 @@ describe('enable() 方法', () => {
   it(`将 $user (input)元素为启用，在使用 enable($user) 设置启用，返回：false`, () => {
     expect(enable($user)).toBe(false)
   })
-
 
   it(`disable($desc) 先禁用 $desc，在 enable($desc), 然后 getAttribute($desc, 'disabled')，返回：null`, () => {
     disable($desc)
