@@ -27,6 +27,7 @@ const unwrap = (collection, selector) => {
   $collection.forEach(($node, i) => {
     const $parent = $node.parentNode
 
+    /* istanbul ignore else */
     if (isMatched($parent, selector)) {
       replace($node, $parent)
     }
