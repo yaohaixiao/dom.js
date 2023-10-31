@@ -1,3 +1,13 @@
+# [1.2.0](https://github.com/yaohaixiao/dom.js/compare/1.1.0...1.2.0) (2023-10-31)
+
+
+### Features
+
+* 添加 disable()、enable()、filter()、has() 和 pixel() 方法； ([1ad4e5b](https://github.com/yaohaixiao/dom.js/commit/1ad4e5b5f6a3fa7f4aecfd93f21d1153c2c28df5))
+* 添加 readonly() 方法 ([e864054](https://github.com/yaohaixiao/dom.js/commit/e86405416ef93334a267054316ed2765738ce983))
+
+
+
 # [1.1.0](https://github.com/yaohaixiao/dom.js/compare/1.0.0...1.1.0) (2023-10-17)
 
 
