@@ -4,10 +4,11 @@ import removeAttribute from './removeAttribute'
 import { DISABLE_TAGS } from './utils/enum'
 
 /**
- * 禁用指定 DOM 元素
+ * 启用指定 DOM 元素
  * ========================================================================
  * @method enable
  * @since 1.2.0
+ * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Attributes/disabled
  * @param {HTMLElement} el
  */
 const enable = (el) => {

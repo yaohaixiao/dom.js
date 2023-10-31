@@ -2,7 +2,7 @@ import isString from './utils/types/isString'
 import isNumber from './utils/types/isNumber'
 
 /**
- * CSS 单位值和数组互换
+ * CSS 单位值和数值互换
  * ========================================================================
  * @method pixel
  * @since 1.2.0
