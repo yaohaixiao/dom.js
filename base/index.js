@@ -23,6 +23,7 @@ import matches from '../matches'
 import children from '../children'
 import parent from '../parent'
 import pixel from '../pixel'
+import serialize from '../serialize'
 
 const DOM = {
   build,
@@ -49,7 +50,8 @@ const DOM = {
   matches,
   children,
   parent,
-  pixel
+  pixel,
+  serialize
 }
 
 export default DOM
