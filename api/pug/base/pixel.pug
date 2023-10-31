@@ -1,0 +1,32 @@
+section.section
+  header.section__header
+    h3.section__h3 pixel(val)
+  div.section__content
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Base
+    dl.section__dl
+      dt.section__dt Since：
+      dd.section__dd 1.2.0
+    p pixel() 方法用来将 CSS 单位值('px')和数值互换。
+    h4.section__h4 Parameters
+    h5.section__h4 val
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String|Number
+    p （必须）val 参数指定用来转化的 CSS 单位或者数值。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String|Number
+    p 返回转化后的数值或者 CSS 单位值。
+    h4.section__h4 Usage
+    pre.section__pre
+      code.section__code.
+         // 引入 DOM 模块（中的所有工具方法）
+         import DOM from '@yaohaixiao/dom.js/dom
+         // 引用 pixel 单个方法
+         import pixel from '@yaohaixiao/dom.js/pixel'
+
+         DOM.pixel('24px') // -> 24
+         pixel(24) // -> '24px'

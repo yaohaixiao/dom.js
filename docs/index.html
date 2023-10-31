@@ -310,7 +310,99 @@ attrs(el, ['id', 'class']) // => {id:'list',class:'list'}
 // 设置单个属性
 attrs(el, 'id', 'nav')
 // 设置多个属性
-attrs(el, {id:'list',class:'list'})</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">html(el[, strHTML])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Attributes</dd></dl><p>html() 方法用来获取或者设置 DOM 元素的 innerHTML 属性值，或者通过 HTML 字符串，创建 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）el 参数指定 DOM 元素或者用来创建 DOM 元素的 HTML 字符串；</p><h5 class="section__h4">strHTML</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（可选）strHTML 参数指定设置的 innerHTML 字符串，如果不指定则返回 el 元素的 innerHTML 属性（字符串）。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>返回创建的 DOM 元素或者 DOM 元素的 innerHTML 属性（字符串）。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+attrs(el, {id:'list',class:'list'})</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">enable(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Attribute</dd></dl><dl class="section__dl"><dt class="section__dt">Since：</dt><dd class="section__dd">1.2.0</dd></dl><p>enable() 方法用来将启用指定 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）指定要启用的 DOM 元素。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+  &lt;li class="item active"&gt;Home&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;input type="text" id="user" class="user" value="Robert" /&gt;
+&lt;input type="checkbox" id="reading" name="hobby" class="checkbox" value="reading" /&gt;读书
+&lt;textarea id="desc" class="desc"&gt;I\'m a programmer&lt;/textarea&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 enable 单个方法
+import enable from '@yaohaixiao/dom.js/enable'
+
+const $list = byId('#list')
+const $user = byId('#user')
+const $desc = byId('#desc')
+
+// 非 input 或者 textarea 元素 enable() 方法无效
+DOM.enable($list) // -> false
+
+DOM.disable($user)
+DOM.getAttribute($user, 'disabled') // -> true
+// enable() 方法是直接移除 DOM 元素的 disabled 属性
+enable($user)
+DOM.getAttribute($user, 'disabled') // -> null
+
+// 对已经启用的 DOM 元素无效
+DOM.enable($user) // -> false
+
+DOM.disable($desc)
+DOM.getAttribute($desc, 'disabled') // -> true
+// enable() 方法是直接移除 DOM 元素的 disabled 属性
+enable($desc)
+DOM.getAttribute($desc, 'disabled') // -> null</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">disable(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Attribute</dd></dl><dl class="section__dl"><dt class="section__dt">Since：</dt><dd class="section__dd">1.2.0</dd></dl><p>disable() 方法用来禁用指定 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定要禁用的 DOM 元素。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+   &lt;li class="item active"&gt;Home&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;input type="text" id="user" class="user" value="Robert" /&gt;
+&lt;input type="checkbox" id="reading" name="hobby" class="checkbox" value="reading" /&gt;读书
+&lt;textarea id="desc" class="desc"&gt;I\'m a programmer&lt;/textarea&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 disable 单个方法
+import disable from '@yaohaixiao/dom.js/disable'
+
+const $list = byId('#list')
+const $user = byId('#user')
+const $desc = byId('#desc')
+
+// 非 input 或者 textarea 元素 disable() 方法禁用无效
+DOM.disable($list) // -> false
+
+disable($user)
+DOM.getAttribute($user, 'disabled') // -> true
+
+// 对已经警用的 DOM 元素，再禁用无效
+DOM.disable($user) // -> false
+
+disable($desc)
+DOM.getAttribute($desc, 'disabled') // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">readonly(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Attribute</dd></dl><dl class="section__dl"><dt class="section__dt">Since：</dt><dd class="section__dd">1.2.0</dd></dl><p>readonly() 方法用来启用或者取消 DOM 元素的只读模式。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定需要启用或者禁用制度模式的 DOM 元素。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+   &lt;li class="item active"&gt;Home&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;input type="text" id="user" class="user" value="Robert" /&gt;
+&lt;input type="checkbox" id="reading" name="hobby" class="checkbox" value="reading" /&gt;读书
+&lt;textarea id="desc" class="desc"&gt;I\'m a programmer&lt;/textarea&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 readonly 单个方法
+import readonly from '@yaohaixiao/dom.js/readonly'
+
+const $list = byId('#list')
+const $user = byId('#user')
+const $desc = byId('#desc')
+
+// 非 input 或者 textarea 元素 readonly() 方法无效
+DOM.readonly($list) // -> false
+
+DOM.readonly($user)
+DOM.getAttribute($user, 'readonly') // -> true
+// readonly() 方法是直接移除 DOM 元素的 readonly 属性
+readonly($user)
+DOM.getAttribute($user, 'readonly') // -> null
+
+// 对已经只读的 DOM 元素无效
+DOM.readonly($user) // -> false
+
+DOM.readonly($desc)
+DOM.getAttribute($desc, 'readonly') // -> true
+readonly($desc)
+DOM.getAttribute($desc, 'readonly') // -> null</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">html(el[, strHTML])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Attributes</dd></dl><p>html() 方法用来获取或者设置 DOM 元素的 innerHTML 属性值，或者通过 HTML 字符串，创建 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）el 参数指定 DOM 元素或者用来创建 DOM 元素的 HTML 字符串；</p><h5 class="section__h4">strHTML</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（可选）strHTML 参数指定设置的 innerHTML 字符串，如果不指定则返回 el 元素的 innerHTML 属性（字符串）。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>返回创建的 DOM 元素或者 DOM 元素的 innerHTML 属性（字符串）。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
    &lt;li class="item active"&gt;Home&lt;/li&gt;
    &lt;li class="item"&gt;Blog&lt;/li&gt;
    &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -394,7 +486,7 @@ val($group) // -> '成本'
 
 val($desc) // -> '前端工程师'
 val($desc, '软件工程师')
-val($desc) // -> '软件工程师'</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Base</h2></header><div class="section__content"><p>dom.js 提供以下方法用以创建或查询 DOM 元素等基础 DOM 操作。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">build(str)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Attributes</dd></dl><dl class="section__dl"><dt class="section__dt">Since：</dt><dd class="section__dd">1.1.0</dd></dl><p>build() 方法用来将 HTML 字符串解析生成 DOM 节点。</p><p>注意：build() 方法与 html() 方法的不同指出在于 build() 方法返回的是 HTML 字符串解析后生成 DOM 元素，而 html() 方法返回的是包含 HTML 字符串解析后生成 DOM 元素的文档碎片。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">str</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（可选）str 参数指定用来创建 DOM 节点的 HTML 字符串。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回创建的 DOM 元素。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+val($desc) // -> '软件工程师'</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Base</h2></header><div class="section__content"><p>dom.js 提供以下方法用以创建或查询 DOM 元素等基础 DOM 操作。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">build(str)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><dl class="section__dl"><dt class="section__dt">Since：</dt><dd class="section__dd">1.1.0</dd></dl><p>build() 方法用来将 HTML 字符串解析生成 DOM 节点。</p><p>注意：build() 方法与 html() 方法的不同指出在于 build() 方法返回的是 HTML 字符串解析后生成 DOM 元素，而 html() 方法返回的是包含 HTML 字符串解析后生成 DOM 元素的文档碎片。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">str</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（可选）str 参数指定用来创建 DOM 节点的 HTML 字符串。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回创建的 DOM 元素。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
    &lt;li class="item active"&gt;Home&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -828,7 +920,13 @@ parent($home, 'scroll')
 // -> document.documentElement
 
 parent($list, 'offset')
-// -> document.body</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Color</h2></header><div class="section__content"><p>dom.js 提供以下方法用于处理 DOM 元素的颜色值相关的操作。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getColor(el, attr, isHex = true)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Color</dd></dl><dl class="section__dl"><dt class="section__dt">Since：</dt><dd class="section__dd">0.4.0</dd></dl><p>getColor() 方法用来获取 DOM 元素指定的颜色值。可指定获取 16 进制色值或者 RGB 色值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 节点。</p><h5 class="section__h4">attr</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）attr 参数指定表示颜色的属性字符串：</p><pre class="section__pre"><code class="section__">// 只能是以下包含的颜色属性
+// -> document.body</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">pixel(val)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><dl class="section__dl"><dt class="section__dt">Since：</dt><dd class="section__dd">1.2.0</dd></dl><p>pixel() 方法用来将 CSS 单位值('px')和数值互换。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">val</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|Number</dd></dl><p>（必须）val 参数指定用来转化的 CSS 单位或者数值。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|Number</dd></dl><p>返回转化后的数值或者 CSS 单位值。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 pixel 单个方法
+import pixel from '@yaohaixiao/dom.js/pixel'
+
+DOM.pixel('24px') // -> 24
+pixel(24) // -> '24px'</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Color</h2></header><div class="section__content"><p>dom.js 提供以下方法用于处理 DOM 元素的颜色值相关的操作。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getColor(el, attr, isHex = true)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Color</dd></dl><dl class="section__dl"><dt class="section__dt">Since：</dt><dd class="section__dd">0.4.0</dd></dl><p>getColor() 方法用来获取 DOM 元素指定的颜色值。可指定获取 16 进制色值或者 RGB 色值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 节点。</p><h5 class="section__h4">attr</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）attr 参数指定表示颜色的属性字符串：</p><pre class="section__pre"><code class="section__">// 只能是以下包含的颜色属性
 [
   'accent-color',
   'background-color',

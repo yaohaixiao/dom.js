@@ -1,0 +1,53 @@
+section.section
+  header.section__header
+    h3.section__h3 readonly(el)
+  div.section__content
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Attribute
+    dl.section__dl
+      dt.section__dt Since：
+      dd.section__dd 1.2.0
+    p readonly() 方法用来启用或者取消 DOM 元素的只读模式。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （必须）el 参数指定需要启用或者禁用制度模式的 DOM 元素。
+    h4.section__h4 Usage
+    pre.section__pre
+      code.section__code.
+         &lt;ul id="list" class="list"&gt;
+            &lt;li class="item active"&gt;Home&lt;/li&gt;
+         &lt;/ul&gt;
+
+         &lt;input type="text" id="user" class="user" value="Robert" /&gt;
+         &lt;input type="checkbox" id="reading" name="hobby" class="checkbox" value="reading" /&gt;读书
+         &lt;textarea id="desc" class="desc"&gt;I\'m a programmer&lt;/textarea&gt;
+
+         // 引入 DOM 模块（中的所有工具方法）
+         import DOM from '@yaohaixiao/dom.js/dom
+         // 引用 readonly 单个方法
+         import readonly from '@yaohaixiao/dom.js/readonly'
+
+         const $list = byId('#list')
+         const $user = byId('#user')
+         const $desc = byId('#desc')
+
+         // 非 input 或者 textarea 元素 readonly() 方法无效
+         DOM.readonly($list) // -> false
+
+         DOM.readonly($user)
+         DOM.getAttribute($user, 'readonly') // -> true
+         // readonly() 方法是直接移除 DOM 元素的 readonly 属性
+         readonly($user)
+         DOM.getAttribute($user, 'readonly') // -> null
+
+         // 对已经只读的 DOM 元素无效
+         DOM.readonly($user) // -> false
+
+         DOM.readonly($desc)
+         DOM.getAttribute($desc, 'readonly') // -> true
+         readonly($desc)
+         DOM.getAttribute($desc, 'readonly') // -> null
