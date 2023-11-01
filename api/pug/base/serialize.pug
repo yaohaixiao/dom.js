@@ -1,0 +1,54 @@
+section.section
+  header.section__header
+    h3.section__h3 serialize(formElement[, isParams])
+  div.section__content
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Base
+    p serialize() 方法用来将 Form 表单中的数据序列化为 key/value 的对象数据或者 URL 地址中查询字符串的格式。
+    h4.section__h4 Parameters
+    h5.section__h4 formElement
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （必须）formElement 参数指定 Form 表单元素。
+    h5.section__h4 isParams
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Boolean
+    p （可选）isParams 指定是否序列化为查询字符串：
+    ul
+      li false：（默认值）序列化为 key/value 的对象数据;
+      li true: 序列化为查询字符串;
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Object|String
+    p 返回序列化后的数据。
+    pre.section__pre
+      code.section__.
+        &lt;ul id="list" class="list"&gt;&lt;/ul&gt;
+        &lt;form name="form" id="form"&gt;
+          &lt;input type="text" id="user" name="user" class="user" value="Robert" /&gt;
+          &lt;input type="checkbox" id="reading" checked="checked" name="hobby" class="checkbox" value="reading" /&gt;读书
+          &lt;textarea id="desc" name="desc" class="desc"&gt;I\'m a programmer&lt;/textarea&gt;
+        &lt;/form>'
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 serialize 单个方法
+        import serialize from '@yaohaixiao/dom.js/serialize'
+
+        const $list = DOM.byId('#list')
+        const $form = DOM.byId('#form')
+        const $user = DOM.byId('#user')
+
+        // serialize() 方法无法序列化非表单元素
+        DOM.serialize($list) // -> false
+        DOM.serialize($user) // -> false
+
+        // 序列化成查询字符串
+        serialize($form, true) // -> {desc: "I'm a programmer", hobby: "reading", user: "Robert"}
+
+        // 序列化为 key/value 的对象数据
+        serialize($form) // -> 'user=Robert&hobby=reading&desc=I%27m+a+programmer'
