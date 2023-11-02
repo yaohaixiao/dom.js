@@ -1,8 +1,7 @@
 import {
   KEYWORDS,
   REG_RGB,
-  REG_HEX3,
-  REG_HEX
+  REG_HEX3
 } from './utils/enum'
 
 /**
@@ -25,7 +24,7 @@ const toHex = (color) => {
   }
 
   hex = KEYWORDS[color] || color
-  matches = REG_HEX.exec(hex)
+  matches = REG_RGB.exec(hex)
 
   if (matches) {
     r = matches[1]?.length === 1 ? '0' + matches[1] : Number(matches[1])

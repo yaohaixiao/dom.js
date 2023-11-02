@@ -18,6 +18,7 @@ const toHSL = (color) => {
     return false
   }
 
+  // hex to hsl
   if (!REG_RGB.test(color)) {
     hex = toHex(color)
     matches = REG_HEX.exec(hex)
@@ -28,6 +29,7 @@ const toHSL = (color) => {
       b = parseInt(matches[3], 16)
     }
   } else {
+    // rgb to hsl
     matches = REG_RGB.exec(color)
 
     if (matches) {
