@@ -1,4 +1,9 @@
-import { KEYWORDS, REG_RGB, REG_HEX3 } from './utils/enum'
+import {
+  KEYWORDS,
+  REG_RGB,
+  REG_HEX3,
+  REG_HEX
+} from './utils/enum'
 
 /**
  * 返回将指定颜色（颜色英文名称或RGB格式色值）转化成 16 进制色值
@@ -20,7 +25,7 @@ const toHex = (color) => {
   }
 
   hex = KEYWORDS[color] || color
-  matches = REG_RGB.exec(hex)
+  matches = REG_HEX.exec(hex)
 
   if (matches) {
     r = matches[1]?.length === 1 ? '0' + matches[1] : Number(matches[1])
