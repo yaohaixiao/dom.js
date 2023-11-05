@@ -70,3 +70,4 @@ export const READONLY_INPUT_TYPES = [
 export const REG_RGB = /^rgb\((\d+)\s*,\s*(\d+)\s*,\s*(\d+)\)$/i
 export const REG_HEX = /^#?([0-9A-F]{2})([0-9A-F]{2})([0-9A-F]{2})$/i
 export const REG_HEX3 = /([0-9A-F])/gi
+export const REG_HSL = /^hsl\((\d+)\s*,\s*(\d+)%\s*,\s*(\d+)%\)$/i

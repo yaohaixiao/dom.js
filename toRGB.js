@@ -1,8 +1,9 @@
+import _HSLToRGB from './_HSLToRGB'
 import toHex from './toHex'
-import { REG_RGB, REG_HEX } from './utils/enum'
+import { REG_RGB, REG_HEX, REG_HSL } from './utils/enum'
 
 /**
- * 返回将指定颜色（16 进制色值）转化成 RGB 色值
+ * 返回将指定颜色（16 进制或者 HSL 色值）转化成 RGB 色值
  * ========================================================================
  * @method toRGB
  * @since 0.4.0
@@ -11,30 +12,45 @@ import { REG_RGB, REG_HEX } from './utils/enum'
  */
 const toRGB = (color) => {
   let matches = []
-  let rgb = color
+  let hex
+  let rgb
+  let r
+  let g
+  let b
 
   if (!color) {
     return false
   }
 
-  if (!REG_RGB.test(rgb)) {
-    rgb = toHex(rgb)
+  if (REG_RGB.test(color)) {
+    return color
   }
 
-  matches = REG_HEX.exec(rgb)
+  if (REG_HSL.test(color)) {
+    matches = REG_HSL.exec(color)
 
-  if (matches) {
-    rgb =
-      'rgb(' +
-      [
-        parseInt(matches[1], 16),
-        parseInt(matches[2], 16),
-        parseInt(matches[3], 16)
-      ].join(', ') +
-      ')'
+    rgb = _HSLToRGB(
+      parseInt(matches[1], 10),
+      parseInt(matches[2], 10),
+      parseInt(matches[3], 10)
+    )
+
+    r = rgb[0]
+    g = rgb[1]
+    b = rgb[2]
+  } else {
+    if (!REG_RGB.test(color)) {
+      hex = toHex(color)
+    }
+
+    matches = REG_HEX.exec(hex)
+
+    r = parseInt(matches[1], 16)
+    g = parseInt(matches[2], 16)
+    b = parseInt(matches[3], 16)
   }
 
-  return rgb
+  return 'rgb(' + [ r, g, b ].join(', ') + ')'
 }
 
 export default toRGB
