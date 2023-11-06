@@ -8,7 +8,7 @@ section.section
     dl.section__dl
       dt.section__dt Since：
       dd.section__dd 0.4.0    
-    p toHex() 方法用来将指定颜色（16 进制色值）转化成 RGB 色值。
+    p toHex() 方法用来将指定颜色（颜色英文名称、16 进制或者 HSL 色值）转化成 RGB 色值。
     h4.section__h4 Parameters
     h5.section__h4 color
     dl.section__dl
@@ -42,3 +42,4 @@ section.section
 
         DOM.toRGB(DOM.getStyle($list, 'color')) // -> 'rgb(0, 0, 0)'
         toRGB(DOM.getStyle($list, 'background-color')) // -> 'rgb(255, 255, 255)'
+        toRGB('hsl(0,100%,50%)') // -> 'rgb(255, 0, 0)'

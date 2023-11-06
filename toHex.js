@@ -1,15 +1,8 @@
 import _HSLToRGB from './_HSLToRGB'
-import {
-  KEYWORDS,
-  REG_HSL,
-  REG_RGB,
-  REG_HEX3,
-  REG_HEX
-} from './utils/enum'
-
+import { KEYWORDS, REG_HSL, REG_RGB, REG_HEX3, REG_HEX } from './utils/enum'
 
 /**
- * 返回将指定颜色（颜色英文名称或RGB格式或者 HSL 格式色值）转化成 16 进制色值
+ * 返回将指定颜色（颜色英文名称、RGB格式或者 HSL 格式色值）转化成 16 进制色值
  * ========================================================================
  * @method toHex
  * @since 0.4.0
@@ -41,7 +34,7 @@ const toHex = (color) => {
       parseInt(matches[2], 10),
       parseInt(matches[3], 10)
     )
-    matches = [ hex, ...rgb ]
+    matches = [hex, ...rgb]
   } else {
     matches = REG_RGB.exec(hex)
   }
@@ -51,7 +44,7 @@ const toHex = (color) => {
     g = matches[2]?.length === 1 ? '0' + matches[2] : Number(matches[2])
     b = matches[3]?.length === 1 ? '0' + matches[3] : Number(matches[3])
 
-    hex = [ r.toString(16), g.toString(16), b.toString(16) ].join('')
+    hex = [r.toString(16), g.toString(16), b.toString(16)].join('')
   }
 
   if (hex.length < 6) {

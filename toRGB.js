@@ -3,7 +3,7 @@ import toHex from './toHex'
 import { REG_RGB, REG_HEX, REG_HSL } from './utils/enum'
 
 /**
- * 返回将指定颜色（16 进制或者 HSL 色值）转化成 RGB 色值
+ * 返回将指定颜色（颜色英文名称、16 进制或者 HSL 色值）转化成 RGB 色值
  * ========================================================================
  * @method toRGB
  * @since 0.4.0
@@ -50,7 +50,7 @@ const toRGB = (color) => {
     b = parseInt(matches[3], 16)
   }
 
-  return 'rgb(' + [ r, g, b ].join(', ') + ')'
+  return 'rgb(' + [r, g, b].join(', ') + ')'
 }
 
 export default toRGB

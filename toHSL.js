@@ -1,12 +1,8 @@
 import toHex from './toHex'
-import {
-  REG_RGB,
-  REG_HEX,
-  REG_HSL
-} from './utils/enum'
+import { REG_RGB, REG_HEX, REG_HSL } from './utils/enum'
 
 /**
- * 将 16 进制或者 RGB 格式的色值转化为 HSL 格式
+ * 指定颜色（颜色英文名称、16 进制或RGB格式色值）转化成 HSL 格式色值
  * ========================================================================
  * @method toHSL
  * @since 1.3.0
@@ -59,13 +55,13 @@ const toHSL = (color) => {
     ? l === r
       ? (g - b) / s
       : l === g
-        ? 2 + (b - r) / s
-        : 4 + (r - g) / s
+      ? 2 + (b - r) / s
+      : 4 + (r - g) / s
     : 0
 
-  return `hsl(${60 * h < 0 ? 60 * h + 360 : 60 * h},${
+  return `hsl(${60 * h < 0 ? 60 * h + 360 : 60 * h}, ${
     100 * (s ? (l <= 0.5 ? s / (2 * l - s) : s / (2 - (2 * l - s))) : 0)
-  }%,${(100 * (2 * l - s)) / 2}%)`
+  }%, ${(100 * (2 * l - s)) / 2}%)`
 }
 
 export default toHSL
