@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/yaohaixiao/dom.js/compare/1.2.0...1.3.0) (2023-11-06)
+
+
+### Features
+
+* 调整 color 模块的方法，支持 rgb hex hsl 之间的互换 ([626bd0f](https://github.com/yaohaixiao/dom.js/commit/626bd0f50768d39f95b32427b9626aec4a7a9428))
+* 添加 serialize() 方法 ([8486a57](https://github.com/yaohaixiao/dom.js/commit/8486a578396388ebafe3e32bbf25c287c469bdd4))
+* 添加 toHSL() 方法 ([7f47295](https://github.com/yaohaixiao/dom.js/commit/7f472958b50167b77fe431aa502eadd7fd43f886))
+* 添加 toHSL() 方法和相应的 API 文档；调整 toRGB() 和 toHex() 方法，增加对 HSL 格式的色值转化； ([96ae3c0](https://github.com/yaohaixiao/dom.js/commit/96ae3c0eee8e48a3835abd4035397b2b134c4be0))
+
+
+
 # [1.2.0](https://github.com/yaohaixiao/dom.js/compare/1.1.0...1.2.0) (2023-10-31)
 
 
