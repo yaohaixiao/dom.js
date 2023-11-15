@@ -9,6 +9,7 @@ import prepend from '../prepend'
 import after from '../after'
 import before from '../before'
 import replace from '../replace'
+import remove from '../remove'
 import unwrap from '../unwrap'
 import wrap from '../wrap'
 import wrapAll from '../wrapAll'
@@ -26,6 +27,7 @@ const DOM = {
   after,
   before,
   replace,
+  remove,
   unwrap,
   wrap,
   wrapAll,
