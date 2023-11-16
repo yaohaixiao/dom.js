@@ -16,7 +16,7 @@ const insertAfter = (el, reference) => {
   let $parent
   let $nextSibling
 
-  if (!isDOM(el) || !isElement(reference)) {
+  if (!isDOM(el)) {
     return null
   }
 

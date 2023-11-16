@@ -14,7 +14,7 @@ import isDOM from './isDOM'
 const insertBefore = (el, reference) => {
   let $parent
 
-  if (!isDOM(el) || !isElement(reference)) {
+  if (!isDOM(el)) {
     return null
   }
 

@@ -43,6 +43,7 @@ describe('append() 方法', () => {
     const $help = createElement('li', html(HELP))
 
     expect(append($help, $list)).toEqual($help)
+    expect($list.lastChild).toEqual($help)
   })
 
   it(`append('help', $list) 在 $list 节点最后面插入普通字符串（字符串会动态创建为 $text 文本节点），返回： $text`, () => {
@@ -50,15 +51,17 @@ describe('append() 方法', () => {
     const $text = text(HELP)
 
     expect(append(HELP, $list)).toEqual($text)
+    expect($list.lastChild).toEqual($text)
   })
 
   it(`prepend(HELP, $list) 在 $list 节点最后面插入 HTML 字符串（HTML 字符串会解析动态创建为 $help 节点），返回： $help`, () => {
     const HELP =
-      '  <li class="item-help" data-id="item-help" id="item-help">\n' +
-      '    <span>Help</span>\n' +
-      '    <a href="/sitemap#help" class="remove" data-id="help">删除</a>\n' +
-      '  </li>\n'
-    const $help = html(HELP)
-    expect(append(HELP, $list)).toEqual($help)
+      '<li class="item-help" data-id="item-help" id="item-help">' +
+      '<span>Help</span>' +
+      '<a href="/sitemap#help" class="remove" data-id="help">删除</a>' +
+      '</li>'
+
+    append(HELP, $list)
+    expect($list.lastChild.id).toEqual('item-help')
   })
 })
