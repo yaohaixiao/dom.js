@@ -64,4 +64,29 @@ describe('append() 方法', () => {
     append(HELP, $list)
     expect($list.lastChild.id).toEqual('item-help')
   })
+
+  it(`使用 JavaScript 内置 API 的 append() 方法实现`, () => {
+    const FAQS =
+      '<li class="item-faqs" data-id="item-faqs" id="item-faqs">' +
+      '<span>Faqs</span>' +
+      '<a href="/sitemap#faqs" class="remove" data-id="faqs">删除</a>' +
+      '</li>'
+
+    $list.prepend = null
+
+    append(FAQS, $list)
+    expect($list.lastChild.id).toEqual('item-faqs')
+
+    const $item = createElement('li')
+
+    $item.className = 'item-links'
+
+    append($item, $list)
+    expect($list.lastChild.className).toEqual('item-links')
+
+    const nav = 'Navigation'
+
+    append(nav, $list)
+    expect($list.lastChild.textContent).toEqual(nav)
+  })
 })

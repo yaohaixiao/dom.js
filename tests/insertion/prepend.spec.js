@@ -65,4 +65,29 @@ describe('prepend() 方法', () => {
 
     expect($list.firstChild.id).toEqual('item-help')
   })
+
+  it(`使用 JavaScript 内置 API 的 prepend() 方法实现`, () => {
+    const FAQS =
+      '<li class="item-faqs" data-id="item-faqs" id="item-faqs">' +
+      '<span>Faqs</span>' +
+      '<a href="/sitemap#faqs" class="remove" data-id="faqs">删除</a>' +
+      '</li>'
+
+    $list.prepend = null
+
+    prepend(FAQS, $list)
+    expect($list.firstChild.id).toEqual('item-faqs')
+
+    const $item = createElement('li')
+
+    $item.className = 'item-links'
+
+    prepend($item, $list)
+    expect($list.firstChild.className).toEqual('item-links')
+
+    const nav = 'Navigation'
+
+    prepend(nav, $list)
+    expect($list.firstChild.textContent).toEqual(nav)
+  })
 })

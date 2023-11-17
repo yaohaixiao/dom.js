@@ -1,3 +1,12 @@
+## [1.3.1](https://github.com/yaohaixiao/dom.js/compare/1.3.0...1.3.1) (2023-11-17)
+
+
+### Features
+
+* 添加 remove() 方法并添加对应的 API 文档； ([a355d52](https://github.com/yaohaixiao/dom.js/commit/a355d528997735c0a4e81bafa7804111766be8cc))
+
+
+
 # [1.3.0](https://github.com/yaohaixiao/dom.js/compare/1.2.0...1.3.0) (2023-11-06)
 
 
