@@ -1,6 +1,11 @@
 ## [1.3.1](https://github.com/yaohaixiao/dom.js/compare/1.3.0...1.3.1) (2023-11-17)
 
 
+### Bug Fixes
+
+* 修复 insertBefore 和 insertAfter 中的非法值判断错误；调整 append() 和 prepend() 方法的代码逻辑 ([746e921](https://github.com/yaohaixiao/dom.js/commit/746e9211d09e0eeea8792dae942121610e2601f7))
+
+
 ### Features
 
 * 添加 remove() 方法并添加对应的 API 文档； ([a355d52](https://github.com/yaohaixiao/dom.js/commit/a355d528997735c0a4e81bafa7804111766be8cc))
