@@ -24,6 +24,8 @@ import children from '../children'
 import parent from '../parent'
 import pixel from '../pixel'
 import serialize from '../serialize'
+import toPixels from '../toPixels'
+import toREM from '../toREM'
 
 const DOM = {
   build,
@@ -51,7 +53,9 @@ const DOM = {
   children,
   parent,
   pixel,
-  serialize
+  serialize,
+  toREM,
+  toPixels
 }
 
 export default DOM
