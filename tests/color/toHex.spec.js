@@ -7,7 +7,7 @@ describe('toHex() 方法', () => {
   const BLACK = 'rgb(0,0,0)'
   const WHITE = 'white'
   const HSL = 'hsl(0,100%,50%)'
-  const HEX = '#f00'
+  const HEX = '#ff0000'
 
   it('toHex() 不传递参数，返回：false', () => {
     expect(toHex()).toBe(false)
