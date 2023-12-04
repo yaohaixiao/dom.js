@@ -3,7 +3,7 @@ const _getURLPattern = () => {
   const user = '([^\\/\\?\\#\\:]+)'
   const password = '(.+)'
   const auth = '(' + user + ':' + password + '@)?'
-  const address = '(([a-z\\d]([a-z\\d-]*[a-z\\d])*(\\.)?)+([a-z]{2,})?)'
+  const address = '(([a-z\\d]([a-z\\d-]*[a-z\\d])*(\\.[a-z]{2,})?)+)'
   const ip = '((\\d{1,3}\\.){3}\\d{1,3})'
   const hostname = '(' + address + '|' + ip + ')'
   const port = '(\\:\\d+)?'

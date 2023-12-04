@@ -18,12 +18,12 @@ const getURLProps = (url = location.href) => {
     username: matches[3] || '',
     password: matches[4] || '',
     hostname: matches[6],
-    port: matches[14] ? matches[14].replace(':', '') : '',
+    port: matches[13] ? matches[13].replace(':', '') : '',
     host: matches[5],
-    pathname: matches[16],
-    search: matches[18] || '',
-    path: matches[15],
-    hash: matches[19] || '',
+    pathname: matches[15],
+    search: matches[17] || '',
+    path: matches[14],
+    hash: matches[18] || '',
     href: url,
     origin: protocol + '://' + host
   }
