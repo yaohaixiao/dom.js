@@ -34,7 +34,8 @@ const toHex = (color) => {
       parseInt(matches[2], 10),
       parseInt(matches[3], 10)
     )
-    matches = [hex, ...rgb]
+
+    return toHex(`rgb(${rgb.join(',')})`)
   } else {
     matches = REG_RGB.exec(hex)
   }

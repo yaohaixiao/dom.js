@@ -39,6 +39,7 @@ const toRGB = (color) => {
     g = rgb[1]
     b = rgb[2]
   } else {
+    /* istanbul ignore else */
     if (!REG_RGB.test(color)) {
       hex = toHex(color)
     }
