@@ -5,7 +5,6 @@ import stripScripts from './utils/string/stripScripts'
 import html from './html'
 import encodeHTML from './utils/string/encodeHTML'
 import text from './text'
-import isText from './isText'
 
 /**
  * 方法将指定的文本解析为 Element 元素，并将结果节点插入到 DOM 树中的指定位置。它不会
