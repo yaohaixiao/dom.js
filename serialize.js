@@ -1,4 +1,5 @@
 import isElement from './isElement'
+import toURLSearchParams from './toURLSearchParams'
 
 /**
  *
@@ -19,7 +20,7 @@ const serialize = (formElement, isParams = false) => {
   data = new FormData(formElement)
 
   if (isParams) {
-    serialized = new URLSearchParams(data).toString()
+    serialized = toURLSearchParams(data)
   } else {
     for (const [key, value] of data) {
       serialized[key] = value

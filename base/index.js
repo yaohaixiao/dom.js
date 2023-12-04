@@ -14,6 +14,9 @@ import has from '../has'
 import getHostOrParent from '../getHostOrParent'
 import getOffsetParent from '../getOffsetParent'
 import getScrollParent from '../getScrollParent'
+import getURLProps from '../getURLProps'
+import getURLSearchParams from '../getURLSearchParams'
+import getURLSearchParamByName from '../getURLSearchParamByName'
 import index from '../index'
 import inDocument from '../inDocument'
 import inBounding from '../inBounding'
@@ -26,6 +29,7 @@ import pixel from '../pixel'
 import serialize from '../serialize'
 import toPixels from '../toPixels'
 import toREM from '../toREM'
+import toURLSearchParams from '../toURLSearchParams'
 
 const DOM = {
   build,
@@ -44,6 +48,9 @@ const DOM = {
   getHostOrParent,
   getOffsetParent,
   getScrollParent,
+  getURLProps,
+  getURLSearchParams,
+  getURLSearchParamByName,
   index,
   inDocument,
   inBounding,
@@ -55,7 +62,8 @@ const DOM = {
   pixel,
   serialize,
   toREM,
-  toPixels
+  toPixels,
+  toURLSearchParams
 }
 
 export default DOM
