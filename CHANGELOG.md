@@ -1,3 +1,22 @@
+# [1.4.0](https://github.com/yaohaixiao/dom.js/compare/1.3.1...1.4.0) (2023-12-05)
+
+
+### Bug Fixes
+
+* 修复 _getURLPattern() 方法中关于 address 部分正则表达式错误的问题 ([3633cb8](https://github.com/yaohaixiao/dom.js/commit/3633cb8940285f9411251a05956fa11120387363))
+* 修复 HSL 格式转 hex 的错误 ([0fc933c](https://github.com/yaohaixiao/dom.js/commit/0fc933c35aa9d1fc281850c17a0ad8f857240395))
+
+
+### Features
+
+* 添加 getScreenHeight() 和 getScreenWidth() 方法； ([7991fd8](https://github.com/yaohaixiao/dom.js/commit/7991fd80b0728af9e9b9f5ca58ca39475c492d62))
+* 添加 getURLProps() getURLSearchParams() getURLSearchParamByName() 和 toURLSearchParams() 方法，并使用 toURLSearchParams() 方法替换 serialize() 方法中转化成搜素字符串的处理逻辑 ([2cd1a5d](https://github.com/yaohaixiao/dom.js/commit/2cd1a5d5492ce0852d229a929d3cb5189bddc56a))
+* 添加 injectCSS() 方法，并添加相应的 API 文档； ([c24463c](https://github.com/yaohaixiao/dom.js/commit/c24463cab5001b9ae98a3fac08cf333cb462b958))
+* 添加 toPixels() 和 toREM() 方法 ([0632e64](https://github.com/yaohaixiao/dom.js/commit/0632e645f4b8deaf13f583845d2db6cc4545c06f))
+* 添加方法：copyToClipboard()、createAndDownloadFile()、isBrowser()、openURL() 等方法，并更新相应的 API 文档； ([c1d2350](https://github.com/yaohaixiao/dom.js/commit/c1d2350159716857a281147a4d6e8de1b8179c36))
+
+
+
 ## [1.3.1](https://github.com/yaohaixiao/dom.js/compare/1.3.0...1.3.1) (2023-11-17)
 
 
