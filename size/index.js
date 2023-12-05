@@ -2,6 +2,8 @@ import getViewportHeight from '../getViewportHeight'
 import getViewportWidth from '../getViewportWidth'
 import getDocumentHeight from '../getDocumentHeight'
 import getDocumentWidth from '../getDocumentWidth'
+import getScreenHeight from '../getScreenHeight'
+import getScreenWidth from '../getScreenWidth'
 import innerHeight from '../innerHeight'
 import innerWidth from '../innerWidth'
 import outerHeight from '../outerHeight'
@@ -15,6 +17,8 @@ const DOM = {
   getViewportWidth,
   getDocumentHeight,
   getDocumentWidth,
+  getScreenHeight,
+  getScreenWidth,
   innerHeight,
   innerWidth,
   outerHeight,
