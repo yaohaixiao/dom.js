@@ -1,0 +1,34 @@
+section.section
+  header.section__header
+    h3.section__h3 createAndDownloadFile(fileName, content)
+  div.section__content
+    h4.section__h4 Since
+    p.section__dd 1.4.0
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Base
+    p createAndDownloadFile() 方法用来（通过文本）创建二进制的文件并下载文件。
+    h4.section__h4 Parameters
+    h5.section__h4 fileName
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （必须）下载的文件名称。
+    h5.section__h4 content
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Blob|String
+    ul
+      li Blob：二进制内容；
+      li String：文本内容；
+    p （必须）下载文件的主体内容。
+    pre.section__pre
+      code.section__.
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 createAndDownloadFile 单个方法
+        import createAndDownloadFile from '@yaohaixiao/dom.js/createAndDownloadFile'
+
+        // 创建一个 age.js 文件，并下载
+        DOM.createAndDownloadFile('age.js', 'var age = 32')
+        createAndDownloadFile('readme.md', '# createAndDownloadFile')

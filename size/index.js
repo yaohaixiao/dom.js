@@ -4,6 +4,7 @@ import getDocumentHeight from '../getDocumentHeight'
 import getDocumentWidth from '../getDocumentWidth'
 import getScreenHeight from '../getScreenHeight'
 import getScreenWidth from '../getScreenWidth'
+import getScrollbarWidth from '../getScrollbarWidth'
 import innerHeight from '../innerHeight'
 import innerWidth from '../innerWidth'
 import outerHeight from '../outerHeight'
@@ -19,6 +20,7 @@ const DOM = {
   getDocumentWidth,
   getScreenHeight,
   getScreenWidth,
+  getScrollbarWidth,
   innerHeight,
   innerWidth,
   outerHeight,

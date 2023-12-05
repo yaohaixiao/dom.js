@@ -1,0 +1,31 @@
+section.section
+  header.section__header
+    h3.section__h3 toURLSearchParams(o)
+  div.section__content
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Base
+    p toURLSearchParams() 方法用来将普通对象转化成 URL 地址中的查询字符串。
+    h4.section__h4 Parameters
+    h5.section__h4 o
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Object
+    p o 参数指定要转化的普通对象。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p 返回转化后的 URL 地址查询字符串。
+    pre.section__pre
+      code.section__code.
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 toURLSearchParams 单个方法
+        import toURLSearchParams from '@yaohaixiao/dom.js/toURLSearchParams'
+
+        const queryOne = {name: 'Robert', age: 32}
+        const queryTwo = {price: 32, group: 4, color: 'red'}
+
+        DOM.toURLSearchParams(queryOne) // -> 'name=Robert&age=32'
+        toURLSearchParams(queryTwo) // -> 'price=32&group=4&color=red'

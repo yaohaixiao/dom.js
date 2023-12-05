@@ -1,4 +1,6 @@
 import build from '../build'
+import copyToClipboard from '../copyToClipboard'
+import createAndDownloadFile from '../createAndDownloadFile'
 import createElement from '../createElement'
 import clone from '../clone'
 import canPosition from '../canPosition'
@@ -18,12 +20,14 @@ import getURLProps from '../getURLProps'
 import getURLSearchParams from '../getURLSearchParams'
 import getURLSearchParamByName from '../getURLSearchParamByName'
 import index from '../index'
+import isBrowser from '../isBrowser'
 import inDocument from '../inDocument'
 import inBounding from '../inBounding'
 import inViewport from '../inViewport'
 import isMatched from '../isMatched'
 import matches from '../matches'
 import children from '../children'
+import openURL from '../openURL'
 import parent from '../parent'
 import pixel from '../pixel'
 import serialize from '../serialize'
@@ -33,6 +37,8 @@ import toURLSearchParams from '../toURLSearchParams'
 
 const DOM = {
   build,
+  copyToClipboard,
+  createAndDownloadFile,
   createElement,
   clone,
   canPosition,
@@ -52,12 +58,14 @@ const DOM = {
   getURLSearchParams,
   getURLSearchParamByName,
   index,
+  isBrowser,
   inDocument,
   inBounding,
   inViewport,
   isMatched,
   matches,
   children,
+  openURL,
   parent,
   pixel,
   serialize,

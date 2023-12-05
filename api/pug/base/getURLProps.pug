@@ -1,0 +1,63 @@
+section.section
+  header.section__header
+    h3.section__h3 getURLProps(url = location.href)
+  div.section__content
+    h4.section__h4 Since
+    p.section__dd 1.4.0
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Base
+    p getURLProps() 方法用来解析 URL 地址中的相关属性，返回解析 URL 后的对象数据。
+    h4.section__h4 Parameters
+    h5.section__h4 url
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    dl.section__dl
+      dt.section__dt Default：
+      dd.section__dd location.href
+    p （可选）url 参数指定要解析的 URL 地址字符串，默认值：页面当前 URL 地址。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Object
+    p 返回解析 URL 后的对象数据。
+    pre.section__pre
+      code.section__code.
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 getURLProps 单个方法
+        import getURLProps from '@yaohaixiao/dom.js/getURLProps'
+
+        // 获取当前页面地址：的 URL 信息
+        DOM.getURLProps()
+        // => {
+        //   "protocol":"https",
+        //   "username":"",
+        //   "password":"",
+        //   "hostname":"github.com",
+        //   "port":"",
+        //   "host":"github.com",
+        //   "pathname":"/yaohaixiao/dom.js",
+        //   "search":"",
+        //   "path":"/yaohaixiao/dom.js",
+        //   "hash":"",
+        //   "href":"https://github.com/yaohaixiao/dom.js",
+        //   "origin":"https://github.com"
+        // }
+
+        getURLProps('https://yaohaixiao:1232@github.com:2034/yaohaixiao/types.js/blob/main/_getURLPattern.js?search=URLSearchParams#google')
+        // => {
+        //   "protocol":"https",
+        //   "username":"yaohaixiao",
+        //   "password":"1232",
+        //   "hostname":"github.com",
+        //   "port":"2034",
+        //   "host":"github.com:2034",
+        //   "pathname":"/yaohaixiao/types.js/blob/main/_getURLPattern.js",
+        //   "search":"?search=URLSearchParams",
+        //   "path":"/yaohaixiao/types.js/blob/main/_getURLPattern.js?search=URLSearchParams",
+        //   "hash":"#google",
+        //   "href":"https://www.yaohaixiao.com:1232@github.com:2034/yaohaixiao/types.js/blob/main/_getURLPattern.js?search=URLSearchParams#google",
+        //   "origin":"https://github.com:2034"}
+        // }

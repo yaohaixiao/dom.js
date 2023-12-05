@@ -1,0 +1,36 @@
+section.section
+  header.section__header
+    h3.section__h3 getURLSearchParamByName(prop)
+  div.section__content
+    h4.section__h4 Since
+    p.section__dd 1.4.0
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Base
+    p getURLSearchParamByName() 方法用来获取当前 URL 地址字符串中查询字符串解析后的对象数据的某个属性值。
+    h4.section__h4 Parameters
+    h5.section__h4 url
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    dl.section__dl
+      dt.section__dt Default：
+      dd.section__dd prop
+    p 指定要查询的属性名称。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Object
+    p 返回 URL 地址字符串中查询字符串解析后的对象数据的属性值。
+    pre.section__pre
+      code.section__code.
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 getURLSearchParams 单个方法
+        import getURLSearchParams from '@yaohaixiao/dom.js/getURLSearchParams'
+
+        // 当前 URL 地址：http://www.yaohaixiao.com/?s=getURLSearchParams
+        DOM.getURLSearchParamByName('s') // -> 'getURLSearchParams'
+
+        // 当前 URL 地址：'http://www.yaohaixiao.com/?s=getURLSearchParams&tag=JavaScript'
+        getURLSearchParamByName(tag) // 'JavaScript'

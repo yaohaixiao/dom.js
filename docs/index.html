@@ -509,7 +509,20 @@ DOM.append($blog, $list)
 
 const $projects = build('&lt;li class="item"&gt;Projects&lt;/li&gt;')
 
-DOM.isElement($projects) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">createElement(tagName[, attrs, children])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>createElement() 方法用来创建 DOM 节点，并添加属性和子节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">tagName</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）标签名称。</p><h5 class="section__h4">attrs</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object|Array|HTMLElement|DocumentFragment|String</dd></dl><ul><li>Object：要添加的 HTML 属性/值对象；</li><li>Array：添加到创建的 DOM 元素中的多个子元素的数组；</li><li>HTMLElement：添加到创建的 DOM 元素中的（单个）子元素；</li><li>DocumentFragment：添加到创建的 DOM 元素中的文档碎片；</li><li>String：添加到创建的 DOM 元素中的文本（会作为文本节点）；</li></ul><p>（可选）给创建的 DOM 元素添加的 HTML 属性/值对象或者子元素。</p><h5 class="section__h4">children</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Array|HTMLElement|DocumentFragment|String</dd></dl><ul><li>Array：添加到创建的 DOM 元素中的多个子元素的数组；</li><li>HTMLElement：添加到创建的 DOM 元素中的（单个）子元素；</li><li>DocumentFragment：添加到创建的 DOM 元素中的文档碎片；</li><li>String：添加到创建的 DOM 元素中的文本（会作为文本节点）；</li></ul><p>（可选）给创建的 DOM 元素添加的子元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回创建的 DOM 元素。</p><pre class="section__pre"><code class="section__">// 引入 DOM 模块（中的所有工具方法）
+DOM.isElement($projects) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">copyToClipboard(str)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.4.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>copyToClipboard() 方法用于复制指定文本内容到粘贴板。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">str</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）需要复制的文本字符串。</p><pre class="section__pre"><code class="section__">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 copyToClipboard 单个方法
+import copyToClipboard from '@yaohaixiao/dom.js/copyToClipboard'
+
+DOM.copyToClipboard('http://www.yaohaixiao.com')
+copyToClipboard('https://github.com/yaohaixiao/dom.js')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">createAndDownloadFile(fileName, content)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.4.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>createAndDownloadFile() 方法用来（通过文本）创建二进制的文件并下载文件。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">fileName</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）下载的文件名称。</p><h5 class="section__h4">content</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Blob|String</dd></dl><ul><li>Blob：二进制内容；</li><li>String：文本内容；</li></ul><p>（必须）下载文件的主体内容。</p><pre class="section__pre"><code class="section__">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 createAndDownloadFile 单个方法
+import createAndDownloadFile from '@yaohaixiao/dom.js/createAndDownloadFile'
+
+// 创建一个 age.js 文件，并下载
+DOM.createAndDownloadFile('age.js', 'var age = 32')
+createAndDownloadFile('readme.md', '# createAndDownloadFile')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">createElement(tagName[, attrs, children])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>createElement() 方法用来创建 DOM 节点，并添加属性和子节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">tagName</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）标签名称。</p><h5 class="section__h4">attrs</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object|Array|HTMLElement|DocumentFragment|String</dd></dl><ul><li>Object：要添加的 HTML 属性/值对象；</li><li>Array：添加到创建的 DOM 元素中的多个子元素的数组；</li><li>HTMLElement：添加到创建的 DOM 元素中的（单个）子元素；</li><li>DocumentFragment：添加到创建的 DOM 元素中的文档碎片；</li><li>String：添加到创建的 DOM 元素中的文本（会作为文本节点）；</li></ul><p>（可选）给创建的 DOM 元素添加的 HTML 属性/值对象或者子元素。</p><h5 class="section__h4">children</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Array|HTMLElement|DocumentFragment|String</dd></dl><ul><li>Array：添加到创建的 DOM 元素中的多个子元素的数组；</li><li>HTMLElement：添加到创建的 DOM 元素中的（单个）子元素；</li><li>DocumentFragment：添加到创建的 DOM 元素中的文档碎片；</li><li>String：添加到创建的 DOM 元素中的文本（会作为文本节点）；</li></ul><p>（可选）给创建的 DOM 元素添加的子元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回创建的 DOM 元素。</p><pre class="section__pre"><code class="section__">// 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom
 // 引用 createElement 单个方法
 import createElement from '@yaohaixiao/dom.js/createElement'
@@ -757,7 +770,71 @@ const $home = DOM.byId('#home')
 const $parent = DOM.getScrollParent($home)
 console.log($parent === $list) // -> true
 
-console.log(getScrollParent($list)) // -> document.body</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">index(el[, ancestor])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>index() 方法用来查询 DOM 元素在其父节点中的索引位置。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）el 参数指定 DOM 元素或者 DOM 元素的选择器字符串。</p><h5 class="section__h4">ancestor</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（可选）ancestor 参数指定父节点。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回查询到的 DOM 元素在其父节点的 index 索引值。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+console.log(getScrollParent($list)) // -> document.body</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getURLProps(url = location.href)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.4.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getURLProps() 方法用来解析 URL 地址中的相关属性，返回解析 URL 后的对象数据。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">url</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">location.href</dd></dl><p>（可选）url 参数指定要解析的 URL 地址字符串，默认值：页面当前 URL 地址。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>返回解析 URL 后的对象数据。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getURLProps 单个方法
+import getURLProps from '@yaohaixiao/dom.js/getURLProps'
+
+// 获取当前页面地址：的 URL 信息
+DOM.getURLProps()
+// => {
+//   "protocol":"https",
+//   "username":"",
+//   "password":"",
+//   "hostname":"github.com",
+//   "port":"",
+//   "host":"github.com",
+//   "pathname":"/yaohaixiao/dom.js",
+//   "search":"",
+//   "path":"/yaohaixiao/dom.js",
+//   "hash":"",
+//   "href":"https://github.com/yaohaixiao/dom.js",
+//   "origin":"https://github.com"
+// }
+
+getURLProps('https://yaohaixiao:1232@github.com:2034/yaohaixiao/types.js/blob/main/_getURLPattern.js?search=URLSearchParams#google')
+// => {
+//   "protocol":"https",
+//   "username":"yaohaixiao",
+//   "password":"1232",
+//   "hostname":"github.com",
+//   "port":"2034",
+//   "host":"github.com:2034",
+//   "pathname":"/yaohaixiao/types.js/blob/main/_getURLPattern.js",
+//   "search":"?search=URLSearchParams",
+//   "path":"/yaohaixiao/types.js/blob/main/_getURLPattern.js?search=URLSearchParams",
+//   "hash":"#google",
+//   "href":"https://www.yaohaixiao.com:1232@github.com:2034/yaohaixiao/types.js/blob/main/_getURLPattern.js?search=URLSearchParams#google",
+//   "origin":"https://github.com:2034"}
+// }</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getURLSearchParams(url = location.search)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.4.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getURLSearchParams() 方法用来获取 URL 地址字符串中查询字符串解析后的对象数据。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">url</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">location.search</dd></dl><p>url 参数指定 URL 地址字符串，默认值：当前 URL 地址的查询字符串。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>返回 URL 地址字符串中查询字符串解析后的对象数据。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getURLSearchParams 单个方法
+import getURLSearchParams from '@yaohaixiao/dom.js/getURLSearchParams'
+
+const url = 'http://www.yaohaixiao.com/?s=getURLSearchParams&tag=JavaScript'
+
+// 当前 URL 地址：http://www.yaohaixiao.com/?s=getURLSearchParams
+DOM.getURLSearchParams() // -> {s: 'getURLSearchParams'}
+
+getURLSearchParams(url) // -> {s: 'getURLSearchParams', tag: 'JavaScript'}</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getURLSearchParamByName(prop)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.4.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getURLSearchParamByName() 方法用来获取当前 URL 地址字符串中查询字符串解析后的对象数据的某个属性值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">url</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">prop</dd></dl><p>指定要查询的属性名称。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>返回 URL 地址字符串中查询字符串解析后的对象数据的属性值。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getURLSearchParams 单个方法
+import getURLSearchParams from '@yaohaixiao/dom.js/getURLSearchParams'
+
+// 当前 URL 地址：http://www.yaohaixiao.com/?s=getURLSearchParams
+DOM.getURLSearchParamByName('s') // -> 'getURLSearchParams'
+
+// 当前 URL 地址：'http://www.yaohaixiao.com/?s=getURLSearchParams&tag=JavaScript'
+getURLSearchParamByName(tag) // 'JavaScript'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">toURLSearchParams(o)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>toURLSearchParams() 方法用来将普通对象转化成 URL 地址中的查询字符串。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">o</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>o 参数指定要转化的普通对象。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>返回转化后的 URL 地址查询字符串。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 toURLSearchParams 单个方法
+import toURLSearchParams from '@yaohaixiao/dom.js/toURLSearchParams'
+
+const queryOne = {name: 'Robert', age: 32}
+const queryTwo = {price: 32, group: 4, color: 'red'}
+
+DOM.toURLSearchParams(queryOne) // -> 'name=Robert&age=32'
+toURLSearchParams(queryTwo) // -> 'price=32&group=4&color=red'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">index(el[, ancestor])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>index() 方法用来查询 DOM 元素在其父节点中的索引位置。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）el 参数指定 DOM 元素或者 DOM 元素的选择器字符串。</p><h5 class="section__h4">ancestor</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（可选）ancestor 参数指定父节点。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回查询到的 DOM 元素在其父节点的 index 索引值。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item project"&gt;Projects&lt;/li&gt;
@@ -779,7 +856,16 @@ console.log(DOM.indexOf($home)) // -> 0
 console.log(indexOf('.blog', $list)) // -> 1
 
 // el 为选择器，且为指定指定父节点
-console.log(indexOf('.project')) // -> 2</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">inDocument(el[, doc])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>inDocument() 方法用来检测 DOM 元素是否在当前文档中。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">doc</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>（可选）doc 参数指定文档对象。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>DOM 元素是否在当前文档中，返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+console.log(indexOf('.project')) // -> 2</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isBrowser()</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.4.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>isBrowser() 方法用来检测当前运行环境是否为浏览器环境。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>返回检测结果。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 isBrowser 单个方法
+import isBrowser from '@yaohaixiao/dom.js/isBrowser'
+
+// 浏览器中运行
+DOM.isBrowser() // -> true
+
+// Node 环境中运行
+isBrowser() // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">inDocument(el[, doc])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>inDocument() 方法用来检测 DOM 元素是否在当前文档中。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">doc</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>（可选）doc 参数指定文档对象。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>DOM 元素是否在当前文档中，返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item project"&gt;Projects&lt;/li&gt;
     &lt;li class="item"&gt;About&lt;/li&gt;
@@ -899,7 +985,16 @@ DOM.children($list)
 //   &lt;li class="item"&gt;About&lt;/li&gt;
 // ]
 
-children($home) // -> []</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">parent(el[, type])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>matches() 方法用来获取给定 el 元素的父节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">type</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（可选）type 指定父节点的类型：</p><ul><li>offset：获取最近的（指包含层级上的最近）包含该元素的定位父元素;</li><li>scroll: 获取最近的（指包含层级上的最近）包含该元素的滚动父元素（overflow/overflow-x/overflow-y: auto ）；</li><li>其它：获取 el 的父节点；</li></ul><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 el 节点（指定类型）的父节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+children($home) // -> []</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">openURL(url, target = '_blank')</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.4.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>openURL() 方法打开指定 URL 页面。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">url</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）需要打开的文件 URL 地址。</p><h5 class="section__h4">target</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">'_blank'</dd></dl><p>（可选）打开方式，默认值：_blank - 新窗口打开。</p><pre class="section__pre"><code class="section__">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 openURL 单个方法
+import openURL from '@yaohaixiao/dom.js/openURL'
+
+// 新窗口打开
+DOM.openURL('http://www.yaohaixiao.com')
+
+// 本窗口打开
+openURL('https://github.com/yaohaixiao/dom.js', '_self')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">parent(el[, type])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>matches() 方法用来获取给定 el 元素的父节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">type</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（可选）type 指定父节点的类型：</p><ul><li>offset：获取最近的（指包含层级上的最近）包含该元素的定位父元素;</li><li>scroll: 获取最近的（指包含层级上的最近）包含该元素的滚动父元素（overflow/overflow-x/overflow-y: auto ）；</li><li>其它：获取 el 的父节点；</li></ul><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 el 节点（指定类型）的父节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item project"&gt;Projects&lt;/li&gt;
@@ -2263,7 +2358,30 @@ import DOM from '@yaohaixiao/dom.js/dom
 // 引用 getViewportWidth 单个方法
 import getViewportWidth from '@yaohaixiao/dom.js/getViewportWidth'
 
-DOM.getViewportWidth() // -> 1280</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">innerHeight(el[, val])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Size</dd></dl><p>innerHeight() 方法用来获取或设置 DOM 元素的 innerHeight 值；innerHeight = style.height + padding 高度（paddingTop + paddingBottom）。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">val</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number|String|Function</dd></dl><p>（可选）val 参数指定 DOM 元素的 innerHeight 高度或者获取 innerHeight 高度的处理函数。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回窗口视口的高度值。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
+DOM.getViewportWidth() // -> 1280</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getScreenHeight()</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.4.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getScreenHeight() 方法用来获取显示器屏幕分辨率高度。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回显示器屏幕分辨率高度。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getScreenHeight 单个方法
+import getScreenHeight from '@yaohaixiao/dom.js/getScreenHeight'
+
+DOM.getScreenHeight() // -> 1080
+getScreenHeight() // -> 1080</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getScreenWidth()</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.4.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getScreenWidth() 方法用来获取显示器屏幕分辨率宽度。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回显示器屏幕分辨率宽度。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getScreenWidth 单个方法
+import getScreenWidth from '@yaohaixiao/dom.js/getScreenWidth'
+
+DOM.getScreenWidth() // -> 1920
+getScreenWidth() // -> 1920</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getScrollbarWidth(el)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.4.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getScrollbarWidth(el) 方法用来获取当前窗口或者 DOM 元素纵向滚动条的宽度。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（可选）el 参数指定 DOM 元素，默认值：window。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回纵向滚动条的宽度。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getScrollbarWidth 单个方法
+import getScrollbarWidth from '@yaohaixiao/dom.js/getScrollbarWidth'
+
+const $list = DOM.byId('#list')
+
+// 默认的窗口滚动条宽度
+DOM.getScrollbarWidth() // -> 17
+
+// 使用 CSS 美化有的滚动条宽度
+getScrollbarWidth($list) // -> 7</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">innerHeight(el[, val])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Size</dd></dl><p>innerHeight() 方法用来获取或设置 DOM 元素的 innerHeight 值；innerHeight = style.height + padding 高度（paddingTop + paddingBottom）。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">val</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number|String|Function</dd></dl><p>（可选）val 参数指定 DOM 元素的 innerHeight 高度或者获取 innerHeight 高度的处理函数。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回窗口视口的高度值。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
 .list,
 .item {
   margin: 0;
