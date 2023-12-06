@@ -2,6 +2,7 @@ import Attributes from './attributes'
 import Base from './base'
 import Color from './color'
 import Insertion from './insertion'
+import Platform from './platform'
 import Position from './position'
 import Sibling from './sibling'
 import Size from './size'
@@ -13,6 +14,7 @@ const DOM = {
   ...Base,
   ...Color,
   ...Insertion,
+  ...Platform,
   ...Position,
   ...Sibling,
   ...Size,

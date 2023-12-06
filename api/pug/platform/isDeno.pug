@@ -1,0 +1,30 @@
+section.section
+  header.section__header
+    h3.section__h3 isDeno()
+  div.section__content
+    h4.section__h4 Since
+    p.section__dd 1.5.0
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Base
+    p isDeno() 方法用来检测当前运行环境是否为 Deno 环境。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Boolean
+    p 返回检测结果。
+    pre.section__pre
+      code.section__code.
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 isDeno 单个方法
+        import isDeno from '@yaohaixiao/dom.js/isDeno'
+
+        // 浏览器中运行
+        DOM.isDeno() // -> false
+
+        // Node 环境中运行
+        isDeno() // -> false
+
+        // Deno 环境中运行
+        isDeno() // -> true

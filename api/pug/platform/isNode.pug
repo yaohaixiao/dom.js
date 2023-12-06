@@ -1,0 +1,30 @@
+section.section
+  header.section__header
+    h3.section__h3 isNode()
+  div.section__content
+    h4.section__h4 Since
+    p.section__dd 1.5.0
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Base
+    p isNode() 方法用来检测当前运行环境是否为浏览器环境。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Boolean
+    p 返回检测结果。
+    pre.section__pre
+      code.section__code.
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 isNode 单个方法
+        import isNode from '@yaohaixiao/dom.js/isNode'
+
+        // 浏览器中运行
+        DOM.isNode() // -> false
+
+        // Node 环境中运行
+        isNode() // -> true
+
+        // Deno 环境中运行
+        isNode() // -> false

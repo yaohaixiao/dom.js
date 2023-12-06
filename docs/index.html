@@ -856,16 +856,7 @@ console.log(DOM.indexOf($home)) // -> 0
 console.log(indexOf('.blog', $list)) // -> 1
 
 // el 为选择器，且为指定指定父节点
-console.log(indexOf('.project')) // -> 2</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isBrowser()</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.4.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>isBrowser() 方法用来检测当前运行环境是否为浏览器环境。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>返回检测结果。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
-import DOM from '@yaohaixiao/dom.js/dom
-// 引用 isBrowser 单个方法
-import isBrowser from '@yaohaixiao/dom.js/isBrowser'
-
-// 浏览器中运行
-DOM.isBrowser() // -> true
-
-// Node 环境中运行
-isBrowser() // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">inDocument(el[, doc])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>inDocument() 方法用来检测 DOM 元素是否在当前文档中。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">doc</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>（可选）doc 参数指定文档对象。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>DOM 元素是否在当前文档中，返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+console.log(indexOf('.project')) // -> 2</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">inDocument(el[, doc])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>inDocument() 方法用来检测 DOM 元素是否在当前文档中。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">doc</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>（可选）doc 参数指定文档对象。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>DOM 元素是否在当前文档中，返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item project"&gt;Projects&lt;/li&gt;
     &lt;li class="item"&gt;About&lt;/li&gt;
@@ -2060,7 +2051,82 @@ DOM.getScrollTop($list) // -> 64
 
 scrollTo($list, 128, (pos) => {
   console.log('position:', pos) // -> 128
-})</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Selecting Siblings</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用于获取指定 DOM 元素的邻居节点。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getNextSibling(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><p>getNextSibling() 方法用来获取 DOM 元素的下一个邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 DOM 元素的下一个邻居元素节点。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+})</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Platform Detection</h2></header><div class="section__content"><p>dom.js 提供以下方法用以检测当前运行平台的相关信息。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">isBrowser()</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.4.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>isBrowser() 方法用来检测当前运行环境是否为浏览器环境。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>返回检测结果。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 isBrowser 单个方法
+import isBrowser from '@yaohaixiao/dom.js/isBrowser'
+
+// 浏览器中运行
+DOM.isBrowser() // -> true
+
+// Node 环境中运行
+isBrowser() // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isDeno()</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.5.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>isDeno() 方法用来检测当前运行环境是否为 Deno 环境。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>返回检测结果。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 isDeno 单个方法
+import isDeno from '@yaohaixiao/dom.js/isDeno'
+
+// 浏览器中运行
+DOM.isDeno() // -> false
+
+// Node 环境中运行
+isDeno() // -> false
+
+// Deno 环境中运行
+isDeno() // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isNode()</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.5.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>isNode() 方法用来检测当前运行环境是否为浏览器环境。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>返回检测结果。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 isNode 单个方法
+import isNode from '@yaohaixiao/dom.js/isNode'
+
+// 浏览器中运行
+DOM.isNode() // -> false
+
+// Node 环境中运行
+isNode() // -> true
+
+// Deno 环境中运行
+isNode() // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isMobile()</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.5.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>isMobile() 方法用来检测当前运行设备是否为移动设备。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>返回检测结果。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 isMobile 单个方法
+import isMobile from '@yaohaixiao/dom.js/isMobile'
+
+// PC 浏览器中运行
+DOM.isMobile() // -> false
+
+// iPhone 等移动设备运行
+isMobile() // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isWebKit()</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.5.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>isWebKit() 方法用来检测当前浏览器内核是否为 WebKit 内核。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>返回检测结果。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 isWebKit 单个方法
+import isWebKit from '@yaohaixiao/dom.js/isWebKit'
+
+// Chrome/Opera/Edge 等 webkit 内核浏览器中运行
+DOM.isWebKit() // -> true
+
+// Firefox或者IE等非 webkit 内核浏览器中运行
+isWebKit() // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">browser()</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.5.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>browser() 方法用来检测浏览器信息，返回浏览器名称和版本信息。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>返回检测结果，浏览器名称合版本信息。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 browser 单个方法
+import browser from '@yaohaixiao/dom.js/browser'
+
+// Chrome 浏览器中运行
+DOM.browser() // -> {name: 'Chrome', major: 119, version: '119.0.0.0'}
+
+// Edge 浏览器中运行
+browser() // -> {name: 'Edge', major: 119, version: '119.0.0.0'}
+
+// Firefox 浏览器中运行
+browser() // -> { name: "Firefox", major: 120, version: "120.0" }</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">os()</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.5.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>os() 方法用来检测当前操作系统信息，返回操作名称合版本信息。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>返回检测结果，操作系统名称合版本信息。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 os 单个方法
+import os from '@yaohaixiao/dom.js/os'
+
+// Windows 系统浏览器中运行
+DOM.os() // -> {name: 'Windows', version: '10'}
+
+// Android 系统浏览器中运行
+browser() // -> {name: 'Android', version: '7.1.1'}
+
+// ios 系统浏览器中运行
+browser() // -> {name: 'iOS', version: '16.6.0'}</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Selecting Siblings</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用于获取指定 DOM 元素的邻居节点。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getNextSibling(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><p>getNextSibling() 方法用来获取 DOM 元素的下一个邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 DOM 元素的下一个邻居元素节点。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;

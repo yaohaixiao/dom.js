@@ -11,9 +11,9 @@ import createElement from './createElement'
 const injectCSS = (cssRules) => {
   const $style = createElement('style', {
     type: 'text/css',
+    innerText: cssRules
   })
 
-  $style.innerText = cssRules
   document.head.appendChild($style)
 
   return $style

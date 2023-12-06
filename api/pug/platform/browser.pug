@@ -1,0 +1,30 @@
+section.section
+  header.section__header
+    h3.section__h3 browser()
+  div.section__content
+    h4.section__h4 Since
+    p.section__dd 1.5.0
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Base
+    p browser() 方法用来检测浏览器信息，返回浏览器名称和版本信息。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Object
+    p 返回检测结果，浏览器名称合版本信息。
+    pre.section__pre
+      code.section__code.
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 browser 单个方法
+        import browser from '@yaohaixiao/dom.js/browser'
+
+        // Chrome 浏览器中运行
+        DOM.browser() // -> {name: 'Chrome', major: 119, version: '119.0.0.0'}
+
+        // Edge 浏览器中运行
+        browser() // -> {name: 'Edge', major: 119, version: '119.0.0.0'}
+
+        // Firefox 浏览器中运行
+        browser() // -> { name: "Firefox", major: 120, version: "120.0" }

@@ -20,7 +20,6 @@ import getURLProps from '../getURLProps'
 import getURLSearchParams from '../getURLSearchParams'
 import getURLSearchParamByName from '../getURLSearchParamByName'
 import index from '../index'
-import isBrowser from '../isBrowser'
 import inDocument from '../inDocument'
 import inBounding from '../inBounding'
 import inViewport from '../inViewport'
@@ -58,7 +57,6 @@ const DOM = {
   getURLSearchParams,
   getURLSearchParamByName,
   index,
-  isBrowser,
   inDocument,
   inBounding,
   inViewport,

@@ -35,6 +35,12 @@ const setAttribute = (el, attr, value) => {
         el.setAttribute(attr, value)
       }
       break
+    case 'innerText':
+      el.innerText = value
+      break
+    case 'innerHTML':
+      el.innerHTML = value
+      break
     default:
       el.setAttribute(attr, value)
       break

@@ -18,7 +18,9 @@ const copyToClipboard = (str) => {
 
   $body.appendChild(el)
   selected =
-    document.getSelection().rangeCount > 0 ? document.getSelection().getRangeAt(0) : false
+    document.getSelection().rangeCount > 0
+      ? document.getSelection().getRangeAt(0)
+      : false
   el.select()
   document.execCommand('copy')
   $body.removeChild(el)
