@@ -1,3 +1,14 @@
+# [1.5.0](https://github.com/yaohaixiao/dom.js/compare/1.4.0...1.5.0) (2023-12-06)
+
+
+### Features
+
+* 调整setAttribute()方法，添加直接设置innerText和innerHTML属性；
+* 添加 platform 子模块，提供检测运行平台相关的功能函数；
+* 更新 API 文档； ([2a1f5d6](https://github.com/yaohaixiao/dom.js/commit/2a1f5d659af1e4ee94aa5cad856a3a46dfe2d37d))
+
+
+
 # [1.4.0](https://github.com/yaohaixiao/dom.js/compare/1.3.1...1.4.0) (2023-12-05)
 
 
