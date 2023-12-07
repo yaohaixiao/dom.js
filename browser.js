@@ -13,15 +13,10 @@ const browser = () => {
   let version = '--'
 
   // Opera
-  if (ua.indexOf('Opera') !== -1) {
-    index = ua.indexOf('Opera')
+  if (ua.indexOf('OPR/') !== -1) {
+    index = ua.indexOf('OPR/')
     name = 'Opera'
-    version = ua.substring(index + 6)
-
-    if (ua.indexOf('Version') !== -1) {
-      index = ua.indexOf('Version')
-      version = ua.substring(index + 8)
-    }
+    version = ua.substring(index + 4)
   }
   // MSIE
   else if (ua.indexOf('MSIE') !== -1) {
