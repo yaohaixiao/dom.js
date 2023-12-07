@@ -1,3 +1,12 @@
+## [1.5.1](https://github.com/yaohaixiao/dom.js/compare/1.5.0...1.5.1) (2023-12-07)
+
+
+### Bug Fixes
+
+* 修复 Opera 浏览器信息检测错误的问题 ([2c75933](https://github.com/yaohaixiao/dom.js/commit/2c75933b72103b295d606f9e9654de1a6f135455))
+
+
+
 # [1.5.0](https://github.com/yaohaixiao/dom.js/compare/1.4.0...1.5.0) (2023-12-06)
 
 
