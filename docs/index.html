@@ -880,7 +880,25 @@ import getURLSearchParams from '@yaohaixiao/dom.js/getURLSearchParams'
 DOM.getURLSearchParamByName('s') // -> 'getURLSearchParams'
 
 // 当前 URL 地址：'http://www.yaohaixiao.com/?s=getURLSearchParams&tag=JavaScript'
-getURLSearchParamByName(tag) // 'JavaScript'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">toURLSearchParams(o)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>toURLSearchParams() 方法用来将普通对象转化成 URL 地址中的查询字符串。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">o</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>o 参数指定要转化的普通对象。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>返回转化后的 URL 地址查询字符串。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+getURLSearchParamByName(tag) // 'JavaScript'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getWindow(o)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.6.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getWindow() 方法用来获取 window 对象。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">o</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Node | Window</dd></dl><p>（必须）指定的 DOM 元素或者 window 对象。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Window</dd></dl><p>返回 Window 对象。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getWindow 单个方法
+import getWindow from '@yaohaixiao/dom.js/getWindow'
+
+const $list = DOM.getEl('#list')
+
+// 浏览器中运行
+DOM.getWindow(window) // -> 返回当前 Window 对象
+
+getWindow(document) // -> 返回当前 Window 对象
+getWindow($list) // -> 返回当前 Window 对象</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">toURLSearchParams(o)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>toURLSearchParams() 方法用来将普通对象转化成 URL 地址中的查询字符串。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">o</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>o 参数指定要转化的普通对象。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>返回转化后的 URL 地址查询字符串。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom
 // 引用 toURLSearchParams 单个方法
 import toURLSearchParams from '@yaohaixiao/dom.js/toURLSearchParams'
@@ -3135,7 +3153,7 @@ DOM.isElement($items) // -> false
 isFragment($items) // -> false
 
 DOM.isElement($fragment) // -> false
-isFragment($fragment) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isNode(node)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Since：</dt><dd class="section__dd">1.6.0</dd></dl><p>isNode() 方法用来检测指定对象是否为 Node （接口）实例。相较于 isDOM() 方法，isNode() 方法可以检测更多类型的（Node）对象。</p><p>以下接口都从 Node 继承其方法和属性：</p><p>Document, Element, Attr, CharacterData (which Text, Comment, and CDATASection inherit), ProcessingInstruction, DocumentFragment, DocumentType, Notation, Entity, EntityReference</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">node</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Node</dd></dl><p>（必须）node 参数指定待检测的对象。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 Node （接口）实例，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+isFragment($fragment) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isNode(node)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Since：</dt><dd class="section__dd">1.6.0</dd></dl><p>isNode() 方法用来检测指定对象是否为 Node （接口）实例。相较于 isDOM() 方法，isNode() 方法可以检测更多类型的（Node）对象。以下接口都从 Node 继承其方法和属性：</p><ol><li>Document</li><li>Element</li><li>Attr</li><li>CharacterData (which Text, Comment, and CDATASection inherit)</li><li>ProcessingInstruction,</li><li>DocumentFragment</li><li>DocumentType</li><li>Notation</li><li>Entity</li><li>EntityReference</li></ol><h4 class="section__h4">Parameters</h4><h5 class="section__h4">node</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Node</dd></dl><p>（必须）node 参数指定待检测的对象。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 Node （接口）实例，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom'
 // 或者单独引用 isTextNode() 方法
 import isNode from '@yaohaixiao/dom.js/isNode'

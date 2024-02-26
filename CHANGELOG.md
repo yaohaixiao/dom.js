@@ -1,3 +1,12 @@
+# [1.6.0](https://github.com/yaohaixiao/dom.js/compare/1.5.1...1.6.0) (2024-02-26)
+
+
+### Features
+
+* 添加新方法：fullscreen()、getDocument()、getImages()、getWindow()、isWindow()、isNode()、isShadowRoot() ([9ef225d](https://github.com/yaohaixiao/dom.js/commit/9ef225d277f0afc818685d4590eeb72e09b742c4))
+
+
+
 ## [1.5.1](https://github.com/yaohaixiao/dom.js/compare/1.5.0...1.5.1) (2023-12-07)
 
 

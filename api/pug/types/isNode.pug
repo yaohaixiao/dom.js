@@ -5,9 +5,18 @@ section.section
     dl.section__dl
       dt.section__dt Since：
       dd.section__dd 1.6.0
-    p isNode() 方法用来检测指定对象是否为 Node （接口）实例。相较于 isDOM() 方法，isNode() 方法可以检测更多类型的（Node）对象。
-    p 以下接口都从 Node 继承其方法和属性：
-    p Document, Element, Attr, CharacterData (which Text, Comment, and CDATASection inherit), ProcessingInstruction, DocumentFragment, DocumentType, Notation, Entity, EntityReference
+    p isNode() 方法用来检测指定对象是否为 Node （接口）实例。相较于 isDOM() 方法，isNode() 方法可以检测更多类型的（Node）对象。以下接口都从 Node 继承其方法和属性：
+    ol
+      li Document
+      li Element
+      li Attr
+      li CharacterData (which Text, Comment, and CDATASection inherit)
+      li ProcessingInstruction,
+      li DocumentFragment
+      li DocumentType
+      li Notation
+      li Entity
+      li EntityReference
     h4.section__h4 Parameters
     h5.section__h4 node
     dl.section__dl
