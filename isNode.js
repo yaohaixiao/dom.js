@@ -1,15 +1,16 @@
+import getWindow from './getWindow'
+
 /**
- * 检测当前运行环境是否为 Node.js 环境
+ * 检测指定对象是否为 Node （接口）实例
  * ========================================================================
  * @method isNode
+ * @since 1.6.0
+ * @see https://developer.mozilla.org/zh-CN/docs/Web/API/Node
+ * @param {Node} node
  * @return {boolean}
  */
-const isNode = () => {
-  return (
-    typeof process !== 'undefined' &&
-    !!process.versions &&
-    !!process.versions.node
-  )
+const isNode = (node) => {
+  return node instanceof getWindow(node).Node
 }
 
 export default isNode

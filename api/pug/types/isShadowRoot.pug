@@ -1,0 +1,39 @@
+section.section
+  header.section__header
+    h3.section__h3 isShadowRoot(node)
+  div.section__content
+    h4.section__h4 Since
+      p.section__dd 1.6.0
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Node Type Detection
+    p isShadowRoot() 方法用来检测目标 node 是否一个 DOM 子树的根节点。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Any
+    p （必须）node 参数指定待检测的 Node 实例。
+    h4.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Boolean。
+    p true - 表示检测数据是 ShadowRoot，false 则表示不是。
+    pre.section__pre
+      code.section__code.
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom'
+        // 或者单独引用 isShadowRoot() 方法
+        import isShadowRoot from '@yaohaixiao/dom.js/isShadowRoot'
+
+        const $list = document.getElementById('list')
+
+        const host = document.querySelector("#host")
+        const shadow = host.attachShadow({ mode: "open" })
+        const span = document.createElement("span")
+
+        span.textContent = "I'm in the shadow DOM"
+        shadow.appendChild(span)
+
+        DOM.isShadowRoot($list) // -> false
+        isShadowRoot(shadow) // -> true

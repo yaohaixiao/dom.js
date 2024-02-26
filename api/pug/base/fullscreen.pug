@@ -1,0 +1,50 @@
+section.section
+  header.section__header
+    h3.section__h3 fullscreen(mode, el)
+  div.section__content
+    h4.section__h4 Since
+    p.section__dd 1.6.0
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Base
+    p 指定（某个DOM元素）进入或者退出全屏模式。
+    h4.section__h4 Parameters
+    h5.section__h4 mode
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Boolean
+    dl.section__dl
+      dt.section__dt Default：
+      dd.section__dd true
+    p （可选）是否进入全屏模式。默认进入全屏模式。
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    dl.section__dl
+      dt.section__dt Default：
+      dd.section__dd 'body'
+    p （可选）指定 DOM 节点的选择器。默认节点为 document.body。
+    pre.section__pre
+      code.section__.
+        &lt;ul id="list" class="list"&gt;
+            &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 fullscreen 单个方法
+        import fullscreen from '@yaohaixiao/dom.js/fullscreen'
+
+        const $list = DOM.getEl('#list')
+
+        // 整个页面进入或者全屏模式
+        DOM.fullscreen(true)
+        DOM.fullscreen(false)
+
+        // 仅 $list 菜单进入或者全屏模式
+        fullscreen(true, $list)
+        fullscreen(false, $list)

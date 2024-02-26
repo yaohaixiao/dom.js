@@ -1,0 +1,41 @@
+section.section
+  header.section__header
+    h3.section__h3 getDocument(node)
+  div.section__content
+    h4.section__h4 Since
+    p.section__dd 1.6.0
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Base
+    p getDocument() 方法用来获取 Node 对象（DOM 元素）所在的文档的 documentElement 对象。
+    h4.section__h4 Parameters
+    h5.section__h4 node
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Node | Window
+    p （必须）指定的 DOM 元素或者 window 对象。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd documentElement 对象
+    p 返回 documentElement 对象。
+    pre.section__pre
+      code.section__code.
+        &lt;ul id="list" class="list"&gt;
+            &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 getDocument 单个方法
+        import getDocument from '@yaohaixiao/dom.js/getDocument'
+
+        const $list = DOM.getEl('#list')
+
+        // 浏览器中运行
+        DOM.getDocument($list) // -> 返回 $list 所在文档的 documentElement 对象
+        getDocument(document) // -> 返回当前文档的 documentElement 对象
+        getWindow(window) // -> 返回当前文档的 documentElement 对象

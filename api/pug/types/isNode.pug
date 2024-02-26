@@ -1,0 +1,41 @@
+section.section
+  header.section__header
+    h3.section__h3 isNode(node)
+  div.section__content
+    dl.section__dl
+      dt.section__dt Since：
+      dd.section__dd 1.6.0
+    p isNode() 方法用来检测指定对象是否为 Node （接口）实例。相较于 isDOM() 方法，isNode() 方法可以检测更多类型的（Node）对象。
+    p 以下接口都从 Node 继承其方法和属性：
+    p Document, Element, Attr, CharacterData (which Text, Comment, and CDATASection inherit), ProcessingInstruction, DocumentFragment, DocumentType, Notation, Entity, EntityReference
+    h4.section__h4 Parameters
+    h5.section__h4 node
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Node
+    p （必须）node 参数指定待检测的对象。
+    h4.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Boolean。
+    p true - 表示检测数据是 Node （接口）实例，false 则表示不是。
+    pre.section__pre
+      code.section__code.
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom'
+        // 或者单独引用 isTextNode() 方法
+        import isNode from '@yaohaixiao/dom.js/isNode'
+
+        const $list = document.getElementById('list')
+        const $fragment = document.createDocumentFragment()
+        const $items = document.querySelectorAll('.item')
+        const $text = document.createTextNode('text')
+
+        DOM.isNode($list) // -> true
+        DOM.isNode($fragment) // -> true
+        DOM.isNode($items) // -> true
+
+        isNode($items) // -> true
+        isNode($text) // -> true
+        isNode($text) // -> true
+        isNode(document) // -> true

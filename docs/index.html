@@ -705,7 +705,62 @@ import findAll from '@yaohaixiao/dom.js/findAll'
 
 const $items = DOM.findAll('.item')
 
-const $blog = findAll('.blog')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getHostOrParent(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getHostOrParent() 方法用来获取 DOM 元素的父节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>el 参数指定 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回查询到的 DOM 元素的父节点。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+const $blog = findAll('.blog')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">fullscreen(mode, el)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.6.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>指定（某个DOM元素）进入或者退出全屏模式。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">mode</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">true</dd></dl><p>（可选）是否进入全屏模式。默认进入全屏模式。</p><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">'body'</dd></dl><p>（可选）指定 DOM 节点的选择器。默认节点为 document.body。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 fullscreen 单个方法
+import fullscreen from '@yaohaixiao/dom.js/fullscreen'
+
+const $list = DOM.getEl('#list')
+
+// 整个页面进入或者全屏模式
+DOM.fullscreen(true)
+DOM.fullscreen(false)
+
+// 仅 $list 菜单进入或者全屏模式
+fullscreen(true, $list)
+fullscreen(false, $list)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getDocument(node)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.6.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getDocument() 方法用来获取 Node 对象（DOM 元素）所在的文档的 documentElement 对象。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">node</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Node | Window</dd></dl><p>（必须）指定的 DOM 元素或者 window 对象。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">documentElement 对象</dd></dl><p>返回 documentElement 对象。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getDocument 单个方法
+import getDocument from '@yaohaixiao/dom.js/getDocument'
+
+const $list = DOM.getEl('#list')
+
+// 浏览器中运行
+DOM.getDocument($list) // -> 返回 $list 所在文档的 documentElement 对象
+getDocument(document) // -> 返回当前文档的 documentElement 对象
+getWindow(window) // -> 返回当前文档的 documentElement 对象</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getImages(el, includeDuplicates)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.6.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>返回这个页面页或者某个DOM元素下的所有图片路径的数组。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">'body'</dd></dl><p>（可选）指定 DOM 节点的选择器。默认值： document.body。</p><h5 class="section__h4">includeDuplicates</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">false</dd></dl><p>（可选）是否收集重复的图片。默认值：false</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getImages 单个方法
+import getImages from '@yaohaixiao/dom.js/getImages'
+
+const $list = DOM.getEl('#list')
+
+// 获取整个页面中的图片路径，不包含重复的图片
+DOM.getImages(true)
+
+// 仅获取 $list 菜单下的图片路径，包含重复的图片
+getImages($list, true)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getHostOrParent(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getHostOrParent() 方法用来获取 DOM 元素的父节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>el 参数指定 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回查询到的 DOM 元素的父节点。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -933,7 +988,17 @@ isMatched($home, (el) => {
   return DOM.contains(el, $list)
 }) // -> true
 
-isMatched($list, '.active') // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">matches(el, selector)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>matches() 方法用来获取 el 节点下匹配 selector 选择器的 DOM 节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">selector</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）selector 指定匹配 DOM 元素的选择器。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>el 节点查询到匹配 selector 的 DOM 节点，返回 DOM 节点，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+isMatched($list, '.active') // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isWindow(o)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.6.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>isWindow() 方法用来检测当前对象是否为 window 对象。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">o</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>（必须）要检测的目标对象。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>返回检测结果。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 isWindow 单个方法
+import isWindow from '@yaohaixiao/dom.js/isWindow'
+
+// 浏览器中运行
+DOM.isWindow(window) // -> true
+DOM.isWindow(document) // -> false
+
+// Node 环境中运行
+isWindow(global) // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">matches(el, selector)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>matches() 方法用来获取 el 节点下匹配 selector 选择器的 DOM 节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">selector</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）selector 指定匹配 DOM 元素的选择器。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>el 节点查询到匹配 selector 的 DOM 节点，返回 DOM 节点，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item project"&gt;Projects&lt;/li&gt;
@@ -2072,19 +2137,19 @@ DOM.isDeno() // -> false
 isDeno() // -> false
 
 // Deno 环境中运行
-isDeno() // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isNode()</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.5.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>isNode() 方法用来检测当前运行环境是否为浏览器环境。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>返回检测结果。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+isDeno() // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isNodeJs()</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.5.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>isNodeJs() 方法用来检测当前运行环境是否为浏览器环境。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>返回检测结果。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom
-// 引用 isNode 单个方法
-import isNode from '@yaohaixiao/dom.js/isNode'
+// 引用 isNodeJs 单个方法
+import isNodeJs from '@yaohaixiao/dom.js/isNodeJs'
 
 // 浏览器中运行
-DOM.isNode() // -> false
+DOM.isNodeJs() // -> false
 
 // Node 环境中运行
-isNode() // -> true
+isNodeJs() // -> true
 
 // Deno 环境中运行
-isNode() // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isMobile()</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.5.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>isMobile() 方法用来检测当前运行设备是否为移动设备。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>返回检测结果。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+isNodeJs() // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isMobile()</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.5.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>isMobile() 方法用来检测当前运行设备是否为移动设备。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>返回检测结果。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom
 // 引用 isMobile 单个方法
 import isMobile from '@yaohaixiao/dom.js/isMobile'
@@ -2114,7 +2179,10 @@ DOM.browser() // -> {name: 'Chrome', major: 119, version: '119.0.0.0'}
 browser() // -> {name: 'Edge', major: 119, version: '119.0.0.0'}
 
 // Firefox 浏览器中运行
-browser() // -> { name: "Firefox", major: 120, version: "120.0" }</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">os()</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.5.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>os() 方法用来检测当前操作系统信息，返回操作名称合版本信息。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>返回检测结果，操作系统名称合版本信息。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+browser() // -> { name: "Firefox", major: 120, version: "120.0" }
+
+// Opera
+browser() // -> {name: 'Opera', major: 105, version: '105.0.0.0'}</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">os()</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.5.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>os() 方法用来检测当前操作系统信息，返回操作名称合版本信息。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>返回检测结果，操作系统名称合版本信息。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom
 // 引用 os 单个方法
 import os from '@yaohaixiao/dom.js/os'
@@ -3067,7 +3135,39 @@ DOM.isElement($items) // -> false
 isFragment($items) // -> false
 
 DOM.isElement($fragment) // -> false
-isFragment($fragment) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isText(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Node Type Detection</dd></dl><p>isText() 方法用来检测测试数据是否为 HTMLTextNode (文本节点)类型。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）el 参数指定待检测的 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 HTMLTextNode (文本节点)类型，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+isFragment($fragment) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isNode(node)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Since：</dt><dd class="section__dd">1.6.0</dd></dl><p>isNode() 方法用来检测指定对象是否为 Node （接口）实例。相较于 isDOM() 方法，isNode() 方法可以检测更多类型的（Node）对象。</p><p>以下接口都从 Node 继承其方法和属性：</p><p>Document, Element, Attr, CharacterData (which Text, Comment, and CDATASection inherit), ProcessingInstruction, DocumentFragment, DocumentType, Notation, Entity, EntityReference</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">node</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Node</dd></dl><p>（必须）node 参数指定待检测的对象。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 Node （接口）实例，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom'
+// 或者单独引用 isTextNode() 方法
+import isNode from '@yaohaixiao/dom.js/isNode'
+
+const $list = document.getElementById('list')
+const $fragment = document.createDocumentFragment()
+const $items = document.querySelectorAll('.item')
+const $text = document.createTextNode('text')
+
+DOM.isNode($list) // -> true
+DOM.isNode($fragment) // -> true
+DOM.isNode($items) // -> true
+
+isNode($items) // -> true
+isNode($text) // -> true
+isNode($text) // -> true
+isNode(document) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isShadowRoot(node)</h3></header><div class="section__content"><h4 class="section__h4">Since<p class="section__dd">1.6.0</p></h4><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Node Type Detection</dd></dl><p>isShadowRoot() 方法用来检测目标 node 是否一个 DOM 子树的根节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）node 参数指定待检测的 Node 实例。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 ShadowRoot，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom'
+// 或者单独引用 isShadowRoot() 方法
+import isShadowRoot from '@yaohaixiao/dom.js/isShadowRoot'
+
+const $list = document.getElementById('list')
+
+const host = document.querySelector("#host")
+const shadow = host.attachShadow({ mode: "open" })
+const span = document.createElement("span")
+
+span.textContent = "I'm in the shadow DOM"
+shadow.appendChild(span)
+
+DOM.isShadowRoot($list) // -> false
+isShadowRoot(shadow) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isText(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Node Type Detection</dd></dl><p>isText() 方法用来检测测试数据是否为 HTMLTextNode (文本节点)类型。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）el 参数指定待检测的 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示检测数据是 HTMLTextNode (文本节点)类型，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom'
 // 或者单独引用 isText() 方法
 import isText from '@yaohaixiao/dom.js/isText'

@@ -12,18 +12,23 @@ import getEl from '../getEl'
 import filter from '../filter'
 import find from '../find'
 import findAll from '../findAll'
+import fullscreen from '../fullscreen'
 import has from '../has'
+import getDocument from '../getDocument'
+import getImages from '../getImages'
 import getHostOrParent from '../getHostOrParent'
 import getOffsetParent from '../getOffsetParent'
 import getScrollParent from '../getScrollParent'
 import getURLProps from '../getURLProps'
 import getURLSearchParams from '../getURLSearchParams'
 import getURLSearchParamByName from '../getURLSearchParamByName'
+import getWindow from '../getWindow'
 import index from '../index'
 import inDocument from '../inDocument'
 import inBounding from '../inBounding'
-import inViewport from '../inViewport'
 import isMatched from '../isMatched'
+import inViewport from '../inViewport'
+import isWindow from '../isWindow'
 import matches from '../matches'
 import children from '../children'
 import openURL from '../openURL'
@@ -49,18 +54,23 @@ const DOM = {
   filter,
   find,
   findAll,
+  fullscreen,
   has,
+  getDocument,
+  getImages,
   getHostOrParent,
   getOffsetParent,
   getScrollParent,
   getURLProps,
   getURLSearchParams,
   getURLSearchParamByName,
+  getWindow,
   index,
   inDocument,
   inBounding,
-  inViewport,
   isMatched,
+  inViewport,
+  isWindow,
   matches,
   children,
   openURL,

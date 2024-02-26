@@ -1,6 +1,6 @@
 import isBrowser from '../isBrowser'
 import isDeno from '../isDeno'
-import isNode from '../isNode'
+import isNodeJs from '../isNodeJs'
 import isMobile from '../isMobile'
 import isWebKit from '../isWebKit'
 import browser from '../browser'
@@ -9,7 +9,7 @@ import os from '../os'
 const DOM = {
   isBrowser,
   isDeno,
-  isNode,
+  isNodeJs,
   isMobile,
   isWebKit,
   browser,
