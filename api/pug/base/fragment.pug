@@ -1,0 +1,54 @@
+section.section
+  header.section__header
+    h3.section__h3 fragment(innerContent)
+  div.section__content
+    h4.section__h4 Since
+    p.section__dd 1.7.0
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Base
+    p fragment() 方法用来创建文档碎片。
+    h4.section__h4 Parameters
+    h5.section__h4 innerContent
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String|
+    p （可选）str 参数指定用来创建 DOM 节点的 HTML 字符串。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd DocumentFragment
+    p 返回创建的 DocumentFragment 对象。
+    h4.section__h4 Usage
+    pre.section__pre
+      code.section__code.
+         &lt;ul id="list" class="list"&gt;
+            &lt;li class="item active"&gt;Home&lt;/li&gt;
+         &lt;/ul&gt;
+
+         // 引入 DOM 模块（中的所有工具方法）
+         import DOM from '@yaohaixiao/dom.js/dom
+         // 引用 fragment 单个方法
+         import fragment from '@yaohaixiao/dom.js/fragment'
+
+         const $list = byId('#list')
+
+         // 获取 innerHTML 属性（字符串）
+         const $blog = DOM.build('&lt;li class="item"&gt;Blog&lt;/li&gt;')
+
+         DOM.isElement($blog) // -> true
+         DOM.append($blog, $list)
+         // &lt;ul id="list" class="list"&gt;
+         //   &lt;li class="item active"&gt;Home&lt;/li&gt;
+         //   &lt;li class="item"&gt;Blog&lt;/li&gt;
+         // &lt;/ul&gt;
+
+         const $projects = fragment('&lt;li class="item"&gt;Projects&lt;/li&gt;')
+
+         DOM.isFragment($projects) // -> true
+         DOM.append($blog, $list)
+         // &lt;ul id="list" class="list"&gt;
+         //   &lt;li class="item active"&gt;Home&lt;/li&gt;
+         //   &lt;li class="item"&gt;Blog&lt;/li&gt;
+         //   &lt;li class="item"&gt;Projects&lt;/li&gt;
+         // &lt;/ul&gt;

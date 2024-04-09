@@ -12,6 +12,7 @@ import getEl from '../getEl'
 import filter from '../filter'
 import find from '../find'
 import findAll from '../findAll'
+import fragment from '../fragment'
 import fullscreen from '../fullscreen'
 import has from '../has'
 import getDocument from '../getDocument'
@@ -33,6 +34,7 @@ import matches from '../matches'
 import children from '../children'
 import openURL from '../openURL'
 import parent from '../parent'
+import parents from '../parents'
 import pixel from '../pixel'
 import serialize from '../serialize'
 import toPixels from '../toPixels'
@@ -54,6 +56,7 @@ const DOM = {
   filter,
   find,
   findAll,
+  fragment,
   fullscreen,
   has,
   getDocument,
@@ -75,6 +78,7 @@ const DOM = {
   children,
   openURL,
   parent,
+  parents,
   pixel,
   serialize,
   toREM,

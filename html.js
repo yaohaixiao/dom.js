@@ -3,6 +3,7 @@ import isString from './utils/types/isString'
 import stripScripts from './utils/string/stripScripts'
 import isElement from './isElement'
 import createElement from './createElement'
+import fragment from './fragment'
 
 /**
  * 获取或者设置 DOM 元素的 innerHTML 属性值，或者通过 HTML 字符串，创建 DOM 元素
@@ -13,7 +14,7 @@ import createElement from './createElement'
  * @return {DocumentFragment|null|*}
  */
 const html = (el, strHTML) => {
-  const $fragment = document.createDocumentFragment()
+  const $fragment = fragment()
 
   if (!el || (!isHTML(el) && !isString(el) && !isElement(el))) {
     return null

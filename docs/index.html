@@ -486,7 +486,7 @@ val($group) // -> '成本'
 
 val($desc) // -> '前端工程师'
 val($desc, '软件工程师')
-val($desc) // -> '软件工程师'</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Base</h2></header><div class="section__content"><p>dom.js 提供以下方法用以创建或查询 DOM 元素等基础 DOM 操作。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">build(str)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.1.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>build() 方法用来将 HTML 字符串解析生成 DOM 节点。</p><p>注意：build() 方法与 html() 方法的不同指出在于 build() 方法返回的是 HTML 字符串解析后生成 DOM 元素，而 html() 方法返回的是包含 HTML 字符串解析后生成 DOM 元素的文档碎片。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">str</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（可选）str 参数指定用来创建 DOM 节点的 HTML 字符串。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回创建的 DOM 元素。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+val($desc) // -> '软件工程师'</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Base</h2></header><div class="section__content"><p>dom.js 提供以下方法用以创建或查询 DOM 元素等基础 DOM 操作。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">build(str)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.1.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>build() 方法用来将 HTML 字符串解析生成 DOM 节点。</p><p>注意：build() 方法与 html() 方法的不同之处在于 build() 方法返回的是 HTML 字符串解析后生成 DOM 元素，而 html() 方法返回的是包含 HTML 字符串解析后生成 DOM 元素的文档碎片。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">str</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（可选）str 参数指定用来创建 DOM 节点的 HTML 字符串。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回创建的 DOM 元素。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
    &lt;li class="item active"&gt;Home&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -705,7 +705,36 @@ import findAll from '@yaohaixiao/dom.js/findAll'
 
 const $items = DOM.findAll('.item')
 
-const $blog = findAll('.blog')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">fullscreen(mode, el)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.6.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>指定（某个DOM元素）进入或者退出全屏模式。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">mode</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">true</dd></dl><p>（可选）是否进入全屏模式。默认进入全屏模式。</p><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">'body'</dd></dl><p>（可选）指定 DOM 节点的选择器。默认节点为 document.body。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+const $blog = findAll('.blog')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">fragment(innerContent)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.7.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>fragment() 方法用来创建文档碎片。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">innerContent</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|</dd></dl><p>（可选）str 参数指定用来创建 DOM 节点的 HTML 字符串。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">DocumentFragment</dd></dl><p>返回创建的 DocumentFragment 对象。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+   &lt;li class="item active"&gt;Home&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 fragment 单个方法
+import fragment from '@yaohaixiao/dom.js/fragment'
+
+const $list = byId('#list')
+
+// 获取 innerHTML 属性（字符串）
+const $blog = DOM.build('&lt;li class="item"&gt;Blog&lt;/li&gt;')
+
+DOM.isElement($blog) // -> true
+DOM.append($blog, $list)
+// &lt;ul id="list" class="list"&gt;
+//   &lt;li class="item active"&gt;Home&lt;/li&gt;
+//   &lt;li class="item"&gt;Blog&lt;/li&gt;
+// &lt;/ul&gt;
+
+const $projects = fragment('&lt;li class="item"&gt;Projects&lt;/li&gt;')
+
+DOM.isFragment($projects) // -> true
+DOM.append($blog, $list)
+// &lt;ul id="list" class="list"&gt;
+//   &lt;li class="item active"&gt;Home&lt;/li&gt;
+//   &lt;li class="item"&gt;Blog&lt;/li&gt;
+//   &lt;li class="item"&gt;Projects&lt;/li&gt;
+// &lt;/ul&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">fullscreen(mode, el)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.6.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>指定（某个DOM元素）进入或者退出全屏模式。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">mode</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">true</dd></dl><p>（可选）是否进入全屏模式。默认进入全屏模式。</p><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">'body'</dd></dl><p>（可选）指定 DOM 节点的选择器。默认节点为 document.body。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -1068,7 +1097,7 @@ import openURL from '@yaohaixiao/dom.js/openURL'
 DOM.openURL('http://www.yaohaixiao.com')
 
 // 本窗口打开
-openURL('https://github.com/yaohaixiao/dom.js', '_self')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">parent(el[, type])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>matches() 方法用来获取给定 el 元素的父节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">type</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（可选）type 指定父节点的类型：</p><ul><li>offset：获取最近的（指包含层级上的最近）包含该元素的定位父元素;</li><li>scroll: 获取最近的（指包含层级上的最近）包含该元素的滚动父元素（overflow/overflow-x/overflow-y: auto ）；</li><li>其它：获取 el 的父节点；</li></ul><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 el 节点（指定类型）的父节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+openURL('https://github.com/yaohaixiao/dom.js', '_self')</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">parent(el[, type])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>parent() 方法用来获取给定 el 元素的父节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">type</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（可选）type 指定父节点的类型：</p><ul><li>offset：获取最近的（指包含层级上的最近）包含该元素的定位父元素;</li><li>scroll: 获取最近的（指包含层级上的最近）包含该元素的滚动父元素（overflow/overflow-x/overflow-y: auto ）；</li><li>其它：获取 el 的父节点；</li></ul><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 el 节点（指定类型）的父节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item project"&gt;Projects&lt;/li&gt;
@@ -1089,7 +1118,28 @@ parent($home, 'scroll')
 // -> document.documentElement
 
 parent($list, 'offset')
-// -> document.body</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">pixel(val)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.2.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>pixel() 方法用来将 CSS 单位值('px')和数值互换。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">val</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|Number</dd></dl><p>（必须）val 参数指定用来转化的 CSS 单位或者数值。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|Number</dd></dl><p>返回转化后的数值或者 CSS 单位值。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+// -> document.body</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">parents(el[, includeSelf = false])</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.7.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>parents() 方法用来获取给定 el 元素的所有父节点，并可以包含自身。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素或者 DOM 元素的选择器字符串。</p><h5 class="section__h4">includeSelf</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">false</dd></dl><p>（可选）includeSelf 指定之后包含元素自身。默认值：false。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Array</dd></dl><p>返回 el 节点的所有父节点的数组。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item home active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 parents 单个方法
+import parents from '@yaohaixiao/dom.js/parents'
+
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
+
+DOM.parents($home)
+// -> [&lt;ul id="list" class="list"&gt;]
+parents('.home', true)
+// -> [
+//  &lt;ul id="list" class="list"&gt;,
+//  &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+// ]</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">pixel(val)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.2.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>pixel() 方法用来将 CSS 单位值('px')和数值互换。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">val</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|Number</dd></dl><p>（必须）val 参数指定用来转化的 CSS 单位或者数值。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String|Number</dd></dl><p>返回转化后的数值或者 CSS 单位值。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom
 // 引用 pixel 单个方法
 import pixel from '@yaohaixiao/dom.js/pixel'
