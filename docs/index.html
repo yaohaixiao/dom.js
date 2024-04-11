@@ -927,16 +927,7 @@ const $list = DOM.getEl('#list')
 DOM.getWindow(window) // -> 返回当前 Window 对象
 
 getWindow(document) // -> 返回当前 Window 对象
-getWindow($list) // -> 返回当前 Window 对象</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">toURLSearchParams(o)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>toURLSearchParams() 方法用来将普通对象转化成 URL 地址中的查询字符串。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">o</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>o 参数指定要转化的普通对象。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>返回转化后的 URL 地址查询字符串。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
-import DOM from '@yaohaixiao/dom.js/dom
-// 引用 toURLSearchParams 单个方法
-import toURLSearchParams from '@yaohaixiao/dom.js/toURLSearchParams'
-
-const queryOne = {name: 'Robert', age: 32}
-const queryTwo = {price: 32, group: 4, color: 'red'}
-
-DOM.toURLSearchParams(queryOne) // -> 'name=Robert&age=32'
-toURLSearchParams(queryTwo) // -> 'price=32&group=4&color=red'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">index(el[, ancestor])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>index() 方法用来查询 DOM 元素在其父节点中的索引位置。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）el 参数指定 DOM 元素或者 DOM 元素的选择器字符串。</p><h5 class="section__h4">ancestor</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（可选）ancestor 参数指定父节点。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回查询到的 DOM 元素在其父节点的 index 索引值。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+getWindow($list) // -> 返回当前 Window 对象</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">index(el[, ancestor])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>index() 方法用来查询 DOM 元素在其父节点中的索引位置。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）el 参数指定 DOM 元素或者 DOM 元素的选择器字符串。</p><h5 class="section__h4">ancestor</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（可选）ancestor 参数指定父节点。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Number</dd></dl><p>返回查询到的 DOM 元素在其父节点的 index 索引值。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item project"&gt;Projects&lt;/li&gt;
@@ -1045,7 +1036,33 @@ DOM.isWindow(window) // -> true
 DOM.isWindow(document) // -> false
 
 // Node 环境中运行
-isWindow(global) // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">matches(el, selector)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>matches() 方法用来获取 el 节点下匹配 selector 选择器的 DOM 节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">selector</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）selector 指定匹配 DOM 元素的选择器。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>el 节点查询到匹配 selector 的 DOM 节点，返回 DOM 节点，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+isWindow(global) // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">loadCSS(cssURL)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.7.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>loadCSS() 方法用来动态向页面中添加外部 css 样式文件。返回 Promise 对象。css 文件加载成功，执行 Promise.resolve()，加载失败则执行 Promise.reject()。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">cssURL</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）cssURL 参数指定外部 css 文件的 URL 地址。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Promise</dd></dl><p>返回 Promise 对象。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 loadCSS 单个方法
+import loadCSS from '@yaohaixiao/dom.js/loadCSS'
+
+dom.loadCSS('path/to/exist.css').then(() => {
+  // css 文件加载成功后的相关逻辑
+))
+
+loadCSS('path/to/not-exist.css').then(() => {
+  // css 文件加载成功后的相关逻辑
+)).catch((err) => {
+  // css 文件加载失败后的相关逻辑
+})</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">loadScript(jsURL)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.7.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>loadScript() 方法用来动态向页面中添加外部 js 样式文件。返回 Promise 对象。js 文件加载成功，执行 Promise.resolve()，加载失败则执行 Promise.reject()。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">jsURL</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）jsURL 参数指定外部 js 文件的 URL 地址。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Promise</dd></dl><p>返回 Promise 对象。</p><h4 class="section__h4">Usage</h4><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 loadScript 单个方法
+import loadScript from '@yaohaixiao/dom.js/loadScript'
+
+dom.loadScript('path/to/exist.js').then(() => {
+  // js 文件加载成功后的相关逻辑
+))
+
+loadScript('path/to/not-exist.js').then(() => {
+  // js 文件加载成功后的相关逻辑
+)).catch((err) => {
+  // js 文件加载失败后的相关逻辑
+})</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">matches(el, selector)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>matches() 方法用来获取 el 节点下匹配 selector 选择器的 DOM 节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">selector</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）selector 指定匹配 DOM 元素的选择器。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>el 节点查询到匹配 selector 的 DOM 节点，返回 DOM 节点，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item project"&gt;Projects&lt;/li&gt;
@@ -1169,7 +1186,16 @@ DOM.serialize($user) // -> false
 serialize($form, true) // -> {desc: "I'm a programmer", hobby: "reading", user: "Robert"}
 
 // 序列化为 key/value 的对象数据
-serialize($form) // -> 'user=Robert&hobby=reading&desc=I%27m+a+programmer'</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Color</h2></header><div class="section__content"><p>dom.js 提供以下方法用于处理 DOM 元素的颜色值相关的操作。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getColor(el, attr, isHex = true)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">0.4.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Color</dd></dl><p>getColor() 方法用来获取 DOM 元素指定的颜色值。可指定获取 16 进制色值或者 RGB 色值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 节点。</p><h5 class="section__h4">attr</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）attr 参数指定表示颜色的属性字符串：</p><pre class="section__pre"><code class="section__">// 只能是以下包含的颜色属性
+serialize($form) // -> 'user=Robert&hobby=reading&desc=I%27m+a+programmer'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">toURLSearchParams(o)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>toURLSearchParams() 方法用来将普通对象转化成 URL 地址中的查询字符串。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">o</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>o 参数指定要转化的普通对象。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>返回转化后的 URL 地址查询字符串。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 toURLSearchParams 单个方法
+import toURLSearchParams from '@yaohaixiao/dom.js/toURLSearchParams'
+
+const queryOne = {name: 'Robert', age: 32}
+const queryTwo = {price: 32, group: 4, color: 'red'}
+
+DOM.toURLSearchParams(queryOne) // -> 'name=Robert&age=32'
+toURLSearchParams(queryTwo) // -> 'price=32&group=4&color=red'</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Color</h2></header><div class="section__content"><p>dom.js 提供以下方法用于处理 DOM 元素的颜色值相关的操作。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getColor(el, attr, isHex = true)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">0.4.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Color</dd></dl><p>getColor() 方法用来获取 DOM 元素指定的颜色值。可指定获取 16 进制色值或者 RGB 色值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 节点。</p><h5 class="section__h4">attr</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）attr 参数指定表示颜色的属性字符串：</p><pre class="section__pre"><code class="section__">// 只能是以下包含的颜色属性
 [
   'accent-color',
   'background-color',

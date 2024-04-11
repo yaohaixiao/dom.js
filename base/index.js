@@ -30,6 +30,8 @@ import inBounding from '../inBounding'
 import isMatched from '../isMatched'
 import inViewport from '../inViewport'
 import isWindow from '../isWindow'
+import loadCSS from '../loadCSS'
+import loadScript from '../loadScript'
 import matches from '../matches'
 import children from '../children'
 import openURL from '../openURL'
@@ -74,6 +76,8 @@ const DOM = {
   isMatched,
   inViewport,
   isWindow,
+  loadCSS,
+  loadScript,
   matches,
   children,
   openURL,
