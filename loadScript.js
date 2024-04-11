@@ -15,7 +15,9 @@ const loadScript = (jsURL) => {
       src: jsURL + '?random=' + new Date().getTime()
     })
 
-    $script.onload = resolve
+    $script.onload = () => {
+      resolve($script)
+    }
     $script.onerror = reject
 
     document.body.append($script)

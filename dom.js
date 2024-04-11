@@ -4,6 +4,7 @@ import Color from './color'
 import Insertion from './insertion'
 import Platform from './platform'
 import Position from './position'
+import Resources from './resources'
 import Sibling from './sibling'
 import Size from './size'
 import Style from './style'
@@ -16,6 +17,7 @@ const DOM = {
   ...Insertion,
   ...Platform,
   ...Position,
+  ...Resources,
   ...Sibling,
   ...Size,
   ...Style,

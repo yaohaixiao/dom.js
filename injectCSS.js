@@ -6,13 +6,27 @@ import createElement from './createElement'
  * @method injectCSS
  * @since 1.4.0
  * @param {String} cssRules
+ * @param {String} [media]
+ * @param {String} [charset]
  * @return {HTMLElement}
  */
-const injectCSS = (cssRules) => {
-  const $style = createElement('style', {
-    type: 'text/css',
-    innerText: cssRules
-  })
+const injectCSS = (cssRules, media, charset) => {
+  const attrs = {
+    type: 'text/css'
+  }
+  let $style
+
+  if (media) {
+    attrs.media = media
+  }
+
+  if (charset) {
+    cssRules = `@charset "${charset}";` + cssRules
+  }
+
+  attrs.innerText = cssRules
+
+  $style = createElement('style', attrs)
 
   document.head.appendChild($style)
 

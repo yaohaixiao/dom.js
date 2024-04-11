@@ -6,7 +6,7 @@ section.section
     p.section__dd 1.7.0
     dl.section__dl
       dt.section__dt Category：
-      dd.section__dd Base
+      dd.section__dd Load Resources
     p loadScript() 方法用来动态向页面中添加外部 js 样式文件。返回 Promise 对象。js 文件加载成功，执行 Promise.resolve()，加载失败则执行 Promise.reject()。
     h4.section__h4 Parameters
     h5.section__h4 jsURL
@@ -14,6 +14,11 @@ section.section
       dt.section__dt Type：
       dd.section__dd String
     p （必须）jsURL 参数指定外部 js 文件的 URL 地址。
+    h5.section__h4 jsURL
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （可选）charset 参数指定外部 js 文件字符集编码。
     h5.section__h4 Returns
     dl.section__dl
       dt.section__dt Type：
@@ -27,9 +32,11 @@ section.section
         // 引用 loadScript 单个方法
         import loadScript from '@yaohaixiao/dom.js/loadScript'
 
-        dom.loadScript('path/to/exist.js').then(() => {
+        DOM.loadScript('path/to/exist.js').then(($script) => {
           // js 文件加载成功后的相关逻辑
-        ))
+          // $script 是创建的 script 标签 DOM 元素
+          console.log($script)
+        })
 
         loadScript('path/to/not-exist.js').then(() => {
           // js 文件加载成功后的相关逻辑

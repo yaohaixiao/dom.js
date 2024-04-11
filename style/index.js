@@ -4,7 +4,6 @@ import getStyles from '../getStyles'
 import setStyles from '../setStyles'
 import getProperty from '../getProperty'
 import setProperty from '../setProperty'
-import injectCSS from '../injectCSS'
 import css from '../css'
 import prop from '../prop'
 import show from '../show'
@@ -18,7 +17,6 @@ const DOM = {
   setStyles,
   getProperty,
   setProperty,
-  injectCSS,
   css,
   prop,
   show,

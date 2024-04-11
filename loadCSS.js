@@ -6,17 +6,26 @@ import createElement from './createElement'
  * @method loadCSS
  * @since 1.7.0
  * @param {String} cssURL
+ * @param {String} [media]
  * @return {Promise}
  */
-const loadCSS = (cssURL) => {
-  return new Promise((resolve, reject) => {
-    const $link = createElement('link', {
-      type: 'text/css',
-      rel: 'stylesheet',
-      href: cssURL + '?random=' + new Date().getTime()
-    })
+const loadCSS = (cssURL, media) => {
+  const attrs = {
+    type: 'text/css',
+    rel: 'stylesheet',
+    href: cssURL + '?random=' + new Date().getTime()
+  }
 
-    $link.onload = resolve
+  if (media) {
+    attrs.media = media
+  }
+
+  return new Promise((resolve, reject) => {
+    const $link = createElement('link', attrs)
+
+    $link.onload = () => {
+      resolve($link)
+    }
     $link.onerror = reject
 
     document.head.append($link)

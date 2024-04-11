@@ -3,7 +3,6 @@ import isString from './utils/types/isString'
 import isArray from './utils/types/isArray'
 import isDOM from './isDOM'
 import text from './text'
-import fragment from './fragment'
 import setAttributes from './setAttributes'
 
 /**
@@ -16,7 +15,7 @@ import setAttributes from './setAttributes'
  * @returns {HTMLElement|null}
  */
 const createElement = (tagName, attrs, children) => {
-  const $fragment = fragment()
+  const $fragment = document.createDocumentFragment()
 
   if (!tagName) {
     return null

@@ -1,0 +1,26 @@
+section.section
+  header.section__header
+    h3.section__h3 dnsPrefetch(domain)
+  div.section__content
+    h4.section__h4 Since
+    p.section__dd 1.7.0
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Load Resources
+    p dnsPrefetch() 方法用来尝试在请求（第三方）资源之前预解析域名。用以优化加载解析第三方资源的性能。
+    h4.section__h4 Parameters
+    h5.section__h4 domain
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （必须）domain 参数指定（第三方）域名。
+    pre.section__pre
+      code.section__code.
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 dnsPrefetch 单个方法
+        import dnsPrefetch from '@yaohaixiao/dom.js/dnsPrefetch'
+
+        // 在开始需要加载 github 和 google 站点的资源前先预解析两个站点的域名
+        DOM.dnsPrefetch('//github.com')
+        dnsPrefetch('https://fonts.google.com')

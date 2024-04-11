@@ -1,0 +1,26 @@
+section.section
+  header.section__header
+    h3.section__h3 prefetch(url)
+  div.section__content
+    h4.section__h4 Since
+    p.section__dd 1.7.0
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Load Resources
+    p prefetch() 方法用来链接预取（重要）资源。（可以根据用户数据分析）预取用户稍后会用到的（重要）资源（通常是 js 或者 css 文件），以优化前端性能。
+    h4.section__h4 Parameters
+    h5.section__h4 url
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （必须）url 参数指定需要预加载的资源文件的 URL 地址。
+    pre.section__pre
+      code.section__code.
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 prefetch 单个方法
+        import prefetch from '@yaohaixiao/dom.js/prefetch'
+
+        DOM.prefetch('/app/style.css')
+        prefetch('/app/app.js')
+
