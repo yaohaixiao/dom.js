@@ -1,0 +1,29 @@
+import copyToClipboard from '../copyToClipboard'
+import createAndDownloadFile from '../createAndDownloadFile'
+import fullscreen from '../fullscreen'
+import getURLProps from '../getURLProps'
+import getURLSearchParams from '../getURLSearchParams'
+import getURLSearchParamByName from '../getURLSearchParamByName'
+import openURL from '../openURL'
+import pixel from '../pixel'
+import serialize from '../serialize'
+import toPixels from '../toPixels'
+import toREM from '../toREM'
+import toURLSearchParams from '../toURLSearchParams'
+
+const DOM = {
+  copyToClipboard,
+  createAndDownloadFile,
+  fullscreen,
+  getURLProps,
+  getURLSearchParams,
+  getURLSearchParamByName,
+  openURL,
+  pixel,
+  serialize,
+  toREM,
+  toPixels,
+  toURLSearchParams
+}
+
+export default DOM

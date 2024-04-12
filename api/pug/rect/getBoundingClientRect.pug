@@ -1,0 +1,45 @@
+section.section
+  header.section__header
+    h3.section__h3 getBoundingClientRect(el)
+  div.section__content
+    h4.section__h4 Since
+      p.section__dd 1.7.0
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd DOMRect
+    p getBoundingClientRect() 方法用来获取 DOM 元素的 getBoundingClientRect 数据。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Any
+    p （必须）el 参数指定需要获取数据的 DOM 元素。
+    h4.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Object。
+    p 返回 el 元素的(扩展后的） Rect 数据。
+    pre.section__pre
+      code.section__code.
+        {
+          width,
+          height,
+          top,
+          right,
+          bottom,
+          left,
+          x,
+          y
+        }
+    pre.section__pre
+      code.section__code.
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom'
+        // 或者单独引用 getBoundingClientRect() 方法
+        import getBoundingClientRect from '@yaohaixiao/dom.js/getBoundingClientRect'
+
+        const $list = DOM.byId('#list')
+        const $host = DOM.byId("#host")
+
+        DOM.getBoundingClientRect($list) // -> false
+        getBoundingClientRect($host) // -> true

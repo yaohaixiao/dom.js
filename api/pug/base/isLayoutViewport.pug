@@ -1,0 +1,24 @@
+section.section
+  header.section__header
+    h3.section__h3 isLayoutViewport()
+  div.section__content
+    h4.section__h4 Since
+      p.section__dd 1.7.0
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Base
+    p isLayoutViewport() 方法用来判断当前视图是否为布局视图。
+    h4.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Boolean。
+    p true - 表示当前视图是否为布局视图，false 则表示不是。
+    pre.section__pre
+      code.section__code.
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom'
+        // 或者单独引用 isShadowRoot() 方法
+        import isLayoutViewport from '@yaohaixiao/dom.js/isLayoutViewport'
+
+        DOM.isLayoutViewport() // -> 可以用移动设备模拟器查看 false
+        isLayoutViewport() // -> true

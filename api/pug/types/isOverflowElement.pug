@@ -1,0 +1,44 @@
+section.section
+  header.section__header
+    h3.section__h3 isOverflowElement(el)
+  div.section__content
+    h4.section__h4 Since
+      p.section__dd 1.7.0
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Node Type Detection
+    p isOverflowElement() 方法用来检测 DOM 元素是否设置了 overflow 属性。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （必须）el 参数指定待检测的 DOM 元素。
+    h4.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Boolean。
+    p true - 表示检测数 DOM 元素设置了overflow 属性，false 则表示没有设置。
+    pre.section__pre
+      code.section__code.
+        .list {
+          margin:0 auto;
+          height: 32px;
+          overflow: auto;
+        }
+
+        .host {
+          margin:0 auto;
+          height: 32px;
+        }
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom'
+        // 或者单独引用 isOverflowElement() 方法
+        import isOverflowElement from '@yaohaixiao/dom.js/isOverflowElement'
+
+        const $list = DOM.byClass('.list')
+        const $host = DOM.byClass('.host')
+
+        DOM.isOverflowElement($list) // -> true
+        isOverflowElement($host) // -> false

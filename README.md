@@ -1,7 +1,6 @@
 # dom.js
 
 [![npm version](https://img.shields.io/npm/v/@yaohaixiao/dom.js)](https://www.npmjs.com/package/@yaohaixiao/dom.js)
-![Gzip size](http://img.badgesize.io/https://cdn.jsdelivr.net/gh/yaohaixiao/dom.js/dom.min.js?compression=gzip&label=gzip%20size)
 [![prettier code style](https://img.shields.io/badge/code_style-prettier-07b759.svg)](https://prettier.io)
 [![Coverage](https://codecov.io/gh/yaohaixiao/dom.js/branch/main/graph/badge.svg)](https://codecov.io/gh/yaohaixiao/dom.js)
 [![npm downloads](https://img.shields.io/npm/dt/@yaohaixiao/dom.js)](https://npmcharts.com/compare/@yaohaixiao/dom.js?minimal=true)
