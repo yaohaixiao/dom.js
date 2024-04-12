@@ -3,6 +3,7 @@ import Base from './base'
 import Color from './color'
 import DOMRect from './rect'
 import Insertion from './insertion'
+import Observer from './observer'
 import Platform from './platform'
 import Position from './position'
 import Resources from './resources'
@@ -18,6 +19,7 @@ const DOM = {
   ...Color,
   ...DOMRect,
   ...Insertion,
+  ...Observer,
   ...Platform,
   ...Position,
   ...Resources,

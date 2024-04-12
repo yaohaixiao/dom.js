@@ -6,6 +6,8 @@ import getURLSearchParams from '../getURLSearchParams'
 import getURLSearchParamByName from '../getURLSearchParamByName'
 import openURL from '../openURL'
 import pixel from '../pixel'
+import onClickOutside from '../onClickOutside'
+import redirect from '../redirect'
 import serialize from '../serialize'
 import toPixels from '../toPixels'
 import toREM from '../toREM'
@@ -20,6 +22,8 @@ const DOM = {
   getURLSearchParamByName,
   openURL,
   pixel,
+  onClickOutside,
+  redirect,
   serialize,
   toREM,
   toPixels,

@@ -12,6 +12,7 @@ import find from '../find'
 import findAll from '../findAll'
 import fragment from '../fragment'
 import has from '../has'
+import getActiveElement from '../getActiveElement'
 import getDocument from '../getDocument'
 import getImages from '../getImages'
 import getHostOrParent from '../getHostOrParent'
@@ -44,6 +45,7 @@ const DOM = {
   findAll,
   fragment,
   has,
+  getActiveElement,
   getDocument,
   getImages,
   getHostOrParent,
