@@ -1,6 +1,7 @@
 import copyToClipboard from '../copyToClipboard'
 import createAndDownloadFile from '../createAndDownloadFile'
 import fullscreen from '../fullscreen'
+import getSelectedText from '../getSelectedText'
 import getURLProps from '../getURLProps'
 import getURLSearchParams from '../getURLSearchParams'
 import getURLSearchParamByName from '../getURLSearchParamByName'
@@ -17,6 +18,7 @@ const DOM = {
   copyToClipboard,
   createAndDownloadFile,
   fullscreen,
+  getSelectedText,
   getURLProps,
   getURLSearchParams,
   getURLSearchParamByName,
