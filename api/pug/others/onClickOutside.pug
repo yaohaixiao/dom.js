@@ -1,0 +1,52 @@
+section.section
+  header.section__header
+    h3.section__h3 onClickOutside(el, callback)
+  div.section__content
+    h4.section__h4 Since
+    p.section__dd 1.7.0
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Others
+    p onClickOutside() 方法用来处理点击 el 元素以外后执行一些操作。通常用于在弹出窗口后菜单后，点击页面其它 DOM 元素，隐藏弹出的窗口或者菜单。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （必须）el 参数指定要 DOM 元素。
+    h5.section__h4 callback
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Function
+    p （必须）Function 参数指定点击后要执行的回调函数。
+    pre.section__pre
+      code.section__code.
+        &lt;ul id="list" class="list"&gt;
+            &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 窗口可见
+        &lt;div id="user" class="popper"&gt;User&lt;/div&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 onClickOutside 单个方法
+        import onClickOutside from '@yaohaixiao/dom.js/onClickOutside'
+
+        const $list = DOM.getEl('#list')
+        const $popper = DOM.getEl('#user')
+
+        DOM.onClickOutside($popper, () => {
+          DOM.hide($popper)
+          console.log('关闭用户信息弹窗')
+        })
+
+        onClickOutside($list, () => {
+          DOM.hide($list)
+          console.log('关闭导航菜单')
+        })
+
+        $list.click() // '关闭用户信息弹窗'

@@ -721,7 +721,26 @@ DOM.append($blog, $list)
 //   &lt;li class="item active"&gt;Home&lt;/li&gt;
 //   &lt;li class="item"&gt;Blog&lt;/li&gt;
 //   &lt;li class="item"&gt;Projects&lt;/li&gt;
-// &lt;/ul&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getDocument(node)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.6.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getDocument() 方法用来获取 Node 对象（DOM 元素）所在的文档的 documentElement 对象。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">node</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Node | Window</dd></dl><p>（必须）指定的 DOM 元素或者 window 对象。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">documentElement 对象</dd></dl><p>返回 documentElement 对象。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+// &lt;/ul&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getActiveElement()</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.7.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getActiveElement() 方法返回当前在 DOM 或者 shadow DOM 树中处于聚焦状态的 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回处于聚焦状态的 DOM 元素。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getActiveElement 单个方法
+import getActiveElement from '@yaohaixiao/dom.js/getActiveElement'
+
+const $list = DOM.getEl('#list')
+const $home = DOM.getEl('#home')
+
+DOM.getActiveElement() // -> null
+
+$home.click()
+getActiveElement()
+// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getDocument(node)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.6.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getDocument() 方法用来获取 Node 对象（DOM 元素）所在的文档的 documentElement 对象。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">node</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Node | Window</dd></dl><p>（必须）指定的 DOM 元素或者 window 对象。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">documentElement 对象</dd></dl><p>返回 documentElement 对象。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -1039,7 +1058,13 @@ import getColor from '@yaohaixiao/dom.js/getColor'
 const $list = DOM.byId('#list')
 
 DOM.getColor($list, 'color', false) // 'rgb(0, 0, 0)'
-getColor($list, 'background-color') // '#ffffff'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">toHex(color)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">0.4.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Color</dd></dl><p>toHex() 方法用来将指定颜色（颜色英文名称、RGB格式或者 HSL 格式色值）转化成 16 进制色值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">color</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）color 参数指定指定颜色。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>返回转化后的 16 进制色值。</p><pre class="section__pre"><code class="section__">&lt;style&gt;
+getColor($list, 'background-color') // '#ffffff'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">randomHexColor()</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.7.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Color</dd></dl><p>randomHexColor() 方法用来将随机生成 HEX 格式颜色代码字符串。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>返回随机生成 HEX 格式颜色代码字符串。</p><pre class="section__pre"><code class="section__">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 randomHexColor 单个方法
+import randomHexColor from '@yaohaixiao/dom.js/randomHexColor'
+
+DOM.randomHexColor() // -> '#ff1100'
+randomHexColor() // -> '#ef23c2'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">toHex(color)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">0.4.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Color</dd></dl><p>toHex() 方法用来将指定颜色（颜色英文名称、RGB格式或者 HSL 格式色值）转化成 16 进制色值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">color</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）color 参数指定指定颜色。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>返回转化后的 16 进制色值。</p><pre class="section__pre"><code class="section__">&lt;style&gt;
   .list {
     background-color: rgb(255,255,255);
     color: black;
@@ -3309,7 +3334,14 @@ DOM.fullscreen(false)
 
 // 仅 $list 菜单进入或者全屏模式
 fullscreen(true, $list)
-fullscreen(false, $list)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getURLProps(url = location.href)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.4.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Others</dd></dl><p>getURLProps() 方法用来解析 URL 地址中的相关属性，返回解析 URL 后的对象数据。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">url</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">location.href</dd></dl><p>（可选）url 参数指定要解析的 URL 地址字符串，默认值：页面当前 URL 地址。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>返回解析 URL 后的对象数据。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+fullscreen(false, $list)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getSelectedText()</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.7.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Others</dd></dl><p>getSelectedText() 返回页面中选中的文本内容。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>返回页面中选中的文本内容。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getSelectedText 单个方法
+import getSelectedText from '@yaohaixiao/dom.js/getSelectedText'
+
+// 返回页面中选中的文本内容。
+DOM.getSelectedText()
+getSelectedText()</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getURLProps(url = location.href)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.4.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Others</dd></dl><p>getURLProps() 方法用来解析 URL 地址中的相关属性，返回解析 URL 后的对象数据。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">url</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">location.href</dd></dl><p>（可选）url 参数指定要解析的 URL 地址字符串，默认值：页面当前 URL 地址。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>返回解析 URL 后的对象数据。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom
 // 引用 getURLProps 单个方法
 import getURLProps from '@yaohaixiao/dom.js/getURLProps'
@@ -3364,7 +3396,35 @@ import getURLSearchParams from '@yaohaixiao/dom.js/getURLSearchParams'
 DOM.getURLSearchParamByName('s') // -> 'getURLSearchParams'
 
 // 当前 URL 地址：'http://www.yaohaixiao.com/?s=getURLSearchParams&tag=JavaScript'
-getURLSearchParamByName(tag) // 'JavaScript'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">openURL(url, target = '_blank')</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.4.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Others</dd></dl><p>openURL() 方法打开指定 URL 页面。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">url</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）需要打开的文件 URL 地址。</p><h5 class="section__h4">target</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">'_blank'</dd></dl><p>（可选）打开方式，默认值：_blank - 新窗口打开。</p><pre class="section__pre"><code class="section__">// 引入 DOM 模块（中的所有工具方法）
+getURLSearchParamByName(tag) // 'JavaScript'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">onClickOutside(el, callback)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.7.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Others</dd></dl><p>onClickOutside() 方法用来处理点击 el 元素以外后执行一些操作。通常用于在弹出窗口后菜单后，点击页面其它 DOM 元素，隐藏弹出的窗口或者菜单。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定要 DOM 元素。</p><h5 class="section__h4">callback</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function</dd></dl><p>（必须）Function 参数指定点击后要执行的回调函数。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 窗口可见
+&lt;div id="user" class="popper"&gt;User&lt;/div&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 onClickOutside 单个方法
+import onClickOutside from '@yaohaixiao/dom.js/onClickOutside'
+
+const $list = DOM.getEl('#list')
+const $popper = DOM.getEl('#user')
+
+DOM.onClickOutside($popper, () => {
+  DOM.hide($popper)
+  console.log('关闭用户信息弹窗')
+})
+
+onClickOutside($list, () => {
+  DOM.hide($list)
+  console.log('关闭导航菜单')
+})
+
+$list.click() // '关闭用户信息弹窗'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">openURL(url, target = '_blank')</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.4.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Others</dd></dl><p>openURL() 方法打开指定 URL 页面。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">url</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）需要打开的文件 URL 地址。</p><h5 class="section__h4">target</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">'_blank'</dd></dl><p>（可选）打开方式，默认值：_blank - 新窗口打开。</p><pre class="section__pre"><code class="section__">// 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom
 // 引用 openURL 单个方法
 import openURL from '@yaohaixiao/dom.js/openURL'
@@ -3379,7 +3439,18 @@ import DOM from '@yaohaixiao/dom.js/dom
 import pixel from '@yaohaixiao/dom.js/pixel'
 
 DOM.pixel('24px') // -> 24
-pixel(24) // -> '24px'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">serialize(formElement[, isParams])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Others</dd></dl><p>serialize() 方法用来将 Form 表单中的数据序列化为 key/value 的对象数据或者 URL 地址中查询字符串的格式。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">formElement</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）formElement 参数指定 Form 表单元素。</p><h5 class="section__h4">isParams</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>（可选）isParams 指定是否序列化为查询字符串：</p><ul><li>false：（默认值）序列化为 key/value 的对象数据;</li><li>true: 序列化为查询字符串;</li></ul><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object|String</dd></dl><p>返回序列化后的数据。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;&lt;/ul&gt;
+pixel(24) // -> '24px'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">redirect(url[, asLink = true])</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.7.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Others</dd></dl><p>redirect() 方法用来重定向 URL 地址。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">url</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">''</dd></dl><p>（必须）url 参数指定要跳转的 URL 地址。</p><h5 class="section__h4">asLink</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">true</dd></dl><p>（可选）asLink 参数指定重定向的方式：true - 刷新页面跳转，false - 仅更新 URL 地址，不刷线页面。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 redirect 单个方法
+import redirect from '@yaohaixiao/dom.js/redirect'
+
+// 页面整体刷新，跳转到 http://www.yaohaixiao.com/ 站点
+DOM.redirect('http://www.yaohaixiao.com/')
+
+// 当前页面 http://www.yaohaixiao.com/，
+// 仅更新 URL 路径到 http://www.yaohaixiao.com/?page=2
+// 但不刷新页面
+getURLProps('http://www.yaohaixiao.com/?page=2', true)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">serialize(formElement[, isParams])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Others</dd></dl><p>serialize() 方法用来将 Form 表单中的数据序列化为 key/value 的对象数据或者 URL 地址中查询字符串的格式。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">formElement</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）formElement 参数指定 Form 表单元素。</p><h5 class="section__h4">isParams</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>（可选）isParams 指定是否序列化为查询字符串：</p><ul><li>false：（默认值）序列化为 key/value 的对象数据;</li><li>true: 序列化为查询字符串;</li></ul><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object|String</dd></dl><p>返回序列化后的数据。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;&lt;/ul&gt;
 &lt;form name="form" id="form"&gt;
   &lt;input type="text" id="user" name="user" class="user" value="Robert" /&gt;
   &lt;input type="checkbox" id="reading" checked="checked" name="hobby" class="checkbox" value="reading" /&gt;读书

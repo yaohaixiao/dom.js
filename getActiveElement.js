@@ -4,7 +4,7 @@
  * @method getActiveElement
  * @since 1.7.0
  * @see https://developer.mozilla.org/zh-CN/docs/Web/API/Document/activeElement
- * @returns {Element}
+ * @returns {HTMLElement}
  */
 const getActiveElement = () => {
   return document.activeElement

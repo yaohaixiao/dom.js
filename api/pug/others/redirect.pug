@@ -1,0 +1,41 @@
+section.section
+  header.section__header
+    h3.section__h3 redirect(url[, asLink = true])
+  div.section__content
+    h4.section__h4 Since
+    p.section__dd 1.7.0
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Others
+    p redirect() 方法用来重定向 URL 地址。
+    h4.section__h4 Parameters
+    h5.section__h4 url
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    dl.section__dl
+      dt.section__dt Default：
+      dd.section__dd ''
+    p （必须）url 参数指定要跳转的 URL 地址。
+    h5.section__h4 asLink
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Boolean
+    dl.section__dl
+      dt.section__dt Default：
+      dd.section__dd true
+    p （可选）asLink 参数指定重定向的方式：true - 刷新页面跳转，false - 仅更新 URL 地址，不刷线页面。
+    pre.section__pre
+      code.section__code.
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 redirect 单个方法
+        import redirect from '@yaohaixiao/dom.js/redirect'
+
+        // 页面整体刷新，跳转到 http://www.yaohaixiao.com/ 站点
+        DOM.redirect('http://www.yaohaixiao.com/')
+
+        // 当前页面 http://www.yaohaixiao.com/，
+        // 仅更新 URL 路径到 http://www.yaohaixiao.com/?page=2
+        // 但不刷新页面
+        getURLProps('http://www.yaohaixiao.com/?page=2', true)

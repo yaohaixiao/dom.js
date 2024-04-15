@@ -1,4 +1,4 @@
-import observeIntersections from '../observeMutations'
+import observeIntersections from '../observeIntersections'
 import observeMutations from '../observeMutations'
 
 const DOM = {
