@@ -136,16 +136,6 @@ const $anchor = createElement('a', {
 API 文档地址：[https://yaohaixiao.github.io/dom.js/](https://yaohaixiao.github.io/dom.js/)
 
 
-## 参考代码仓库
-
-dom.js 中的部分代码参考了代码仓库：
-
-* (MDN)[https://developer.mozilla.org/]
-* (jQuery)[https://github.com/jquery/jquery]
-* (YUI)[https://github.com/yui/yui2]
-* (30 seconds of code)[https://github.com/Chalarangelo/30-seconds-of-code]
-* (Floating UI)[https://github.com/floating-ui/floating-ui]
-
 
 ## License
 

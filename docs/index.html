@@ -3301,7 +3301,54 @@ DOM.isCollection($items) // -> true
 isText($items) // -> false
 
 DOM.isElement($text) // -> false
-isText($text) // -> true</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Others</h2></header><div class="section__content"><p>dom.js 提供以下方法用以处理一些常用 DOM 操作。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">copyToClipboard(str)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.4.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Others</dd></dl><p>copyToClipboard() 方法用于复制指定文本内容到粘贴板。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">str</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）需要复制的文本字符串。</p><pre class="section__pre"><code class="section__">// 引入 DOM 模块（中的所有工具方法）
+isText($text) // -> true</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Others</h2></header><div class="section__content"><p>dom.js 提供以下方法用以处理对 DOM 树或者元素变化进行观察的相关操作。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">observeIntersections(el, fn[, props = {}])</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.7.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Observer</dd></dl><p>observeIntersections() 方法是一个通用的 IntersectionObserver 观察者处理器。提供了一种异步观察目标元素与其祖先元素或顶级文档视口（viewport）交叉状态的方法。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定用作边界盒的元素或文档。如果构造函数未传入 root 或其值为null，则默认使用顶级文档的视口。</p><h5 class="section__h4">str</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）fn 参数指定 el 元素下需要观察的 DOM 元素出发观察条件时出发的回调函数。</p><h5 class="section__h4">props</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>（可选）props 指定传递到 IntersectionObserver() 构造函数的 options 对象。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>返回 IntersectionObserver 对象（实例）。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 observeIntersections 单个方法
+import observeIntersections from '@yaohaixiao/dom.js/observeIntersections'
+
+const $list = DOM.getEl('#list')
+const $blog = DOM.getEl('.blog')
+
+// $list 菜单中的 .item 元素滚动到 list （可见）区域的 10%的时候出发
+// target 指当前出发观察条件的 DOM 元素
+DOM.observeIntersections($list, (target) => {
+  console.log('指当前出发观察条件的 DOM 元素：' target)
+}, {
+  selector: '.item',
+  intersectionRatio: 0.1
+})</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">observeMutations(el, fn[, props = {}])</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.7.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Observer</dd></dl><p>observeMutations() 方法用于复制指定文本内容到粘贴板。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定需要观察的 DOM 元素。</p><h5 class="section__h4">str</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）fn 参数指定 DOM 元素观察的属性发生改变时出发的回调函数。</p><h5 class="section__h4">props</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>（可选）DOM 元素需要观察的属性。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>返回 MutationObserver 对象（实例）。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 observeMutations 单个方法
+import observeMutations from '@yaohaixiao/dom.js/observeMutations'
+
+const $list = DOM.getEl('#list')
+const $blog = DOM.getEl('.blog')
+
+// mr 代表 DOM 元素改变时记录的 MutationRecord 对象
+DOM.observeMutations($list, (mr) => {
+  console.log('list 发生改变：' mr)
+})
+DOM.observeMutations($blog, (mr) => {
+  console.log('blog 发生改变：' mr)
+})
+
+DOM.hide($blog)
+// -> blog 发生改变：blog 改变记录的 MutationRecord 对象
+// -> list 发生改变：list 改变记录的 MutationRecord 对象</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Others</h2></header><div class="section__content"><p>dom.js 提供以下方法用以处理一些常用 DOM 操作。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">copyToClipboard(str)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.4.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Others</dd></dl><p>copyToClipboard() 方法用于复制指定文本内容到粘贴板。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">str</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）需要复制的文本字符串。</p><pre class="section__pre"><code class="section__">// 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom
 // 引用 copyToClipboard 单个方法
 import copyToClipboard from '@yaohaixiao/dom.js/copyToClipboard'

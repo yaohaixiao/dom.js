@@ -1,0 +1,56 @@
+section.section
+  header.section__header
+    h3.section__h3 observeIntersections(el, fn[, props = {}])
+  div.section__content
+    h4.section__h4 Since
+    p.section__dd 1.7.0
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Observer
+    p observeIntersections() 方法是一个通用的 IntersectionObserver 观察者处理器。提供了一种异步观察目标元素与其祖先元素或顶级文档视口（viewport）交叉状态的方法。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （必须）el 参数指定用作边界盒的元素或文档。如果构造函数未传入 root 或其值为null，则默认使用顶级文档的视口。
+    h5.section__h4 str
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （必须）fn 参数指定 el 元素下需要观察的 DOM 元素出发观察条件时出发的回调函数。
+    h5.section__h4 props
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Object
+    p （可选）props 指定传递到 IntersectionObserver() 构造函数的 options 对象。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Object
+    p 返回 IntersectionObserver 对象（实例）。
+    pre.section__pre
+      code.section__.
+        &lt;ul id="list" class="list"&gt;
+            &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+            &lt;li class="item project"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 observeIntersections 单个方法
+        import observeIntersections from '@yaohaixiao/dom.js/observeIntersections'
+
+        const $list = DOM.getEl('#list')
+        const $blog = DOM.getEl('.blog')
+
+        // $list 菜单中的 .item 元素滚动到 list （可见）区域的 10%的时候出发
+        // target 指当前出发观察条件的 DOM 元素
+        DOM.observeIntersections($list, (target) => {
+          console.log('指当前出发观察条件的 DOM 元素：' target)
+        }, {
+          selector: '.item',
+          intersectionRatio: 0.1
+        })

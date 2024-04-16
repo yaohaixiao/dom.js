@@ -7,6 +7,7 @@ import isElement from './isElement'
  * @method observeIntersections
  * @since 1.7.0
  * @see https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver
+ * @sse https://developer.mozilla.org/zh-CN/docs/Web/API/Intersection_Observer_API
  * @param {HTMLElement} el
  * @param {Function} fn
  * @param {Object} [props]
