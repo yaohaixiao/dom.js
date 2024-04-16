@@ -1,3 +1,15 @@
+# [1.7.0](https://github.com/yaohaixiao/dom.js/compare/1.6.0...1.7.0) (2024-04-16)
+
+
+### Features
+
+* 添加 dnsPrefetch()、prefetch() 和 preload() 方法； ([1fa7b8a](https://github.com/yaohaixiao/dom.js/commit/1fa7b8adf851cbd7a0afe3f47df1a389c7dd2b34))
+* 添加 getActiveElement() redirect() randomHexColor() observeIntersections() observeMutations() 和 onClickOutside() 方法 ([9a8d847](https://github.com/yaohaixiao/dom.js/commit/9a8d8472e02d3b59f5e1830ceabef699bada37e5))
+* 添加 loadCSS() 和 loadScript() 方法； ([719a4f0](https://github.com/yaohaixiao/dom.js/commit/719a4f01fa07adf99e0dbe219514d6e2221b3108))
+* 添加 parents() 和 fragment() 方法； ([a989243](https://github.com/yaohaixiao/dom.js/commit/a989243255e346ac34e58f0585ee04f463e98f68))
+
+
+
 # [1.6.0](https://github.com/yaohaixiao/dom.js/compare/1.5.1...1.6.0) (2024-02-26)
 
 
