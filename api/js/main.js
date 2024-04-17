@@ -1,4 +1,5 @@
 import Outline from '@yaohaixiao/outline.js/outline'
+import isMobile from '../../isMobile'
 
 const defaults = Outline.DEFAULTS
 let outline
@@ -13,11 +14,15 @@ defaults.articleElement = '#article'
 defaults.git = 'https://github.com/yaohaixiao/dom.js'
 defaults.tags = 'https://github.com/yaohaixiao/dom.js/tags'
 defaults.issues = 'https://github.com/yaohaixiao/dom.js/issues'
-defaults.print = {
-  element: '#article',
+defaults.reader = {
+  target: '#article',
   title: document.querySelector('.main__h1')
 }
 defaults.chapterTextFilter = (text) => {
   return text.replace(/\s*\(.*?\)/, '()')
 }
 outline = new Outline(defaults)
+
+if (isMobile()) {
+  outline.toggle()
+}
