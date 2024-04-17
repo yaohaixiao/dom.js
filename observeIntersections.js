@@ -14,7 +14,7 @@ import isElement from './isElement'
  * @param {String} [props.selector]
  * @param {Object} [props.context]
  * @param {Object|HTMLElement} [props.root]
- * @param {Number|Array} [props.threshold]
+ * @param {Array} [props.thresholds]
  * @param {Number} [props.intersectionRatio]
  * @param {String} [props.rootMargin]
  * @return {IntersectionObserver}
@@ -23,12 +23,12 @@ const observeIntersections = (el, fn, props = {}) => {
   const root = el || null
   const selector = props.selector || 'h1,h2,h3,h4,h5,h6'
   const context = props.context || null
-  const threshold = props.threshold || 0
+  const thresholds = props.thresholds || [0]
   const intersectionRatio = props.intersectionRatio || 0
   const rootMargin = props.rootMargin || '0px 0px -90% 0px'
   const options = {
-    rootMargin: rootMargin,
-    threshold: threshold
+    rootMargin,
+    thresholds
   }
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
