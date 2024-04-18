@@ -1,6 +1,6 @@
 {
   "name": "@yaohaixiao/dom.js",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "dom.js - 专门处理 DOM 操作的 JavaScript 工具库。",
   "main": "dom.min.js",
   "scripts": {
@@ -43,7 +43,7 @@
     "@rollup/plugin-commonjs": "^25.0.2",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@rollup/plugin-terser": "^0.4.3",
-    "@yaohaixiao/outline.js": "^3.37.0",
+    "@yaohaixiao/outline.js": "^3.38.0",
     "babel-jest": "^29.5.0",
     "commitlint": "^17.4.4",
     "conventional-changelog-cli": "^2.2.2",
