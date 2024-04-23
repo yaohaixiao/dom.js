@@ -7,7 +7,10 @@
  * @return {boolean}
  */
 const isWindow = (o) => {
-  return o != null && o === o.window
+  return o != null && o === o.window && o.document &&
+    o.location &&
+    o.alert &&
+    o.setInterval
 }
 
 export default isWindow
