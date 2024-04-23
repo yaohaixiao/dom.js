@@ -25,9 +25,9 @@ export default [
   {
     input: './api/js/main.js',
     output: {
-      name: 'docs',
+      name: 'outline',
       file: './docs/js/docs.min.js',
-      format: 'iife',
+      format: 'umd',
       sourcemap: true
     },
     plugins: PLUGIN_CONFIG

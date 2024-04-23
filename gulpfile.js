@@ -32,7 +32,7 @@ const cleanStyle = () => {
 
 const cleanScript = () => {
   return gulp
-    .src('./docs/js/docs.*.js', {
+    .src('./docs/js/**.js', {
       allowEmpty: true
     })
     .pipe(clean())
