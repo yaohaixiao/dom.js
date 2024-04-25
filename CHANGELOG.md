@@ -1,3 +1,19 @@
+# [1.8.0](https://github.com/yaohaixiao/dom.js/compare/1.7.0...1.8.0) (2024-04-25)
+
+
+### Bug Fixes
+
+* 修复 observeIntersections() 方法中 thresholds 参数名传递错误的问题 ([1dbc3b4](https://github.com/yaohaixiao/dom.js/commit/1dbc3b4a4bbe60cfa1b24283944bc512cd45320c))
+
+
+### Features
+
+* 调整 isWindow() 方法的判断逻辑 ([ee76884](https://github.com/yaohaixiao/dom.js/commit/ee76884f27123ae49e44ab1f4c54a3845e728900))
+* 添加 getDocumentRect() 和 getViewportRect() 方法； ([09331e4](https://github.com/yaohaixiao/dom.js/commit/09331e44fe8cbb5e9a3208b5d806386eb1ea433a))
+* 添加 observeResize() 方法 ([6630981](https://github.com/yaohaixiao/dom.js/commit/6630981daed259af01da3c623c6a595fa28f1da6))
+
+
+
 # [1.7.0](https://github.com/yaohaixiao/dom.js/compare/1.6.0...1.7.0) (2024-04-16)
 
 
