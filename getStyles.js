@@ -17,7 +17,7 @@ const getStyles = (el, attrs = []) => {
 
   if (
     !isElement(el) ||
-    !isArray(attrs) ||
+    (isElement(el) && !isArray(attrs)) ||
     (isArray(attrs) && attrs.length < 1)
   ) {
     return props

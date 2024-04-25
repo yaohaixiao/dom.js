@@ -1,0 +1,41 @@
+section.section
+  header.section__header
+    h3.section__h3 getViewportRect(el)
+  div.section__content
+    h4.section__h4 Since
+      p.section__dd 1.8.0
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd DOMRect
+    p getViewportRect() 方法用来获取 DOM 元素所在的文档可视区域（viewport）的尺寸。如果页面没有滚动条时，其返回值与 getDocumentRect() 方法的返回值相等。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Any
+    p （必须）el 参数指定 DOM 元素。
+    h4.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Object。
+    p 返回 Rect 数据。
+    pre.section__pre
+      code.section__code.
+        {
+          width,
+          height,
+          x,
+          y
+        }
+    pre.section__pre
+      code.section__code.
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom'
+        // 或者单独引用 getViewportRect() 方法
+        import getViewportRect from '@yaohaixiao/dom.js/getViewportRect'
+
+        const $list = DOM.byId('#list')
+        const $host = DOM.byId("#host")
+
+        DOM.getViewportRect($list) // -> {"width": 1920, "height": 691, "x": 0, "y": 0}
+        getViewportRect($host) // -> {"width": 1920, "height": 691, "x": 0, "y": 0}

@@ -33,7 +33,7 @@ const getDocumentRect = (el) => {
   let x = -scroll.left + getScrollbarWidth(el)
   const y = -scroll.top
 
-  if (getStyles(body || html).direction === 'rtl') {
+  if (getStyles(body || html, ['direction']).direction === 'rtl') {
     x += max(html.clientWidth, body ? body.clientWidth : 0) - width
   }
 
