@@ -8,6 +8,7 @@ import getStyles from './getStyles'
  * ========================================================================
  * @method getDocumentRect
  * @since 1.8.0
+ * @see https://github.com/floating-ui/floating-ui
  * @param {HTMLElement} el
  * @return {Object}
  */

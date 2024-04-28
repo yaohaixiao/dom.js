@@ -16,14 +16,17 @@ import getActiveElement from '../getActiveElement'
 import getDocument from '../getDocument'
 import getImages from '../getImages'
 import getHostOrParent from '../getHostOrParent'
+import getNodeName from '../getNodeName'
 import getOffsetParent from '../getOffsetParent'
 import getScrollParent from '../getScrollParent'
+import getTagName from '../getTagName'
 import getWindow from '../getWindow'
 import getVisualViewport from '../getVisualViewport'
 import index from '../index'
 import inDocument from '../inDocument'
 import isLayoutViewport from '../isLayoutViewport'
 import isMatched from '../isMatched'
+import isScaled from '../isScaled'
 import isWindow from '../isWindow'
 import matches from '../matches'
 import children from '../children'
@@ -49,7 +52,9 @@ const DOM = {
   getDocument,
   getImages,
   getHostOrParent,
+  getNodeName,
   getOffsetParent,
+  getTagName,
   getScrollParent,
   getWindow,
   getVisualViewport,
@@ -57,6 +62,7 @@ const DOM = {
   inDocument,
   isLayoutViewport,
   isMatched,
+  isScaled,
   isWindow,
   matches,
   children,
