@@ -1,0 +1,42 @@
+section.section
+  header.section__header
+    h3.section__h3 getTagName(el)
+  div.section__content
+    h4.section__h4 Since
+    p.section__dd 1.9.0
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Base
+    p getTagName() 方法用来获取 DOM 元素的 tagName 属性值。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （必须）指定的 HTMLElement 元素。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Window
+    p 返回 Window 对象。
+    pre.section__pre
+      code.section__code.
+        &lt;ul id="list" class="list"&gt;
+            &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 getTagName 单个方法
+        import getTagName from '@yaohaixiao/dom.js/getTagName'
+
+        const $list = DOM.getEl('#list')
+
+        // DOM 元素的 tagName
+        DOM.getTagName($list) // -> 'ul'
+
+        // 文本节点没有 tagName，因此返回 ''
+        getNodeName(DOM.text('text')) // -> ''

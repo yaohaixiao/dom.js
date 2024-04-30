@@ -1,0 +1,45 @@
+section.section
+  header.section__header
+    h3.section__h3 inDocument(el[, doc])
+  div.section__content
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Detect
+    p inDocument() 方法用来检测 DOM 元素是否在当前文档中。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （必须）el 参数指定 DOM 元素。
+    h5.section__h4 doc
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Object
+    p （可选）doc 参数指定文档对象。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Boolean
+    p DOM 元素是否在当前文档中，返回 true，否则返回 false。
+    pre.section__pre
+      code.section__.
+        &lt;ul id="list" class="list"&gt;
+            &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+            &lt;li class="item project"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 inDocument 单个方法
+        import inDocument from '@yaohaixiao/dom.js/inDocument'
+
+        const $list = DOM.byId('#list')
+        const $home = DOM.html('&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;')
+
+        DOM.inDocument($list) // -> true
+        inDocument($home) // -> false
+
+        $list.appendChild($home)
+        inDocument($home) // -> true

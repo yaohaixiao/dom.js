@@ -1,0 +1,44 @@
+section.section
+  header.section__header
+    h3.section__h3 has(el, selector)
+  div.section__content
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Base
+    p contains() 方法用来判断某个 DOM 元素中是否包含另一个 DOM 元素。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement|String
+    p （必须）被包含的 DOM 元素或者 DOM 元素的选择器字符串：
+    h5.section__h4 selector
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （必须）selector 指定用来查询目标 DOM 元素的选择器字符串：
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Boolean
+    p 包含查询元素返回 true，否则返回 false。
+    pre.section__pre
+      code.section__code.
+        &lt;ul id="list" class="list"&gt;
+            &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 has 单个方法
+        import has from '@yaohaixiao/dom.js/has'
+
+        // 使用 class 选择器，或者使用 class 属性值都可以检索
+        const $list = DOM.byId('#list')
+        const $home = byClass('#home')
+
+        DOM.has($list, '.active') // -> true
+        has($list, '.blog') // -> true

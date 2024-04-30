@@ -1,6 +1,7 @@
 import Attributes from './attributes'
 import Base from './base'
 import Color from './color'
+import Detect from './detect'
 import DOMRect from './rect'
 import Insertion from './insertion'
 import Observer from './observer'
@@ -17,6 +18,7 @@ const DOM = {
   ...Attributes,
   ...Base,
   ...Color,
+  ...Detect,
   ...DOMRect,
   ...Insertion,
   ...Observer,

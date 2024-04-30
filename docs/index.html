@@ -560,29 +560,7 @@ const $active = DOM.byClass('.active', $clone) // => null
 
 // 采用深拷贝 $list，则会拷贝其子元素，因此可以查询到其子元素
 const $current = clone($list, true).querySelector('.active')
-// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">canPosition(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>canPosition() 方法用来检测 DOM 元素是否可以定位（可见且在当前当前文档中）。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>DOM 元素是否可以定位，返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
-    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
-    &lt;li class="item project"&gt;Projects&lt;/li&gt;
-    &lt;li class="item"&gt;About&lt;/li&gt;
-&lt;/ul&gt;
-
-// 引入 DOM 模块（中的所有工具方法）
-import DOM from '@yaohaixiao/dom.js/dom
-// 引用 canPosition 单个方法
-import canPosition from '@yaohaixiao/dom.js/canPosition'
-
-const $list = DOM.byId('#list')
-const $home = DOM.html('&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;')
-
-DOM.inDocument($list) // -> true
-DOM.canPosition($list) // -> true
-canPosition($home) // -> false
-
-$list.appendChild($home)
-canPosition($home) // -> true
-
-DOM.setStyle($home, 'display', 'none')
-canPosition($home) // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">closet(el, selector[, ctx, includeCTX])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>closet() 方法用来获取父元素最近的包含 selector 选择器的元素。通常用于使用事件代理时，获取点击的目标 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 指定父元素。</p><h5 class="section__h4">selector</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）selector 指定要查询元素的选择器。</p><h5 class="section__h4">ctx</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（可选）ctx 指定比对的 DOM 元素</p><h5 class="section__h4">includeCTX</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>（可选）includeCTX 指定是否包含 ctx 参数指定的 DOM 元素.</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回匹配的 DOM 元素。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">closet(el, selector[, ctx, includeCTX])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>closet() 方法用来获取父元素最近的包含 selector 选择器的元素。通常用于使用事件代理时，获取点击的目标 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 指定父元素。</p><h5 class="section__h4">selector</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）selector 指定要查询元素的选择器。</p><h5 class="section__h4">ctx</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（可选）ctx 指定比对的 DOM 元素</p><h5 class="section__h4">includeCTX</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>（可选）includeCTX 指定是否包含 ctx 参数指定的 DOM 元素.</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回匹配的 DOM 元素。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -598,24 +576,7 @@ const $list = DOM.byId('#list')
 const $home = DOM.byId('#home')
 
 closet($home, '.active', $list)
-// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">contains(el, ancestor)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>contains() 方法用来判断某个 DOM 元素中是否包含另一个 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）被包含的 DOM 元素或者 DOM 元素的选择器字符串：</p><h5 class="section__h4">ancestor</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）ancestor 指定用来查询目标 DOM 元素的父元素：</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>包含查询元素返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
-    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
-    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
-    &lt;li class="item"&gt;Projects&lt;/li&gt;
-    &lt;li class="item"&gt;About&lt;/li&gt;
-&lt;/ul&gt;
-
-// 引入 DOM 模块（中的所有工具方法）
-import DOM from '@yaohaixiao/dom.js/dom
-// 引用 contains 单个方法
-import contains from '@yaohaixiao/dom.js/contains'
-
-// 使用 class 选择器，或者使用 class 属性值都可以检索
-const $list = DOM.byId('#list')
-const $home = byClass('#home')
-
-DOM.contains($home, $list) // -> true
-contains('.blog', $list) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">byClass(className, el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>byClass() 方法返回与指定的类选择器组匹配的文档中的元素列表 (使用深度优先的先序遍历文档的节点)。返回的对象是 NodeList 。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）className 类选择器字符串。</p><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（可选）el 参数指定要检索的 DOM 元素范围，不指定则默认为 document。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回检索匹配的 DOM 元素。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">byClass(className, el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>byClass() 方法返回与指定的类选择器组匹配的文档中的元素列表 (使用深度优先的先序遍历文档的节点)。返回的对象是 NodeList 。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）className 类选择器字符串。</p><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（可选）el 参数指定要检索的 DOM 元素范围，不指定则默认为 document。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回检索匹配的 DOM 元素。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -740,7 +701,33 @@ DOM.getActiveElement() // -> null
 
 $home.click()
 getActiveElement()
-// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getDocument(node)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.6.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getDocument() 方法用来获取 Node 对象（DOM 元素）所在的文档的 documentElement 对象。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">node</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Node | Window</dd></dl><p>（必须）指定的 DOM 元素或者 window 对象。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">documentElement 对象</dd></dl><p>返回 documentElement 对象。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getContainingBlock(el)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.9.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getContainingBlock() 方法用来获取 DOM 元素的 nodeName 属性值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Node</dd></dl><p>（必须）指定的 HTMLElement 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Window</dd></dl><p>返回 Window 对象。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
+  .list {
+    transform: scale(1.2);
+  }
+&lt;/style&gt;
+
+&lt;nav id="nav" class="nav"&gt;
+  &lt;ul id="list" class="list"&gt;
+      &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+      &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+      &lt;li class="item"&gt;Projects&lt;/li&gt;
+      &lt;li class="item"&gt;About&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getContainingBlock 单个方法
+import getContainingBlock from '@yaohaixiao/dom.js/getContainingBlock'
+
+const $list = DOM.getEl('#list')
+const $home = DOM.getEl('#home')
+
+DOM.getContainingBlock($list) // -> 'null
+
+getContainingBlock($home))
+// -> '&lt;ul id="list" class="list"&gt;&lt;/ul&gt;'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getDocument(node)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.6.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getDocument() 方法用来获取 Node 对象（DOM 元素）所在的文档的 documentElement 对象。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">node</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Node | Window</dd></dl><p>（必须）指定的 DOM 元素或者 window 对象。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">documentElement 对象</dd></dl><p>返回 documentElement 对象。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -791,7 +778,25 @@ const $list = DOM.byId('#list')
 const $home = DOM.byId('#home')
 
 const $parent = DOM.getHostOrParent($home)
-console.log($parent === $list) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getOffsetParent(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getOffsetParent() 方法用来获取最近的（指包含层级上的最近）包含该元素的定位父元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>el 参数指定 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回查询到的 DOM 元素的父节点。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
+console.log($parent === $list) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getNodeName(node)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.9.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getNodeName() 方法用来获取 DOM 元素的 nodeName 属性值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">node</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Node</dd></dl><p>（必须）指定的 Node 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Window</dd></dl><p>返回 Window 对象。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getNodeName 单个方法
+import getNodeName from '@yaohaixiao/dom.js/getNodeName'
+
+const $list = DOM.getEl('#list')
+
+// DOM 元素的 nodeName
+DOM.getNodeName($list) // -> 'ul'
+
+// 文本节点也可返回
+getNodeName(DOM.text('text')) // -> '#text'</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getOffsetParent(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getOffsetParent() 方法用来获取最近的（指包含层级上的最近）包含该元素的定位父元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>el 参数指定 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回查询到的 DOM 元素的父节点。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
 .list {
   position:relative;
 }
@@ -840,7 +845,25 @@ const $home = DOM.byId('#home')
 const $parent = DOM.getScrollParent($home)
 console.log($parent === $list) // -> true
 
-console.log(getScrollParent($list)) // -> document.body</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getWindow(o)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.6.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getWindow() 方法用来获取 window 对象。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">o</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Node | Window</dd></dl><p>（必须）指定的 DOM 元素或者 window 对象。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Window</dd></dl><p>返回 Window 对象。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+console.log(getScrollParent($list)) // -> document.body</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getTagName(el)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.9.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getTagName() 方法用来获取 DOM 元素的 tagName 属性值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）指定的 HTMLElement 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Window</dd></dl><p>返回 Window 对象。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getTagName 单个方法
+import getTagName from '@yaohaixiao/dom.js/getTagName'
+
+const $list = DOM.getEl('#list')
+
+// DOM 元素的 tagName
+DOM.getTagName($list) // -> 'ul'
+
+// 文本节点没有 tagName，因此返回 ''
+getNodeName(DOM.text('text')) // -> ''</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getWindow(o)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.6.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getWindow() 方法用来获取 window 对象。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">o</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Node | Window</dd></dl><p>（必须）指定的 DOM 元素或者 window 对象。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Window</dd></dl><p>返回 Window 对象。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -888,81 +911,7 @@ console.log(DOM.indexOf($home)) // -> 0
 console.log(indexOf('.blog', $list)) // -> 1
 
 // el 为选择器，且为指定指定父节点
-console.log(indexOf('.project')) // -> 2</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">inDocument(el[, doc])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>inDocument() 方法用来检测 DOM 元素是否在当前文档中。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">doc</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>（可选）doc 参数指定文档对象。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>DOM 元素是否在当前文档中，返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
-    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
-    &lt;li class="item project"&gt;Projects&lt;/li&gt;
-    &lt;li class="item"&gt;About&lt;/li&gt;
-&lt;/ul&gt;
-
-// 引入 DOM 模块（中的所有工具方法）
-import DOM from '@yaohaixiao/dom.js/dom
-// 引用 inDocument 单个方法
-import inDocument from '@yaohaixiao/dom.js/inDocument'
-
-const $list = DOM.byId('#list')
-const $home = DOM.html('&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;')
-
-DOM.inDocument($list) // -> true
-inDocument($home) // -> false
-
-$list.appendChild($home)
-inDocument($home) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isLayoutViewport()</h3></header><div class="section__content"><h4 class="section__h4">Since<p class="section__dd">1.7.0</p></h4><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>isLayoutViewport() 方法用来判断当前视图是否为布局视图。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示当前视图是否为布局视图，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
-import DOM from '@yaohaixiao/dom.js/dom'
-// 或者单独引用 isShadowRoot() 方法
-import isLayoutViewport from '@yaohaixiao/dom.js/isLayoutViewport'
-
-DOM.isLayoutViewport() // -> 可以用移动设备模拟器查看 false
-isLayoutViewport() // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isMatched(el, filter)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>isMatched() 方法用来检测 DOM 节点是否为符合 filter 检测条件的节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">filter</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function|String</dd></dl><p>（必须）filter 参数指定用于检测 DOM 节点的回调函数或者选择器字符串。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>DOM 节点符合 filter 检测条件，返回 true，否则为 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
-    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
-    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
-    &lt;li class="item project"&gt;Projects&lt;/li&gt;
-    &lt;li class="item"&gt;About&lt;/li&gt;
-&lt;/ul&gt;
-
-// 引入 DOM 模块（中的所有工具方法）
-import DOM from '@yaohaixiao/dom.js/dom
-// 引用 isMatched 单个方法
-import isMatched from '@yaohaixiao/dom.js/isMatched'
-
-const $list = DOM.byId('#list')
-const $home = DOM.byId('#home')
-
-DOM.isMatched($home, '.active') // -> true
-isMatched($home, (el) => {
-  return DOM.contains(el, $list)
-}) // -> true
-
-isMatched($list, '.active') // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isWindow(o)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.6.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>isWindow() 方法用来检测当前对象是否为 window 对象。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">o</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>（必须）要检测的目标对象。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>返回检测结果。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
-import DOM from '@yaohaixiao/dom.js/dom
-// 引用 isWindow 单个方法
-import isWindow from '@yaohaixiao/dom.js/isWindow'
-
-// 浏览器中运行
-DOM.isWindow(window) // -> true
-DOM.isWindow(document) // -> false
-
-// Node 环境中运行
-isWindow(global) // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">matches(el, selector)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>matches() 方法用来获取 el 节点下匹配 selector 选择器的 DOM 节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">selector</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）selector 指定匹配 DOM 元素的选择器。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>el 节点查询到匹配 selector 的 DOM 节点，返回 DOM 节点，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
-    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
-    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
-    &lt;li class="item project"&gt;Projects&lt;/li&gt;
-    &lt;li class="item"&gt;About&lt;/li&gt;
-&lt;/ul&gt;
-
-// 引入 DOM 模块（中的所有工具方法）
-import DOM from '@yaohaixiao/dom.js/dom
-// 引用 matches 单个方法
-import matches from '@yaohaixiao/dom.js/matches'
-
-const $list = DOM.byId('#list')
-const $home = DOM.byId('#home')
-
-DOM.matches($list, '.active')
-// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
-matches($home, '#home')
-// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
-
-matches($home, '.blog') // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">children(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>children() 方法用来获取指定 DOM 元素下所有元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>el 参数指定 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Array</dd></dl><p>返回查询到的 DOM 元素的数组。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+console.log(indexOf('.project')) // -> 2</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">children(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>children() 方法用来获取指定 DOM 元素下所有元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>el 参数指定 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Array</dd></dl><p>返回查询到的 DOM 元素的数组。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -1124,7 +1073,267 @@ const $list = DOM.byId('#list')
 
 DOM.toRGB(DOM.getStyle($list, 'color')) // -> 'rgb(0, 0, 0)'
 toRGB(DOM.getStyle($list, 'background-color')) // -> 'rgb(255, 255, 255)'
-toRGB('hsl(0,100%,50%)') // -> 'rgb(255, 0, 0)'</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">DOM Insertion</h2></header><div class="section__content"><p>dom.js 提供以下方法用于处理插入新的 DOM 元素。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">insertAfter(el, reference)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><p>insertAfter() 方法用来在参考节点之后插入一个拥有指定父节点的子节点。如果给定的子节点是对文档中现有节点的引用，insertAfter() 会将其从当前位置移动到新位置（在将节点附加到其他节点之前，不需要从其父节点删除该节点）。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Element</dd></dl><p>（必须）el 参数指定要插入的 DOM 元素（DocumentFragment，HTMLElement或者TextNode）。</p><h5 class="section__h4">reference</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）reference 指定参考节点。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Element|null</dd></dl><p>函数返回被插入的子节点。当 el 是 DocumentFragment 时，返回空 DocumentFragment。参数不合法时返回 null。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+toRGB('hsl(0,100%,50%)') // -> 'rgb(255, 0, 0)'</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Detect</h2></header><div class="section__content"><p>dom.js 提供以下方法用以处理 DOM 元素检测相关的通用操作。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">canPosition(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>canPosition() 方法用来检测 DOM 元素是否可以定位（可见且在当前当前文档中）。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>DOM 元素是否可以定位，返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 canPosition 单个方法
+import canPosition from '@yaohaixiao/dom.js/canPosition'
+
+const $list = DOM.byId('#list')
+const $home = DOM.html('&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;')
+
+DOM.inDocument($list) // -> true
+DOM.canPosition($list) // -> true
+canPosition($home) // -> false
+
+$list.appendChild($home)
+canPosition($home) // -> true
+
+DOM.setStyle($home, 'display', 'none')
+canPosition($home) // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">contains(el, ancestor)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>contains() 方法用来判断某个 DOM 元素中是否包含另一个 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）被包含的 DOM 元素或者 DOM 元素的选择器字符串：</p><h5 class="section__h4">ancestor</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）ancestor 指定用来查询目标 DOM 元素的父元素：</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>包含查询元素返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 contains 单个方法
+import contains from '@yaohaixiao/dom.js/contains'
+
+// 使用 class 选择器，或者使用 class 属性值都可以检索
+const $list = DOM.byId('#list')
+const $home = byClass('#home')
+
+DOM.contains($home, $list) // -> true
+contains('.blog', $list) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">inDocument(el[, doc])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Detect</dd></dl><p>inDocument() 方法用来检测 DOM 元素是否在当前文档中。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">doc</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>（可选）doc 参数指定文档对象。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>DOM 元素是否在当前文档中，返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 inDocument 单个方法
+import inDocument from '@yaohaixiao/dom.js/inDocument'
+
+const $list = DOM.byId('#list')
+const $home = DOM.html('&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;')
+
+DOM.inDocument($list) // -> true
+inDocument($home) // -> false
+
+$list.appendChild($home)
+inDocument($home) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isContainingBlock(el)</h3></header><div class="section__content"><h4 class="section__h4">Since<p class="section__dd">1.9.0</p></h4><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Detect</dd></dl><p>isContainingBlock() 方法用来检测 DOM 节点用来检测 DOM 元素是否为布局和包含块。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>DOM 节点为布局和包含块，返回 true，否则为 false。</p><pre class="section__pre"><code class="section__">&lt;style&gt;
+  .list {
+    transform: scale(1.2);
+  }
+&lt;/style&gt;
+
+&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 isContainingBlock 单个方法
+import isContainingBlock from '@yaohaixiao/dom.js/isContainingBlock'
+
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
+
+DOM.isContainingBlock($home) // -> true
+isContainingBlock($home) // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isLayoutViewport()</h3></header><div class="section__content"><h4 class="section__h4">Since<p class="section__dd">1.7.0</p></h4><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Detect</dd></dl><p>isLayoutViewport() 方法用来判断当前视图是否为布局视图。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean。</dd></dl><p>true - 表示当前视图是否为布局视图，false 则表示不是。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom'
+// 或者单独引用 isShadowRoot() 方法
+import isLayoutViewport from '@yaohaixiao/dom.js/isLayoutViewport'
+
+DOM.isLayoutViewport() // -> 可以用移动设备模拟器查看 false
+isLayoutViewport() // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isMatched(el, filter)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Detect</dd></dl><p>isMatched() 方法用来检测 DOM 节点是否为符合 filter 检测条件的节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">filter</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function|String</dd></dl><p>（必须）filter 参数指定用于检测 DOM 节点的回调函数或者选择器字符串。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>DOM 节点符合 filter 检测条件，返回 true，否则为 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 isMatched 单个方法
+import isMatched from '@yaohaixiao/dom.js/isMatched'
+
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
+
+DOM.isMatched($home, '.active') // -> true
+isMatched($home, (el) => {
+  return DOM.contains(el, $list)
+}) // -> true
+
+isMatched($list, '.active') // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isScaled(el)</h3></header><div class="section__content"><h4 class="section__h4">Since<p class="section__dd">1.9.0</p></h4><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Detect</dd></dl><p>isScaled() 方法用来检测 DOM 节点是否被缩放了。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>DOM 节点被缩放返回 true，否则为 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div id="home" class="home"&gt;Home&lt;/div&gt;
+
+&lt;style&gt;
+  .home {
+    transform: scale(0.8);
+  }
+&lt;/style&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 isScaled 单个方法
+import isScaled from '@yaohaixiao/dom.js/isScaled'
+
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
+
+DOM.isScaled($home) // -> false
+isScaled($home) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">isWindow(o)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.6.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Detect</dd></dl><p>isWindow() 方法用来检测当前对象是否为 window 对象。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">o</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object</dd></dl><p>（必须）要检测的目标对象。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>返回检测结果。</p><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 isWindow 单个方法
+import isWindow from '@yaohaixiao/dom.js/isWindow'
+
+// 浏览器中运行
+DOM.isWindow(window) // -> true
+DOM.isWindow(document) // -> false
+
+// Node 环境中运行
+isWindow(global) // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">has(el, selector)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>contains() 方法用来判断某个 DOM 元素中是否包含另一个 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）被包含的 DOM 元素或者 DOM 元素的选择器字符串：</p><h5 class="section__h4">selector</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）selector 指定用来查询目标 DOM 元素的选择器字符串：</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>包含查询元素返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 has 单个方法
+import has from '@yaohaixiao/dom.js/has'
+
+// 使用 class 选择器，或者使用 class 属性值都可以检索
+const $list = DOM.byId('#list')
+const $home = byClass('#home')
+
+DOM.has($list, '.active') // -> true
+has($list, '.blog') // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">matches(el, selector)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>matches() 方法用来获取 el 节点下匹配 selector 选择器的 DOM 节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">selector</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）selector 指定匹配 DOM 元素的选择器。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>el 节点查询到匹配 selector 的 DOM 节点，返回 DOM 节点，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 matches 单个方法
+import matches from '@yaohaixiao/dom.js/matches'
+
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
+
+DOM.matches($list, '.active')
+// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+matches($home, '#home')
+// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+
+matches($home, '.blog') // -> false</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">DOMRect</h2></header><div class="section__content"><p>dom.js 提供以下方法用以处理 DOMRect 相关的操作。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getBoundingClientRect(el)</h3></header><div class="section__content"><h4 class="section__h4">Since<p class="section__dd">1.7.0</p></h4><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOMRect</dd></dl><p>getBoundingClientRect() 方法用来获取 DOM 元素的 getBoundingClientRect 数据。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）el 参数指定需要获取数据的 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object。</dd></dl><p>返回 el 元素的(扩展后的） Rect 数据。</p><pre class="section__pre"><code class="section__code">{
+  width,
+  height,
+  top,
+  right,
+  bottom,
+  left,
+  x,
+  y
+}</code></pre><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom'
+// 或者单独引用 getBoundingClientRect() 方法
+import getBoundingClientRect from '@yaohaixiao/dom.js/getBoundingClientRect'
+
+const $list = DOM.byId('#list')
+const $host = DOM.byId("#host")
+
+DOM.getBoundingClientRect($list) // -> false
+getBoundingClientRect($host) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getDocumentRect(el)</h3></header><div class="section__content"><h4 class="section__h4">Since<p class="section__dd">1.8.0</p></h4><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOMRect</dd></dl><p>getDocumentRect() 方法用来获取 DOM 元素所在的可滚动的文档区域的尺寸。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object。</dd></dl><p>返回 Rect 数据。</p><pre class="section__pre"><code class="section__code">{
+  width,
+  height,
+  x,
+  y
+}</code></pre><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom'
+// 或者单独引用 getDocumentRect() 方法
+import getDocumentRect from '@yaohaixiao/dom.js/getDocumentRect'
+
+const $list = DOM.byId('#list')
+const $host = DOM.byId("#host")
+
+DOM.getDocumentRect($list) // -> {"width": 1920, "height": 457, "x": 0, "y": 0}
+getDocumentRect($host) // -> {"width": 1920, "height": 691, "x": 0, "y": 0}</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getViewportRect(el)</h3></header><div class="section__content"><h4 class="section__h4">Since<p class="section__dd">1.8.0</p></h4><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOMRect</dd></dl><p>getViewportRect() 方法用来获取 DOM 元素所在的文档可视区域（viewport）的尺寸。如果页面没有滚动条时，其返回值与 getDocumentRect() 方法的返回值相等。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object。</dd></dl><p>返回 Rect 数据。</p><pre class="section__pre"><code class="section__code">{
+  width,
+  height,
+  x,
+  y
+}</code></pre><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom'
+// 或者单独引用 getViewportRect() 方法
+import getViewportRect from '@yaohaixiao/dom.js/getViewportRect'
+
+const $list = DOM.byId('#list')
+const $host = DOM.byId("#host")
+
+DOM.getViewportRect($list) // -> {"width": 1920, "height": 691, "x": 0, "y": 0}
+getViewportRect($host) // -> {"width": 1920, "height": 691, "x": 0, "y": 0}</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">inBounding(child, parent)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">0.2.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOMRect</dd></dl><p>inBounding() 方法用来检测某个 DOM 节点的位置是否在另个一个 DOM 节点范围内。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">child</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）child 参数指定其中较小的那个 DOM 元素。</p><h5 class="section__h4">parent</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）parent 参数指定其中较大的那个 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>child 在 parent 范围内，返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 inBounding 单个方法
+import inBounding from '@yaohaixiao/dom.js/inBounding'
+
+const $list = DOM.byId('#list')
+const $home = DOM.byId('#home')
+
+DOM.inBounding($home, $list) // -> true
+inBounding($list, $home) // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">inViewport(el)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">0.2.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOMRect</dd></dl><p>inViewport() 方法用来检测某个 DOM 节点的位置是否在当前视口（当前窗口可见区域）之内。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>el 在当前视口内，返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;style&gt;
+.blog{
+  position: fixed;
+  left: 99999;
+}
+&lt;/style&gt;
+
+&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 inViewport 单个方法
+import inViewport from '@yaohaixiao/dom.js/inViewport'
+
+const $list = DOM.byId('#list')
+const $blog = DOM.getEl('.blog')
+
+DOM.inViewport($list) // -> true
+inViewport($blog) // -> false</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">DOM Insertion</h2></header><div class="section__content"><p>dom.js 提供以下方法用于处理插入新的 DOM 元素。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">insertAfter(el, reference)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><p>insertAfter() 方法用来在参考节点之后插入一个拥有指定父节点的子节点。如果给定的子节点是对文档中现有节点的引用，insertAfter() 会将其从当前位置移动到新位置（在将节点附加到其他节点之前，不需要从其父节点删除该节点）。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Element</dd></dl><p>（必须）el 参数指定要插入的 DOM 元素（DocumentFragment，HTMLElement或者TextNode）。</p><h5 class="section__h4">reference</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）reference 指定参考节点。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Element|null</dd></dl><p>函数返回被插入的子节点。当 el 是 DocumentFragment 时，返回空 DocumentFragment。参数不合法时返回 null。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item project"&gt;Projects&lt;/li&gt;
     &lt;li class="item about"&gt;About&lt;/li&gt;
@@ -2202,92 +2411,7 @@ DOM.dnsPrefetch('//www.google-analytics.com/')
 preload('https://www.google-analytics.com/analytics.js', {
   as: 'script',
   crossorigin: 'anonymous'
-})</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">DOMRect</h2></header><div class="section__content"><p>dom.js 提供以下方法用以处理 DOMRect 相关的操作。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getBoundingClientRect(el)</h3></header><div class="section__content"><h4 class="section__h4">Since<p class="section__dd">1.7.0</p></h4><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOMRect</dd></dl><p>getBoundingClientRect() 方法用来获取 DOM 元素的 getBoundingClientRect 数据。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）el 参数指定需要获取数据的 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object。</dd></dl><p>返回 el 元素的(扩展后的） Rect 数据。</p><pre class="section__pre"><code class="section__code">{
-  width,
-  height,
-  top,
-  right,
-  bottom,
-  left,
-  x,
-  y
-}</code></pre><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
-import DOM from '@yaohaixiao/dom.js/dom'
-// 或者单独引用 getBoundingClientRect() 方法
-import getBoundingClientRect from '@yaohaixiao/dom.js/getBoundingClientRect'
-
-const $list = DOM.byId('#list')
-const $host = DOM.byId("#host")
-
-DOM.getBoundingClientRect($list) // -> false
-getBoundingClientRect($host) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getDocumentRect(el)</h3></header><div class="section__content"><h4 class="section__h4">Since<p class="section__dd">1.8.0</p></h4><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOMRect</dd></dl><p>getDocumentRect() 方法用来获取 DOM 元素所在的可滚动的文档区域的尺寸。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object。</dd></dl><p>返回 Rect 数据。</p><pre class="section__pre"><code class="section__code">{
-  width,
-  height,
-  x,
-  y
-}</code></pre><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
-import DOM from '@yaohaixiao/dom.js/dom'
-// 或者单独引用 getDocumentRect() 方法
-import getDocumentRect from '@yaohaixiao/dom.js/getDocumentRect'
-
-const $list = DOM.byId('#list')
-const $host = DOM.byId("#host")
-
-DOM.getDocumentRect($list) // -> {"width": 1920, "height": 457, "x": 0, "y": 0}
-getDocumentRect($host) // -> {"width": 1920, "height": 691, "x": 0, "y": 0}</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getViewportRect(el)</h3></header><div class="section__content"><h4 class="section__h4">Since<p class="section__dd">1.8.0</p></h4><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOMRect</dd></dl><p>getViewportRect() 方法用来获取 DOM 元素所在的文档可视区域（viewport）的尺寸。如果页面没有滚动条时，其返回值与 getDocumentRect() 方法的返回值相等。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Any</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Object。</dd></dl><p>返回 Rect 数据。</p><pre class="section__pre"><code class="section__code">{
-  width,
-  height,
-  x,
-  y
-}</code></pre><pre class="section__pre"><code class="section__code">// 引入 DOM 模块（中的所有工具方法）
-import DOM from '@yaohaixiao/dom.js/dom'
-// 或者单独引用 getViewportRect() 方法
-import getViewportRect from '@yaohaixiao/dom.js/getViewportRect'
-
-const $list = DOM.byId('#list')
-const $host = DOM.byId("#host")
-
-DOM.getViewportRect($list) // -> {"width": 1920, "height": 691, "x": 0, "y": 0}
-getViewportRect($host) // -> {"width": 1920, "height": 691, "x": 0, "y": 0}</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">inBounding(child, parent)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">0.2.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOMRect</dd></dl><p>inBounding() 方法用来检测某个 DOM 节点的位置是否在另个一个 DOM 节点范围内。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">child</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）child 参数指定其中较小的那个 DOM 元素。</p><h5 class="section__h4">parent</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）parent 参数指定其中较大的那个 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>child 在 parent 范围内，返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
-    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
-    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
-    &lt;li class="item project"&gt;Projects&lt;/li&gt;
-    &lt;li class="item"&gt;About&lt;/li&gt;
-&lt;/ul&gt;
-
-// 引入 DOM 模块（中的所有工具方法）
-import DOM from '@yaohaixiao/dom.js/dom
-// 引用 inBounding 单个方法
-import inBounding from '@yaohaixiao/dom.js/inBounding'
-
-const $list = DOM.byId('#list')
-const $home = DOM.byId('#home')
-
-DOM.inBounding($home, $list) // -> true
-inBounding($list, $home) // -> false</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">inViewport(el)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">0.2.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOMRect</dd></dl><p>inViewport() 方法用来检测某个 DOM 节点的位置是否在当前视口（当前窗口可见区域）之内。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>el 在当前视口内，返回 true，否则返回 false。</p><pre class="section__pre"><code class="section__">&lt;style&gt;
-.blog{
-  position: fixed;
-  left: 99999;
-}
-&lt;/style&gt;
-
-&lt;ul id="list" class="list"&gt;
-    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
-    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
-    &lt;li class="item project"&gt;Projects&lt;/li&gt;
-    &lt;li class="item"&gt;About&lt;/li&gt;
-&lt;/ul&gt;
-
-// 引入 DOM 模块（中的所有工具方法）
-import DOM from '@yaohaixiao/dom.js/dom
-// 引用 inViewport 单个方法
-import inViewport from '@yaohaixiao/dom.js/inViewport'
-
-const $list = DOM.byId('#list')
-const $blog = DOM.getEl('.blog')
-
-DOM.inViewport($list) // -> true
-inViewport($blog) // -> false</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Selecting Siblings</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用于获取指定 DOM 元素的邻居节点。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getNextSibling(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><p>getNextSibling() 方法用来获取 DOM 元素的下一个邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 DOM 元素的下一个邻居元素节点。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+})</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Selecting Siblings</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用于获取指定 DOM 元素的邻居节点。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getNextSibling(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><p>getNextSibling() 方法用来获取 DOM 元素的下一个邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 DOM 元素的下一个邻居元素节点。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;

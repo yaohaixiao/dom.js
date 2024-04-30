@@ -7,7 +7,7 @@ import isElement from './isElement'
  * 获取 DOM 元素 attrs 数组中指定的多个 CSS 样式值
  * ========================================================================
  * @param {HTMLElement} el
- * @param {Array} attrs
+ * @param {Array} [attrs]
  * @returns {Object|null}
  */
 const getStyles = (el, attrs = []) => {
@@ -15,11 +15,7 @@ const getStyles = (el, attrs = []) => {
   let props = null
   let keys
 
-  if (
-    !isElement(el) ||
-    (isElement(el) && !isArray(attrs)) ||
-    (isArray(attrs) && attrs.length < 1)
-  ) {
+  if (!isElement(el)) {
     return props
   }
 
@@ -27,7 +23,7 @@ const getStyles = (el, attrs = []) => {
   keys = Object.keys(props)
 
   /* istanbul ignore else */
-  if (attrs.length > 0) {
+  if (isArray(attrs) && attrs.length > 0) {
     keys = attrs
   }
 
