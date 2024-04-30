@@ -1,6 +1,6 @@
 {
   "name": "@yaohaixiao/dom.js",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "dom.js - 专门处理 DOM 操作的 JavaScript 工具库。",
   "main": "dom.min.js",
   "scripts": {

@@ -1,3 +1,12 @@
+# [1.9.0](https://github.com/yaohaixiao/dom.js/compare/1.8.0...1.9.0) (2024-04-30)
+
+
+### Features
+
+* 添加 getContainingBlock() getNodeName() getTagName() isContainingBlock() 和 isScaled() 方法 ([3f49592](https://github.com/yaohaixiao/dom.js/commit/3f49592a6db19b7afedba542294497df68110bd2))
+
+
+
 # [1.8.0](https://github.com/yaohaixiao/dom.js/compare/1.7.0...1.8.0) (2024-04-25)
 
 
