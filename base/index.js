@@ -10,10 +10,18 @@ import find from '../find'
 import findAll from '../findAll'
 import fragment from '../fragment'
 import getActiveElement from '../getActiveElement'
+import getAncestorBy from '../getAncestorBy'
+import getAncestorByClassName from '../getAncestorByClassName'
+import getAncestorByTagName from '../getAncestorByTagName'
+import getChildrenBy from '../getChildrenBy'
 import getContainingBlock from '../getContainingBlock'
 import getDocument from '../getDocument'
+import getFirstChildBy from '../getFirstChildBy'
+import getFirstChild from '../getFirstChild'
 import getImages from '../getImages'
 import getHostOrParent from '../getHostOrParent'
+import getLastChildBy from '../getLastChildBy'
+import getLastChild from '../getLastChild'
 import getNodeName from '../getNodeName'
 import getOffsetParent from '../getOffsetParent'
 import getScrollParent from '../getScrollParent'
@@ -38,10 +46,18 @@ const DOM = {
   findAll,
   fragment,
   getActiveElement,
+  getAncestorBy,
+  getAncestorByClassName,
+  getAncestorByTagName,
+  getChildrenBy,
   getContainingBlock,
   getDocument,
+  getFirstChildBy,
+  getFirstChild,
   getImages,
   getHostOrParent,
+  getLastChildBy,
+  getLastChild,
   getNodeName,
   getOffsetParent,
   getTagName,
