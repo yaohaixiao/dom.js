@@ -13,6 +13,7 @@ import getActiveElement from '../getActiveElement'
 import getAncestorBy from '../getAncestorBy'
 import getAncestorByClassName from '../getAncestorByClassName'
 import getAncestorByTagName from '../getAncestorByTagName'
+import getChildren from '../getChildren'
 import getChildrenBy from '../getChildrenBy'
 import getContainingBlock from '../getContainingBlock'
 import getDocument from '../getDocument'
@@ -49,6 +50,7 @@ const DOM = {
   getAncestorBy,
   getAncestorByClassName,
   getAncestorByTagName,
+  getChildren,
   getChildrenBy,
   getContainingBlock,
   getDocument,

@@ -11,13 +11,13 @@ import getNextSiblingBy from './getNextSiblingBy'
 const getChildrenBy = (el, filter) => {
   const child = getFirstChildBy(el, filter)
   const children = child ? [child] : []
+  let $next = getNextSiblingBy(child, filter)
 
-  getNextSiblingBy(child, (node) => {
-    if (!filter || filter(node)) {
-      children[children.length] = node
-    }
-    return false
-  })
+  while ($next) {
+    children.push($next)
+
+    $next = getNextSiblingBy(child, filter)
+  }
 
   return children
 }
