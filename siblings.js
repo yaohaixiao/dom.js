@@ -5,12 +5,13 @@ import getSiblings from './getSiblings'
  * ========================================================================
  * @method siblings
  * @alias getSiblings
- * @param {HTMLElement} el
+ * @param {HTMLElement|Text} el
  * @param {Boolean} [includeSelf]
+ * @param {Boolean} [isElementSibling]
  * @return {Array}
  */
-const siblings = (el, includeSelf) => {
-  return getSiblings(el, includeSelf)
+const siblings = (el, includeSelf = false, isElementSibling = true) => {
+  return getSiblings(el, includeSelf, isElementSibling)
 }
 
 export default siblings

@@ -3,7 +3,6 @@ import isFunction from './utils/types/isFunction'
 import isElement from './isElement'
 import getEl from './getEl'
 import getFirstChildBy from './getFirstChildBy'
-import isBoolean from './utils/types/isBoolean'
 
 /**
  * 通过过滤函数获取指定 DOM 元素下的第一个匹配的 childNode 元素
@@ -24,11 +23,7 @@ const getFirstChild = (el, filter) => {
   if (isFunction(filter)) {
     return getFirstChildBy($el, filter)
   } else {
-    if (isBoolean(filter) && filter) {
-      return $el.firstElementChild
-    } else {
-      return $el.firstChild
-    }
+    return $el.firstChild
   }
 }
 

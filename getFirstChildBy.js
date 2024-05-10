@@ -24,7 +24,7 @@ const getFirstChildBy = (el, filter) => {
     child = el.firstChild
   }
 
-  return child || getNextSiblingBy(el.firstElementChild, filter)
+  return child || getNextSiblingBy(el.firstChild, filter)
 }
 
 export default getFirstChildBy

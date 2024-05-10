@@ -1,0 +1,37 @@
+section.section
+  header.section__header
+    h3.section__h3 getFirstChild(el, filter)
+  div.section__content
+    h4.section__h4 Since
+    p.section__dd 1.10.0
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Base
+    p getFirstChild() 方法返回当前在 DOM 或者 shadow DOM 树中处于聚焦状态的 DOM 元素。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p 返回处于聚焦状态的 DOM 元素。
+    pre.section__pre
+      code.section__.
+        &lt;ul id="list" class="list"&gt;
+            &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 getActiveElement 单个方法
+        import getActiveElement from '@yaohaixiao/dom.js/getActiveElement'
+
+        const $list = DOM.getEl('#list')
+        const $home = DOM.getEl('#home')
+
+        DOM.getActiveElement() // -> null
+
+        $home.click()
+        getActiveElement()
+        // -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;

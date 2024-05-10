@@ -22,7 +22,7 @@ const getLastChildBy = (el, filter) => {
     child = el.lastChild
   }
 
-  return child || getPreviousSiblingBy(el.lastElementChild, filter)
+  return child || getPreviousSiblingBy(el.lastChild, filter)
 }
 
 export default getLastChildBy
