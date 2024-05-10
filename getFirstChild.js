@@ -1,23 +1,35 @@
 import isString from './utils/types/isString'
+import isFunction from './utils/types/isFunction'
 import isElement from './isElement'
 import getEl from './getEl'
 import getFirstChildBy from './getFirstChildBy'
+import isBoolean from './utils/types/isBoolean'
 
 /**
+ * 通过过滤函数获取指定 DOM 元素下的第一个匹配的 childNode 元素
+ * ========================================================================
  * @method getFirstChild
  * @since 1.10.0
  * @param {HTMLElement|String} el
  * @param {Function} filter
- * @return {*|null}
+ * @return {HTMLElement|ChildNode|null}
  */
 const getFirstChild = (el, filter) => {
-  const $el = isString(el) ? getEl(el) : (isElement(el) ? el : null)
+  const $el = isString(el) ? getEl(el) : isElement(el) ? el : null
 
   if (!$el) {
     return null
   }
 
-  return getFirstChildBy($el, filter)
+  if (isFunction(filter)) {
+    return getFirstChildBy($el, filter)
+  } else {
+    if (isBoolean(filter) && filter) {
+      return $el.firstElementChild
+    } else {
+      return $el.firstChild
+    }
+  }
 }
 
 export default getFirstChild

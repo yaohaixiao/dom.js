@@ -4,6 +4,8 @@ import isMatched from './isMatched'
 import getNextSiblingBy from './getNextSiblingBy'
 
 /**
+ * 通过过滤函数获取指定 DOM 元素下的（全部） childNode 元素
+ * ========================================================================
  * @method getFirstChildBy
  * @since 1.10.0
  * @param {HTMLElement} el
@@ -18,11 +20,11 @@ const getFirstChildBy = (el, filter) => {
     return child
   }
 
-  if(isMatched(el.firstChild, filter)){
+  if (isMatched(el.firstChild, filter)) {
     child = el.firstChild
   }
 
-  return child || getNextSiblingBy(el.firstChild, filter)
+  return child || getNextSiblingBy(el.firstElementChild, filter)
 }
 
 export default getFirstChildBy

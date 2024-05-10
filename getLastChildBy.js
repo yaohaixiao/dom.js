@@ -9,7 +9,7 @@ import getPreviousSiblingBy from './getPreviousSiblingBy'
  * @param {HTMLElement} el
  * @param {ChildNode} el.lastChild
  * @param {Function} filter
- * @return {HTMLElement|null}
+ * @return {HTMLElement|ChildNode|null}
  */
 const getLastChildBy = (el, filter) => {
   let child = null
@@ -18,11 +18,11 @@ const getLastChildBy = (el, filter) => {
     return child
   }
 
-  if(isMatched(el.lastChild, filter)){
+  if (isMatched(el.lastChild, filter)) {
     child = el.lastChild
   }
 
-  return child || getPreviousSiblingBy(el.lastChild, filter)
+  return child || getPreviousSiblingBy(el.lastElementChild, filter)
 }
 
 export default getLastChildBy
