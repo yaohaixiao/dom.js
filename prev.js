@@ -6,11 +6,12 @@ import getPreviousSibling from './getPreviousSibling'
  * @method prev
  * @alias getPreviousSibling
  * @see https://developer.mozilla.org/zh-CN/docs/Web/API/Element/previousElementSibling
- * @param {HTMLElement} el
+ * @param {HTMLElement|Text} el
+ * @param {Boolean} [isElementSibling]
  * @return {Element|null}
  */
-const prev = (el) => {
-  return getPreviousSibling(el)
+const prev = (el, isElementSibling = true) => {
+  return getPreviousSibling(el, isElementSibling)
 }
 
 export default prev

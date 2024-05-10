@@ -6,7 +6,7 @@ import getNextSiblingBy from './getNextSiblingBy'
  * @method nextBy
  * @alias getNextSiblingBy
  * @see https://developer.mozilla.org/zh-CN/docs/Web/API/Element/nextElementSibling
- * @param {HTMLElement} el
+ * @param {HTMLElement|Text} el
  * @param {Function|String} filter
  * @return {HTMLElement|null}
  */

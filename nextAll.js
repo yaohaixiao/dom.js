@@ -5,11 +5,12 @@ import getNextSiblings from './getNextSiblings'
  * ========================================================================
  * @method nextAll
  * @alias getNextSiblings
- * @param {HTMLElement} el
+ * @param {HTMLElement|Text} el
+ * @param {Boolean} [isElementSibling]
  * @return {Array}
  */
-const nextAll = (el) => {
-  return getNextSiblings(el)
+const nextAll = (el, isElementSibling = true) => {
+  return getNextSiblings(el, isElementSibling)
 }
 
 export default nextAll

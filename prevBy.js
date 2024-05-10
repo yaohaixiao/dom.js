@@ -6,7 +6,7 @@ import getPreviousSiblingBy from './getPreviousSiblingBy'
  * @method prevBy
  * @alias getPreviousSiblingBy
  * @see https://developer.mozilla.org/zh-CN/docs/Web/API/Element/previousElementSibling
- * @param {HTMLElement} el
+ * @param {HTMLElement|Text} el
  * @param {Function|String} filter
  * @return {Element|null}
  */

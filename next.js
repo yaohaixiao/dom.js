@@ -6,11 +6,12 @@ import getNextSibling from './getNextSibling'
  * @method next
  * @alias getNextSibling
  * @see https://developer.mozilla.org/zh-CN/docs/Web/API/Element/nextElementSibling
- * @param {HTMLElement} el
+ * @param {HTMLElement|Text} el
+ * @param {Boolean} [isElementSibling]
  * @return {Element|null}
  */
-const next = (el) => {
-  return getNextSibling(el)
+const next = (el, isElementSibling = true) => {
+  return getNextSibling(el, isElementSibling)
 }
 
 export default next
