@@ -22,6 +22,8 @@ section.section
     p 返回 DOM 元素的下一个邻居元素节点。
     pre.section__pre
       code.section__code.
+        &lt;div class="section"&gt;Section Content&lt;/div&gt;
+        文本内容
         &lt;ul id="list" class="list"&gt;
             &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
             &lt;li class="item blog"&gt;Blog&lt;/li&gt;
@@ -34,8 +36,13 @@ section.section
         // 引用 next 单个方法
         import next from '@yaohaixiao/dom.js/next'
 
-        const $list = DOM.byId('#list')
-        const $home = DOM.byId('#home')
+        const $section = DOM.byClass('.section')
 
-        DOM.next($list) // -> null
-        next($home) // -> &lt;li class="item"&gt;Blog&lt;/li&gt;
+        // 获取 HTMLElement 邻居节点
+        DOM.next($section) // -> &lt;ul id="list" class="list"&gt;
+
+        // 获取 Text 文本邻居节点
+        const $text = next($section, false) // -> '文本内容'
+
+        // el 参数是 Text 文本节点类型
+        next($text) // -> &lt;ul id="list" class="list"&gt;

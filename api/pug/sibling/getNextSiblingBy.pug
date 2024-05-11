@@ -10,8 +10,8 @@ section.section
     h5.section__h4 el
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd String
-    p （必须）el 参数指定 DOM 元素。
+      dd.section__dd HTMLElement|Text
+    p （必须）el 参数指定 DOM 元素(HTMLElement 或者 Text 类型)。
     h5.section__h4 filter
     dl.section__dl
       dt.section__dt Type：
@@ -20,10 +20,12 @@ section.section
     h4.section__h4 Returns
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd HTMLElement
-    p 返回 DOM 元素的下一个邻居元素节点。
+      dd.section__dd HTMLElement|Text
+    p 返回 el 元素的下一个邻居元素节点。
     pre.section__pre
       code.section__code.
+        &lt;div class="section"&gt;Section Content&lt;/div&gt;
+        文本内容
         &lt;ul id="list" class="list"&gt;
             &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
             &lt;li class="item blog"&gt;Blog&lt;/li&gt;
@@ -36,9 +38,19 @@ section.section
         // 引用 getNextSiblingBy 单个方法
         import getNextSiblingBy from '@yaohaixiao/dom.js/getNextSiblingBy'
 
+        const $section = DOM.byClass('.section')
         const $home = DOM.byId('#home')
 
-        DOM.getNextSiblingBy($home, '.item.blog') // -> &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+        // filter 参数是选择器字符串，获取 HTMLElement 元素
+        DOM.getNextSiblingBy($section, '.item') // -> &lt;ul id="list" class="list"&gt;
+
+        // 获取 Text 类型的邻居节点
+        getNextSiblingBy($section, (el) => {
+           return DOM.isText(el)
+        })
+        // -> '文本内容'
+
+        // filter 参数是过滤函数，获取 HTMLElement 元素
         getNextSiblingBy($home, (el) => {
           return DOM.hasClass(el, 'about')
         })

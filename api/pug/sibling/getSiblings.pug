@@ -1,6 +1,6 @@
 section.section
   header.section__header
-    h3.section__h3 getSiblings(el[, includeSelf = false])
+    h3.section__h3 getSiblings(el[, includeSelf = false, isElementSibling = true])
   div.section__content
     dl.section__dl
       dt.section__dt Category：
@@ -10,20 +10,30 @@ section.section
     h5.section__h4 el
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd String
-    p （必须）el 参数指定 DOM 元素。
+      dd.section__dd HTMLElement|Text
+    p （必须）el 参数指定 DOM 元素(HTMLElement 或者 Text 类型)。
     h5.section__h4 includeSelf
     dl.section__dl
       dt.section__dt Type：
       dd.section__dd Boolean
     p （可选）includeSelf 参数指定是否包含 DOM 元素本身。
+    h5.section__h4 isElementSibling
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Boolean
+    dl.section__dl
+      dt.section__dt Default：
+      dd.section__dd true
+    p （可选）isElementSibling 参数指定是否仅获取 HTMLElement 元素节点，默认值：true。
     h4.section__h4 Returns
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd HTMLElement
+      dd.section__dd Array
     p 返回 DOM 元素的前面或后面所有邻居元素节点的数组，如果没有则返回空数组。
     pre.section__pre
       code.section__code.
+        &lt;div class="section"&gt;Section Content&lt;/div&gt;
+        文本内容
         &lt;ul id="list" class="list"&gt;
             &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
             &lt;li class="item blog"&gt;Blog&lt;/li&gt;
@@ -36,8 +46,18 @@ section.section
         // 引用 getSiblings 单个方法
         import getSiblings from '@yaohaixiao/dom.js/getSiblings'
 
+        const $section = DOM.byClass('.section')
         const $about = DOM.getEl('.about')
 
+        // 获取所有类型的邻居节点，包括自己
+        DOM.getSiblings($section, true, false)
+        // ->[
+        //     &lt;div class="section"&gt;Section Content&lt;/div&gt;
+        //     '文本内容'
+        //     &lt;ul id="list" class="list"&gt;
+        //   ]
+
+        // 获取所有 HTMLElement 邻居节点，不包括自己
         DOM.getSiblings($about)
         // -> [
         //   &lt;li class="item"&gt;Projects&lt;/li&gt;,
@@ -45,6 +65,7 @@ section.section
         //   &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
         // ]
 
+        // 获取所有 HTMLElement 邻居节点，包括自己
         getPrevSiblings($about, true)
         // -> [
         //   &lt;li class="item"&gt;Projects&lt;/li&gt;,

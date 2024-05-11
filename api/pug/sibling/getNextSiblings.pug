@@ -1,6 +1,6 @@
 section.section
   header.section__header
-    h3.section__h3 getNextSiblings(el)
+    h3.section__h3 getNextSiblings(el[, isElementSibling])
   div.section__content
     dl.section__dl
       dt.section__dt Category：
@@ -10,8 +10,16 @@ section.section
     h5.section__h4 el
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd String
-    p （必须）el 参数指定 DOM 元素。
+      dd.section__dd HTMLElement|Text
+    p （必须）el 参数指定 DOM 元素(HTMLElement 或者 Text 类型)。
+    h5.section__h4 isElementSibling
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Boolean
+    dl.section__dl
+      dt.section__dt Default：
+      dd.section__dd true
+    p （可选）isElementSibling 参数指定是否仅获取 HTMLElement 元素节点，默认值：true。
     h4.section__h4 Returns
     dl.section__dl
       dt.section__dt Type：
@@ -19,6 +27,8 @@ section.section
     p 返回 DOM 元素的后面所有邻居元素节点的数组，如果没有则返回空数组。
     pre.section__pre
       code.section__code.
+        &lt;div class="section"&gt;Section Content&lt;/div&gt;
+        文本内容
         &lt;ul id="list" class="list"&gt;
             &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
             &lt;li class="item blog"&gt;Blog&lt;/li&gt;
@@ -31,13 +41,21 @@ section.section
         // 引用 getNextSiblings 单个方法
         import getNextSiblings from '@yaohaixiao/dom.js/getNextSiblings'
 
-        const $list = DOM.byId('#list')
+        const $section = DOM.byClass('.section')
         const $home = DOM.byId('#home')
 
-        DOM.getNextSiblings($list) // ->[]
+        // 仅获取 HTMLElement 类型邻居节点
+        DOM.getNextSiblings($section) // ->[ &lt;ul id="list" class="list"&gt; ]
         getNextSiblings($home)
         // -> [
         //   &lt;li class="item blog"&gt;Blog&lt;/li&gt;,
         //   &lt;li class="item"&gt;Projects&lt;/li&gt;,
         //   &lt;li class="item"&gt;About&lt;/li&gt;
         // ]
+
+        // 获取 HTMLElement 和 Text 类型邻居节点
+        DOM.getNextSiblings($section， false)
+        // ->[
+        //     '文本内容'
+        //     &lt;ul id="list" class="list"&gt;
+        //   ]

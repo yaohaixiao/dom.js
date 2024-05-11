@@ -12,18 +12,18 @@ import getNextSibling from './getNextSibling'
  * @return {HTMLElement|null}
  */
 const getNextSiblingBy = (el, filter) => {
-  let $el = null
+  let $el = getNextSibling(el, false)
 
   if (!isText(el) && !isElement(el)) {
     return $el
   }
 
   while ($el) {
-    $el = getNextSibling($el)
-
     if (isMatched($el, filter)) {
       return $el
     }
+
+    $el = getNextSibling($el, false)
   }
 
   return null

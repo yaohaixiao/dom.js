@@ -2582,7 +2582,9 @@ DOM.dnsPrefetch('//www.google-analytics.com/')
 preload('https://www.google-analytics.com/analytics.js', {
   as: 'script',
   crossorigin: 'anonymous'
-})</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Selecting Siblings</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用于获取指定 DOM 元素的邻居节点。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getNextSibling(el[, isElementSibling])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><p>getNextSibling() 方法用来获取 DOM 元素的下一个邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 DOM 元素的下一个邻居元素节点。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+})</code></pre></div></section></section><section class="section"><header class="section__header"><h2 class="section__title">Selecting Siblings</h2></header><div class="section__content"><p>dom.js 提供以下几个方法用于获取指定 DOM 元素的邻居节点。</p></div><section class="section"><header class="section__header"><h3 class="section__h3">getNextSibling(el[, isElementSibling])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><p>getNextSibling() 方法用来获取 DOM 元素的下一个邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|Text</dd></dl><p>（必须）el 参数指定 DOM 元素(HTMLElement 或者 Text 类型)。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|Text</dd></dl><p>返回 el 元素的下一个邻居元素节点。</p><pre class="section__pre"><code class="section__code">&lt;div class="section"&gt;Section Content&lt;/div&gt;
+文本内容
+&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -2594,11 +2596,79 @@ import DOM from '@yaohaixiao/dom.js/dom
 // 引用 getNextSibling 单个方法
 import getNextSibling from '@yaohaixiao/dom.js/getNextSibling'
 
-const $list = DOM.byId('#list')
+const $section = DOM.byClass('.section')
+
+// 获取 HTMLElement 邻居节点
+DOM.next($section) // -> &lt;ul id="list" class="list"&gt;
+
+// 获取 Text 文本邻居节点
+const $text = next($section, false) // -> '文本内容'
+
+// el 参数是 Text 文本节点类型
+next($text) // -> &lt;ul id="list" class="list"&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getNextSiblingBy(el, filter)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><p>getNextSiblingBy() 方法用来通过过滤器获取 DOM 元素匹配的后面的邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|Text</dd></dl><p>（必须）el 参数指定 DOM 元素(HTMLElement 或者 Text 类型)。</p><h5 class="section__h4">filter</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function|String</dd></dl><p>（必须）filter 参数指定用于过滤的回调函数或者选择器字符串。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|Text</dd></dl><p>返回 el 元素的下一个邻居元素节点。</p><pre class="section__pre"><code class="section__code">&lt;div class="section"&gt;Section Content&lt;/div&gt;
+文本内容
+&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item about"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getNextSiblingBy 单个方法
+import getNextSiblingBy from '@yaohaixiao/dom.js/getNextSiblingBy'
+
+const $section = DOM.byClass('.section')
 const $home = DOM.byId('#home')
 
-DOM.getNextSibling($list) // -> null
-getNextSibling($home) // -> &lt;li class="item"&gt;Blog&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getPreviousSibling(el[, isElementSibling])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><p>getPreviousSibling() 方法用来获取 DOM 元素的前一个邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 DOM 元素的前一个邻居元素节点。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+// filter 参数是选择器字符串，获取 HTMLElement 元素
+DOM.getNextSiblingBy($section, '.item') // -> &lt;ul id="list" class="list"&gt;
+
+// 获取 Text 类型的邻居节点
+getNextSiblingBy($section, (el) => {
+   return DOM.isText(el)
+})
+// -> '文本内容'
+
+// filter 参数是过滤函数，获取 HTMLElement 元素
+getNextSiblingBy($home, (el) => {
+  return DOM.hasClass(el, 'about')
+})
+// -> &lt;li class="item about"&gt;About&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getNextSiblings(el[, isElementSibling])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><p>getNextSiblings() 方法用来获取 DOM 元素的后面所有邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|Text</dd></dl><p>（必须）el 参数指定 DOM 元素(HTMLElement 或者 Text 类型)。</p><h5 class="section__h4">isElementSibling</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">true</dd></dl><p>（可选）isElementSibling 参数指定是否仅获取 HTMLElement 元素节点，默认值：true。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 DOM 元素的后面所有邻居元素节点的数组，如果没有则返回空数组。</p><pre class="section__pre"><code class="section__code">&lt;div class="section"&gt;Section Content&lt;/div&gt;
+文本内容
+&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getNextSiblings 单个方法
+import getNextSiblings from '@yaohaixiao/dom.js/getNextSiblings'
+
+const $section = DOM.byClass('.section')
+const $home = DOM.byId('#home')
+
+// 仅获取 HTMLElement 类型邻居节点
+DOM.getNextSiblings($section) // ->[ &lt;ul id="list" class="list"&gt; ]
+getNextSiblings($home)
+// -> [
+//   &lt;li class="item blog"&gt;Blog&lt;/li&gt;,
+//   &lt;li class="item"&gt;Projects&lt;/li&gt;,
+//   &lt;li class="item"&gt;About&lt;/li&gt;
+// ]
+
+// 获取 HTMLElement 和 Text 类型邻居节点
+DOM.getNextSiblings($section， false)
+// ->[
+//     '文本内容'
+//     &lt;ul id="list" class="list"&gt;
+//   ]</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getPreviousSibling(el[, isElementSibling])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><p>getPreviousSibling() 方法用来获取 DOM 元素的前一个邻居 HTMLElement 或者文本节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|Text</dd></dl><p>（必须）el 参数指定 DOM 元素(HTMLElement 或者 Text 类型)。</p><h5 class="section__h4">isElementSibling</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">true</dd></dl><p>（可选）isElementSibling 参数指定是否仅获取 HTMLElement 元素节点，默认值：true。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|Text</dd></dl><p>返回 DOM 元素的前一个邻居节点。</p><pre class="section__pre"><code class="section__code">&lt;div class="section"&gt;Section Content&lt;/div&gt;
+文本内容
+&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -2614,27 +2684,11 @@ const $list = DOM.byId('#list')
 const $home = DOM.byId('#home')
 const $blog = DOM.getEl('.blog')
 
-DOM.getPreviousSibling($list) // -> null
-getPreviousSibling($home) // -> null
-getPreviousSibling($blog) // -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getNextSiblingBy(el, filter)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><p>getNextSiblingBy() 方法用来通过过滤器获取 DOM 元素匹配的后面的邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">filter</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function|String</dd></dl><p>（必须）filter 参数指定用于过滤的回调函数或者选择器字符串。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 DOM 元素的下一个邻居元素节点。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
-    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
-    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
-    &lt;li class="item"&gt;Projects&lt;/li&gt;
-    &lt;li class="item about"&gt;About&lt;/li&gt;
-&lt;/ul&gt;
-
-// 引入 DOM 模块（中的所有工具方法）
-import DOM from '@yaohaixiao/dom.js/dom
-// 引用 getNextSiblingBy 单个方法
-import getNextSiblingBy from '@yaohaixiao/dom.js/getNextSiblingBy'
-
-const $home = DOM.byId('#home')
-
-DOM.getNextSiblingBy($home, '.item.blog') // -> &lt;li class="item blog"&gt;Blog&lt;/li&gt;
-getNextSiblingBy($home, (el) => {
-  return DOM.hasClass(el, 'about')
-})
-// -> &lt;li class="item about"&gt;About&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getPreviousSiblingBy(el, filter)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><p>getPreviousSiblingBy() 方法用来通过过滤器获取 DOM 元素匹配的前面的邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">filter</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function|String</dd></dl><p>（必须）filter 参数指定用于过滤的回调函数或者选择器字符串。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 DOM 元素的下一个邻居元素节点。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+DOM.getPreviousSibling($list) // -> &lt;div class="section"&gt;Section Content&lt;/div&gt;
+getPreviousSibling($list, false) // -> '文本内容'
+getPreviousSibling($blog) // -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getPreviousSiblingBy(el, filter)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><p>getPreviousSiblingBy() 方法用来通过过滤器获取 DOM 元素匹配的前面的邻居 HTMLElement 或者文本节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|Text</dd></dl><p>（必须）el 参数指定 DOM 元素(HTMLElement 或者 Text 类型)。</p><h5 class="section__h4">filter</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function|String</dd></dl><p>（必须）filter 参数指定用于过滤的回调函数或者选择器字符串。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|Text</dd></dl><p>返回 DOM 元素的下一个邻居节点。</p><pre class="section__pre"><code class="section__code">&lt;div class="section"&gt;Section Content&lt;/div&gt;
+文本内容
+&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -2646,34 +2700,24 @@ import DOM from '@yaohaixiao/dom.js/dom
 // 引用 getPreviousSiblingBy 单个方法
 import getPreviousSiblingBy from '@yaohaixiao/dom.js/getPreviousSiblingBy'
 
+const $list = DOM.byId('#list')
 const $about = DOM.byId('#home')
 
 DOM.getPreviousSiblingBy($about, '.item.about') // -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
 getPreviousSiblingBy($about, (el) => {
   return DOM.hasClass(el, 'blog')
 })
-// -> &lt;li class="item blog"&gt;Blog&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getNextSiblings(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><p>getNextSiblings() 方法用来获取 DOM 元素的后面所有邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 DOM 元素的后面所有邻居元素节点的数组，如果没有则返回空数组。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
-    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
-    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
-    &lt;li class="item"&gt;Projects&lt;/li&gt;
-    &lt;li class="item"&gt;About&lt;/li&gt;
-&lt;/ul&gt;
+// -> &lt;li class="item blog"&gt;Blog&lt;/li&gt;
 
-// 引入 DOM 模块（中的所有工具方法）
-import DOM from '@yaohaixiao/dom.js/dom
-// 引用 getNextSiblings 单个方法
-import getNextSiblings from '@yaohaixiao/dom.js/getNextSiblings'
+// 获取文本节点类型的邻居节点
+const $text = getPreviousSiblingBy($about, (el) => {
+   return DOM.isText(el)
+})
+// -> '文本内容'
 
-const $list = DOM.byId('#list')
-const $home = DOM.byId('#home')
-
-DOM.getNextSiblings($list) // ->[]
-getNextSiblings($home)
-// -> [
-//   &lt;li class="item blog"&gt;Blog&lt;/li&gt;,
-//   &lt;li class="item"&gt;Projects&lt;/li&gt;,
-//   &lt;li class="item"&gt;About&lt;/li&gt;
-// ]</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getPreviousSiblings(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><p>getPreviousSiblings() 方法用来获取 DOM 元素的前面所有邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 DOM 元素的前面所有邻居元素节点的数组，如果没有则返回空数组。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+getPreviousSiblingBy($text, '.section') // -> &lt;div class="section"&gt;Section Content&lt;/div&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getPreviousSiblings(el[, isElementSibling])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><p>getPreviousSiblings() 方法用来获取 DOM 元素的前面所有邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|Text</dd></dl><p>（必须）el 参数指定 DOM 元素(HTMLElement 或者 Text 类型)。</p><h5 class="section__h4">isElementSibling</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">true</dd></dl><p>（可选）isElementSibling 参数指定是否仅获取 HTMLElement 元素节点，默认值：true。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|Text</dd></dl><p>返回 DOM 元素的前面所有邻居节点的数组，如果没有则返回空数组。</p><pre class="section__pre"><code class="section__code">&lt;div class="section"&gt;Section Content&lt;/div&gt;
+文本内容
+&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -2688,13 +2732,27 @@ import getPreviousSiblings from '@yaohaixiao/dom.js/getPreviousSiblings'
 const $list = DOM.byId('#list')
 const $about = DOM.getEl('.about')
 
-DOM.getPreviousSiblings($list) // ->[]
+// 仅获取 HTMLElement 邻居节点
+DOM.getPreviousSiblings($list)
+// ->[
+//   &lt;div class="section"&gt;Section Content&lt;/div&gt;
+// ]
+
+// 仅获取 HTMLElement 和节点邻居节点
+DOM.getPreviousSiblings($list)
+// ->[
+//   '文本内容',
+//   &lt;div class="section"&gt;Section Content&lt;/div&gt;
+// ]
+
 getPreviousSiblings($about)
 // -> [
 //   &lt;li class="item"&gt;Projects&lt;/li&gt;,
 //   &lt;li class="item blog"&gt;Blog&lt;/li&gt;,
 //   &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
-// ]</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getSiblings(el[, includeSelf = false])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><p>getSiblings() 方法用来获取 DOM 元素的前面或后面所有邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">includeSelf</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>（可选）includeSelf 参数指定是否包含 DOM 元素本身。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 DOM 元素的前面或后面所有邻居元素节点的数组，如果没有则返回空数组。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+// ]</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getSiblings(el[, includeSelf = false, isElementSibling = true])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><p>getSiblings() 方法用来获取 DOM 元素的前面或后面所有邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|Text</dd></dl><p>（必须）el 参数指定 DOM 元素(HTMLElement 或者 Text 类型)。</p><h5 class="section__h4">includeSelf</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>（可选）includeSelf 参数指定是否包含 DOM 元素本身。</p><h5 class="section__h4">isElementSibling</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">true</dd></dl><p>（可选）isElementSibling 参数指定是否仅获取 HTMLElement 元素节点，默认值：true。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Array</dd></dl><p>返回 DOM 元素的前面或后面所有邻居元素节点的数组，如果没有则返回空数组。</p><pre class="section__pre"><code class="section__code">&lt;div class="section"&gt;Section Content&lt;/div&gt;
+文本内容
+&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -2706,8 +2764,18 @@ import DOM from '@yaohaixiao/dom.js/dom
 // 引用 getSiblings 单个方法
 import getSiblings from '@yaohaixiao/dom.js/getSiblings'
 
+const $section = DOM.byClass('.section')
 const $about = DOM.getEl('.about')
 
+// 获取所有类型的邻居节点，包括自己
+DOM.getSiblings($section, true, false)
+// ->[
+//     &lt;div class="section"&gt;Section Content&lt;/div&gt;
+//     '文本内容'
+//     &lt;ul id="list" class="list"&gt;
+//   ]
+
+// 获取所有 HTMLElement 邻居节点，不包括自己
 DOM.getSiblings($about)
 // -> [
 //   &lt;li class="item"&gt;Projects&lt;/li&gt;,
@@ -2715,13 +2783,100 @@ DOM.getSiblings($about)
 //   &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
 // ]
 
+// 获取所有 HTMLElement 邻居节点，包括自己
 getPrevSiblings($about, true)
 // -> [
 //   &lt;li class="item"&gt;Projects&lt;/li&gt;,
 //   &lt;li class="item blog"&gt;Blog&lt;/li&gt;,
 //   &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;,
 //   &lt;li class="item about"&gt;About&lt;/li&gt;
-// ]</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">prev(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><dl class="section__dl"><dt class="section__dt">Alias：</dt><dd class="section__dd">getPrevSibling</dd></dl><p>prev() 方法用来获取 DOM 元素的前一个邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 DOM 元素的前一个邻居元素节点。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+// ]</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">next(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><dl class="section__dl"><dt class="section__dt">Alias：</dt><dd class="section__dd">getNextSibling</dd></dl><p>next() 方法用来获取 DOM 元素的下一个邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 DOM 元素的下一个邻居元素节点。</p><pre class="section__pre"><code class="section__code">&lt;div class="section"&gt;Section Content&lt;/div&gt;
+文本内容
+&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 next 单个方法
+import next from '@yaohaixiao/dom.js/next'
+
+const $section = DOM.byClass('.section')
+
+// 获取 HTMLElement 邻居节点
+DOM.next($section) // -> &lt;ul id="list" class="list"&gt;
+
+// 获取 Text 文本邻居节点
+const $text = next($section, false) // -> '文本内容'
+
+// el 参数是 Text 文本节点类型
+next($text) // -> &lt;ul id="list" class="list"&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">nextBy(el, filter)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><dl class="section__dl"><dt class="section__dt">Alias：</dt><dd class="section__dd">getNextSiblingBy</dd></dl><p>nextBy() 方法用来通过过滤器获取 DOM 元素匹配的后面的邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|Text</dd></dl><p>（必须）el 参数指定 DOM 元素(HTMLElement 或者 Text 类型)。</p><h5 class="section__h4">filter</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function|String</dd></dl><p>（必须）filter 参数指定用于过滤的回调函数或者选择器字符串。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|Text</dd></dl><p>返回 el 元素的下一个邻居元素节点。</p><pre class="section__pre"><code class="section__code">&lt;div class="section"&gt;Section Content&lt;/div&gt;
+文本内容
+&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item about"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 nextBy 单个方法
+import nextBy from '@yaohaixiao/dom.js/nextBy'
+
+const $section = DOM.byClass('.section')
+const $home = DOM.byId('#home')
+
+// filter 参数是选择器字符串，获取 HTMLElement 元素
+DOM.nextBy($section, '.item') // -> &lt;ul id="list" class="list"&gt;
+
+// 获取 Text 类型的邻居节点
+nextBy($section, (el) => {
+   return DOM.isText(el)
+})
+// -> '文本内容'
+
+// filter 参数是过滤函数，获取 HTMLElement 元素
+nextBy($home, (el) => {
+  return DOM.hasClass(el, 'about')
+})
+// -> &lt;li class="item about"&gt;About&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">nextAll(el[, isElementSibling])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><dl class="section__dl"><dt class="section__dt">Alias：</dt><dd class="section__dd">getNextSiblings</dd></dl><p>nextAll() 方法用来获取 DOM 元素的后面所有邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|Text</dd></dl><p>（必须）el 参数指定 DOM 元素(HTMLElement 或者 Text 类型)。</p><h5 class="section__h4">isElementSibling</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">true</dd></dl><p>（可选）isElementSibling 参数指定是否仅获取 HTMLElement 元素节点，默认值：true。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 DOM 元素的后面所有邻居元素节点的数组，如果没有则返回空数组。</p><pre class="section__pre"><code class="section__code">&lt;div class="section"&gt;Section Content&lt;/div&gt;
+文本内容
+&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 nextAll 单个方法
+import nextAll from '@yaohaixiao/dom.js/nextAll'
+
+const $section = DOM.byClass('.section')
+const $home = DOM.byId('#home')
+
+// 仅获取 HTMLElement 类型邻居节点
+DOM.getNextSiblings($section) // ->[ &lt;ul id="list" class="list"&gt; ]
+getNextSiblings($home)
+// -> [
+//   &lt;li class="item blog"&gt;Blog&lt;/li&gt;,
+//   &lt;li class="item"&gt;Projects&lt;/li&gt;,
+//   &lt;li class="item"&gt;About&lt;/li&gt;
+// ]
+
+// 获取 HTMLElement 和 Text 类型邻居节点
+DOM.getNextSiblings($section， false)
+// ->[
+//     '文本内容'
+//     &lt;ul id="list" class="list"&gt;
+//   ]</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">prev(el[, isElementSibling])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><dl class="section__dl"><dt class="section__dt">Alias：</dt><dd class="section__dd">getPrevSibling</dd></dl><p>prev() 方法用来获取 DOM 元素的前一个邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt></dl><dd class="section__dd">HTMLElement|Text</dd><p>（必须）el 参数指定 DOM 元素(HTMLElement 或者 Text 类型)。</p><h5 class="section__h4">isElementSibling</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">true</dd></dl><p>（可选）isElementSibling 参数指定是否仅获取 HTMLElement 元素节点，默认值：true。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|Text</dd></dl><p>返回 DOM 元素的前一个邻居节点。</p><pre class="section__pre"><code class="section__code">&lt;div class="section"&gt;Section Content&lt;/div&gt;
+文本内容
+&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -2737,25 +2892,11 @@ const $list = DOM.byId('#list')
 const $home = DOM.byId('#home')
 const $blog = DOM.getEl('.blog')
 
-DOM.prev($list) // -> null
-prev($home) // -> null
-prev($blog) // -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">next(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><dl class="section__dl"><dt class="section__dt">Alias：</dt><dd class="section__dd">getNextSibling</dd></dl><p>next() 方法用来获取 DOM 元素的下一个邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 DOM 元素的下一个邻居元素节点。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
-    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
-    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
-    &lt;li class="item"&gt;Projects&lt;/li&gt;
-    &lt;li class="item"&gt;About&lt;/li&gt;
-&lt;/ul&gt;
-
-// 引入 DOM 模块（中的所有工具方法）
-import DOM from '@yaohaixiao/dom.js/dom
-// 引用 next 单个方法
-import next from '@yaohaixiao/dom.js/next'
-
-const $list = DOM.byId('#list')
-const $home = DOM.byId('#home')
-
-DOM.next($list) // -> null
-next($home) // -> &lt;li class="item"&gt;Blog&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">prevBy(el, filter)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><dl class="section__dl"><dt class="section__dt">Alias：</dt><dd class="section__dd">getPreviousSibling</dd></dl><p>prevBy() 方法用来通过过滤器获取 DOM 元素匹配的前面的邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">filter</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function|String</dd></dl><p>（必须）filter 参数指定用于过滤的回调函数或者选择器字符串。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 DOM 元素的下一个邻居元素节点。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+DOM.prev($list) // -> &lt;div class="section"&gt;Section Content&lt;/div&gt;
+prev($list, false) // -> '文本内容'
+prev($blog) // -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">prevBy(el, filter)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><dl class="section__dl"><dt class="section__dt">Alias：</dt><dd class="section__dd">getPreviousSibling</dd></dl><p>prevBy() 方法用来通过过滤器获取 DOM 元素匹配的前面的邻居 HTMLElement 或者文本节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|Text</dd></dl><p>（必须）el 参数指定 DOM 元素(HTMLElement 或者 Text 类型)。</p><h5 class="section__h4">filter</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function|String</dd></dl><p>（必须）filter 参数指定用于过滤的回调函数或者选择器字符串。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|Text</dd></dl><p>返回 DOM 元素的下一个邻居节点。</p><pre class="section__pre"><code class="section__code">&lt;div class="section"&gt;Section Content&lt;/div&gt;
+文本内容
+&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -2767,31 +2908,24 @@ import DOM from '@yaohaixiao/dom.js/dom
 // 引用 prevBy 单个方法
 import prevBy from '@yaohaixiao/dom.js/prevBy'
 
+const $list = DOM.byId('#list')
 const $about = DOM.byId('#home')
 
 DOM.prevBy($about, '.item.about') // -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
 prevBy($about, (el) => {
   return DOM.hasClass(el, 'blog')
 })
-// -> &lt;li class="item blog"&gt;Blog&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">nextBy(el, filter)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><dl class="section__dl"><dt class="section__dt">Alias：</dt><dd class="section__dd">getNextSiblingBy</dd></dl><p>nextBy() 方法用来通过过滤器获取 DOM 元素匹配的后面的邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">filter</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function|String</dd></dl><p>（必须）filter 参数指定用于过滤的回调函数或者选择器字符串。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 DOM 元素的下一个邻居元素节点。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
-    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
-    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
-    &lt;li class="item"&gt;Projects&lt;/li&gt;
-    &lt;li class="item about"&gt;About&lt;/li&gt;
-&lt;/ul&gt;
+// -> &lt;li class="item blog"&gt;Blog&lt;/li&gt;
 
-// 引入 DOM 模块（中的所有工具方法）
-import DOM from '@yaohaixiao/dom.js/dom
-// 引用 nextBy 单个方法
-import nextBy from '@yaohaixiao/dom.js/nextBy'
-
-const $home = DOM.byId('#home')
-
-DOM.nextBy($home, '.item.blog') // -> &lt;li class="item blog"&gt;Blog&lt;/li&gt;
-nextBy($home, (el) => {
-  return DOM.hasClass(el, 'about')
+// 获取文本节点类型的邻居节点
+const $text = prevBy($about, (el) => {
+   return DOM.isText(el)
 })
-// -> &lt;li class="item about"&gt;About&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">prevAll(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><dl class="section__dl"><dt class="section__dt">Alias：</dt><dd class="section__dd">getPrevSiblings</dd></dl><p>prevAll() 方法用来获取 DOM 元素的前面所有邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 DOM 元素的前面所有邻居元素节点的数组，如果没有则返回空数组。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+// -> '文本内容'
+
+prevBy($text, '.section') // -> &lt;div class="section"&gt;Section Content&lt;/div&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">prevAll(el[, isElementSibling])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><dl class="section__dl"><dt class="section__dt">Alias：</dt><dd class="section__dd">getPrevSiblings</dd></dl><p>prevAll() 方法用来获取 DOM 元素的前面所有邻居 HTMLElement 或者文本节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|Text</dd></dl><p>（必须）el 参数指定 DOM 元素(HTMLElement 或者 Text 类型)。</p><h5 class="section__h4">isElementSibling</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">true</dd></dl><p>（可选）isElementSibling 参数指定是否仅获取 HTMLElement 元素节点，默认值：true。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|Text</dd></dl><p>返回 DOM 元素的前面所有邻居节点的数组，如果没有则返回空数组。</p><pre class="section__pre"><code class="section__code">&lt;div class="section"&gt;Section Content&lt;/div&gt;
+文本内容
+&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -2806,34 +2940,27 @@ import prevAll from '@yaohaixiao/dom.js/prevAll'
 const $list = DOM.byId('#list')
 const $about = DOM.getEl('.about')
 
-DOM.prevAll($list) // ->[]
+// 仅获取 HTMLElement 邻居节点
+DOM.prevAll($list)
+// ->[
+//   &lt;div class="section"&gt;Section Content&lt;/div&gt;
+// ]
+
+// 仅获取 HTMLElement 和节点邻居节点
+DOM.prevAll($list)
+// ->[
+//   '文本内容',
+//   &lt;div class="section"&gt;Section Content&lt;/div&gt;
+// ]
+
 prevAll($about)
 // -> [
 //   &lt;li class="item"&gt;Projects&lt;/li&gt;,
 //   &lt;li class="item blog"&gt;Blog&lt;/li&gt;,
 //   &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
-// ]</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">nextAll(el)</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><dl class="section__dl"><dt class="section__dt">Alias：</dt><dd class="section__dd">getNextSiblings</dd></dl><p>nextAll() 方法用来获取 DOM 元素的后面所有邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 DOM 元素的后面所有邻居元素节点的数组，如果没有则返回空数组。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
-    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
-    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
-    &lt;li class="item"&gt;Projects&lt;/li&gt;
-    &lt;li class="item"&gt;About&lt;/li&gt;
-&lt;/ul&gt;
-
-// 引入 DOM 模块（中的所有工具方法）
-import DOM from '@yaohaixiao/dom.js/dom
-// 引用 nextAll 单个方法
-import nextAll from '@yaohaixiao/dom.js/nextAll'
-
-const $list = DOM.byId('#list')
-const $home = DOM.byId('#home')
-
-DOM.nextAll($list) // ->[]
-nextAll($home)
-// -> [
-//   &lt;li class="item blog"&gt;Blog&lt;/li&gt;,
-//   &lt;li class="item"&gt;Projects&lt;/li&gt;,
-//   &lt;li class="item"&gt;About&lt;/li&gt;
-// ]</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">siblings(el[, includeSelf])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><dl class="section__dl"><dt class="section__dt">Alias：</dt><dd class="section__dd">getSiblings</dd></dl><p>siblings() 方法用来获取 DOM 元素的前面或后面所有邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">includeSelf</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">false</dd></dl><p>（可选）includeSelf 参数指定是否包含 DOM 元素本身。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回 DOM 元素的前面或后面所有邻居元素节点的数组，如果没有则返回空数组。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+// ]</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">siblings(el[, includeSelf])</h3></header><div class="section__content"><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Selecting Siblings</dd></dl><dl class="section__dl"><dt class="section__dt">Alias：</dt><dd class="section__dd">getSiblings</dd></dl><p>siblings() 方法用来获取 DOM 元素的前面或后面所有邻居元素节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|Text</dd></dl><p>（必须）el 参数指定 DOM 元素(HTMLElement 或者 Text 类型)。</p><h5 class="section__h4">includeSelf</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">false</dd></dl><p>（可选）includeSelf 参数指定是否包含 DOM 元素本身。</p><h5 class="section__h4">isElementSibling</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">true</dd></dl><p>（可选）isElementSibling 参数指定是否仅获取 HTMLElement 元素节点，默认值：true。</p><h4 class="section__h4">Returns</h4><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Array</dd></dl><p>返回 DOM 元素的前面或后面所有邻居元素节点的数组，如果没有则返回空数组。</p><pre class="section__pre"><code class="section__code">&lt;div class="section"&gt;Section Content&lt;/div&gt;
+文本内容
+&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -2845,8 +2972,18 @@ import DOM from '@yaohaixiao/dom.js/dom
 // 引用 siblings 单个方法
 import siblings from '@yaohaixiao/dom.js/siblings'
 
+const $section = DOM.byClass('.section')
 const $about = DOM.getEl('.about')
 
+// 获取所有类型的邻居节点，包括自己
+DOM.siblings($section, true, false)
+// ->[
+//     &lt;div class="section"&gt;Section Content&lt;/div&gt;
+//     '文本内容'
+//     &lt;ul id="list" class="list"&gt;
+//   ]
+
+// 获取所有 HTMLElement 邻居节点，不包括自己
 DOM.siblings($about)
 // -> [
 //   &lt;li class="item"&gt;Projects&lt;/li&gt;,
@@ -2854,6 +2991,7 @@ DOM.siblings($about)
 //   &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
 // ]
 
+// 获取所有 HTMLElement 邻居节点，包括自己
 siblings($about, true)
 // -> [
 //   &lt;li class="item"&gt;Projects&lt;/li&gt;,
