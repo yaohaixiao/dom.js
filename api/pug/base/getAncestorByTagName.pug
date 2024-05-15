@@ -3,16 +3,27 @@ section.section
     h3.section__h3 getAncestorByTagName(el, tagName)
   div.section__content
     h4.section__h4 Since
-    p.section__dd 1.7.0
+    p.section__dd 1.10.0
     dl.section__dl
       dt.section__dt Category：
       dd.section__dd Base
-    p getAncestorByTagName() 方法返回当前在 DOM 或者 shadow DOM 树中处于聚焦状态的 DOM 元素。
+    p getAncestorByTagName() 方法返回指定 DOM 节点与 tagName 匹配的祖先节点。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （必须）el 参数指定 DOM 元素。
+    h5.section__h4 tagName
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （必须）tagName 参数指定用于过滤的标签名称字符串。
     h5.section__h4 Returns
     dl.section__dl
       dt.section__dt Type：
       dd.section__dd HTMLElement
-    p 返回处于聚焦状态的 DOM 元素。
+    p 返回匹配的祖先节点。
     pre.section__pre
       code.section__.
         &lt;ul id="list" class="list"&gt;
@@ -24,14 +35,14 @@ section.section
 
         // 引入 DOM 模块（中的所有工具方法）
         import DOM from '@yaohaixiao/dom.js/dom
-        // 引用 getActiveElement 单个方法
-        import getActiveElement from '@yaohaixiao/dom.js/getActiveElement'
+        // 引用 getAncestorByTagName 单个方法
+        import getAncestorByTagName from '@yaohaixiao/dom.js/getAncestorByTagName'
 
-        const $list = DOM.getEl('#list')
         const $home = DOM.getEl('#home')
+        const $blog = DOM.getEl('#blog')
 
-        DOM.getActiveElement() // -> null
+        DOM.getAncestorByTagName($home, 'li')
+        // -> &lt;ul id="list" class="list"&gt;
 
-        $home.click()
-        getActiveElement()
-        // -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+        getAncestorByTagName($blog, 'li')
+        // -> &lt;ul id="list" class="list"&gt;

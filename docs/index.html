@@ -701,7 +701,7 @@ DOM.getActiveElement() // -> null
 
 $home.click()
 getActiveElement()
-// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getAncestorBy(el, filter)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.10.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getAncestorBy() 方法返回当前在 DOM 或者 shadow DOM 树中处于聚焦状态的 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回处于聚焦状态的 DOM 元素。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getAncestorBy(el, filter)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.10.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getAncestorBy() 方法返回指定 DOM 节点与 filter 过滤方法匹配的祖先节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">filter</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function|String</dd></dl><p>（必须）filter 参数指定用于过滤的回调函数或者选择器字符串。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回匹配的祖先节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -710,17 +710,38 @@ getActiveElement()
 
 // 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom
-// 引用 getActiveElement 单个方法
-import getActiveElement from '@yaohaixiao/dom.js/getActiveElement'
+// 引用 getAncestorBy 单个方法
+import getAncestorBy from '@yaohaixiao/dom.js/getAncestorBy'
 
-const $list = DOM.getEl('#list')
 const $home = DOM.getEl('#home')
 
-DOM.getActiveElement() // -> null
+// 通过选择器过滤
+DOM.getAncestorBy($home, '.list') // -> &lt;ul id="list" class="list"&gt;
 
-$home.click()
-getActiveElement()
-// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getAncestorByClassName(el, className)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.10.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getAncestorByClassName() 方法返回当前在 DOM 或者 shadow DOM 树中处于聚焦状态的 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回处于聚焦状态的 DOM 元素。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+// 通过回调函数过滤
+getAncestorBy($home, (item) => {
+  return item.tagName.toLowerCase() === 'li'
+})
+// -> &lt;ul id="list" class="list"&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getAncestorByClassName(el, className)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.10.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getAncestorByClassName() 方法返回指定 DOM 节点与 className 匹配的祖先节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">className</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）className 参数指定用于过滤的选择器字符串。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回匹配的祖先节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li id="blog" class="item"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getAncestorByClassName 单个方法
+import getAncestorByClassName from '@yaohaixiao/dom.js/getAncestorByClassName'
+
+const $home = DOM.getEl('#home')
+const $blog = DOM.getEl('#blog')
+
+DOM.getAncestorByClassName($home, 'list')
+// -> &lt;ul id="list" class="list"&gt;
+
+getAncestorByClassName($blog, 'list')
+// -> &lt;ul id="list" class="list"&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getAncestorByTagName(el, tagName)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.10.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getAncestorByTagName() 方法返回指定 DOM 节点与 tagName 匹配的祖先节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">tagName</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）tagName 参数指定用于过滤的标签名称字符串。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回匹配的祖先节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -729,21 +750,21 @@ getActiveElement()
 
 // 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom
-// 引用 getActiveElement 单个方法
-import getActiveElement from '@yaohaixiao/dom.js/getActiveElement'
+// 引用 getAncestorByTagName 单个方法
+import getAncestorByTagName from '@yaohaixiao/dom.js/getAncestorByTagName'
 
-const $list = DOM.getEl('#list')
 const $home = DOM.getEl('#home')
+const $blog = DOM.getEl('#blog')
 
-DOM.getActiveElement() // -> null
+DOM.getAncestorByTagName($home, 'li')
+// -> &lt;ul id="list" class="list"&gt;
 
-$home.click()
-getActiveElement()
-// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getAncestorByTagName(el, tagName)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.7.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getAncestorByTagName() 方法返回当前在 DOM 或者 shadow DOM 树中处于聚焦状态的 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回处于聚焦状态的 DOM 元素。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+getAncestorByTagName($blog, 'li')
+// -> &lt;ul id="list" class="list"&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getChildren(el[, filter])</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.10.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getChildren() 方法返回指定 DOM 节点与 filter 过滤方法匹配的所有子节点的数组。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）el 参数指定 DOM 元素或选择器字符串。</p><h5 class="section__h4">filter</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function|String</dd></dl><p>（可选）filter 参数指定用于过滤的回调函数或者选择器字符串。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Array</dd></dl><p>返回匹配的子节点数组。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
-    &lt;li class="item"&gt;Blog&lt;/li&gt;
-    &lt;li class="item"&gt;Projects&lt;/li&gt;
-    &lt;li class="item"&gt;About&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item about"&gt;About&lt;/li&gt;
 &lt;/ul&gt;
 
 // 引入 DOM 模块（中的所有工具方法）
@@ -752,13 +773,33 @@ import DOM from '@yaohaixiao/dom.js/dom
 import getActiveElement from '@yaohaixiao/dom.js/getActiveElement'
 
 const $list = DOM.getEl('#list')
-const $home = DOM.getEl('#home')
 
-DOM.getActiveElement() // -> null
+// 获取全部子节点
+DOM.getChildren($list)
+// -> [
+//   &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+//   &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+//   &lt;li class="item project"&gt;Projects&lt;/li&gt;
+//   &lt;li class="item about"&gt;About&lt;/li&gt;
+// ]
 
-$home.click()
-getActiveElement()
-// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getChildren(el, filter)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.10.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getChildren() 方法返回当前在 DOM 或者 shadow DOM 树中处于聚焦状态的 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回处于聚焦状态的 DOM 元素。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+// 通过选择器字符串过滤子节点
+DOM.getChildren($list, '.item')
+// -> [
+//   &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+//   &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+//   &lt;li class="item project"&gt;Projects&lt;/li&gt;
+//   &lt;li class="item about"&gt;About&lt;/li&gt;
+// ]
+
+
+// 通过过滤函数过滤子节点
+getChildren($list, (el) => {
+   return DOM.hasClass(el, 'blog')
+})
+// -> [
+//   &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+// ]</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getChildrenBy(el, filter)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.10.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getChildrenBy() 方法返回指定 DOM 节点与 filter 过滤方法匹配的所有子节点的数组。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）el 参数指定 DOM 元素或选择器字符串。</p><h5 class="section__h4">filter</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function|String</dd></dl><p>（必须）filter 参数指定用于过滤的回调函数或者选择器字符串。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Array</dd></dl><p>返回匹配的子节点数组。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -767,36 +808,28 @@ getActiveElement()
 
 // 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom
-// 引用 getActiveElement 单个方法
-import getActiveElement from '@yaohaixiao/dom.js/getActiveElement'
+// 引用 getChildrenBy 单个方法
+import getChildrenBy from '@yaohaixiao/dom.js/getChildrenBy'
 
 const $list = DOM.getEl('#list')
-const $home = DOM.getEl('#home')
 
-DOM.getActiveElement() // -> null
+// 通过选择器字符串过滤子节点
+DOM.getChildrenBy($list, '.item')
+// -> [
+//   &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+//   &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+//   &lt;li class="item project"&gt;Projects&lt;/li&gt;
+//   &lt;li class="item about"&gt;About&lt;/li&gt;
+// ]
 
-$home.click()
-getActiveElement()
-// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getChildrenBy(el, filter)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.10.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getChildrenBy() 方法返回当前在 DOM 或者 shadow DOM 树中处于聚焦状态的 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回处于聚焦状态的 DOM 元素。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
-    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
-    &lt;li class="item"&gt;Blog&lt;/li&gt;
-    &lt;li class="item"&gt;Projects&lt;/li&gt;
-    &lt;li class="item"&gt;About&lt;/li&gt;
-&lt;/ul&gt;
 
-// 引入 DOM 模块（中的所有工具方法）
-import DOM from '@yaohaixiao/dom.js/dom
-// 引用 getActiveElement 单个方法
-import getActiveElement from '@yaohaixiao/dom.js/getActiveElement'
-
-const $list = DOM.getEl('#list')
-const $home = DOM.getEl('#home')
-
-DOM.getActiveElement() // -> null
-
-$home.click()
-getActiveElement()
-// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getContainingBlock(el)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.9.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getContainingBlock() 方法用来获取 DOM 元素的 nodeName 属性值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Node</dd></dl><p>（必须）指定的 HTMLElement 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Window</dd></dl><p>返回 Window 对象。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
+// 通过过滤函数过滤子节点
+getChildrenBy($list, (el) => {
+   return DOM.hasClass(el, 'blog')
+})
+// -> [
+//   &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+// ]</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getContainingBlock(el)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.9.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getContainingBlock() 方法用来获取 DOM 元素的 nodeName 属性值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Node</dd></dl><p>（必须）指定的 HTMLElement 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Window</dd></dl><p>返回 Window 对象。</p><pre class="section__pre"><code class="section__code">&lt;style&gt;
   .list {
     transform: scale(1.2);
   }
@@ -839,7 +872,32 @@ const $list = DOM.getEl('#list')
 // 浏览器中运行
 DOM.getDocument($list) // -> 返回 $list 所在文档的 documentElement 对象
 getDocument(document) // -> 返回当前文档的 documentElement 对象
-getWindow(window) // -> 返回当前文档的 documentElement 对象</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getFirstChild(el, filter)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.10.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getFirstChild() 方法返回当前在 DOM 或者 shadow DOM 树中处于聚焦状态的 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回处于聚焦状态的 DOM 元素。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+getWindow(window) // -> 返回当前文档的 documentElement 对象</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getFirstChild(el[, filter])</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.10.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getFirstChild() 方法返回指定 DOM 节点与 filter 过滤方法匹配的第一个子节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">filter</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function|String</dd></dl><p>（可选）filter 参数指定用于过滤的回调函数或者选择器字符串。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|Text</dd></dl><p>返回匹配的子节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getFirstChild 单个方法
+import getFirstChild from '@yaohaixiao/dom.js/getFirstChild'
+
+const $list = DOM.getEl('#list')
+
+DOM.getFirstChild($list)
+// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+
+// 通过选择器字符串过滤子节点
+getFirstChild($list, '.blog')
+// -> &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+
+// 通过过滤函数过滤子节点
+getFirstChild($list, (el) => {
+  return DOM.hasClass(el, 'project')
+})
+// -> &lt;li class="item project"&gt;Projects&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getFirstChildBy(el, filter)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.10.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getFirstChildBy() 方法返回指定 DOM 节点与 filter 过滤方法匹配的第一个子节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">filter</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function|String</dd></dl><p>（必须）filter 参数指定用于过滤的回调函数或者选择器字符串。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|Text</dd></dl><p>返回匹配的子节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -848,36 +906,20 @@ getWindow(window) // -> 返回当前文档的 documentElement 对象</code></pre
 
 // 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom
-// 引用 getActiveElement 单个方法
-import getActiveElement from '@yaohaixiao/dom.js/getActiveElement'
+// 引用 getFirstChildBy 单个方法
+import getFirstChildBy from '@yaohaixiao/dom.js/getFirstChildBy'
 
 const $list = DOM.getEl('#list')
-const $home = DOM.getEl('#home')
 
-DOM.getActiveElement() // -> null
+// 通过选择器字符串过滤子节点
+DOM.getFirstChildBy($list, '.blog')
+// -> &lt;li class="item blog"&gt;Blog&lt;/li&gt;
 
-$home.click()
-getActiveElement()
-// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getFirstChildBy(el, filter)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.10.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getFirstChildBy() 方法返回当前在 DOM 或者 shadow DOM 树中处于聚焦状态的 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回处于聚焦状态的 DOM 元素。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
-    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
-    &lt;li class="item"&gt;Blog&lt;/li&gt;
-    &lt;li class="item"&gt;Projects&lt;/li&gt;
-    &lt;li class="item"&gt;About&lt;/li&gt;
-&lt;/ul&gt;
-
-// 引入 DOM 模块（中的所有工具方法）
-import DOM from '@yaohaixiao/dom.js/dom
-// 引用 getActiveElement 单个方法
-import getActiveElement from '@yaohaixiao/dom.js/getActiveElement'
-
-const $list = DOM.getEl('#list')
-const $home = DOM.getEl('#home')
-
-DOM.getActiveElement() // -> null
-
-$home.click()
-getActiveElement()
-// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getImages(el, includeDuplicates)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.6.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>返回这个页面页或者某个DOM元素下的所有图片路径的数组。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">'body'</dd></dl><p>（可选）指定 DOM 节点的选择器。默认值： document.body。</p><h5 class="section__h4">includeDuplicates</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">false</dd></dl><p>（可选）是否收集重复的图片。默认值：false</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+// 通过过滤函数过滤子节点
+getFirstChildBy($list, (el) => {
+  return DOM.hasClass(el, 'project')
+})
+// -> &lt;li class="item project"&gt;Projects&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getImages(el, includeDuplicates)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.6.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>返回这个页面页或者某个DOM元素下的所有图片路径的数组。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">'body'</dd></dl><p>（可选）指定 DOM 节点的选择器。默认值： document.body。</p><h5 class="section__h4">includeDuplicates</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><dl class="section__dl"><dt class="section__dt">Default：</dt><dd class="section__dd">false</dd></dl><p>（可选）是否收集重复的图片。默认值：false</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -911,7 +953,32 @@ const $list = DOM.byId('#list')
 const $home = DOM.byId('#home')
 
 const $parent = DOM.getHostOrParent($home)
-console.log($parent === $list) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getLastChild(el, filter)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.10.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getLastChild() 方法返回当前在 DOM 或者 shadow DOM 树中处于聚焦状态的 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回处于聚焦状态的 DOM 元素。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+console.log($parent === $list) // -> true</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getLastChild(el[, filter])</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.10.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getLastChild() 方法返回指定 DOM 节点与 filter 过滤方法匹配的最后一个子节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">filter</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function|String</dd></dl><p>（可选）filter 参数指定用于过滤的回调函数或者选择器字符串。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|Text</dd></dl><p>返回匹配的子节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item project"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 getLastChild 单个方法
+import getLastChild from '@yaohaixiao/dom.js/getLastChild'
+
+const $list = DOM.getEl('#list')
+
+DOM.getLastChild($list)
+// -> &lt;li class="item"&gt;About&lt;/li&gt;
+
+// 通过选择器字符串过滤子节点
+getLastChild($list, '.blog')
+// -> &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+
+// 通过过滤函数过滤子节点
+getLastChild($list, (el) => {
+  return DOM.hasClass(el, 'project')
+})
+// -> &lt;li class="item project"&gt;Projects&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getLastChildBy(el, filter)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.10.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getLastChildBy() 方法返回指定 DOM 节点与 filter 过滤方法匹配的最后一个子节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 参数指定 DOM 元素。</p><h5 class="section__h4">filter</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Function|String</dd></dl><p>（必须）filter 参数指定用于过滤的回调函数或者选择器字符串。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|Text</dd></dl><p>返回匹配的子节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -920,36 +987,20 @@ console.log($parent === $list) // -> true</code></pre></div></section><section c
 
 // 引入 DOM 模块（中的所有工具方法）
 import DOM from '@yaohaixiao/dom.js/dom
-// 引用 getActiveElement 单个方法
-import getActiveElement from '@yaohaixiao/dom.js/getActiveElement'
+// 引用 getLastChildBy 单个方法
+import getLastChildBy from '@yaohaixiao/dom.js/getLastChildBy'
 
 const $list = DOM.getEl('#list')
-const $home = DOM.getEl('#home')
 
-DOM.getActiveElement() // -> null
+// 通过选择器字符串过滤子节点
+DOM.getLastChildBy($list, '.blog')
+// -> &lt;li class="item blog"&gt;Blog&lt;/li&gt;
 
-$home.click()
-getActiveElement()
-// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getLastChildBy(el, filter)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.10.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getLastChildBy() 方法返回当前在 DOM 或者 shadow DOM 树中处于聚焦状态的 DOM 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回处于聚焦状态的 DOM 元素。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
-    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
-    &lt;li class="item"&gt;Blog&lt;/li&gt;
-    &lt;li class="item"&gt;Projects&lt;/li&gt;
-    &lt;li class="item"&gt;About&lt;/li&gt;
-&lt;/ul&gt;
-
-// 引入 DOM 模块（中的所有工具方法）
-import DOM from '@yaohaixiao/dom.js/dom
-// 引用 getActiveElement 单个方法
-import getActiveElement from '@yaohaixiao/dom.js/getActiveElement'
-
-const $list = DOM.getEl('#list')
-const $home = DOM.getEl('#home')
-
-DOM.getActiveElement() // -> null
-
-$home.click()
-getActiveElement()
-// -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getNodeName(node)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.9.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getNodeName() 方法用来获取 DOM 元素的 nodeName 属性值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">node</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Node</dd></dl><p>（必须）指定的 Node 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Window</dd></dl><p>返回 Window 对象。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
+// 通过过滤函数过滤子节点
+getLastChildBy($list, (el) => {
+  return DOM.hasClass(el, 'project')
+})
+// -> &lt;li class="item project"&gt;Projects&lt;/li&gt;</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">getNodeName(node)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.9.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>getNodeName() 方法用来获取 DOM 元素的 nodeName 属性值。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">node</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Node</dd></dl><p>（必须）指定的 Node 元素。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Window</dd></dl><p>返回 Window 对象。</p><pre class="section__pre"><code class="section__code">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;

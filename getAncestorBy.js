@@ -2,6 +2,7 @@ import parent from './parent'
 import isMatched from './isMatched'
 
 /**
+ * 获取指定 DOM 节点的祖先节点
  * @method getAncestorBy
  * @since 1.10.0
  * @param {HTMLElement} el

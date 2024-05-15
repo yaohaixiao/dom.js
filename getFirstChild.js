@@ -10,7 +10,7 @@ import getFirstChildBy from './getFirstChildBy'
  * @method getFirstChild
  * @since 1.10.0
  * @param {HTMLElement|String} el
- * @param {Function} filter
+ * @param {Function} [filter]
  * @return {HTMLElement|ChildNode|null}
  */
 const getFirstChild = (el, filter) => {

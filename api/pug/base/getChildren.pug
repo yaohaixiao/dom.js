@@ -1,25 +1,36 @@
 section.section
   header.section__header
-    h3.section__h3 getChildren(el, filter)
+    h3.section__h3 getChildren(el[, filter])
   div.section__content
     h4.section__h4 Since
     p.section__dd 1.10.0
     dl.section__dl
       dt.section__dt Category：
       dd.section__dd Base
-    p getChildren() 方法返回当前在 DOM 或者 shadow DOM 树中处于聚焦状态的 DOM 元素。
+    p getChildren() 方法返回指定 DOM 节点与 filter 过滤方法匹配的所有子节点的数组。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement|String
+    p （必须）el 参数指定 DOM 元素或选择器字符串。
+    h5.section__h4 filter
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Function|String
+    p （可选）filter 参数指定用于过滤的回调函数或者选择器字符串。
     h5.section__h4 Returns
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd HTMLElement
-    p 返回处于聚焦状态的 DOM 元素。
+      dd.section__dd Array
+    p 返回匹配的子节点数组。
     pre.section__pre
       code.section__.
         &lt;ul id="list" class="list"&gt;
             &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
-            &lt;li class="item"&gt;Blog&lt;/li&gt;
-            &lt;li class="item"&gt;Projects&lt;/li&gt;
-            &lt;li class="item"&gt;About&lt;/li&gt;
+            &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+            &lt;li class="item project"&gt;Projects&lt;/li&gt;
+            &lt;li class="item about"&gt;About&lt;/li&gt;
         &lt;/ul&gt;
 
         // 引入 DOM 模块（中的所有工具方法）
@@ -28,10 +39,30 @@ section.section
         import getActiveElement from '@yaohaixiao/dom.js/getActiveElement'
 
         const $list = DOM.getEl('#list')
-        const $home = DOM.getEl('#home')
 
-        DOM.getActiveElement() // -> null
+        // 获取全部子节点
+        DOM.getChildren($list)
+        // -> [
+        //   &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+        //   &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+        //   &lt;li class="item project"&gt;Projects&lt;/li&gt;
+        //   &lt;li class="item about"&gt;About&lt;/li&gt;
+        // ]
 
-        $home.click()
-        getActiveElement()
-        // -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+        // 通过选择器字符串过滤子节点
+        DOM.getChildren($list, '.item')
+        // -> [
+        //   &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+        //   &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+        //   &lt;li class="item project"&gt;Projects&lt;/li&gt;
+        //   &lt;li class="item about"&gt;About&lt;/li&gt;
+        // ]
+
+
+        // 通过过滤函数过滤子节点
+        getChildren($list, (el) => {
+           return DOM.hasClass(el, 'blog')
+        })
+        // -> [
+        //   &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+        // ]

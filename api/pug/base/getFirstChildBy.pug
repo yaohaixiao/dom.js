@@ -7,12 +7,23 @@ section.section
     dl.section__dl
       dt.section__dt Category：
       dd.section__dd Base
-    p getFirstChildBy() 方法返回当前在 DOM 或者 shadow DOM 树中处于聚焦状态的 DOM 元素。
-    h5.section__h4 Returns
+    p getFirstChildBy() 方法返回指定 DOM 节点与 filter 过滤方法匹配的第一个子节点。
+    h4.section__h4 Parameters
+    h5.section__h4 el
     dl.section__dl
       dt.section__dt Type：
       dd.section__dd HTMLElement
-    p 返回处于聚焦状态的 DOM 元素。
+    p （必须）el 参数指定 DOM 元素。
+    h5.section__h4 filter
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Function|String
+    p （必须）filter 参数指定用于过滤的回调函数或者选择器字符串。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement|Text
+    p 返回匹配的子节点。
     pre.section__pre
       code.section__.
         &lt;ul id="list" class="list"&gt;
@@ -24,14 +35,17 @@ section.section
 
         // 引入 DOM 模块（中的所有工具方法）
         import DOM from '@yaohaixiao/dom.js/dom
-        // 引用 getActiveElement 单个方法
-        import getActiveElement from '@yaohaixiao/dom.js/getActiveElement'
+        // 引用 getFirstChildBy 单个方法
+        import getFirstChildBy from '@yaohaixiao/dom.js/getFirstChildBy'
 
         const $list = DOM.getEl('#list')
-        const $home = DOM.getEl('#home')
 
-        DOM.getActiveElement() // -> null
+        // 通过选择器字符串过滤子节点
+        DOM.getFirstChildBy($list, '.blog')
+        // -> &lt;li class="item blog"&gt;Blog&lt;/li&gt;
 
-        $home.click()
-        getActiveElement()
-        // -> &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+        // 通过过滤函数过滤子节点
+        getFirstChildBy($list, (el) => {
+          return DOM.hasClass(el, 'project')
+        })
+        // -> &lt;li class="item project"&gt;Projects&lt;/li&gt;

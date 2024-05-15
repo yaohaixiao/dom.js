@@ -8,7 +8,7 @@ import getLastChildBy from './getLastChildBy'
  * @method getLastChild
  * @since 1.10.0
  * @param {HTMLElement|String} el
- * @param {Function} filter
+ * @param {Function} [filter]
  * @return {HTMLElement|ChildNode|null}
  */
 const getLastChild = (el, filter) => {
