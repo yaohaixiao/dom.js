@@ -1,3 +1,15 @@
+# [1.10.0](https://github.com/yaohaixiao/dom.js/compare/1.9.0...1.10.0) (2024-05-15)
+
+
+### Features
+
+* 调整获取邻居节点剩余的别名方法的代码逻辑，el 参数支持文本节点类型 ([7a95222](https://github.com/yaohaixiao/dom.js/commit/7a952225a88a492b21d0c0b299e4de8b2c63db87))
+* 调整邻居节点查询相关的所有方法，el 参数支持文本节点类型（以前仅查询邻居节点中的 HTMLElement 节点）； ([2893525](https://github.com/yaohaixiao/dom.js/commit/289352559b4c73a18f3d74656a3739046c4d788b))
+* 添加 getChildren() 方法，调整 getChildrenBy() 方法逻辑 ([537fed2](https://github.com/yaohaixiao/dom.js/commit/537fed2a4f3e1d933785830034ee263b8cff4913))
+* 添加新方法：getAncestorBy()、getAncestorByClassName()、getAncestorByTagName()、getChildrenBy()、getFirstChild()、 getFirstChildBy()、getLastChild() 和 getLastChildBy() ([c5969ec](https://github.com/yaohaixiao/dom.js/commit/c5969ece8b2934f0cb7c83ee4c985f08523e33d8))
+
+
+
 # [1.9.0](https://github.com/yaohaixiao/dom.js/compare/1.8.0...1.9.0) (2024-04-30)
 
 
