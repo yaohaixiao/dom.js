@@ -6,7 +6,8 @@
  */
 const isDeno = () => {
   try {
-    return Deno?.core !== 'undefined'
+    /* eslint-disable */
+    return Deno && Deno?.core !== 'undefined'
   } catch (e) {
     return false
   }

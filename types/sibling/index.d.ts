@@ -1,0 +1,31 @@
+export default DOM;
+declare namespace DOM {
+    export { getNextSibling };
+    export { getPreviousSibling };
+    export { getNextSiblingBy };
+    export { getPreviousSiblingBy };
+    export { getNextSiblings };
+    export { getPreviousSiblings };
+    export { getSiblings };
+    export { next };
+    export { prev };
+    export { nextBy };
+    export { prevBy };
+    export { nextAll };
+    export { prevAll };
+    export { siblings };
+}
+import getNextSibling from '../getNextSibling';
+import getPreviousSibling from '../getPreviousSibling';
+import getNextSiblingBy from '../getNextSiblingBy';
+import getPreviousSiblingBy from '../getPreviousSiblingBy';
+import getNextSiblings from '../getNextSiblings';
+import getPreviousSiblings from '../getPreviousSiblings';
+import getSiblings from '../getSiblings';
+import next from '../next';
+import prev from '../prev';
+import nextBy from '../nextBy';
+import prevBy from '../prevBy';
+import nextAll from '../nextAll';
+import prevAll from '../prevAll';
+import siblings from '../siblings';

@@ -3,7 +3,6 @@
  */
 import setAttributes from '@/setAttributes'
 import getAttribute from '@/getAttribute'
-import byId from '@/byId'
 import getEl from '@/getEl'
 
 describe('setAttributes() 方法', () => {

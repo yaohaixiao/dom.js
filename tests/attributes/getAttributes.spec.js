@@ -3,7 +3,6 @@
  */
 import getAttributes from '@/getAttributes'
 import byId from '@/byId'
-import getEl from '@/getEl'
 
 describe('getAttributes() 方法', () => {
   // Set up our document body

@@ -65,7 +65,7 @@ const wrapAll = (collection, wrapElement) => {
   hide($temp)
   before($temp, $first)
 
-  $collection.forEach(($node, i) => {
+  $collection.forEach(($node) => {
     strHTML += $node.outerHTML
     hide($node)
     $node.remove()

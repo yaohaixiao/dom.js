@@ -11,7 +11,6 @@ import Resources from './resources'
 import Sibling from './sibling'
 import Size from './size'
 import Style from './style'
-import Types from './types'
 import Others from './others'
 
 const DOM = {
@@ -28,7 +27,6 @@ const DOM = {
   ...Sibling,
   ...Size,
   ...Style,
-  ...Types,
   ...Others
 }
 

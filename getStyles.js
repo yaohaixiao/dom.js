@@ -15,7 +15,7 @@ const getStyles = (el, attrs = []) => {
   let props = null
   let keys
 
-  if (!isElement(el)) {
+  if (!isElement(el) || !isArray(attrs)) {
     return props
   }
 
@@ -23,8 +23,12 @@ const getStyles = (el, attrs = []) => {
   keys = Object.keys(props)
 
   /* istanbul ignore else */
-  if (isArray(attrs) && attrs.length > 0) {
+  if (isArray(attrs)) {
     keys = attrs
+
+    if (attrs.length < 1) {
+      return null
+    }
   }
 
   keys.forEach((attr) => {

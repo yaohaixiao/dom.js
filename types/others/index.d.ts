@@ -1,0 +1,33 @@
+export default DOM;
+declare namespace DOM {
+    export { copyToClipboard };
+    export { createAndDownloadFile };
+    export { fullscreen };
+    export { getSelectedText };
+    export { getURLProps };
+    export { getURLSearchParams };
+    export { getURLSearchParamByName };
+    export { openURL };
+    export { pixel };
+    export { onClickOutside };
+    export { redirect };
+    export { serialize };
+    export { toREM };
+    export { toPixels };
+    export { toURLSearchParams };
+}
+import copyToClipboard from '../copyToClipboard';
+import createAndDownloadFile from '../createAndDownloadFile';
+import fullscreen from '../fullscreen';
+import getSelectedText from '../getSelectedText';
+import getURLProps from '../getURLProps';
+import getURLSearchParams from '../getURLSearchParams';
+import getURLSearchParamByName from '../getURLSearchParamByName';
+import openURL from '../openURL';
+import pixel from '../pixel';
+import onClickOutside from '../onClickOutside';
+import redirect from '../redirect';
+import serialize from '../serialize';
+import toREM from '../toREM';
+import toPixels from '../toPixels';
+import toURLSearchParams from '../toURLSearchParams';

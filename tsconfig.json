@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    // 生成 .d.ts 文件
+    "emitDeclarationOnly": true,
+    // 只生成声明文件而不生成 JavaScript 文件
+    "outDir": "./types",
+    // 声明文件输出目录，可以根据需要更改
+    "allowJs": true,
+    // 允许编译 .js 文件
+    "rootDir": "./"
+  },
+  // 不需要编译的文件
+  "exclude": [
+    "node_modules",
+    "./api/**/*.js",
+    "./build/**/*.js",
+    "./docs/**/*.js",
+    "./report/**/*.js",
+    "./tests/**/*.js"
+  ]
+}

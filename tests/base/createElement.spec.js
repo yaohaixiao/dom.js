@@ -20,14 +20,15 @@ describe('createElement() 方法', () => {
     '  </li>\n' +
     '</ul>'
 
-  const support =
-    '  <li class="item item-support item-ok" id="item-support">\n' +
-    '    <span>Support</span>\n' +
-    '    <a href="/sitemap#support" class="remove" data-id="support">删除</a>\n' +
-    '  </li>\n' +
-    it(`createElement() 不传递参数，返回：null`, () => {
-      expect(createElement()).toEqual(null)
-    })
+  // const support =
+  //   '  <li class="item item-support item-ok" id="item-support">\n' +
+  //   '    <span>Support</span>\n' +
+  //   '    <a href="/sitemap#support" class="remove" data-id="support">删除</a>\n' +
+  //   '  </li>'
+
+  it(`createElement() 不传递参数，返回：null`, () => {
+    expect(createElement()).toEqual(null)
+  })
 
   it(`createElement('div') 不传递 attrs 和 children 参数，创建空白 div 节点：`, () => {
     const $div = createElement('div')

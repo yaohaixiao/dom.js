@@ -1,4 +1,3 @@
-import isElement from './isElement'
 import isDOM from './isDOM'
 import getNextSibling from './getNextSibling'
 

@@ -2,10 +2,8 @@
  * @jest-environment jsdom
  */
 import removeAttributes from '@/removeAttributes'
-import setAttributes from '@/setAttributes'
 import getAttributes from '@/getAttributes'
 import byId from '@/byId'
-import getEl from '@/getEl'
 
 describe('removeAttributes() 方法', () => {
   // Set up our document body

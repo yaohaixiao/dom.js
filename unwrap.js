@@ -24,7 +24,7 @@ const unwrap = (collection, selector) => {
     return false
   }
 
-  $collection.forEach(($node, i) => {
+  $collection.forEach(($node) => {
     const $parent = $node.parentNode
 
     /* istanbul ignore else */

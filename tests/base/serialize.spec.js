@@ -2,7 +2,6 @@
  * @jest-environment jsdom
  */
 import serialize from '@/serialize'
-import getAttribute from '@/getAttribute'
 import byId from '@/byId'
 
 describe('readonly() 方法', () => {

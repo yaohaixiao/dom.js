@@ -1,6 +1,6 @@
 {
   "name": "@yaohaixiao/dom.js",
-  "version": "1.10.0",
+  "version": "1.11.0",
   "description": "dom.js - 专门处理 DOM 操作的 JavaScript 工具库。",
   "main": "dom.min.js",
   "scripts": {
@@ -13,8 +13,8 @@
     "build:api:style": "gulp buildApiStyle",
     "build:api:html": "gulp buildApiPug",
     "build:api": "gulp build",
-    "lint": "eslint",
-    "lint:fix": "npm run lint --cache --fix",
+    "lint": "eslint \"./**/**/*.js\"",
+    "lint:fix": "eslint \"./**/**/*.js\" --cache --fix",
     "prettier:check": "npx prettier --check \"**/*.(js|less)\"",
     "prettier:write": "npx prettier --write \"**/*.(js|less)\"",
     "test:unit": "jest --config jest.config.js",
@@ -71,7 +71,8 @@
     "os": "^0.1.2",
     "path": "^0.12.7",
     "prettier": "^2.8.4",
-    "rollup": "^3.26.0"
+    "rollup": "^3.26.0",
+    "typescript": "^5.5.3"
   },
   "gitHooks": {
     "pre-commit": "lint-staged",

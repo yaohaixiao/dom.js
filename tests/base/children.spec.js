@@ -26,16 +26,16 @@ describe('children() 方法', () => {
     expect(children()).toEqual([])
   })
 
-  it(`children($home).length 返回：2`, () => {
+  it(`children($home).length 返回：3`, () => {
     const $home = byId('#item-home')
 
-    expect(children($home).length).toEqual(2)
+    expect(children($home).length).toEqual(3)
   })
 
-  it(`children($home).length 返回：2`, () => {
+  it(`children($home).length 返回：3`, () => {
     const $home = byId('#item-home')
 
-    expect(children($home).length).toEqual(2)
+    expect(children($home).length).toEqual(3)
   })
   //
   // it(`parent($home, 'offset') 获取 offsetParent，返回：$list`, () => {
