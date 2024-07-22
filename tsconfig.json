@@ -17,6 +17,7 @@
     "./build/**/*.js",
     "./docs/**/*.js",
     "./report/**/*.js",
-    "./tests/**/*.js"
+    "./tests/**/*.js",
+    "./*.min.js"
   ]
 }

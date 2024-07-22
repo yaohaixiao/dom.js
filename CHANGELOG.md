@@ -1,3 +1,16 @@
+# [1.11.0](https://github.com/yaohaixiao/dom.js/compare/1.10.0...1.11.0) (2024-07-22)
+
+
+### Features
+
+* 添加 typescript 支持，生成所有方法的 .d.ts 文件；([a54d3fc](https://github.com/yaohaixiao/dom.js/commit/a54d3fc4e79f0e1f76acf87e78ac483edf29837d))
+
+### Bug Fixes
+
+* 修复 getStyles() 方法传输传 attrs = [] 的输出结果不正确的问题； ([a54d3fc](https://github.com/yaohaixiao/dom.js/commit/a54d3fc4e79f0e1f76acf87e78ac483edf29837d))
+
+
+
 # [1.10.0](https://github.com/yaohaixiao/dom.js/compare/1.9.0...1.10.0) (2024-05-15)
 
 

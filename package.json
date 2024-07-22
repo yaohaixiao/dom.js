@@ -7,6 +7,7 @@
     "start": "gulp start && gulp watch",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "build": "npm run build:lib:script && npm run build:api",
+    "build:.d.ts": "tsc",
     "build:script": "npm run build:lib:script && npm run build:api:script",
     "build:lib:script": "rollup -c build/rollup.config.lib.js --bundleConfigAsCjs",
     "build:api:script": "rollup -c build/rollup.config.api.js --bundleConfigAsCjs",
