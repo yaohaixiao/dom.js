@@ -5,13 +5,13 @@ import getViewportWidth from '../../getViewportWidth'
 const defaults = Outline.DEFAULTS
 let outline
 
+defaults.parentElement = '#aside'
+defaults.scrollElement = '#main'
+defaults.articleElement = '#article'
 defaults.selector = 'h2,h3'
 defaults.title = false
 defaults.showCode = false
 defaults.position = 'sticky'
-defaults.parentElement = '#aside'
-defaults.scrollElement = '#main'
-defaults.articleElement = '#article'
 defaults.git = 'https://github.com/yaohaixiao/dom.js'
 defaults.tags = 'https://github.com/yaohaixiao/dom.js/tags'
 defaults.issues = 'https://github.com/yaohaixiao/dom.js/issues'
