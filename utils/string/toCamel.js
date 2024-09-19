@@ -1,7 +1,6 @@
 const toCamel = (prop) => {
   const props = {}
-
-  function toUpper(x, l) {
+  const toUpper = (x, l) => {
     return l.toUpperCase()
   }
 
