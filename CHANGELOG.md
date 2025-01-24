@@ -1,3 +1,16 @@
+# [1.12.0](https://github.com/yaohaixiao/dom.js/compare/1.11.0...1.12.0) (2024-07-22)
+
+
+### Features
+
+* 添加 detach()、first() 和 last() 3个新方法；
+
+### Bug Fixes
+
+* 修复 replace() 方法的 replacement 参数输传 HTML 字符串时，会替换2个重复的内容的问题； 
+
+
+
 # [1.11.0](https://github.com/yaohaixiao/dom.js/compare/1.10.0...1.11.0) (2024-07-22)
 
 
