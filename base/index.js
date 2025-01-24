@@ -5,6 +5,8 @@ import closest from '../closest'
 import byClass from '../byClass'
 import byId from '../byId'
 import getEl from '../getEl'
+import first from '../first'
+import last from '../last'
 import filter from '../filter'
 import find from '../find'
 import findAll from '../findAll'
@@ -42,6 +44,7 @@ const DOM = {
   byClass,
   byId,
   getEl,
+  first,
   filter,
   find,
   findAll,
@@ -67,6 +70,7 @@ const DOM = {
   getWindow,
   getVisualViewport,
   index,
+  last,
   children,
   parent,
   parents

@@ -1,0 +1,49 @@
+section.section
+  header.section__header
+    h3.section__h3 filter(collection, selector)
+  div.section__content
+    h4.section__h4 Since
+    p.section__dd 1.2.0
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Base
+    p 返回 NodeList 的元素中与 selector 过滤条件匹配的 DOM 元素（数组）。
+    h4.section__h4 Parameters
+    h5.section__h4 collection
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （必须）选择器字符串。
+    h5.section__h4 selector
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd String
+    p （必须）选择器字符串。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Array
+    p 返回检索匹配的 DOM 元素。
+    pre.section__pre
+      code.section__.
+        &lt;ul id="list" class="list"&gt;
+            &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+            &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+            &lt;li class="item"&gt;Projects&lt;/li&gt;
+            &lt;li class="item"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 filter 单个方法
+        import filter from '@yaohaixiao/dom.js/filter'
+
+        const $items = DOM.byClass('.item')
+
+        // 通过选择器获取子元素
+        const $active = DOM.filter($items, '.active')
+
+        // 通过回调函数获取子元素
+        const $blog = filter($items, (item) => {
+            return item.classList.contains('blog')
+        })

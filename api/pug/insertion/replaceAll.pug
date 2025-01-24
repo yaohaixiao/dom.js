@@ -1,0 +1,46 @@
+section.section
+  header.section__header
+    h3.section__h3 replaceAll(selector, replacement)
+  div.section__content
+    h4.section__h4 Since
+    p.section__dd 1.12.0
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd DOM Insertion
+    p replaceAll() 方法用来将指定内容（DOM 元素或者 HTML 文本）替换所有 selector 匹配的 DOM 元素。
+    h4.section__h4 Parameters
+    h5.section__h4 selector
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement|String
+    p （必须）selector 参数指定要插入的 DOM 元素或者 DOM 选择器。
+    h5.section__h4 replacement
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement|string|Function
+    p （必须）replacement 指定用来替换所有匹配 selector 元素的内容（DOM 元素或者 HTML 文本）。
+    pre.section__pre
+      code.section__.
+        &lt;ul id="list" class="list"&gt;
+            &lt;li class="item home"&gt;Home&lt;/li&gt;
+            &lt;li class="item about"&gt;About&lt;/li&gt;
+        &lt;/ul&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 replaceAll 单个方法
+        import replaceAll from '@yaohaixiao/dom.js/replaceAll'
+
+        const selector = DOM.byId('.item')
+        const replacement = '&lt;li class="item"&gt;Item&lt;/li&gt;')
+
+        // html 字符替换
+        DOM.replaceAll(selector, replacement)
+
+        // 用 html 字符转化的 DOM 节点替换
+        replaceAll(selector, DOM.html('&lt;li class="item"&gt;Item&lt;/li&gt;'))
+
+        // 用回调函数返回的 DOM 节点替换
+        replaceAll(selector, () => {
+          return DOM.html('&lt;li class="item"&gt;Item&lt;/li&gt;')
+        })

@@ -1,0 +1,50 @@
+section.section
+  header.section__header
+    h3.section__h3 first(el, isElement)
+  div.section__content
+    h4.section__h4 Since
+    p.section__dd 1.12.0
+    dl.section__dl
+      dt.section__dt Category：
+      dd.section__dd Base
+    p 返回指定 DOM 节点第一个（元素）子节点。
+    h4.section__h4 Parameters
+    h5.section__h4 el
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p （必须）要查询的 DOM 节点。
+    h5.section__h4 isElement
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd Boolean
+    p （可选）是否为元素节点。默认值：true。
+    h5.section__h4 Returns
+    dl.section__dl
+      dt.section__dt Type：
+      dd.section__dd HTMLElement
+    p 返回检索匹配的 DOM 元素。
+    pre.section__pre
+      code.section__.
+        &lt;nav id="nav" &gt;
+          导航：
+          &lt;ul id="list" class="list"&gt;
+              &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+              &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+              &lt;li class="item"&gt;Projects&lt;/li&gt;
+              &lt;li class="item"&gt;About&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/nav&gt;
+
+        // 引入 DOM 模块（中的所有工具方法）
+        import DOM from '@yaohaixiao/dom.js/dom
+        // 引用 first 单个方法
+        import first from '@yaohaixiao/dom.js/first'
+
+        const $nav = DOM.first('#nav')
+
+        // 匹配第一个 Element 节点
+        const $item = DOM.first($nav)
+
+        // 匹配第一个文本节点
+        const $blog = first($nav, false)

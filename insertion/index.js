@@ -8,7 +8,9 @@ import append from '../append'
 import prepend from '../prepend'
 import after from '../after'
 import before from '../before'
+import detach from '../detach'
 import replace from '../replace'
+import replaceAll from '../replaceAll'
 import remove from '../remove'
 import unwrap from '../unwrap'
 import wrap from '../wrap'
@@ -26,7 +28,9 @@ const DOM = {
   prepend,
   after,
   before,
+  detach,
   replace,
+  replaceAll,
   remove,
   unwrap,
   wrap,

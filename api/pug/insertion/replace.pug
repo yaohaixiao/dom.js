@@ -1,6 +1,6 @@
 section.section
   header.section__header
-    h3.section__h3 replace(el, reference)
+    h3.section__h3 replace(replacement, el)
   div.section__content
     h4.section__h4 Since
     p.section__dd 1.1.0
@@ -9,16 +9,16 @@ section.section
       dd.section__dd DOM Insertion
     p replace() 方法用来将 DOM 节点或者 HTML 字符转化成 DOM 节点，已替换指定的 DOM 节点。
     h4.section__h4 Parameters
-    h5.section__h4 el
+    h5.section__h4 replacement
     dl.section__dl
       dt.section__dt Type：
-      dd.section__dd HTMLElement|String
-    p （必须）el 参数指定要插入的 DOM 元素或者 HTML 字符。
+      dd.section__dd HTMLElement|String|Function
+    p （必须）replacement 参数指定要插入的 DOM 元素或者 HTML 字符。
     h5.section__h4 reference
     dl.section__dl
       dt.section__dt Type：
       dd.section__dd HTMLElement
-    p （必须）reference 指定要替换的 DOM 节点。
+    p （必须）el 指定要替换的 DOM 节点。
     pre.section__pre
       code.section__.
         &lt;ul id="list" class="list"&gt;

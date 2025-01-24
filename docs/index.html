@@ -623,7 +623,69 @@ const $items = getEl('.item', true)
 const $items = getEl('.item', $list, true)
 
 // 仅匹配第一个
-const $items = getEl('.item', $list)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">find(selector)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">0.4.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>返回文档（document）中与指定的选择器组匹配的第一个 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">selector</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）选择器字符串。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回检索匹配的 DOM 元素。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+const $items = getEl('.item', $list)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">first(el, isElement)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.12.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>返回指定 DOM 节点第一个（元素）子节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）要查询的 DOM 节点。</p><h5 class="section__h4">isElement</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>（可选）是否为元素节点。默认值：true。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回检索匹配的 DOM 元素。</p><pre class="section__pre"><code class="section__">&lt;nav id="nav" &gt;
+  导航：
+  &lt;ul id="list" class="list"&gt;
+      &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+      &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+      &lt;li class="item"&gt;Projects&lt;/li&gt;
+      &lt;li class="item"&gt;About&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 first 单个方法
+import first from '@yaohaixiao/dom.js/first'
+
+const $nav = DOM.first('#nav')
+
+// 匹配第一个 Element 节点
+const $item = DOM.first($nav)
+
+// 匹配第一个文本节点
+const $blog = first($nav, false)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">last(el, isElement)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.12.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>返回指定 DOM 节点最后一个（元素）子节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）要查询的 DOM 节点。</p><h5 class="section__h4">isElement</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Boolean</dd></dl><p>（可选）是否为元素节点。默认值：true。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回检索匹配的 DOM 元素。</p><pre class="section__pre"><code class="section__">&lt;nav id="nav" &gt;
+  &lt;ul id="list" class="list"&gt;
+      &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+      &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+      &lt;li class="item"&gt;Projects&lt;/li&gt;
+      &lt;li class="item"&gt;About&lt;/li&gt;
+  &lt;/ul&gt;
+  导航：
+&lt;/nav&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 last 单个方法
+import last from '@yaohaixiao/dom.js/last'
+
+const $nav = DOM.first('#nav')
+
+// 匹配最后一个 Element 节点
+const $item = DOM.last($nav)
+
+// 匹配最后个文本节点
+const $blog = last($nav, false)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">filter(collection, selector)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.2.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>返回 NodeList 的元素中与 selector 过滤条件匹配的 DOM 元素（数组）。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">collection</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）选择器字符串。</p><h5 class="section__h4">selector</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）选择器字符串。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">Array</dd></dl><p>返回检索匹配的 DOM 元素。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
+    &lt;li class="item blog"&gt;Blog&lt;/li&gt;
+    &lt;li class="item"&gt;Projects&lt;/li&gt;
+    &lt;li class="item"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 filter 单个方法
+import filter from '@yaohaixiao/dom.js/filter'
+
+const $items = DOM.byClass('.item')
+
+// 通过选择器获取子元素
+const $active = DOM.filter($items, '.active')
+
+// 通过回调函数获取子元素
+const $blog = filter($items, (item) => {
+    return item.classList.contains('blog')
+})</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">find(selector)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">0.4.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">Base</dd></dl><p>返回文档（document）中与指定的选择器组匹配的第一个 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">selector</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）选择器字符串。</p><h5 class="section__h4">Returns</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>返回检索匹配的 DOM 元素。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
     &lt;li id="home" class="item active"&gt;Home&lt;/li&gt;
     &lt;li class="item blog"&gt;Blog&lt;/li&gt;
     &lt;li class="item"&gt;Projects&lt;/li&gt;
@@ -1914,7 +1976,35 @@ const $menu = DOM.html('&lt;ul&gt;&lt;li class="item project"&gt;Projects&lt;/li
 DOM.before('&lt;ul&gt;&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;&lt;/ul&gt;', $list)
 
 // 将创建的 $menu 节点插入到 $list 节点前面
-before($menu, $list)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">replace(el, reference)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.1.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><p>replace() 方法用来将 DOM 节点或者 HTML 字符转化成 DOM 节点，已替换指定的 DOM 节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）el 参数指定要插入的 DOM 元素或者 HTML 字符。</p><h5 class="section__h4">reference</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）reference 指定要替换的 DOM 节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+before($menu, $list)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">detach(selector, el)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.12.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><p>detach() 方法用来将指定 DOM 节点从当前文档树中移除。detach() 方法与 remove() 方法相同，不同之处在于 detach() 保留了与被删除元素关联的所有数据。当稍后要将删除的元素重新插入 DOM 时，此方法很有用。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">selector</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）selector 参数指定要移除的 DOM 元素的选择器字符串。</p><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（可选）el 参数指定要移除的 DOM 元素的父节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item about"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 detach 单个方法
+import detach from '@yaohaixiao/dom.js/detach'
+
+const $list = DOM.byId('#list')
+
+// 移除指定选择器 .item 的 DOM 元素
+DOM.detach('.item')
+
+// 指定 el 参数 $list，针对页面 DOM 元素数量大的情况，可提高性能
+detach('.item', $list)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">empty(el)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.12.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><p>empty() 方法用来将指定 DOM 节点中的所有子节点清空。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">selector</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">String</dd></dl><p>（必须）el 参数指定要移除所有子节点的 DOM 元素。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item about"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 detach 单个方法
+import empty from '@yaohaixiao/dom.js/empty'
+
+const $list = DOM.byId('#list')
+
+// 清空 $list 节点中的所有子节点
+DOM.empty($list)
+empty($list)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">replace(replacement, el)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.1.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><p>replace() 方法用来将 DOM 节点或者 HTML 字符转化成 DOM 节点，已替换指定的 DOM 节点。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">replacement</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String|Function</dd></dl><p>（必须）replacement 参数指定要插入的 DOM 元素或者 HTML 字符。</p><h5 class="section__h4">reference</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement</dd></dl><p>（必须）el 指定要替换的 DOM 节点。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
     &lt;li class="item about"&gt;About&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -1930,7 +2020,29 @@ const $menu = DOM.html('&lt;ul&gt;&lt;li class="item project"&gt;Projects&lt;/li
 DOM.replace('&lt;ul&gt;&lt;li id="home" class="item active"&gt;Home&lt;/li&gt;&lt;/ul&gt;', $list)
 
 // 用动态创建的 $menu 节点替换 $list 节点
-replace($menu, $list)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">remove(el)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.3.1</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><p>remove() 方法用来将指定 DOM 节点从当前文档树中移除。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）el 参数指定要移除的 DOM 元素或者 DOM 元素的选择器字符串。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+replace($menu, $list)</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">replaceAll(selector, replacement)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.12.0</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><p>replaceAll() 方法用来将指定内容（DOM 元素或者 HTML 文本）替换所有 selector 匹配的 DOM 元素。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">selector</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）selector 参数指定要插入的 DOM 元素或者 DOM 选择器。</p><h5 class="section__h4">replacement</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|string|Function</dd></dl><p>（必须）replacement 指定用来替换所有匹配 selector 元素的内容（DOM 元素或者 HTML 文本）。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
+    &lt;li class="item home"&gt;Home&lt;/li&gt;
+    &lt;li class="item about"&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+
+// 引入 DOM 模块（中的所有工具方法）
+import DOM from '@yaohaixiao/dom.js/dom
+// 引用 replaceAll 单个方法
+import replaceAll from '@yaohaixiao/dom.js/replaceAll'
+
+const selector = DOM.byId('.item')
+const replacement = '&lt;li class="item"&gt;Item&lt;/li&gt;')
+
+// html 字符替换
+DOM.replaceAll(selector, replacement)
+
+// 用 html 字符转化的 DOM 节点替换
+replaceAll(selector, DOM.html('&lt;li class="item"&gt;Item&lt;/li&gt;'))
+
+// 用回调函数返回的 DOM 节点替换
+replaceAll(selector, () => {
+  return DOM.html('&lt;li class="item"&gt;Item&lt;/li&gt;')
+})</code></pre></div></section><section class="section"><header class="section__header"><h3 class="section__h3">remove(el)</h3></header><div class="section__content"><h4 class="section__h4">Since</h4><p class="section__dd">1.3.1</p><dl class="section__dl"><dt class="section__dt">Category：</dt><dd class="section__dd">DOM Insertion</dd></dl><p>remove() 方法用来将指定 DOM 节点从当前文档树中移除。</p><h4 class="section__h4">Parameters</h4><h5 class="section__h4">el</h5><dl class="section__dl"><dt class="section__dt">Type：</dt><dd class="section__dd">HTMLElement|String</dd></dl><p>（必须）el 参数指定要移除的 DOM 元素或者 DOM 元素的选择器字符串。</p><pre class="section__pre"><code class="section__">&lt;ul id="list" class="list"&gt;
     &lt;li class="item about"&gt;About&lt;/li&gt;
 &lt;/ul&gt;
 
